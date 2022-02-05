@@ -1,0 +1,119 @@
+GOPATH:=$(shell go env GOPATH)
+VERSION=$(shell git describe --tags --always)
+
+APP_RELATIVE_PATH=$(shell a=`basename $$PWD` && cd .. && b=`basename $$PWD` && echo $$b/$$a)
+INTERNAL_PROTO_FILES=$(shell find internal -name *.proto)
+API_PROTO_FILES=$(shell cd ../../../api/$(APP_RELATIVE_PATH) && find . -name *.proto)
+
+REPO="hominsu"
+BUILD_STAMP=$(shell date -u '+%s')
+GIT_SHA1=$(shell git rev-parse HEAD)
+
+APP_NAME=$(shell echo $(APP_RELATIVE_PATH) | sed -En "s/\//-/p")
+DOCKER_IMAGE=$(REPO)/$(shell echo $(APP_NAME) |awk -F '@' '{print "ali-ddns-" $$0 ":$(VERSION)"}')
+
+.PHONY: init
+# init env
+init:
+	go get -u google.golang.org/protobuf/cmd/protoc-gen-go
+	go get -u google.golang.org/grpc/cmd/protoc-gen-go-grpc
+	go get -u github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway
+	go get -u github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2
+	go get -u github.com/google/wire/cmd/wire
+
+.PHONY: grpc
+# generate grpc code
+grpc:
+	 cd ../../../api/$(APP_RELATIVE_PATH) && protoc --proto_path=. \
+           --proto_path=../../../third_party \
+           --go_out=paths=source_relative:. \
+           --go-grpc_out=paths=source_relative:. \
+           $(API_PROTO_FILES)
+
+.PHONY: http
+# generate http code
+http:
+	cd ../../../api/$(APP_RELATIVE_PATH) && protoc --proto_path=. \
+           --proto_path=../../../third_party \
+           --go_out=paths=source_relative:. \
+           --grpc-gateway_out=paths=source_relative:. \
+           --grpc-gateway_opt logtostderr=true \
+           $(API_PROTO_FILES)
+
+.PHONY: swagger
+# generate swagger
+swagger:
+	cd ../../../api/$(APP_RELATIVE_PATH) && protoc --proto_path=. \
+	        --proto_path=../../../third_party \
+	        --openapiv2_out . \
+	        --openapiv2_opt logtostderr=true \
+           $(API_PROTO_FILES)
+
+.PHONY: proto
+# generate internal proto struct
+proto:
+	cd ../../../api/$(APP_RELATIVE_PATH) && protoc --proto_path=. \
+           --proto_path=../../../third_party \
+           --go_out=paths=source_relative:. \
+           $(INTERNAL_PROTO_FILES)
+
+.PHONY: generate
+# generate client code
+generate:
+	go generate ./...
+
+.PHONY: build
+# build
+build:
+	mkdir -p bin/ && go build -ldflags "-X main.Version=$(VERSION) -X main.Name=ali-ddns-$(APP_NAME) -X main.GitSHA1=$(GIT_SHA1) -X main.BuildStamp=$(BUILD_STAMP)" -o ./bin/ ./...
+
+.PHONY: test
+# test
+test:
+	go test -v ./... -cover
+
+.PHONY: run
+run:
+	cd cmd/server/ && go run .
+
+.PHONY: docker
+docker:
+	cd ../../.. && \
+	docker build -f deploy/build/Dockerfile --build-arg APP_RELATIVE_PATH=$(APP_RELATIVE_PATH) -t $(DOCKER_IMAGE) .
+
+.PHONY: buildx
+buildx:
+	cd ../../.. && \
+	docker buildx build -t $(DOCKER_IMAGE) --build-arg APP_RELATIVE_PATH=$(APP_RELATIVE_PATH) --platform=linux/arm64,linux/amd64,linux/ppc64le,linux/arm -f deploy/build/Dockerfile . --push
+
+.PHONY: wire
+# generate wire
+wire:
+	cd cmd/server && wire
+
+.PHONY: api
+# generate api proto
+api: grpc http swagger
+
+.PHONY: all
+# generate all
+all: grpc http proto generate build test
+
+# show help
+help:
+	@echo ''
+	@echo 'Usage:'
+	@echo ' make [target]'
+	@echo ''
+	@echo 'Targets:'
+	@awk '/^[a-zA-Z\-\_0-9]+:/ { \
+	helpMessage = match(lastLine, /^# (.*)/); \
+		if (helpMessage) { \
+			helpCommand = substr($$1, 0, index($$1, ":")-1); \
+			helpMessage = substr(lastLine, RSTART + 2, RLENGTH); \
+			printf "\033[36m%-22s\033[0m %s\n", helpCommand,helpMessage; \
+		} \
+	} \
+	{ lastLine = $$0 }' $(MAKEFILE_LIST)
+
+.DEFAULT_GOAL := help
