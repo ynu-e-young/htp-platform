@@ -10,16 +10,7 @@ BUILD_STAMP=$(shell date -u '+%s')
 GIT_SHA1=$(shell git rev-parse HEAD)
 
 APP_NAME=$(shell echo $(APP_RELATIVE_PATH) | sed -En "s/\//-/p")
-DOCKER_IMAGE=$(REPO)/$(shell echo $(APP_NAME) |awk -F '@' '{print "ali-ddns-" $$0 ":$(VERSION)"}')
-
-.PHONY: init
-# init env
-init:
-	go get -u google.golang.org/protobuf/cmd/protoc-gen-go
-	go get -u google.golang.org/grpc/cmd/protoc-gen-go-grpc
-	go get -u github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway
-	go get -u github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2
-	go get -u github.com/google/wire/cmd/wire
+DOCKER_IMAGE=$(REPO)/$(shell echo $(APP_NAME) |awk -F '@' '{print "htp-platform-" $$0 ":$(VERSION)"}')
 
 .PHONY: grpc
 # generate grpc code
@@ -36,8 +27,16 @@ http:
 	cd ../../../api/$(APP_RELATIVE_PATH) && protoc --proto_path=. \
            --proto_path=../../../third_party \
            --go_out=paths=source_relative:. \
-           --grpc-gateway_out=paths=source_relative:. \
-           --grpc-gateway_opt logtostderr=true \
+           --go-http_out=paths=source_relative:. \
+           $(API_PROTO_FILES)
+
+.PHONY: errors
+# generate errors code
+errors:
+	cd ../../../api/$(APP_RELATIVE_PATH) && protoc --proto_path=. \
+           --proto_path=../../../third_party \
+           --go_out=paths=source_relative:. \
+           --go-errors_out=paths=source_relative:. \
            $(API_PROTO_FILES)
 
 .PHONY: swagger
@@ -52,7 +51,7 @@ swagger:
 .PHONY: proto
 # generate internal proto struct
 proto:
-	cd ../../../api/$(APP_RELATIVE_PATH) && protoc --proto_path=. \
+	protoc --proto_path=. \
            --proto_path=../../../third_party \
            --go_out=paths=source_relative:. \
            $(INTERNAL_PROTO_FILES)
@@ -65,7 +64,7 @@ generate:
 .PHONY: build
 # build
 build:
-	mkdir -p bin/ && go build -ldflags "-X main.Version=$(VERSION) -X main.Name=ali-ddns-$(APP_NAME) -X main.GitSHA1=$(GIT_SHA1) -X main.BuildStamp=$(BUILD_STAMP)" -o ./bin/ ./...
+	mkdir -p bin/ && go build -ldflags "-X main.Version=$(VERSION) -X main.Name=htp-platform-$(APP_NAME)" -o ./bin/ ./...
 
 .PHONY: test
 # test
@@ -93,7 +92,7 @@ wire:
 
 .PHONY: api
 # generate api proto
-api: grpc http swagger
+api: grpc http swagger errors
 
 .PHONY: all
 # generate all
