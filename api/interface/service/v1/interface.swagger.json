@@ -6,7 +6,7 @@
   },
   "tags": [
     {
-      "name": "RealWorld"
+      "name": "Interface"
     }
   ],
   "consumes": [
@@ -18,7 +18,7 @@
   "paths": {
     "/v1/users": {
       "get": {
-        "operationId": "RealWorld_GetCurrentUser",
+        "operationId": "Interface_GetCurrentUser",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -33,12 +33,21 @@
             }
           }
         },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
         "tags": [
-          "RealWorld"
+          "Interface"
         ]
       },
       "post": {
-        "operationId": "RealWorld_Register",
+        "operationId": "Interface_Register",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -64,11 +73,11 @@
           }
         ],
         "tags": [
-          "RealWorld"
+          "Interface"
         ]
       },
       "put": {
-        "operationId": "RealWorld_UpdateUser",
+        "operationId": "Interface_UpdateUser",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -94,13 +103,13 @@
           }
         ],
         "tags": [
-          "RealWorld"
+          "Interface"
         ]
       }
     },
     "/v1/users/login": {
       "post": {
-        "operationId": "RealWorld_Login",
+        "operationId": "Interface_Login",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -126,7 +135,7 @@
           }
         ],
         "tags": [
-          "RealWorld"
+          "Interface"
         ]
       }
     }
@@ -211,6 +220,10 @@
     "v1UpdateUserRequestUser": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
         "email": {
           "type": "string"
         },
@@ -220,10 +233,7 @@
         "username": {
           "type": "string"
         },
-        "bio": {
-          "type": "string"
-        },
-        "image": {
+        "password": {
           "type": "string"
         }
       }
@@ -239,6 +249,10 @@
     "v1UserReplyUser": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
         "email": {
           "type": "string"
         },
@@ -246,12 +260,6 @@
           "type": "string"
         },
         "username": {
-          "type": "string"
-        },
-        "bio": {
-          "type": "string"
-        },
-        "image": {
           "type": "string"
         }
       }

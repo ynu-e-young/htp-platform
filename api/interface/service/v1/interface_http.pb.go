@@ -17,28 +17,28 @@ var _ = binding.EncodeURL
 
 const _ = http.SupportPackageIsVersion1
 
-type RealWorldHTTPServer interface {
+type InterfaceHTTPServer interface {
 	GetCurrentUser(context.Context, *GetCurrentUserRequest) (*UserReply, error)
 	Login(context.Context, *LoginRequest) (*UserReply, error)
 	Register(context.Context, *RegisterRequest) (*UserReply, error)
 	UpdateUser(context.Context, *UpdateUserRequest) (*UserReply, error)
 }
 
-func RegisterRealWorldHTTPServer(s *http.Server, srv RealWorldHTTPServer) {
+func RegisterInterfaceHTTPServer(s *http.Server, srv InterfaceHTTPServer) {
 	r := s.Route("/")
-	r.POST("/v1/users/login", _RealWorld_Login0_HTTP_Handler(srv))
-	r.POST("/v1/users", _RealWorld_Register0_HTTP_Handler(srv))
-	r.GET("/v1/users", _RealWorld_GetCurrentUser0_HTTP_Handler(srv))
-	r.PUT("/v1/users", _RealWorld_UpdateUser0_HTTP_Handler(srv))
+	r.POST("/v1/users/login", _Interface_Login0_HTTP_Handler(srv))
+	r.POST("/v1/users", _Interface_Register0_HTTP_Handler(srv))
+	r.GET("/v1/users", _Interface_GetCurrentUser0_HTTP_Handler(srv))
+	r.PUT("/v1/users", _Interface_UpdateUser0_HTTP_Handler(srv))
 }
 
-func _RealWorld_Login0_HTTP_Handler(srv RealWorldHTTPServer) func(ctx http.Context) error {
+func _Interface_Login0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
 	return func(ctx http.Context) error {
 		var in LoginRequest
 		if err := ctx.Bind(&in); err != nil {
 			return err
 		}
-		http.SetOperation(ctx, "/interface.service.v1.RealWorld/Login")
+		http.SetOperation(ctx, "/interface.service.v1.Interface/Login")
 		h := ctx.Middleware(func(ctx context.Context, req interface{}) (interface{}, error) {
 			return srv.Login(ctx, req.(*LoginRequest))
 		})
@@ -51,13 +51,13 @@ func _RealWorld_Login0_HTTP_Handler(srv RealWorldHTTPServer) func(ctx http.Conte
 	}
 }
 
-func _RealWorld_Register0_HTTP_Handler(srv RealWorldHTTPServer) func(ctx http.Context) error {
+func _Interface_Register0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
 	return func(ctx http.Context) error {
 		var in RegisterRequest
 		if err := ctx.Bind(&in); err != nil {
 			return err
 		}
-		http.SetOperation(ctx, "/interface.service.v1.RealWorld/Register")
+		http.SetOperation(ctx, "/interface.service.v1.Interface/Register")
 		h := ctx.Middleware(func(ctx context.Context, req interface{}) (interface{}, error) {
 			return srv.Register(ctx, req.(*RegisterRequest))
 		})
@@ -70,13 +70,13 @@ func _RealWorld_Register0_HTTP_Handler(srv RealWorldHTTPServer) func(ctx http.Co
 	}
 }
 
-func _RealWorld_GetCurrentUser0_HTTP_Handler(srv RealWorldHTTPServer) func(ctx http.Context) error {
+func _Interface_GetCurrentUser0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
 	return func(ctx http.Context) error {
 		var in GetCurrentUserRequest
 		if err := ctx.BindQuery(&in); err != nil {
 			return err
 		}
-		http.SetOperation(ctx, "/interface.service.v1.RealWorld/GetCurrentUser")
+		http.SetOperation(ctx, "/interface.service.v1.Interface/GetCurrentUser")
 		h := ctx.Middleware(func(ctx context.Context, req interface{}) (interface{}, error) {
 			return srv.GetCurrentUser(ctx, req.(*GetCurrentUserRequest))
 		})
@@ -89,13 +89,13 @@ func _RealWorld_GetCurrentUser0_HTTP_Handler(srv RealWorldHTTPServer) func(ctx h
 	}
 }
 
-func _RealWorld_UpdateUser0_HTTP_Handler(srv RealWorldHTTPServer) func(ctx http.Context) error {
+func _Interface_UpdateUser0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
 	return func(ctx http.Context) error {
 		var in UpdateUserRequest
 		if err := ctx.Bind(&in); err != nil {
 			return err
 		}
-		http.SetOperation(ctx, "/interface.service.v1.RealWorld/UpdateUser")
+		http.SetOperation(ctx, "/interface.service.v1.Interface/UpdateUser")
 		h := ctx.Middleware(func(ctx context.Context, req interface{}) (interface{}, error) {
 			return srv.UpdateUser(ctx, req.(*UpdateUserRequest))
 		})
@@ -108,26 +108,26 @@ func _RealWorld_UpdateUser0_HTTP_Handler(srv RealWorldHTTPServer) func(ctx http.
 	}
 }
 
-type RealWorldHTTPClient interface {
+type InterfaceHTTPClient interface {
 	GetCurrentUser(ctx context.Context, req *GetCurrentUserRequest, opts ...http.CallOption) (rsp *UserReply, err error)
 	Login(ctx context.Context, req *LoginRequest, opts ...http.CallOption) (rsp *UserReply, err error)
 	Register(ctx context.Context, req *RegisterRequest, opts ...http.CallOption) (rsp *UserReply, err error)
 	UpdateUser(ctx context.Context, req *UpdateUserRequest, opts ...http.CallOption) (rsp *UserReply, err error)
 }
 
-type RealWorldHTTPClientImpl struct {
+type InterfaceHTTPClientImpl struct {
 	cc *http.Client
 }
 
-func NewRealWorldHTTPClient(client *http.Client) RealWorldHTTPClient {
-	return &RealWorldHTTPClientImpl{client}
+func NewInterfaceHTTPClient(client *http.Client) InterfaceHTTPClient {
+	return &InterfaceHTTPClientImpl{client}
 }
 
-func (c *RealWorldHTTPClientImpl) GetCurrentUser(ctx context.Context, in *GetCurrentUserRequest, opts ...http.CallOption) (*UserReply, error) {
+func (c *InterfaceHTTPClientImpl) GetCurrentUser(ctx context.Context, in *GetCurrentUserRequest, opts ...http.CallOption) (*UserReply, error) {
 	var out UserReply
 	pattern := "/v1/users"
 	path := binding.EncodeURL(pattern, in, true)
-	opts = append(opts, http.Operation("/interface.service.v1.RealWorld/GetCurrentUser"))
+	opts = append(opts, http.Operation("/interface.service.v1.Interface/GetCurrentUser"))
 	opts = append(opts, http.PathTemplate(pattern))
 	err := c.cc.Invoke(ctx, "GET", path, nil, &out, opts...)
 	if err != nil {
@@ -136,11 +136,11 @@ func (c *RealWorldHTTPClientImpl) GetCurrentUser(ctx context.Context, in *GetCur
 	return &out, err
 }
 
-func (c *RealWorldHTTPClientImpl) Login(ctx context.Context, in *LoginRequest, opts ...http.CallOption) (*UserReply, error) {
+func (c *InterfaceHTTPClientImpl) Login(ctx context.Context, in *LoginRequest, opts ...http.CallOption) (*UserReply, error) {
 	var out UserReply
 	pattern := "/v1/users/login"
 	path := binding.EncodeURL(pattern, in, false)
-	opts = append(opts, http.Operation("/interface.service.v1.RealWorld/Login"))
+	opts = append(opts, http.Operation("/interface.service.v1.Interface/Login"))
 	opts = append(opts, http.PathTemplate(pattern))
 	err := c.cc.Invoke(ctx, "POST", path, in, &out, opts...)
 	if err != nil {
@@ -149,11 +149,11 @@ func (c *RealWorldHTTPClientImpl) Login(ctx context.Context, in *LoginRequest, o
 	return &out, err
 }
 
-func (c *RealWorldHTTPClientImpl) Register(ctx context.Context, in *RegisterRequest, opts ...http.CallOption) (*UserReply, error) {
+func (c *InterfaceHTTPClientImpl) Register(ctx context.Context, in *RegisterRequest, opts ...http.CallOption) (*UserReply, error) {
 	var out UserReply
 	pattern := "/v1/users"
 	path := binding.EncodeURL(pattern, in, false)
-	opts = append(opts, http.Operation("/interface.service.v1.RealWorld/Register"))
+	opts = append(opts, http.Operation("/interface.service.v1.Interface/Register"))
 	opts = append(opts, http.PathTemplate(pattern))
 	err := c.cc.Invoke(ctx, "POST", path, in, &out, opts...)
 	if err != nil {
@@ -162,11 +162,11 @@ func (c *RealWorldHTTPClientImpl) Register(ctx context.Context, in *RegisterRequ
 	return &out, err
 }
 
-func (c *RealWorldHTTPClientImpl) UpdateUser(ctx context.Context, in *UpdateUserRequest, opts ...http.CallOption) (*UserReply, error) {
+func (c *InterfaceHTTPClientImpl) UpdateUser(ctx context.Context, in *UpdateUserRequest, opts ...http.CallOption) (*UserReply, error) {
 	var out UserReply
 	pattern := "/v1/users"
 	path := binding.EncodeURL(pattern, in, false)
-	opts = append(opts, http.Operation("/interface.service.v1.RealWorld/UpdateUser"))
+	opts = append(opts, http.Operation("/interface.service.v1.Interface/UpdateUser"))
 	opts = append(opts, http.PathTemplate(pattern))
 	err := c.cc.Invoke(ctx, "PUT", path, in, &out, opts...)
 	if err != nil {

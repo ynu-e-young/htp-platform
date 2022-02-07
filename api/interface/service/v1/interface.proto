@@ -7,7 +7,7 @@ import "google/api/annotations.proto";
 option go_package = "api/interface/service/v1;v1";
 
 // The greeting service definition.
-service RealWorld {
+service Interface {
   rpc Login (LoginRequest) returns (UserReply) {
     option (google.api.http) = {
       post: "/v1/users/login",
@@ -53,28 +53,28 @@ message RegisterRequest {
   User user = 1;
 }
 
-message GetCurrentUserRequest {}
+message GetCurrentUserRequest {
+  int64 id = 1;
+}
 
 message UpdateUserRequest {
   message User {
-    string email = 1;
-    string token = 2;
-    string username = 3;
-    string bio = 4;
-    string image = 5;
+    int64  id = 1;
+    string email = 2;
+    string token = 3;
+    string username = 4;
+    string password = 5;
   }
   User user = 1;
 }
 
 message UserReply {
   message User {
-    string email = 1;
-    string token = 2;
-    string username = 3;
-    string bio = 4;
-    string image = 5;
+    int64  id = 1;
+    string email = 2;
+    string token = 3;
+    string username = 4;
   }
-
   User user = 1;
 }
 

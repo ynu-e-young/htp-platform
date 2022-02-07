@@ -18,194 +18,194 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// RealWorldClient is the client API for RealWorld service.
+// InterfaceClient is the client API for Interface service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RealWorldClient interface {
+type InterfaceClient interface {
 	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*UserReply, error)
 	Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*UserReply, error)
 	GetCurrentUser(ctx context.Context, in *GetCurrentUserRequest, opts ...grpc.CallOption) (*UserReply, error)
 	UpdateUser(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*UserReply, error)
 }
 
-type realWorldClient struct {
+type interfaceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewRealWorldClient(cc grpc.ClientConnInterface) RealWorldClient {
-	return &realWorldClient{cc}
+func NewInterfaceClient(cc grpc.ClientConnInterface) InterfaceClient {
+	return &interfaceClient{cc}
 }
 
-func (c *realWorldClient) Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*UserReply, error) {
+func (c *interfaceClient) Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*UserReply, error) {
 	out := new(UserReply)
-	err := c.cc.Invoke(ctx, "/interface.service.v1.RealWorld/Login", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/interface.service.v1.Interface/Login", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *realWorldClient) Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*UserReply, error) {
+func (c *interfaceClient) Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*UserReply, error) {
 	out := new(UserReply)
-	err := c.cc.Invoke(ctx, "/interface.service.v1.RealWorld/Register", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/interface.service.v1.Interface/Register", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *realWorldClient) GetCurrentUser(ctx context.Context, in *GetCurrentUserRequest, opts ...grpc.CallOption) (*UserReply, error) {
+func (c *interfaceClient) GetCurrentUser(ctx context.Context, in *GetCurrentUserRequest, opts ...grpc.CallOption) (*UserReply, error) {
 	out := new(UserReply)
-	err := c.cc.Invoke(ctx, "/interface.service.v1.RealWorld/GetCurrentUser", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/interface.service.v1.Interface/GetCurrentUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *realWorldClient) UpdateUser(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*UserReply, error) {
+func (c *interfaceClient) UpdateUser(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*UserReply, error) {
 	out := new(UserReply)
-	err := c.cc.Invoke(ctx, "/interface.service.v1.RealWorld/UpdateUser", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/interface.service.v1.Interface/UpdateUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// RealWorldServer is the server API for RealWorld service.
-// All implementations must embed UnimplementedRealWorldServer
+// InterfaceServer is the server API for Interface service.
+// All implementations must embed UnimplementedInterfaceServer
 // for forward compatibility
-type RealWorldServer interface {
+type InterfaceServer interface {
 	Login(context.Context, *LoginRequest) (*UserReply, error)
 	Register(context.Context, *RegisterRequest) (*UserReply, error)
 	GetCurrentUser(context.Context, *GetCurrentUserRequest) (*UserReply, error)
 	UpdateUser(context.Context, *UpdateUserRequest) (*UserReply, error)
-	mustEmbedUnimplementedRealWorldServer()
+	mustEmbedUnimplementedInterfaceServer()
 }
 
-// UnimplementedRealWorldServer must be embedded to have forward compatible implementations.
-type UnimplementedRealWorldServer struct {
+// UnimplementedInterfaceServer must be embedded to have forward compatible implementations.
+type UnimplementedInterfaceServer struct {
 }
 
-func (UnimplementedRealWorldServer) Login(context.Context, *LoginRequest) (*UserReply, error) {
+func (UnimplementedInterfaceServer) Login(context.Context, *LoginRequest) (*UserReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Login not implemented")
 }
-func (UnimplementedRealWorldServer) Register(context.Context, *RegisterRequest) (*UserReply, error) {
+func (UnimplementedInterfaceServer) Register(context.Context, *RegisterRequest) (*UserReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Register not implemented")
 }
-func (UnimplementedRealWorldServer) GetCurrentUser(context.Context, *GetCurrentUserRequest) (*UserReply, error) {
+func (UnimplementedInterfaceServer) GetCurrentUser(context.Context, *GetCurrentUserRequest) (*UserReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetCurrentUser not implemented")
 }
-func (UnimplementedRealWorldServer) UpdateUser(context.Context, *UpdateUserRequest) (*UserReply, error) {
+func (UnimplementedInterfaceServer) UpdateUser(context.Context, *UpdateUserRequest) (*UserReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateUser not implemented")
 }
-func (UnimplementedRealWorldServer) mustEmbedUnimplementedRealWorldServer() {}
+func (UnimplementedInterfaceServer) mustEmbedUnimplementedInterfaceServer() {}
 
-// UnsafeRealWorldServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RealWorldServer will
+// UnsafeInterfaceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to InterfaceServer will
 // result in compilation errors.
-type UnsafeRealWorldServer interface {
-	mustEmbedUnimplementedRealWorldServer()
+type UnsafeInterfaceServer interface {
+	mustEmbedUnimplementedInterfaceServer()
 }
 
-func RegisterRealWorldServer(s grpc.ServiceRegistrar, srv RealWorldServer) {
-	s.RegisterService(&RealWorld_ServiceDesc, srv)
+func RegisterInterfaceServer(s grpc.ServiceRegistrar, srv InterfaceServer) {
+	s.RegisterService(&Interface_ServiceDesc, srv)
 }
 
-func _RealWorld_Login_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Interface_Login_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(LoginRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RealWorldServer).Login(ctx, in)
+		return srv.(InterfaceServer).Login(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/interface.service.v1.RealWorld/Login",
+		FullMethod: "/interface.service.v1.Interface/Login",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RealWorldServer).Login(ctx, req.(*LoginRequest))
+		return srv.(InterfaceServer).Login(ctx, req.(*LoginRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RealWorld_Register_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Interface_Register_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RegisterRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RealWorldServer).Register(ctx, in)
+		return srv.(InterfaceServer).Register(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/interface.service.v1.RealWorld/Register",
+		FullMethod: "/interface.service.v1.Interface/Register",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RealWorldServer).Register(ctx, req.(*RegisterRequest))
+		return srv.(InterfaceServer).Register(ctx, req.(*RegisterRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RealWorld_GetCurrentUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Interface_GetCurrentUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetCurrentUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RealWorldServer).GetCurrentUser(ctx, in)
+		return srv.(InterfaceServer).GetCurrentUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/interface.service.v1.RealWorld/GetCurrentUser",
+		FullMethod: "/interface.service.v1.Interface/GetCurrentUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RealWorldServer).GetCurrentUser(ctx, req.(*GetCurrentUserRequest))
+		return srv.(InterfaceServer).GetCurrentUser(ctx, req.(*GetCurrentUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RealWorld_UpdateUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Interface_UpdateUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RealWorldServer).UpdateUser(ctx, in)
+		return srv.(InterfaceServer).UpdateUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/interface.service.v1.RealWorld/UpdateUser",
+		FullMethod: "/interface.service.v1.Interface/UpdateUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RealWorldServer).UpdateUser(ctx, req.(*UpdateUserRequest))
+		return srv.(InterfaceServer).UpdateUser(ctx, req.(*UpdateUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// RealWorld_ServiceDesc is the grpc.ServiceDesc for RealWorld service.
+// Interface_ServiceDesc is the grpc.ServiceDesc for Interface service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var RealWorld_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "interface.service.v1.RealWorld",
-	HandlerType: (*RealWorldServer)(nil),
+var Interface_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "interface.service.v1.Interface",
+	HandlerType: (*InterfaceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Login",
-			Handler:    _RealWorld_Login_Handler,
+			Handler:    _Interface_Login_Handler,
 		},
 		{
 			MethodName: "Register",
-			Handler:    _RealWorld_Register_Handler,
+			Handler:    _Interface_Register_Handler,
 		},
 		{
 			MethodName: "GetCurrentUser",
-			Handler:    _RealWorld_GetCurrentUser_Handler,
+			Handler:    _Interface_GetCurrentUser_Handler,
 		},
 		{
 			MethodName: "UpdateUser",
-			Handler:    _RealWorld_UpdateUser_Handler,
+			Handler:    _Interface_UpdateUser_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
