@@ -2,28 +2,11 @@ package biz
 
 import (
 	"context"
-	"github.com/go-kratos/kratos/v2/errors"
 	"github.com/go-kratos/kratos/v2/log"
+	interfaceV1 "htp-platform/api/htpp/interface/v1"
 	"htp-platform/app/htpp/interface/internal/conf"
 	"htp-platform/app/htpp/interface/internal/pkg/middleware/auth"
 	"htp-platform/pkg/hash"
-)
-
-const (
-	// unauthorized holds the unauthorized reason.
-	unauthorized string = "UNAUTHORIZED"
-
-	// notFound holds the notFound reason.
-	notFound string = "NOTFOUND"
-
-	// constraint holds the constraint reason.
-	constraint string = "CONSTRAINT"
-)
-
-var (
-	ErrVerifyFailed   = errors.Unauthorized(unauthorized, "Verify password failed")
-	ErrUserNotFound   = errors.NotFound(notFound, "user not found")
-	ErrUserConstraint = errors.Forbidden(constraint, "user constraint failure")
 )
 
 type User struct {
@@ -94,7 +77,7 @@ func (uc *UserUsecase) Login(ctx context.Context, email, password string) (*User
 	}
 
 	if !hash.VerifyPassword(u.PasswordHash, password) {
-		return nil, ErrVerifyFailed
+		return nil, interfaceV1.ErrorLoginFailed("Verify password failed")
 	}
 
 	token, err := uc.generateTokenHeader(u.Username)

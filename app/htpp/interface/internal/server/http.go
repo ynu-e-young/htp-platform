@@ -28,7 +28,7 @@ func NewSkipRoutersMatcher() selector.MatchFunc {
 }
 
 // NewHTTPServer new a HTTP server.
-func NewHTTPServer(c *conf.Server, jc *conf.Jwt, realWorld *service.InterfaceService, logger log.Logger) *http.Server {
+func NewHTTPServer(c *conf.Server, jc *conf.Jwt, is *service.InterfaceService, logger log.Logger) *http.Server {
 	var opts = []http.ServerOption{
 		http.Middleware(
 			recovery.Recovery(),
@@ -55,6 +55,6 @@ func NewHTTPServer(c *conf.Server, jc *conf.Jwt, realWorld *service.InterfaceSer
 		opts = append(opts, http.Timeout(c.Http.Timeout.AsDuration()))
 	}
 	srv := http.NewServer(opts...)
-	v1.RegisterInterfaceHTTPServer(srv, realWorld)
+	v1.RegisterInterfaceHTTPServer(srv, is)
 	return srv
 }

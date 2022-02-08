@@ -9,14 +9,14 @@ import (
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/google/wire"
-	"htp-platform/app/htpp/interface/internal/biz"
-	"htp-platform/app/htpp/interface/internal/conf"
-	"htp-platform/app/htpp/interface/internal/data"
-	"htp-platform/app/htpp/interface/internal/server"
-	"htp-platform/app/htpp/interface/internal/service"
+	"htp-platform/app/user/service/internal/biz"
+	"htp-platform/app/user/service/internal/conf"
+	"htp-platform/app/user/service/internal/data"
+	"htp-platform/app/user/service/internal/server"
+	"htp-platform/app/user/service/internal/service"
 )
 
 // initApp init kratos application.
-func initApp(*conf.Server, *conf.Registry, *conf.Data, *conf.Jwt, log.Logger) (*kratos.App, func(), error) {
+func initApp(*conf.Server, *conf.Registry, *conf.Data, log.Logger) (*kratos.App, func(), error) {
 	panic(wire.Build(server.ProviderSet, data.ProviderSet, biz.ProviderSet, service.ProviderSet, newApp))
 }

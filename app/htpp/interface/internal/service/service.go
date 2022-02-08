@@ -10,7 +10,7 @@ import (
 // ProviderSet is service providers.
 var ProviderSet = wire.NewSet(NewInterfaceService)
 
-// InterfaceService is a realworld service.
+// InterfaceService is an interface service.
 type InterfaceService struct {
 	v1.UnimplementedInterfaceServer
 
@@ -18,7 +18,7 @@ type InterfaceService struct {
 	log *log.Helper
 }
 
-// NewInterfaceService new a realworld service.
+// NewInterfaceService new an interface service.
 func NewInterfaceService(uu *biz.UserUsecase, logger log.Logger) *InterfaceService {
 	return &InterfaceService{
 		uu:  uu,
