@@ -3,8 +3,25 @@ syntax = "proto3";
 package htpp.interface.v1;
 
 import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "api/htpp/interface/v1;v1";
+
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+  info: {
+    title: "htp-platform Interface API";
+    version: "1.0";
+    description: "";
+    contact: {
+      name: "htp-platform";
+      url: "https://github.com/hominsu/htp-platform";
+      email: "1774069959@qq.com";
+    };
+  };
+  schemes: HTTPS;
+  consumes: "application/json";
+  produces: "application/json";
+};
 
 // The greeting service definition.
 service Interface {
@@ -24,13 +41,13 @@ service Interface {
 
   rpc GetCurrentUser (GetCurrentUserRequest) returns (UserReply) {
     option (google.api.http) = {
-      get: "/v1/users",
+      get: "/v1/user",
     };
   };
 
   rpc UpdateUser (UpdateUserRequest) returns (UserReply) {
     option (google.api.http) = {
-      put: "/v1/users",
+      put: "/v1/user",
       body: "*",
     };
   };

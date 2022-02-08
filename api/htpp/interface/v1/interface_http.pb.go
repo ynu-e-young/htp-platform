@@ -28,8 +28,8 @@ func RegisterInterfaceHTTPServer(s *http.Server, srv InterfaceHTTPServer) {
 	r := s.Route("/")
 	r.POST("/v1/users/login", _Interface_Login0_HTTP_Handler(srv))
 	r.POST("/v1/users", _Interface_Register0_HTTP_Handler(srv))
-	r.GET("/v1/users", _Interface_GetCurrentUser0_HTTP_Handler(srv))
-	r.PUT("/v1/users", _Interface_UpdateUser0_HTTP_Handler(srv))
+	r.GET("/v1/user", _Interface_GetCurrentUser0_HTTP_Handler(srv))
+	r.PUT("/v1/user", _Interface_UpdateUser0_HTTP_Handler(srv))
 }
 
 func _Interface_Login0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
@@ -125,7 +125,7 @@ func NewInterfaceHTTPClient(client *http.Client) InterfaceHTTPClient {
 
 func (c *InterfaceHTTPClientImpl) GetCurrentUser(ctx context.Context, in *GetCurrentUserRequest, opts ...http.CallOption) (*UserReply, error) {
 	var out UserReply
-	pattern := "/v1/users"
+	pattern := "/v1/user"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/GetCurrentUser"))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -164,7 +164,7 @@ func (c *InterfaceHTTPClientImpl) Register(ctx context.Context, in *RegisterRequ
 
 func (c *InterfaceHTTPClientImpl) UpdateUser(ctx context.Context, in *UpdateUserRequest, opts ...http.CallOption) (*UserReply, error) {
 	var out UserReply
-	pattern := "/v1/users"
+	pattern := "/v1/user"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/UpdateUser"))
 	opts = append(opts, http.PathTemplate(pattern))

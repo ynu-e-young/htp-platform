@@ -1,13 +1,21 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "v1/interface.proto",
-    "version": "version not set"
+    "title": "htp-platform Interface API",
+    "version": "1.0",
+    "contact": {
+      "name": "htp-platform",
+      "url": "https://github.com/hominsu/htp-platform",
+      "email": "1774069959@qq.com"
+    }
   },
   "tags": [
     {
       "name": "Interface"
     }
+  ],
+  "schemes": [
+    "https"
   ],
   "consumes": [
     "application/json"
@@ -16,7 +24,7 @@
     "application/json"
   ],
   "paths": {
-    "/v1/users": {
+    "/v1/user": {
       "get": {
         "operationId": "Interface_GetCurrentUser",
         "responses": {
@@ -46,36 +54,6 @@
           "Interface"
         ]
       },
-      "post": {
-        "operationId": "Interface_Register",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1UserReply"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1RegisterRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Interface"
-        ]
-      },
       "put": {
         "operationId": "Interface_UpdateUser",
         "responses": {
@@ -99,6 +77,38 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/v1UpdateUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Interface"
+        ]
+      }
+    },
+    "/v1/users": {
+      "post": {
+        "operationId": "Interface_Register",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UserReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1RegisterRequest"
             }
           }
         ],
