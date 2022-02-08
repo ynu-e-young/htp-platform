@@ -15,11 +15,15 @@ const (
 
 	// notFound holds the notFound reason.
 	notFound string = "NOTFOUND"
+
+	// constraint holds the constraint reason.
+	constraint string = "CONSTRAINT"
 )
 
 var (
-	ErrVerifyFailed = errors.Unauthorized(unauthorized, "Verify password failed")
-	ErrUserNotFound = errors.NotFound(notFound, "user not found")
+	ErrVerifyFailed   = errors.Unauthorized(unauthorized, "Verify password failed")
+	ErrUserNotFound   = errors.NotFound(notFound, "user not found")
+	ErrUserConstraint = errors.Forbidden(constraint, "user constraint failure")
 )
 
 type User struct {

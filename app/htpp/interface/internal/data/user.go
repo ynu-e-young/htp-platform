@@ -4,6 +4,7 @@ import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
 	"htp-platform/app/htpp/interface/internal/biz"
+	"htp-platform/app/htpp/interface/internal/data/ent"
 	"htp-platform/app/htpp/interface/internal/data/ent/user"
 )
 
@@ -27,10 +28,10 @@ func (r *userRepo) FindByUsername(ctx context.Context, username string) (*biz.Us
 		Query().
 		Where(user.UsernameEQ(username)).
 		Only(ctx)
-
-	if err != nil {
+	if err != nil && ent.IsNotFound(err) {
 		return nil, biz.ErrUserNotFound
 	}
+
 	return &biz.User{
 		Id:           target.ID,
 		Email:        target.Email,
@@ -44,10 +45,10 @@ func (r *userRepo) FindByEmail(ctx context.Context, email string) (*biz.User, er
 		Query().
 		Where(user.EmailEQ(email)).
 		Only(ctx)
-
-	if err != nil {
+	if err != nil && ent.IsNotFound(err) {
 		return nil, biz.ErrUserNotFound
 	}
+
 	return &biz.User{
 		Id:           target.ID,
 		Email:        target.Email,
@@ -63,9 +64,10 @@ func (r *userRepo) Create(ctx context.Context, user *biz.User) (*biz.User, error
 		SetUsername(user.Username).
 		SetPasswordHash(user.PasswordHash).
 		Save(ctx)
-	if err != nil {
-		return nil, err
+	if err != nil && ent.IsConstraintError(err) {
+		return nil, biz.ErrUserConstraint
 	}
+
 	return &biz.User{
 		Id:           po.ID,
 		Email:        po.Email,
@@ -81,9 +83,10 @@ func (r *userRepo) Update(ctx context.Context, user *biz.User) (*biz.User, error
 		SetUsername(user.Username).
 		SetPasswordHash(user.PasswordHash).
 		Save(ctx)
-	if err != nil {
-		return nil, err
+	if err != nil && ent.IsConstraintError(err) {
+		return nil, biz.ErrUserConstraint
 	}
+
 	return &biz.User{
 		Id:           po.ID,
 		Email:        po.Email,
@@ -94,9 +97,10 @@ func (r *userRepo) Update(ctx context.Context, user *biz.User) (*biz.User, error
 
 func (r *userRepo) Get(ctx context.Context, id int64) (*biz.User, error) {
 	po, err := r.data.db.User.Get(ctx, id)
-	if err != nil {
-		return nil, err
+	if err != nil && ent.IsNotFound(err) {
+		return nil, biz.ErrUserNotFound
 	}
+
 	return &biz.User{
 		Id:           po.ID,
 		Email:        po.Email,

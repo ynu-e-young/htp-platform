@@ -8,7 +8,7 @@ import (
 
 func (s *InterfaceService) Login(ctx context.Context, in *v1.LoginRequest) (*v1.UserReply, error) {
 	u := in.GetUser()
-	rv, err := s.uu.Login(ctx, u.GetEmail(), u.GetEmail())
+	rv, err := s.uu.Login(ctx, u.GetEmail(), u.GetPassword())
 	if err != nil {
 		return nil, err
 	}
@@ -23,7 +23,7 @@ func (s *InterfaceService) Login(ctx context.Context, in *v1.LoginRequest) (*v1.
 
 func (s *InterfaceService) Register(ctx context.Context, in *v1.RegisterRequest) (*v1.UserReply, error) {
 	u := in.GetUser()
-	rv, err := s.uu.Register(ctx, u.GetEmail(), u.GetEmail(), u.GetPassword())
+	rv, err := s.uu.Register(ctx, u.GetUsername(), u.GetEmail(), u.GetPassword())
 	if err != nil {
 		return nil, err
 	}

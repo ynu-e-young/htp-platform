@@ -7,6 +7,9 @@ import (
 	"htp-platform/app/htpp/interface/internal/conf"
 	"htp-platform/app/htpp/interface/internal/data/ent"
 	"htp-platform/app/htpp/interface/internal/data/ent/migrate"
+
+	// init mysql driver
+	_ "github.com/go-sql-driver/mysql"
 )
 
 // ProviderSet is data providers.
