@@ -6,8 +6,6 @@ INTERNAL_PROTO_FILES=$(shell find internal -name *.proto)
 API_PROTO_FILES=$(shell cd ../../../api/$(APP_RELATIVE_PATH) && find . -name *.proto)
 
 REPO="hominsu"
-BUILD_STAMP=$(shell date -u '+%s')
-GIT_SHA1=$(shell git rev-parse HEAD)
 
 APP_NAME=$(shell echo $(APP_RELATIVE_PATH) | sed -En "s/\//-/p")
 DOCKER_IMAGE=$(REPO)/$(shell echo $(APP_NAME) |awk -F '@' '{print "htp-platform-" $$0 ":$(VERSION)"}')
@@ -83,7 +81,7 @@ docker:
 .PHONY: buildx
 buildx:
 	cd ../../.. && \
-	docker buildx build -t $(DOCKER_IMAGE) --build-arg APP_RELATIVE_PATH=$(APP_RELATIVE_PATH) --platform=linux/arm64,linux/amd64,linux/ppc64le,linux/arm -f deploy/build/Dockerfile . --push
+	docker buildx build -t $(DOCKER_IMAGE) --build-arg APP_RELATIVE_PATH=$(APP_RELATIVE_PATH) --platform=linux/arm64,linux/amd64,linux/ppc64le,linux/s390x,linux/arm/v7,linux/arm/v6 -f deploy/build/Dockerfile . --push
 
 .PHONY: wire
 # generate wire

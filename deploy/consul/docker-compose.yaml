@@ -1,0 +1,66 @@
+version: '3.4'
+
+services:
+  consul-1:
+    image: consul:latest
+    container_name: consul-1
+    command: agent -server -bootstrap-expect=3 -node=consul-1 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=datacenter-1
+    restart: unless-stopped
+    volumes:
+      - "./data/consul-1:/consul/data"
+    networks:
+      net:
+        aliases:
+          - consul-1
+
+  consul-2:
+    image: consul:latest
+    container_name: consul-2
+    command: agent -server -retry-join=consul-1 -node=consul-2 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=datacenter-1
+    restart: unless-stopped
+    depends_on:
+      - consul-1
+    volumes:
+      - "./data/consul-2:/consul/data"
+    networks:
+      net:
+        aliases:
+          - consul-2
+
+  consul-3:
+    image: consul:latest
+    container_name: consul-3
+    command: agent -server -retry-join=consul-1 -node=consul-3 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=datacenter-1
+    restart: unless-stopped
+    depends_on:
+      - consul-1
+    volumes:
+      - "./data/consul-3:/consul/data"
+    networks:
+      net:
+        aliases:
+          - consul-3
+
+  consul-4:
+    image: consul:latest
+    container_name: consul-4
+    command: agent -retry-join=consul-1 -node=consul-4 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=datacenter-1 -ui
+    restart: unless-stopped
+    ports:
+      - "8500:8500"
+    depends_on:
+      - consul-2
+      - consul-3
+    volumes:
+      - "./data/consul-4:/consul/data"
+    networks:
+      net:
+        aliases:
+          - consul-4
+
+networks:
+  net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.10.10.0/24

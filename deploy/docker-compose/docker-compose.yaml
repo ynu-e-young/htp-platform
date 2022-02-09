@@ -1,0 +1,45 @@
+version: '3.4'
+
+services:
+  htp-platform.user.service:
+    # 阿里云仓库:  registry.cn-shenzhen.aliyuncs.com/hominsu/htp-platform-user-service:latest
+    # GHCR:      ghcr.io/hominsu/htp-platform-user-service:latest
+    # DockerHub: hominsu/htp-platform-user-service:latest
+    image: hominsu/htp-platform-user-service:latest
+    container_name: htp-platform.user.service
+    restart: always
+    environment:
+      # 设置时区，不然 logs 的时间不对
+      TZ: "Asia/Shanghai" # 时区
+    volumes:
+      - "../../app/user/service/configs:/data/conf"
+    networks:
+      net:
+        aliases:
+          - htp-platform.user.service
+
+  htp-platform.htpp.interface:
+    # 阿里云仓库:  registry.cn-shenzhen.aliyuncs.com/hominsu/htp-platform-htpp-interface:latest
+    # GHCR:      ghcr.io/hominsu/htp-platform-htpp-interface:latest
+    # DockerHub: hominsu/htp-platform-htpp-interface:latest
+    image: hominsu/htp-platform-htpp-interface:latest
+    container_name: htp-platform.htpp.interface
+    depends_on:
+      - htp-platform.user.service
+    restart: always
+    environment:
+      # 设置时区，不然 logs 的时间不对
+      TZ: "Asia/Shanghai" # 时区
+    volumes:
+      - "../../app/htpp/interface/configs:/data/conf"
+    ports:
+      - "8000:8000"
+      - "9000:9000"
+    networks:
+      net:
+        aliases:
+          - htp-platform.htpp.interface
+
+networks:
+  net:
+    driver: bridge
