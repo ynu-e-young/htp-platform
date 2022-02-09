@@ -81,7 +81,7 @@ docker:
 .PHONY: buildx
 buildx:
 	cd ../../.. && \
-	docker buildx build -t $(DOCKER_IMAGE) --build-arg APP_RELATIVE_PATH=$(APP_RELATIVE_PATH) --platform=linux/arm64,linux/amd64,linux/ppc64le,linux/s390x,linux/arm/v7,linux/arm/v6 -f deploy/build/Dockerfile . --push
+	docker buildx build -t $(DOCKER_IMAGE) --build-arg APP_RELATIVE_PATH=$(APP_RELATIVE_PATH) --platform=linux/arm64,linux/amd64,linux/ppc64le,linux/arm/v7,linux/arm/v6 -f deploy/build/Dockerfile . --push
 
 .PHONY: wire
 # generate wire
