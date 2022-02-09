@@ -2,9 +2,10 @@ version: '3.4'
 
 services:
   htp-platform.user.service:
-    # 阿里云仓库:  registry.cn-shenzhen.aliyuncs.com/hominsu/htp-platform-user-service:latest
-    # GHCR:      ghcr.io/hominsu/htp-platform-user-service:latest
-    # DockerHub: hominsu/htp-platform-user-service:latest
+    # DockerHub:    hominsu/htp-platform-user-service:latest
+    # GHCR:         ghcr.io/hominsu/htp-platform-user-service:latest
+    # Ali Registry: registry.cn-shenzhen.aliyuncs.com/hominsu/htp-platform-user-service:latest
+    # Jetbrains:    e-young.registry.jetbrains.space/p/hpt-platform/containers/htp-platform-user-service:latest
     image: hominsu/htp-platform-user-service:latest
     container_name: htp-platform.user.service
     restart: always
@@ -19,9 +20,10 @@ services:
           - htp-platform.user.service
 
   htp-platform.htpp.interface:
-    # 阿里云仓库:  registry.cn-shenzhen.aliyuncs.com/hominsu/htp-platform-htpp-interface:latest
-    # GHCR:      ghcr.io/hominsu/htp-platform-htpp-interface:latest
-    # DockerHub: hominsu/htp-platform-htpp-interface:latest
+    # DockerHub:    hominsu/htp-platform-htpp-interface:latest
+    # GHCR:         ghcr.io/hominsu/htp-platform-htpp-interface:latest
+    # Ali Registry: registry.cn-shenzhen.aliyuncs.com/hominsu/htp-platform-htpp-interface:latest
+    # Jetbrains:    e-young.registry.jetbrains.space/p/hpt-platform/containers/htp-platform-htpp-interface:latest
     image: hominsu/htp-platform-htpp-interface:latest
     container_name: htp-platform.htpp.interface
     depends_on:
