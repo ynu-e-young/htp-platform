@@ -41,7 +41,7 @@ service Interface {
 
   rpc GetCurrentUser (GetCurrentUserRequest) returns (UserReply) {
     option (google.api.http) = {
-      get: "/v1/user",
+      get: "/v1/user/{id}",
     };
   };
 
@@ -78,7 +78,6 @@ message UpdateUserRequest {
   message User {
     int64  id = 1;
     string email = 2;
-    string token = 3;
     string username = 4;
     string password = 5;
   }

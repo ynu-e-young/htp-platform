@@ -3,3 +3,4 @@
 **/bin
 *.rdb
 *.log
+**/consul/data
