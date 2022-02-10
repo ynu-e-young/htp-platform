@@ -9,8 +9,14 @@ COPY . /src
 WORKDIR /src/app/${APP_RELATIVE_PATH}
 RUN make build
 
-#final stage
+# final stage
 FROM alpine:latest
+# image info
+ARG AUTHOR_NAME
+ARG AUTHOR_EMAIL
+ARG VERSION
+# label
+LABEL author=$AUTHOR_NAME email=${AUTHOR_EMAIL} version=$VERSION
 # app dir
 ARG APP_RELATIVE_PATH
 # install: tzdata ca-certificates
