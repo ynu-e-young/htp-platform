@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "v1/cv_error.proto",
+    "title": "v1/capture_error.proto",
     "version": "version not set"
   },
   "consumes": [

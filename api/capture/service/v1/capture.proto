@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package capture.service.v1;
+
+option go_package = "api/capture/service/v1;v1";
+
+// The cv service definition.
+service Capture {
+  rpc ReadOne (ReadOneRequest) returns (ImageReply) {}
+
+  rpc ReadAll(ReadAllRequest) returns (ImagesReply) {}
+}
+
+message ReadOneRequest {
+  int64 id = 1;
+}
+
+message ReadAllRequest {
+}
+
+message ImageReply {
+  Image image = 1;
+}
+
+message ImagesReply {
+  repeated Image images = 1;
+}
+
+message Image {
+  bytes data = 1;
+}

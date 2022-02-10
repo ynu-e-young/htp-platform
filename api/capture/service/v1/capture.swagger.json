@@ -1,12 +1,12 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "v1/cv.proto",
+    "title": "v1/capture.proto",
     "version": "version not set"
   },
   "tags": [
     {
-      "name": "CV"
+      "name": "Capture"
     }
   ],
   "consumes": [
@@ -58,6 +58,17 @@
       "properties": {
         "image": {
           "$ref": "#/definitions/v1Image"
+        }
+      }
+    },
+    "v1ImagesReply": {
+      "type": "object",
+      "properties": {
+        "images": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Image"
+          }
         }
       }
     }
