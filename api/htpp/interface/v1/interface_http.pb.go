@@ -28,7 +28,7 @@ func RegisterInterfaceHTTPServer(s *http.Server, srv InterfaceHTTPServer) {
 	r := s.Route("/")
 	r.POST("/v1/users/login", _Interface_Login0_HTTP_Handler(srv))
 	r.POST("/v1/users", _Interface_Register0_HTTP_Handler(srv))
-	r.GET("/v1/user", _Interface_GetCurrentUser0_HTTP_Handler(srv))
+	r.GET("/v1/user/{id}", _Interface_GetCurrentUser0_HTTP_Handler(srv))
 	r.PUT("/v1/user", _Interface_UpdateUser0_HTTP_Handler(srv))
 }
 
@@ -74,6 +74,9 @@ func _Interface_GetCurrentUser0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx h
 	return func(ctx http.Context) error {
 		var in GetCurrentUserRequest
 		if err := ctx.BindQuery(&in); err != nil {
+			return err
+		}
+		if err := ctx.BindVars(&in); err != nil {
 			return err
 		}
 		http.SetOperation(ctx, "/htpp.interface.v1.Interface/GetCurrentUser")
@@ -125,7 +128,7 @@ func NewInterfaceHTTPClient(client *http.Client) InterfaceHTTPClient {
 
 func (c *InterfaceHTTPClientImpl) GetCurrentUser(ctx context.Context, in *GetCurrentUserRequest, opts ...http.CallOption) (*UserReply, error) {
 	var out UserReply
-	pattern := "/v1/user"
+	pattern := "/v1/user/{id}"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/GetCurrentUser"))
 	opts = append(opts, http.PathTemplate(pattern))

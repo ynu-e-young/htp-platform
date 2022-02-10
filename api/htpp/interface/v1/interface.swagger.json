@@ -25,35 +25,6 @@
   ],
   "paths": {
     "/v1/user": {
-      "get": {
-        "operationId": "Interface_GetCurrentUser",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1UserReply"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "required": false,
-            "type": "string",
-            "format": "int64"
-          }
-        ],
-        "tags": [
-          "Interface"
-        ]
-      },
       "put": {
         "operationId": "Interface_UpdateUser",
         "responses": {
@@ -78,6 +49,37 @@
             "schema": {
               "$ref": "#/definitions/v1UpdateUserRequest"
             }
+          }
+        ],
+        "tags": [
+          "Interface"
+        ]
+      }
+    },
+    "/v1/user/{id}": {
+      "get": {
+        "operationId": "Interface_GetCurrentUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UserReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
           }
         ],
         "tags": [
