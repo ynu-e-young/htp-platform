@@ -14,8 +14,8 @@ type captureRepo struct {
 	log  *log.Helper
 }
 
-// NewCvRepo .
-func NewCvRepo(data *Data, logger log.Logger) biz.CaptureRepo {
+// NewCaptureRepo .
+func NewCaptureRepo(data *Data, logger log.Logger) biz.CaptureRepo {
 	return &captureRepo{
 		data: data,
 		log:  log.NewHelper(log.With(logger, "module", "data/cv")),

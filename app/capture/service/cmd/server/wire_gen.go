@@ -25,7 +25,7 @@ func initApp(confServer *conf.Server, registry *conf.Registry, confData *conf.Da
 	if err != nil {
 		return nil, nil, err
 	}
-	captureRepo := data.NewCvRepo(dataData, logger)
+	captureRepo := data.NewCaptureRepo(dataData, logger)
 	captureUsecase := biz.NewCaptureUsecase(captureRepo, logger)
 	captureService := service.NewCaptureService(captureUsecase, logger)
 	grpcServer := server.NewGRPCServer(confServer, captureService, logger)
