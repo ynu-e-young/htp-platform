@@ -22,14 +22,14 @@ type Data struct {
 
 // NewData .
 func NewData(entClient *ent.Client, logger log.Logger) (*Data, func(), error) {
-	logHelper := log.NewHelper(log.With(logger, "module", "user-service/data"))
+	helper := log.NewHelper(log.With(logger, "module", "user-service/data"))
 
 	d := &Data{
 		db: entClient,
 	}
 	return d, func() {
 		if err := d.db.Close(); err != nil {
-			logHelper.Error(err)
+			helper.Error(err)
 		}
 	}, nil
 }

@@ -13,6 +13,7 @@ require (
 	github.com/gorilla/handlers v1.5.1
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.7.3
 	github.com/hashicorp/consul/api v1.11.0
+	gocv.io/x/gocv v0.29.0
 	golang.org/x/crypto v0.0.0-20210817164053-32db794688a5
 	google.golang.org/genproto v0.0.0-20220207185906-7721543eae58
 	google.golang.org/grpc v1.44.0
