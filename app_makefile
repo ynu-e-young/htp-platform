@@ -85,7 +85,6 @@ docker:
 	--build-arg VERSION=$(VERSION) \
 	--build-arg APP_RELATIVE_PATH=$(APP_RELATIVE_PATH) \
 	--file app/$(APP_RELATIVE_PATH)/Dockerfile \
-	--no-cache \
 	--tag $(DOCKER_IMAGE) .
 
 .PHONY: buildx
@@ -97,7 +96,6 @@ buildx:
 	--build-arg VERSION=$(VERSION) \
 	--build-arg APP_RELATIVE_PATH=$(APP_RELATIVE_PATH) \
     --file app/$(APP_RELATIVE_PATH)/Dockerfile \
-    --no-cache \
 	--platform=linux/arm64,linux/amd64,linux/ppc64le,linux/arm/v7,linux/arm/v6 \
 	--push \
 	--tag $(DOCKER_IMAGE) .
