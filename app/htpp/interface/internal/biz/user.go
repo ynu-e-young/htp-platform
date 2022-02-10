@@ -94,6 +94,12 @@ func (uc *UserUsecase) Get(ctx context.Context, id int64) (*User, error) {
 }
 
 func (uc *UserUsecase) Update(ctx context.Context, user *User) (*User, error) {
+	ph, err := hash.HashPassword(user.PasswordHash)
+	if err != nil {
+		return nil, err
+	}
+
+	user.PasswordHash = ph
 	u, err := uc.repo.Update(ctx, user)
 	if err != nil {
 		return nil, err
