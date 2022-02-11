@@ -95,7 +95,7 @@ buildx:
 	--build-arg AUTHOR_EMAIL=$(AUTHOR_EMAIL) \
 	--build-arg VERSION=$(VERSION) \
 	--build-arg APP_RELATIVE_PATH=$(APP_RELATIVE_PATH) \
-    --file app/$(APP_RELATIVE_PATH)/Dockerfile \
+	--file app/$(APP_RELATIVE_PATH)/Dockerfile \
 	--platform=linux/arm64,linux/amd64,linux/arm \
 	--push \
 	--tag $(DOCKER_IMAGE) .
