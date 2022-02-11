@@ -15,4 +15,5 @@ enum UserServiceErrorReason {
   LOGIN_FAILED = 2;
   REGISTER_FAILED = 3;
   USERNAME_CONFLICT = 4;
+  READ_DEVICE_ERROR = 5;
 }

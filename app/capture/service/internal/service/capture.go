@@ -30,7 +30,7 @@ func (s *CaptureService) ReadOne(ctx context.Context, in *v1.ReadOneRequest) (*v
 	}}, nil
 }
 
-func (s *CaptureService) ReadAll(ctx context.Context, in *v1.ReadAllRequest) (*v1.ImagesReply, error) {
+func (s *CaptureService) ReadAll(ctx context.Context, _ *v1.ReadAllRequest) (*v1.ImagesReply, error) {
 	captures, err := s.uu.ReadAll(ctx)
 	if err != nil {
 		return nil, v1.ErrorReadDeviceError("read all devices failed, err: %v", err)

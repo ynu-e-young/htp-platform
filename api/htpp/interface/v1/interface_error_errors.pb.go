@@ -55,3 +55,12 @@ func IsUsernameConflict(err error) bool {
 func ErrorUsernameConflict(format string, args ...interface{}) *errors.Error {
 	return errors.New(500, UserServiceErrorReason_USERNAME_CONFLICT.String(), fmt.Sprintf(format, args...))
 }
+
+func IsReadDeviceError(err error) bool {
+	e := errors.FromError(err)
+	return e.Reason == UserServiceErrorReason_READ_DEVICE_ERROR.String() && e.Code == 500
+}
+
+func ErrorReadDeviceError(format string, args ...interface{}) *errors.Error {
+	return errors.New(500, UserServiceErrorReason_READ_DEVICE_ERROR.String(), fmt.Sprintf(format, args...))
+}
