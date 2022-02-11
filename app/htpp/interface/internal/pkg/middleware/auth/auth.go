@@ -2,7 +2,6 @@ package auth
 
 import (
 	"context"
-	"github.com/davecgh/go-spew/spew"
 	"github.com/go-kratos/kratos/v2/errors"
 	"github.com/go-kratos/kratos/v2/middleware"
 	"github.com/go-kratos/kratos/v2/transport"
@@ -96,9 +95,6 @@ func JwtAuth(secret string) middleware.Middleware {
 				} else if !tokenInfo.Valid {
 					return nil, ErrTokenInvalid
 				}
-
-				spew.Dump(claims.Username)
-
 			}
 			return handler(ctx, req)
 		}
