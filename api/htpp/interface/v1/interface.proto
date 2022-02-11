@@ -51,6 +51,18 @@ service Interface {
       body: "*",
     };
   };
+
+  rpc ReadOne (ReadOneRequest) returns (ImageReply) {
+    option (google.api.http) = {
+      get: "/v1/capture/{id}",
+    };
+  }
+
+  rpc ReadAll(ReadAllRequest) returns (ImagesReply) {
+    option (google.api.http) = {
+      get: "/v1/capture",
+    };
+  }
 }
 
 message LoginRequest {
@@ -94,3 +106,21 @@ message UserReply {
   User user = 1;
 }
 
+message ReadOneRequest {
+  int64 id = 1;
+}
+
+message ReadAllRequest {
+}
+
+message ImageReply {
+  Image image = 1;
+}
+
+message ImagesReply {
+  repeated Image images = 1;
+}
+
+message Image {
+  bytes data = 1;
+}

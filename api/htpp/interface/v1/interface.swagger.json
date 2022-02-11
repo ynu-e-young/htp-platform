@@ -24,6 +24,59 @@
     "application/json"
   ],
   "paths": {
+    "/v1/capture": {
+      "get": {
+        "operationId": "Interface_ReadAll",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ImagesReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Interface"
+        ]
+      }
+    },
+    "/v1/capture/{id}": {
+      "get": {
+        "operationId": "Interface_ReadOne",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ImageReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Interface"
+        ]
+      }
+    },
     "/v1/user": {
       "put": {
         "operationId": "Interface_UpdateUser",
@@ -176,6 +229,34 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1Image": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "v1ImageReply": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "$ref": "#/definitions/v1Image"
+        }
+      }
+    },
+    "v1ImagesReply": {
+      "type": "object",
+      "properties": {
+        "images": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Image"
           }
         }
       }

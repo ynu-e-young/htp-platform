@@ -26,6 +26,8 @@ type InterfaceClient interface {
 	Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*UserReply, error)
 	GetCurrentUser(ctx context.Context, in *GetCurrentUserRequest, opts ...grpc.CallOption) (*UserReply, error)
 	UpdateUser(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*UserReply, error)
+	ReadOne(ctx context.Context, in *ReadOneRequest, opts ...grpc.CallOption) (*ImageReply, error)
+	ReadAll(ctx context.Context, in *ReadAllRequest, opts ...grpc.CallOption) (*ImagesReply, error)
 }
 
 type interfaceClient struct {
@@ -72,6 +74,24 @@ func (c *interfaceClient) UpdateUser(ctx context.Context, in *UpdateUserRequest,
 	return out, nil
 }
 
+func (c *interfaceClient) ReadOne(ctx context.Context, in *ReadOneRequest, opts ...grpc.CallOption) (*ImageReply, error) {
+	out := new(ImageReply)
+	err := c.cc.Invoke(ctx, "/htpp.interface.v1.Interface/ReadOne", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interfaceClient) ReadAll(ctx context.Context, in *ReadAllRequest, opts ...grpc.CallOption) (*ImagesReply, error) {
+	out := new(ImagesReply)
+	err := c.cc.Invoke(ctx, "/htpp.interface.v1.Interface/ReadAll", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // InterfaceServer is the server API for Interface service.
 // All implementations must embed UnimplementedInterfaceServer
 // for forward compatibility
@@ -80,6 +100,8 @@ type InterfaceServer interface {
 	Register(context.Context, *RegisterRequest) (*UserReply, error)
 	GetCurrentUser(context.Context, *GetCurrentUserRequest) (*UserReply, error)
 	UpdateUser(context.Context, *UpdateUserRequest) (*UserReply, error)
+	ReadOne(context.Context, *ReadOneRequest) (*ImageReply, error)
+	ReadAll(context.Context, *ReadAllRequest) (*ImagesReply, error)
 	mustEmbedUnimplementedInterfaceServer()
 }
 
@@ -98,6 +120,12 @@ func (UnimplementedInterfaceServer) GetCurrentUser(context.Context, *GetCurrentU
 }
 func (UnimplementedInterfaceServer) UpdateUser(context.Context, *UpdateUserRequest) (*UserReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateUser not implemented")
+}
+func (UnimplementedInterfaceServer) ReadOne(context.Context, *ReadOneRequest) (*ImageReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReadOne not implemented")
+}
+func (UnimplementedInterfaceServer) ReadAll(context.Context, *ReadAllRequest) (*ImagesReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReadAll not implemented")
 }
 func (UnimplementedInterfaceServer) mustEmbedUnimplementedInterfaceServer() {}
 
@@ -184,6 +212,42 @@ func _Interface_UpdateUser_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Interface_ReadOne_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReadOneRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServer).ReadOne(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/htpp.interface.v1.Interface/ReadOne",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServer).ReadOne(ctx, req.(*ReadOneRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Interface_ReadAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReadAllRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServer).ReadAll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/htpp.interface.v1.Interface/ReadAll",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServer).ReadAll(ctx, req.(*ReadAllRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Interface_ServiceDesc is the grpc.ServiceDesc for Interface service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -206,6 +270,14 @@ var Interface_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateUser",
 			Handler:    _Interface_UpdateUser_Handler,
+		},
+		{
+			MethodName: "ReadOne",
+			Handler:    _Interface_ReadOne_Handler,
+		},
+		{
+			MethodName: "ReadAll",
+			Handler:    _Interface_ReadAll_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

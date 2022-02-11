@@ -20,6 +20,8 @@ const _ = http.SupportPackageIsVersion1
 type InterfaceHTTPServer interface {
 	GetCurrentUser(context.Context, *GetCurrentUserRequest) (*UserReply, error)
 	Login(context.Context, *LoginRequest) (*UserReply, error)
+	ReadAll(context.Context, *ReadAllRequest) (*ImagesReply, error)
+	ReadOne(context.Context, *ReadOneRequest) (*ImageReply, error)
 	Register(context.Context, *RegisterRequest) (*UserReply, error)
 	UpdateUser(context.Context, *UpdateUserRequest) (*UserReply, error)
 }
@@ -30,6 +32,8 @@ func RegisterInterfaceHTTPServer(s *http.Server, srv InterfaceHTTPServer) {
 	r.POST("/v1/users", _Interface_Register0_HTTP_Handler(srv))
 	r.GET("/v1/user/{id}", _Interface_GetCurrentUser0_HTTP_Handler(srv))
 	r.PUT("/v1/user", _Interface_UpdateUser0_HTTP_Handler(srv))
+	r.GET("/v1/capture/{id}", _Interface_ReadOne0_HTTP_Handler(srv))
+	r.GET("/v1/capture", _Interface_ReadAll0_HTTP_Handler(srv))
 }
 
 func _Interface_Login0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
@@ -111,9 +115,52 @@ func _Interface_UpdateUser0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.
 	}
 }
 
+func _Interface_ReadOne0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
+	return func(ctx http.Context) error {
+		var in ReadOneRequest
+		if err := ctx.BindQuery(&in); err != nil {
+			return err
+		}
+		if err := ctx.BindVars(&in); err != nil {
+			return err
+		}
+		http.SetOperation(ctx, "/htpp.interface.v1.Interface/ReadOne")
+		h := ctx.Middleware(func(ctx context.Context, req interface{}) (interface{}, error) {
+			return srv.ReadOne(ctx, req.(*ReadOneRequest))
+		})
+		out, err := h(ctx, &in)
+		if err != nil {
+			return err
+		}
+		reply := out.(*ImageReply)
+		return ctx.Result(200, reply)
+	}
+}
+
+func _Interface_ReadAll0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
+	return func(ctx http.Context) error {
+		var in ReadAllRequest
+		if err := ctx.BindQuery(&in); err != nil {
+			return err
+		}
+		http.SetOperation(ctx, "/htpp.interface.v1.Interface/ReadAll")
+		h := ctx.Middleware(func(ctx context.Context, req interface{}) (interface{}, error) {
+			return srv.ReadAll(ctx, req.(*ReadAllRequest))
+		})
+		out, err := h(ctx, &in)
+		if err != nil {
+			return err
+		}
+		reply := out.(*ImagesReply)
+		return ctx.Result(200, reply)
+	}
+}
+
 type InterfaceHTTPClient interface {
 	GetCurrentUser(ctx context.Context, req *GetCurrentUserRequest, opts ...http.CallOption) (rsp *UserReply, err error)
 	Login(ctx context.Context, req *LoginRequest, opts ...http.CallOption) (rsp *UserReply, err error)
+	ReadAll(ctx context.Context, req *ReadAllRequest, opts ...http.CallOption) (rsp *ImagesReply, err error)
+	ReadOne(ctx context.Context, req *ReadOneRequest, opts ...http.CallOption) (rsp *ImageReply, err error)
 	Register(ctx context.Context, req *RegisterRequest, opts ...http.CallOption) (rsp *UserReply, err error)
 	UpdateUser(ctx context.Context, req *UpdateUserRequest, opts ...http.CallOption) (rsp *UserReply, err error)
 }
@@ -146,6 +193,32 @@ func (c *InterfaceHTTPClientImpl) Login(ctx context.Context, in *LoginRequest, o
 	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/Login"))
 	opts = append(opts, http.PathTemplate(pattern))
 	err := c.cc.Invoke(ctx, "POST", path, in, &out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &out, err
+}
+
+func (c *InterfaceHTTPClientImpl) ReadAll(ctx context.Context, in *ReadAllRequest, opts ...http.CallOption) (*ImagesReply, error) {
+	var out ImagesReply
+	pattern := "/v1/capture"
+	path := binding.EncodeURL(pattern, in, true)
+	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/ReadAll"))
+	opts = append(opts, http.PathTemplate(pattern))
+	err := c.cc.Invoke(ctx, "GET", path, nil, &out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &out, err
+}
+
+func (c *InterfaceHTTPClientImpl) ReadOne(ctx context.Context, in *ReadOneRequest, opts ...http.CallOption) (*ImageReply, error) {
+	var out ImageReply
+	pattern := "/v1/capture/{id}"
+	path := binding.EncodeURL(pattern, in, true)
+	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/ReadOne"))
+	opts = append(opts, http.PathTemplate(pattern))
+	err := c.cc.Invoke(ctx, "GET", path, nil, &out, opts...)
 	if err != nil {
 		return nil, err
 	}
