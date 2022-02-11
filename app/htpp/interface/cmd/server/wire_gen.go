@@ -22,13 +22,16 @@ import (
 func initApp(confServer *conf.Server, registry *conf.Registry, confData *conf.Data, jwt *conf.Jwt, logger log.Logger) (*kratos.App, func(), error) {
 	discovery := data.NewDiscovery(registry)
 	userClient := data.NewUserServiceClient(discovery)
-	dataData, err := data.NewData(userClient, logger)
+	captureClient := data.NewCaptureServiceClient(discovery)
+	dataData, err := data.NewData(userClient, captureClient, logger)
 	if err != nil {
 		return nil, nil, err
 	}
 	userRepo := data.NewUserRepo(dataData, logger)
 	userUsecase := biz.NewUserUsecase(userRepo, jwt, logger)
-	interfaceService := service.NewInterfaceService(userUsecase, logger)
+	captureRepo := data.NewCaptureRepo(dataData, logger)
+	captureUsecase := biz.NewCaptureUsecase(captureRepo, logger)
+	interfaceService := service.NewInterfaceService(userUsecase, captureUsecase, confData, logger)
 	httpServer := server.NewHTTPServer(confServer, jwt, interfaceService, logger)
 	grpcServer := server.NewGRPCServer(confServer, interfaceService, logger)
 	registrar := server.NewRegistrar(registry)

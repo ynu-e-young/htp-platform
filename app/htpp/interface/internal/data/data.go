@@ -9,6 +9,7 @@ import (
 	"github.com/go-kratos/kratos/v2/transport/grpc"
 	"github.com/google/wire"
 	consulAPI "github.com/hashicorp/consul/api"
+	captureV1 "htp-platform/api/capture/service/v1"
 	userV1 "htp-platform/api/user/service/v1"
 	"htp-platform/app/htpp/interface/internal/conf"
 )
@@ -17,23 +18,27 @@ import (
 var ProviderSet = wire.NewSet(
 	NewData,
 	NewUserRepo,
+	NewCaptureRepo,
 	NewDiscovery,
 	NewUserServiceClient,
+	NewCaptureServiceClient,
 )
 
 // Data .
 type Data struct {
 	uc userV1.UserClient
+	cc captureV1.CaptureClient
 
 	helper *log.Helper
 }
 
 // NewData .
-func NewData(uc userV1.UserClient, logger log.Logger) (*Data, error) {
+func NewData(uc userV1.UserClient, cc captureV1.CaptureClient, logger log.Logger) (*Data, error) {
 	helper := log.NewHelper(log.With(logger, "module", "htpp-interface/data"))
 
 	return &Data{
 		uc:     uc,
+		cc:     cc,
 		helper: helper,
 	}, nil
 }
@@ -63,5 +68,21 @@ func NewUserServiceClient(r registry.Discovery) userV1.UserClient {
 		panic(err)
 	}
 	c := userV1.NewUserClient(conn)
+	return c
+}
+
+func NewCaptureServiceClient(r registry.Discovery) captureV1.CaptureClient {
+	conn, err := grpc.DialInsecure(
+		context.Background(),
+		grpc.WithEndpoint("discovery:///htp-platform.capture.service"),
+		grpc.WithDiscovery(r),
+		grpc.WithMiddleware(
+			recovery.Recovery(),
+		),
+	)
+	if err != nil {
+		panic(err)
+	}
+	c := captureV1.NewCaptureClient(conn)
 	return c
 }

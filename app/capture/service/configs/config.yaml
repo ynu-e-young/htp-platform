@@ -7,4 +7,4 @@ server:
     timeout: 1s
 data:
   capture:
-    devices: [ 0 ]
+    devices: [ 0, 1 ]

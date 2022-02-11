@@ -5,6 +5,7 @@ import (
 	"github.com/google/wire"
 	v1 "htp-platform/api/htpp/interface/v1"
 	"htp-platform/app/htpp/interface/internal/biz"
+	"htp-platform/app/htpp/interface/internal/conf"
 )
 
 // ProviderSet is service providers.
@@ -15,13 +16,17 @@ type InterfaceService struct {
 	v1.UnimplementedInterfaceServer
 
 	uu  *biz.UserUsecase
+	cu  *biz.CaptureUsecase
+	dcf *conf.Data
 	log *log.Helper
 }
 
 // NewInterfaceService new an interface service.
-func NewInterfaceService(uu *biz.UserUsecase, logger log.Logger) *InterfaceService {
+func NewInterfaceService(uu *biz.UserUsecase, cu *biz.CaptureUsecase, conf *conf.Data, logger log.Logger) *InterfaceService {
 	return &InterfaceService{
 		uu:  uu,
+		cu:  cu,
+		dcf: conf,
 		log: log.NewHelper(log.With(logger, "module", "service/server-service")),
 	}
 }

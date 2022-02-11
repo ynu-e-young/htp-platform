@@ -8,7 +8,7 @@ import (
 	"github.com/go-kratos/kratos/v2/middleware/selector"
 	"github.com/go-kratos/kratos/v2/transport/http"
 	"github.com/gorilla/handlers"
-	v1 "htp-platform/api/htpp/interface/v1"
+	interfaceV1 "htp-platform/api/htpp/interface/v1"
 	"htp-platform/app/htpp/interface/internal/conf"
 	"htp-platform/app/htpp/interface/internal/pkg/middleware/auth"
 	"htp-platform/app/htpp/interface/internal/service"
@@ -55,6 +55,6 @@ func NewHTTPServer(c *conf.Server, jc *conf.Jwt, is *service.InterfaceService, l
 		opts = append(opts, http.Timeout(c.Http.Timeout.AsDuration()))
 	}
 	srv := http.NewServer(opts...)
-	v1.RegisterInterfaceHTTPServer(srv, is)
+	interfaceV1.RegisterInterfaceHTTPServer(srv, is)
 	return srv
 }

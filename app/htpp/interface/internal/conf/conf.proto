@@ -28,11 +28,10 @@ message Server {
 }
 
 message Data {
-  message Database {
-    string driver = 1;
-    string source = 2;
+  message Images {
+    string dir = 1;
   }
-  Database database = 1;
+  Images images = 1;
 }
 
 message Jwt {

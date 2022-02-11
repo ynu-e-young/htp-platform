@@ -19,6 +19,26 @@ services:
         aliases:
           - htp-platform.user.service
 
+  htp-platform.capture.service:
+    # DockerHub:    hominsu/htp-platform-capture-service:latest
+    # GHCR:         ghcr.io/hominsu/htp-platform-capture-service:latest
+    # Ali Registry: registry.cn-shenzhen.aliyuncs.com/hominsu/htp-platform-capture-service:latest
+    # Jetbrains:    e-young.registry.jetbrains.space/p/hpt-platform/containers/htp-platform-capture-service:latest
+    image: hominsu/htp-platform-capture-service:latest
+    container_name: htp-platform.capture.service
+    restart: always
+    environment:
+      # 设置时区，不然 logs 的时间不对
+      TZ: "Asia/Shanghai" # 时区
+    volumes:
+      - "../../app/capture/service/configs:/data/conf"
+    devices:
+      - "/dev/video0:/dev/video0" # not support in Windows and macOS
+    networks:
+      net:
+        aliases:
+          - htp-platform.user.service
+
   htp-platform.htpp.interface:
     # DockerHub:    hominsu/htp-platform-htpp-interface:latest
     # GHCR:         ghcr.io/hominsu/htp-platform-htpp-interface:latest
@@ -34,6 +54,7 @@ services:
       TZ: "Asia/Shanghai" # 时区
     volumes:
       - "../../app/htpp/interface/configs:/data/conf"
+      - "./images:/data/images"
     ports:
       - "8000:8000"
       - "9000:9000"
