@@ -37,3 +37,12 @@ func IsConvertError(err error) bool {
 func ErrorConvertError(format string, args ...interface{}) *errors.Error {
 	return errors.New(500, UserServiceErrorReason_CONVERT_ERROR.String(), fmt.Sprintf(format, args...))
 }
+
+func IsBinaryError(err error) bool {
+	e := errors.FromError(err)
+	return e.Reason == UserServiceErrorReason_BINARY_ERROR.String() && e.Code == 500
+}
+
+func ErrorBinaryError(format string, args ...interface{}) *errors.Error {
+	return errors.New(500, UserServiceErrorReason_BINARY_ERROR.String(), fmt.Sprintf(format, args...))
+}

@@ -9,6 +9,14 @@ service Capture {
   rpc ReadOne (ReadOneRequest) returns (ImageReply) {}
 
   rpc ReadAll(ReadAllRequest) returns (ImagesReply) {}
+
+  rpc ReadOneWithBinary(ReadOneWithBinaryRequest) returns (ImageReply) {}
+
+  rpc ReadAllWithBinary(ReadAllWithBinaryRequest) returns (ImagesReply) {}
+
+  rpc ReadOneWithBinaryAndCalArea(ReadOneWithBinaryAndCalAreaRequest) returns (ImageWithAreaReply) {}
+
+  rpc ReadAllWithBinaryAndCalArea(ReadAllWithBinaryAndCalAreaRequest) returns (ImagesWithAreaReply) {}
 }
 
 message ReadOneRequest {
@@ -18,12 +26,41 @@ message ReadOneRequest {
 message ReadAllRequest {
 }
 
+message ReadOneWithBinaryRequest {
+  int64 id = 1;
+}
+
+message ReadAllWithBinaryRequest {
+}
+
+message ReadOneWithBinaryAndCalAreaRequest {
+  int64 id = 1;
+}
+
+message ReadAllWithBinaryAndCalAreaRequest {
+}
+
 message ImageReply {
   Image image = 1;
 }
 
 message ImagesReply {
   repeated Image images = 1;
+}
+
+message ImageWithAreaReply {
+  Image image = 1;
+  int64 pixels = 2;
+  double area = 3;
+}
+
+message ImagesWithAreaReply {
+  message Data {
+    Image image = 1;
+    int64 pixels = 2;
+    double area = 3;
+  }
+  repeated Data data = 1;
 }
 
 message Image {

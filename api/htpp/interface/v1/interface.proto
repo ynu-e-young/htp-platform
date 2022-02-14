@@ -63,6 +63,30 @@ service Interface {
       get: "/v1/capture",
     };
   }
+
+  rpc ReadOneWithBinary(ReadOneWithBinaryRequest) returns (ImageReply) {
+    option (google.api.http) = {
+      get: "/v1/capture/{id}/binary",
+    };
+  }
+
+  rpc ReadAllWithBinary(ReadAllWithBinaryRequest) returns (ImagesReply) {
+    option (google.api.http) = {
+      get: "/v1/capture/binary",
+    };
+  }
+
+  rpc ReadOneWithBinaryAndCalArea(ReadOneWithBinaryAndCalAreaRequest) returns (ImageWithAreaReply) {
+    option (google.api.http) = {
+      get: "/v1/capture/{id}/binary/area",
+    };
+  }
+
+  rpc ReadAllWithBinaryAndCalArea(ReadAllWithBinaryAndCalAreaRequest) returns (ImagesWithAreaReply) {
+    option (google.api.http) = {
+      get: "/v1/capture/binary/area",
+    };
+  }
 }
 
 message LoginRequest {
@@ -113,12 +137,41 @@ message ReadOneRequest {
 message ReadAllRequest {
 }
 
+message ReadOneWithBinaryRequest {
+  int64 id = 1;
+}
+
+message ReadAllWithBinaryRequest {
+}
+
+message ReadOneWithBinaryAndCalAreaRequest {
+  int64 id = 1;
+}
+
+message ReadAllWithBinaryAndCalAreaRequest {
+}
+
 message ImageReply {
   Image image = 1;
 }
 
 message ImagesReply {
   repeated Image images = 1;
+}
+
+message ImageWithAreaReply {
+  Image image = 1;
+  int64 pixels = 2;
+  double area = 3;
+}
+
+message ImagesWithAreaReply {
+  message Data {
+    Image image = 1;
+    int64 pixels = 2;
+    double area = 3;
+  }
+  repeated Data data = 1;
 }
 
 message Image {

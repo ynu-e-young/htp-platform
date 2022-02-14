@@ -17,6 +17,22 @@
   ],
   "paths": {},
   "definitions": {
+    "ImagesWithAreaReplyData": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "$ref": "#/definitions/v1Image"
+        },
+        "pixels": {
+          "type": "string",
+          "format": "int64"
+        },
+        "area": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
     "protobufAny": {
       "type": "object",
       "properties": {
@@ -61,6 +77,22 @@
         }
       }
     },
+    "v1ImageWithAreaReply": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "$ref": "#/definitions/v1Image"
+        },
+        "pixels": {
+          "type": "string",
+          "format": "int64"
+        },
+        "area": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
     "v1ImagesReply": {
       "type": "object",
       "properties": {
@@ -68,6 +100,17 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/v1Image"
+          }
+        }
+      }
+    },
+    "v1ImagesWithAreaReply": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ImagesWithAreaReplyData"
           }
         }
       }

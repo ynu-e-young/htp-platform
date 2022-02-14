@@ -46,6 +46,50 @@
         ]
       }
     },
+    "/v1/capture/binary": {
+      "get": {
+        "operationId": "Interface_ReadAllWithBinary",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ImagesReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Interface"
+        ]
+      }
+    },
+    "/v1/capture/binary/area": {
+      "get": {
+        "operationId": "Interface_ReadAllWithBinaryAndCalArea",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ImagesWithAreaReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Interface"
+        ]
+      }
+    },
     "/v1/capture/{id}": {
       "get": {
         "operationId": "Interface_ReadOne",
@@ -54,6 +98,68 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/v1ImageReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Interface"
+        ]
+      }
+    },
+    "/v1/capture/{id}/binary": {
+      "get": {
+        "operationId": "Interface_ReadOneWithBinary",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ImageReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Interface"
+        ]
+      }
+    },
+    "/v1/capture/{id}/binary/area": {
+      "get": {
+        "operationId": "Interface_ReadOneWithBinaryAndCalArea",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ImageWithAreaReply"
             }
           },
           "default": {
@@ -206,6 +312,22 @@
     }
   },
   "definitions": {
+    "ImagesWithAreaReplyData": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "$ref": "#/definitions/v1Image"
+        },
+        "pixels": {
+          "type": "string",
+          "format": "int64"
+        },
+        "area": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
     "protobufAny": {
       "type": "object",
       "properties": {
@@ -250,6 +372,22 @@
         }
       }
     },
+    "v1ImageWithAreaReply": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "$ref": "#/definitions/v1Image"
+        },
+        "pixels": {
+          "type": "string",
+          "format": "int64"
+        },
+        "area": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
     "v1ImagesReply": {
       "type": "object",
       "properties": {
@@ -257,6 +395,17 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/v1Image"
+          }
+        }
+      }
+    },
+    "v1ImagesWithAreaReply": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ImagesWithAreaReplyData"
           }
         }
       }

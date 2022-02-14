@@ -21,7 +21,11 @@ type InterfaceHTTPServer interface {
 	GetCurrentUser(context.Context, *GetCurrentUserRequest) (*UserReply, error)
 	Login(context.Context, *LoginRequest) (*UserReply, error)
 	ReadAll(context.Context, *ReadAllRequest) (*ImagesReply, error)
+	ReadAllWithBinary(context.Context, *ReadAllWithBinaryRequest) (*ImagesReply, error)
+	ReadAllWithBinaryAndCalArea(context.Context, *ReadAllWithBinaryAndCalAreaRequest) (*ImagesWithAreaReply, error)
 	ReadOne(context.Context, *ReadOneRequest) (*ImageReply, error)
+	ReadOneWithBinary(context.Context, *ReadOneWithBinaryRequest) (*ImageReply, error)
+	ReadOneWithBinaryAndCalArea(context.Context, *ReadOneWithBinaryAndCalAreaRequest) (*ImageWithAreaReply, error)
 	Register(context.Context, *RegisterRequest) (*UserReply, error)
 	UpdateUser(context.Context, *UpdateUserRequest) (*UserReply, error)
 }
@@ -34,6 +38,10 @@ func RegisterInterfaceHTTPServer(s *http.Server, srv InterfaceHTTPServer) {
 	r.PUT("/v1/user", _Interface_UpdateUser0_HTTP_Handler(srv))
 	r.GET("/v1/capture/{id}", _Interface_ReadOne0_HTTP_Handler(srv))
 	r.GET("/v1/capture", _Interface_ReadAll0_HTTP_Handler(srv))
+	r.GET("/v1/capture/{id}/binary", _Interface_ReadOneWithBinary0_HTTP_Handler(srv))
+	r.GET("/v1/capture/binary", _Interface_ReadAllWithBinary0_HTTP_Handler(srv))
+	r.GET("/v1/capture/{id}/binary/area", _Interface_ReadOneWithBinaryAndCalArea0_HTTP_Handler(srv))
+	r.GET("/v1/capture/binary/area", _Interface_ReadAllWithBinaryAndCalArea0_HTTP_Handler(srv))
 }
 
 func _Interface_Login0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
@@ -156,11 +164,97 @@ func _Interface_ReadAll0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Con
 	}
 }
 
+func _Interface_ReadOneWithBinary0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
+	return func(ctx http.Context) error {
+		var in ReadOneWithBinaryRequest
+		if err := ctx.BindQuery(&in); err != nil {
+			return err
+		}
+		if err := ctx.BindVars(&in); err != nil {
+			return err
+		}
+		http.SetOperation(ctx, "/htpp.interface.v1.Interface/ReadOneWithBinary")
+		h := ctx.Middleware(func(ctx context.Context, req interface{}) (interface{}, error) {
+			return srv.ReadOneWithBinary(ctx, req.(*ReadOneWithBinaryRequest))
+		})
+		out, err := h(ctx, &in)
+		if err != nil {
+			return err
+		}
+		reply := out.(*ImageReply)
+		return ctx.Result(200, reply)
+	}
+}
+
+func _Interface_ReadAllWithBinary0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
+	return func(ctx http.Context) error {
+		var in ReadAllWithBinaryRequest
+		if err := ctx.BindQuery(&in); err != nil {
+			return err
+		}
+		http.SetOperation(ctx, "/htpp.interface.v1.Interface/ReadAllWithBinary")
+		h := ctx.Middleware(func(ctx context.Context, req interface{}) (interface{}, error) {
+			return srv.ReadAllWithBinary(ctx, req.(*ReadAllWithBinaryRequest))
+		})
+		out, err := h(ctx, &in)
+		if err != nil {
+			return err
+		}
+		reply := out.(*ImagesReply)
+		return ctx.Result(200, reply)
+	}
+}
+
+func _Interface_ReadOneWithBinaryAndCalArea0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
+	return func(ctx http.Context) error {
+		var in ReadOneWithBinaryAndCalAreaRequest
+		if err := ctx.BindQuery(&in); err != nil {
+			return err
+		}
+		if err := ctx.BindVars(&in); err != nil {
+			return err
+		}
+		http.SetOperation(ctx, "/htpp.interface.v1.Interface/ReadOneWithBinaryAndCalArea")
+		h := ctx.Middleware(func(ctx context.Context, req interface{}) (interface{}, error) {
+			return srv.ReadOneWithBinaryAndCalArea(ctx, req.(*ReadOneWithBinaryAndCalAreaRequest))
+		})
+		out, err := h(ctx, &in)
+		if err != nil {
+			return err
+		}
+		reply := out.(*ImageWithAreaReply)
+		return ctx.Result(200, reply)
+	}
+}
+
+func _Interface_ReadAllWithBinaryAndCalArea0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
+	return func(ctx http.Context) error {
+		var in ReadAllWithBinaryAndCalAreaRequest
+		if err := ctx.BindQuery(&in); err != nil {
+			return err
+		}
+		http.SetOperation(ctx, "/htpp.interface.v1.Interface/ReadAllWithBinaryAndCalArea")
+		h := ctx.Middleware(func(ctx context.Context, req interface{}) (interface{}, error) {
+			return srv.ReadAllWithBinaryAndCalArea(ctx, req.(*ReadAllWithBinaryAndCalAreaRequest))
+		})
+		out, err := h(ctx, &in)
+		if err != nil {
+			return err
+		}
+		reply := out.(*ImagesWithAreaReply)
+		return ctx.Result(200, reply)
+	}
+}
+
 type InterfaceHTTPClient interface {
 	GetCurrentUser(ctx context.Context, req *GetCurrentUserRequest, opts ...http.CallOption) (rsp *UserReply, err error)
 	Login(ctx context.Context, req *LoginRequest, opts ...http.CallOption) (rsp *UserReply, err error)
 	ReadAll(ctx context.Context, req *ReadAllRequest, opts ...http.CallOption) (rsp *ImagesReply, err error)
+	ReadAllWithBinary(ctx context.Context, req *ReadAllWithBinaryRequest, opts ...http.CallOption) (rsp *ImagesReply, err error)
+	ReadAllWithBinaryAndCalArea(ctx context.Context, req *ReadAllWithBinaryAndCalAreaRequest, opts ...http.CallOption) (rsp *ImagesWithAreaReply, err error)
 	ReadOne(ctx context.Context, req *ReadOneRequest, opts ...http.CallOption) (rsp *ImageReply, err error)
+	ReadOneWithBinary(ctx context.Context, req *ReadOneWithBinaryRequest, opts ...http.CallOption) (rsp *ImageReply, err error)
+	ReadOneWithBinaryAndCalArea(ctx context.Context, req *ReadOneWithBinaryAndCalAreaRequest, opts ...http.CallOption) (rsp *ImageWithAreaReply, err error)
 	Register(ctx context.Context, req *RegisterRequest, opts ...http.CallOption) (rsp *UserReply, err error)
 	UpdateUser(ctx context.Context, req *UpdateUserRequest, opts ...http.CallOption) (rsp *UserReply, err error)
 }
@@ -212,11 +306,63 @@ func (c *InterfaceHTTPClientImpl) ReadAll(ctx context.Context, in *ReadAllReques
 	return &out, err
 }
 
+func (c *InterfaceHTTPClientImpl) ReadAllWithBinary(ctx context.Context, in *ReadAllWithBinaryRequest, opts ...http.CallOption) (*ImagesReply, error) {
+	var out ImagesReply
+	pattern := "/v1/capture/binary"
+	path := binding.EncodeURL(pattern, in, true)
+	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/ReadAllWithBinary"))
+	opts = append(opts, http.PathTemplate(pattern))
+	err := c.cc.Invoke(ctx, "GET", path, nil, &out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &out, err
+}
+
+func (c *InterfaceHTTPClientImpl) ReadAllWithBinaryAndCalArea(ctx context.Context, in *ReadAllWithBinaryAndCalAreaRequest, opts ...http.CallOption) (*ImagesWithAreaReply, error) {
+	var out ImagesWithAreaReply
+	pattern := "/v1/capture/binary/area"
+	path := binding.EncodeURL(pattern, in, true)
+	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/ReadAllWithBinaryAndCalArea"))
+	opts = append(opts, http.PathTemplate(pattern))
+	err := c.cc.Invoke(ctx, "GET", path, nil, &out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &out, err
+}
+
 func (c *InterfaceHTTPClientImpl) ReadOne(ctx context.Context, in *ReadOneRequest, opts ...http.CallOption) (*ImageReply, error) {
 	var out ImageReply
 	pattern := "/v1/capture/{id}"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/ReadOne"))
+	opts = append(opts, http.PathTemplate(pattern))
+	err := c.cc.Invoke(ctx, "GET", path, nil, &out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &out, err
+}
+
+func (c *InterfaceHTTPClientImpl) ReadOneWithBinary(ctx context.Context, in *ReadOneWithBinaryRequest, opts ...http.CallOption) (*ImageReply, error) {
+	var out ImageReply
+	pattern := "/v1/capture/{id}/binary"
+	path := binding.EncodeURL(pattern, in, true)
+	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/ReadOneWithBinary"))
+	opts = append(opts, http.PathTemplate(pattern))
+	err := c.cc.Invoke(ctx, "GET", path, nil, &out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &out, err
+}
+
+func (c *InterfaceHTTPClientImpl) ReadOneWithBinaryAndCalArea(ctx context.Context, in *ReadOneWithBinaryAndCalAreaRequest, opts ...http.CallOption) (*ImageWithAreaReply, error) {
+	var out ImageWithAreaReply
+	pattern := "/v1/capture/{id}/binary/area"
+	path := binding.EncodeURL(pattern, in, true)
+	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/ReadOneWithBinaryAndCalArea"))
 	opts = append(opts, http.PathTemplate(pattern))
 	err := c.cc.Invoke(ctx, "GET", path, nil, &out, opts...)
 	if err != nil {

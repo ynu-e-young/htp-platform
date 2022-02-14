@@ -48,3 +48,59 @@ func (r *captureRepo) ReadAll(ctx context.Context) ([]*biz.Capture, error) {
 	}
 	return rets, nil
 }
+
+func (r *captureRepo) ReadOneWithBinary(ctx context.Context, device int64) (*biz.Capture, error) {
+	reply, err := r.data.cc.ReadOneWithBinary(ctx, &captureV1.ReadOneWithBinaryRequest{Id: device})
+	if err != nil {
+		return nil, interfaceV1.ErrorReadDeviceError("read device %d failed, err: %v", device, err)
+	}
+
+	return &biz.Capture{
+		Data: reply.Image.Data,
+	}, nil
+}
+
+func (r *captureRepo) ReadAllWithBinary(ctx context.Context) ([]*biz.Capture, error) {
+	reply, err := r.data.cc.ReadAllWithBinary(ctx, &captureV1.ReadAllWithBinaryRequest{})
+	if err != nil {
+		return nil, interfaceV1.ErrorReadDeviceError("read all devices failed, err: %v", err)
+	}
+
+	var rets []*biz.Capture
+	for _, image := range reply.Images {
+		rets = append(rets, &biz.Capture{
+			Data: image.Data,
+		})
+	}
+	return rets, nil
+}
+
+func (r *captureRepo) ReadOneWithBinaryAndCalArea(ctx context.Context, device int64) (*biz.Capture, error) {
+	reply, err := r.data.cc.ReadOneWithBinaryAndCalArea(ctx, &captureV1.ReadOneWithBinaryAndCalAreaRequest{Id: device})
+	if err != nil {
+		return nil, interfaceV1.ErrorReadDeviceError("read device %d failed, err: %v", device, err)
+	}
+
+	return &biz.Capture{
+		Data:   reply.Image.Data,
+		Pixels: reply.Pixels,
+		Area:   reply.Area,
+	}, nil
+}
+
+func (r *captureRepo) ReadAllWithBinaryAndCalArea(ctx context.Context) ([]*biz.Capture, error) {
+	reply, err := r.data.cc.ReadAllWithBinaryAndCalArea(ctx, &captureV1.ReadAllWithBinaryAndCalAreaRequest{})
+	if err != nil {
+		return nil, interfaceV1.ErrorReadDeviceError("read all devices failed, err: %v", err)
+	}
+
+	var rets []*biz.Capture
+	for _, data := range reply.Data {
+		rets = append(rets, &biz.Capture{
+			Data:   data.Image.Data,
+			Pixels: data.Pixels,
+			Area:   data.Area,
+		})
+	}
+	return rets, nil
+}

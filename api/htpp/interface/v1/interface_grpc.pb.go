@@ -28,6 +28,10 @@ type InterfaceClient interface {
 	UpdateUser(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*UserReply, error)
 	ReadOne(ctx context.Context, in *ReadOneRequest, opts ...grpc.CallOption) (*ImageReply, error)
 	ReadAll(ctx context.Context, in *ReadAllRequest, opts ...grpc.CallOption) (*ImagesReply, error)
+	ReadOneWithBinary(ctx context.Context, in *ReadOneWithBinaryRequest, opts ...grpc.CallOption) (*ImageReply, error)
+	ReadAllWithBinary(ctx context.Context, in *ReadAllWithBinaryRequest, opts ...grpc.CallOption) (*ImagesReply, error)
+	ReadOneWithBinaryAndCalArea(ctx context.Context, in *ReadOneWithBinaryAndCalAreaRequest, opts ...grpc.CallOption) (*ImageWithAreaReply, error)
+	ReadAllWithBinaryAndCalArea(ctx context.Context, in *ReadAllWithBinaryAndCalAreaRequest, opts ...grpc.CallOption) (*ImagesWithAreaReply, error)
 }
 
 type interfaceClient struct {
@@ -92,6 +96,42 @@ func (c *interfaceClient) ReadAll(ctx context.Context, in *ReadAllRequest, opts 
 	return out, nil
 }
 
+func (c *interfaceClient) ReadOneWithBinary(ctx context.Context, in *ReadOneWithBinaryRequest, opts ...grpc.CallOption) (*ImageReply, error) {
+	out := new(ImageReply)
+	err := c.cc.Invoke(ctx, "/htpp.interface.v1.Interface/ReadOneWithBinary", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interfaceClient) ReadAllWithBinary(ctx context.Context, in *ReadAllWithBinaryRequest, opts ...grpc.CallOption) (*ImagesReply, error) {
+	out := new(ImagesReply)
+	err := c.cc.Invoke(ctx, "/htpp.interface.v1.Interface/ReadAllWithBinary", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interfaceClient) ReadOneWithBinaryAndCalArea(ctx context.Context, in *ReadOneWithBinaryAndCalAreaRequest, opts ...grpc.CallOption) (*ImageWithAreaReply, error) {
+	out := new(ImageWithAreaReply)
+	err := c.cc.Invoke(ctx, "/htpp.interface.v1.Interface/ReadOneWithBinaryAndCalArea", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interfaceClient) ReadAllWithBinaryAndCalArea(ctx context.Context, in *ReadAllWithBinaryAndCalAreaRequest, opts ...grpc.CallOption) (*ImagesWithAreaReply, error) {
+	out := new(ImagesWithAreaReply)
+	err := c.cc.Invoke(ctx, "/htpp.interface.v1.Interface/ReadAllWithBinaryAndCalArea", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // InterfaceServer is the server API for Interface service.
 // All implementations must embed UnimplementedInterfaceServer
 // for forward compatibility
@@ -102,6 +142,10 @@ type InterfaceServer interface {
 	UpdateUser(context.Context, *UpdateUserRequest) (*UserReply, error)
 	ReadOne(context.Context, *ReadOneRequest) (*ImageReply, error)
 	ReadAll(context.Context, *ReadAllRequest) (*ImagesReply, error)
+	ReadOneWithBinary(context.Context, *ReadOneWithBinaryRequest) (*ImageReply, error)
+	ReadAllWithBinary(context.Context, *ReadAllWithBinaryRequest) (*ImagesReply, error)
+	ReadOneWithBinaryAndCalArea(context.Context, *ReadOneWithBinaryAndCalAreaRequest) (*ImageWithAreaReply, error)
+	ReadAllWithBinaryAndCalArea(context.Context, *ReadAllWithBinaryAndCalAreaRequest) (*ImagesWithAreaReply, error)
 	mustEmbedUnimplementedInterfaceServer()
 }
 
@@ -126,6 +170,18 @@ func (UnimplementedInterfaceServer) ReadOne(context.Context, *ReadOneRequest) (*
 }
 func (UnimplementedInterfaceServer) ReadAll(context.Context, *ReadAllRequest) (*ImagesReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReadAll not implemented")
+}
+func (UnimplementedInterfaceServer) ReadOneWithBinary(context.Context, *ReadOneWithBinaryRequest) (*ImageReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReadOneWithBinary not implemented")
+}
+func (UnimplementedInterfaceServer) ReadAllWithBinary(context.Context, *ReadAllWithBinaryRequest) (*ImagesReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReadAllWithBinary not implemented")
+}
+func (UnimplementedInterfaceServer) ReadOneWithBinaryAndCalArea(context.Context, *ReadOneWithBinaryAndCalAreaRequest) (*ImageWithAreaReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReadOneWithBinaryAndCalArea not implemented")
+}
+func (UnimplementedInterfaceServer) ReadAllWithBinaryAndCalArea(context.Context, *ReadAllWithBinaryAndCalAreaRequest) (*ImagesWithAreaReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReadAllWithBinaryAndCalArea not implemented")
 }
 func (UnimplementedInterfaceServer) mustEmbedUnimplementedInterfaceServer() {}
 
@@ -248,6 +304,78 @@ func _Interface_ReadAll_Handler(srv interface{}, ctx context.Context, dec func(i
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Interface_ReadOneWithBinary_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReadOneWithBinaryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServer).ReadOneWithBinary(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/htpp.interface.v1.Interface/ReadOneWithBinary",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServer).ReadOneWithBinary(ctx, req.(*ReadOneWithBinaryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Interface_ReadAllWithBinary_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReadAllWithBinaryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServer).ReadAllWithBinary(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/htpp.interface.v1.Interface/ReadAllWithBinary",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServer).ReadAllWithBinary(ctx, req.(*ReadAllWithBinaryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Interface_ReadOneWithBinaryAndCalArea_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReadOneWithBinaryAndCalAreaRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServer).ReadOneWithBinaryAndCalArea(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/htpp.interface.v1.Interface/ReadOneWithBinaryAndCalArea",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServer).ReadOneWithBinaryAndCalArea(ctx, req.(*ReadOneWithBinaryAndCalAreaRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Interface_ReadAllWithBinaryAndCalArea_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReadAllWithBinaryAndCalAreaRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServer).ReadAllWithBinaryAndCalArea(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/htpp.interface.v1.Interface/ReadAllWithBinaryAndCalArea",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServer).ReadAllWithBinaryAndCalArea(ctx, req.(*ReadAllWithBinaryAndCalAreaRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Interface_ServiceDesc is the grpc.ServiceDesc for Interface service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -278,6 +406,22 @@ var Interface_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ReadAll",
 			Handler:    _Interface_ReadAll_Handler,
+		},
+		{
+			MethodName: "ReadOneWithBinary",
+			Handler:    _Interface_ReadOneWithBinary_Handler,
+		},
+		{
+			MethodName: "ReadAllWithBinary",
+			Handler:    _Interface_ReadAllWithBinary_Handler,
+		},
+		{
+			MethodName: "ReadOneWithBinaryAndCalArea",
+			Handler:    _Interface_ReadOneWithBinaryAndCalArea_Handler,
+		},
+		{
+			MethodName: "ReadAllWithBinaryAndCalArea",
+			Handler:    _Interface_ReadAllWithBinaryAndCalArea_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
