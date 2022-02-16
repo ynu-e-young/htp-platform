@@ -6,7 +6,7 @@ import (
 	interfaceV1 "htp-platform/api/htpp/interface/v1"
 	"htp-platform/app/htpp/interface/internal/conf"
 	"htp-platform/app/htpp/interface/internal/pkg/middleware/auth"
-	"htp-platform/pkg/hash"
+	"htp-platform/pkg"
 )
 
 type User struct {
@@ -45,7 +45,7 @@ func (uc *UserUsecase) generateTokenHeader(username string) (string, error) {
 }
 
 func (uc *UserUsecase) Register(ctx context.Context, username, email, password string) (*User, error) {
-	ph, err := hash.HashPassword(password)
+	ph, err := pkg.HashPassword(password)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +76,7 @@ func (uc *UserUsecase) Login(ctx context.Context, email, password string) (*User
 		return nil, err
 	}
 
-	if !hash.VerifyPassword(u.PasswordHash, password) {
+	if !pkg.VerifyPassword(u.PasswordHash, password) {
 		return nil, interfaceV1.ErrorLoginFailed("Verify password failed")
 	}
 
@@ -94,7 +94,7 @@ func (uc *UserUsecase) Get(ctx context.Context, id int64) (*User, error) {
 }
 
 func (uc *UserUsecase) Update(ctx context.Context, user *User) (*User, error) {
-	ph, err := hash.HashPassword(user.PasswordHash)
+	ph, err := pkg.HashPassword(user.PasswordHash)
 	if err != nil {
 		return nil, err
 	}

@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+package machine.robot.v1;
+
+option go_package = "api/machine/robot/v1;v1";
+
+// 以下服务运行在机器人端，作为服务端监听后端的请求
+service Control {
+  rpc AppendCoordinate (AppendCoordinateRequest) returns (AppendCoordinateReply) {};
+
+  rpc Zero (ZeroRequest) returns (ZeroReply) {};
+
+  rpc GetMotorInfo (GetMotorInfoRequest) returns (GetMotorInfoReply) {};
+}
+
+// 设定坐标请求
+message AppendCoordinateRequest {
+  double x = 1;     // x
+  double y = 2;     // y
+  double z = 3;     // z
+  double rx = 4;    // 绕 x 角度
+  double ry = 5;    // 绕 y 角度
+  bool check = 6;   // 是否为检查动作
+  double delay = 7; // 每个动作的延时
+  string uuid = 8;  // 设备的唯一识别码
+  string check_name = 9; // 检查动作名称
+}
+
+// 收到坐标后的响应
+message AppendCoordinateReply {
+  bool status = 1;
+}
+
+// 回零请求
+message ZeroRequest {
+  bool zero = 1;
+}
+
+// 收到回零的响应
+message ZeroReply {
+  bool status = 1;
+}
+
+// 请求电机运行信息
+message GetMotorInfoRequest {
+  bool status = 1;
+}
+
+// 响应电机运行信息
+message GetMotorInfoReply {
+  repeated MotorInfo motor_info = 1;
+}
+
+// 电机运行信息
+message MotorInfo {
+  MotorStatus motor_status = 1; // 状态监控
+  int64 instr_pos = 2;          // 命令位置
+  int64 current_pos = 3;        // 实际位置
+}
+
+// 电机状态监控
+message MotorStatus {
+  bool fault = 1;     // 故障
+  bool enabling = 2;  // 使能
+  bool running = 3;   // 运行
+  bool instruction_completion = 4;  // 指令完成
+  bool path_completion = 5;         // 路径完成
+  bool zero_completion = 6;         // 回零完成
+}

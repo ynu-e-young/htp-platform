@@ -18,10 +18,10 @@ api:
 wire:
 	find app -mindepth 2 -maxdepth 2 -type d -print | xargs -L 1 bash -c 'cd "$$0" && pwd && $(MAKE) wire'
 
-.PHONY: proto
+.PHONY: conf
 # generate proto
-proto:
-	find app -mindepth 2 -maxdepth 2 -type d -print | xargs -L 1 bash -c 'cd "$$0" && pwd && $(MAKE) proto'
+conf:
+	find app -mindepth 2 -maxdepth 2 -type d -print | xargs -L 1 bash -c 'cd "$$0" && pwd && $(MAKE) conf'
 
 .PHONY: generate
 # generate generate
