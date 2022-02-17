@@ -64,3 +64,21 @@ func IsReadDeviceError(err error) bool {
 func ErrorReadDeviceError(format string, args ...interface{}) *errors.Error {
 	return errors.New(500, UserServiceErrorReason_READ_DEVICE_ERROR.String(), fmt.Sprintf(format, args...))
 }
+
+func IsCreateFailed(err error) bool {
+	e := errors.FromError(err)
+	return e.Reason == UserServiceErrorReason_CREATE_FAILED.String() && e.Code == 500
+}
+
+func ErrorCreateFailed(format string, args ...interface{}) *errors.Error {
+	return errors.New(500, UserServiceErrorReason_CREATE_FAILED.String(), fmt.Sprintf(format, args...))
+}
+
+func IsAddressConflict(err error) bool {
+	e := errors.FromError(err)
+	return e.Reason == UserServiceErrorReason_ADDRESS_CONFLICT.String() && e.Code == 500
+}
+
+func ErrorAddressConflict(format string, args ...interface{}) *errors.Error {
+	return errors.New(500, UserServiceErrorReason_ADDRESS_CONFLICT.String(), fmt.Sprintf(format, args...))
+}

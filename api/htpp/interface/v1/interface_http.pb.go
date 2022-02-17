@@ -19,6 +19,8 @@ const _ = http.SupportPackageIsVersion1
 
 type InterfaceHTTPServer interface {
 	GetCurrentUser(context.Context, *GetCurrentUserRequest) (*UserReply, error)
+	GetCurrentUserMachines(context.Context, *GetCurrentUserMachinesRequest) (*MachinesReply, error)
+	GetMachine(context.Context, *GetMachineRequest) (*MachineReply, error)
 	Login(context.Context, *LoginRequest) (*UserReply, error)
 	ReadAll(context.Context, *ReadAllRequest) (*ImagesReply, error)
 	ReadAllWithBinary(context.Context, *ReadAllWithBinaryRequest) (*ImagesReply, error)
@@ -27,6 +29,8 @@ type InterfaceHTTPServer interface {
 	ReadOneWithBinary(context.Context, *ReadOneWithBinaryRequest) (*ImageReply, error)
 	ReadOneWithBinaryAndCalArea(context.Context, *ReadOneWithBinaryAndCalAreaRequest) (*ImageWithAreaReply, error)
 	Register(context.Context, *RegisterRequest) (*UserReply, error)
+	RegisterMachine(context.Context, *RegisterMachineRequest) (*MachineReply, error)
+	UpdateMachine(context.Context, *UpdateMachineRequest) (*MachineReply, error)
 	UpdateUser(context.Context, *UpdateUserRequest) (*UserReply, error)
 }
 
@@ -42,6 +46,10 @@ func RegisterInterfaceHTTPServer(s *http.Server, srv InterfaceHTTPServer) {
 	r.GET("/v1/capture/binary", _Interface_ReadAllWithBinary0_HTTP_Handler(srv))
 	r.GET("/v1/capture/{id}/binary/area", _Interface_ReadOneWithBinaryAndCalArea0_HTTP_Handler(srv))
 	r.GET("/v1/capture/binary/area", _Interface_ReadAllWithBinaryAndCalArea0_HTTP_Handler(srv))
+	r.POST("/v1/machines", _Interface_RegisterMachine0_HTTP_Handler(srv))
+	r.PUT("/v1/machine", _Interface_UpdateMachine0_HTTP_Handler(srv))
+	r.GET("/v1/machines/{machine_id}", _Interface_GetMachine0_HTTP_Handler(srv))
+	r.GET("/v1/machine/{user_id}", _Interface_GetCurrentUserMachines0_HTTP_Handler(srv))
 }
 
 func _Interface_Login0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
@@ -246,8 +254,92 @@ func _Interface_ReadAllWithBinaryAndCalArea0_HTTP_Handler(srv InterfaceHTTPServe
 	}
 }
 
+func _Interface_RegisterMachine0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
+	return func(ctx http.Context) error {
+		var in RegisterMachineRequest
+		if err := ctx.Bind(&in); err != nil {
+			return err
+		}
+		http.SetOperation(ctx, "/htpp.interface.v1.Interface/RegisterMachine")
+		h := ctx.Middleware(func(ctx context.Context, req interface{}) (interface{}, error) {
+			return srv.RegisterMachine(ctx, req.(*RegisterMachineRequest))
+		})
+		out, err := h(ctx, &in)
+		if err != nil {
+			return err
+		}
+		reply := out.(*MachineReply)
+		return ctx.Result(200, reply)
+	}
+}
+
+func _Interface_UpdateMachine0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
+	return func(ctx http.Context) error {
+		var in UpdateMachineRequest
+		if err := ctx.Bind(&in); err != nil {
+			return err
+		}
+		http.SetOperation(ctx, "/htpp.interface.v1.Interface/UpdateMachine")
+		h := ctx.Middleware(func(ctx context.Context, req interface{}) (interface{}, error) {
+			return srv.UpdateMachine(ctx, req.(*UpdateMachineRequest))
+		})
+		out, err := h(ctx, &in)
+		if err != nil {
+			return err
+		}
+		reply := out.(*MachineReply)
+		return ctx.Result(200, reply)
+	}
+}
+
+func _Interface_GetMachine0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
+	return func(ctx http.Context) error {
+		var in GetMachineRequest
+		if err := ctx.BindQuery(&in); err != nil {
+			return err
+		}
+		if err := ctx.BindVars(&in); err != nil {
+			return err
+		}
+		http.SetOperation(ctx, "/htpp.interface.v1.Interface/GetMachine")
+		h := ctx.Middleware(func(ctx context.Context, req interface{}) (interface{}, error) {
+			return srv.GetMachine(ctx, req.(*GetMachineRequest))
+		})
+		out, err := h(ctx, &in)
+		if err != nil {
+			return err
+		}
+		reply := out.(*MachineReply)
+		return ctx.Result(200, reply)
+	}
+}
+
+func _Interface_GetCurrentUserMachines0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
+	return func(ctx http.Context) error {
+		var in GetCurrentUserMachinesRequest
+		if err := ctx.BindQuery(&in); err != nil {
+			return err
+		}
+		if err := ctx.BindVars(&in); err != nil {
+			return err
+		}
+		http.SetOperation(ctx, "/htpp.interface.v1.Interface/GetCurrentUserMachines")
+		h := ctx.Middleware(func(ctx context.Context, req interface{}) (interface{}, error) {
+			return srv.GetCurrentUserMachines(ctx, req.(*GetCurrentUserMachinesRequest))
+		})
+		out, err := h(ctx, &in)
+		if err != nil {
+			return err
+		}
+		reply := out.(*MachinesReply)
+		return ctx.Result(200, reply)
+	}
+}
+
 type InterfaceHTTPClient interface {
 	GetCurrentUser(ctx context.Context, req *GetCurrentUserRequest, opts ...http.CallOption) (rsp *UserReply, err error)
+	GetCurrentUserMachines(ctx context.Context, req *GetCurrentUserMachinesRequest, opts ...http.CallOption) (rsp *MachinesReply, err error)
+	GetMachine(ctx context.Context, req *GetMachineRequest, opts ...http.CallOption) (rsp *MachineReply, err error)
 	Login(ctx context.Context, req *LoginRequest, opts ...http.CallOption) (rsp *UserReply, err error)
 	ReadAll(ctx context.Context, req *ReadAllRequest, opts ...http.CallOption) (rsp *ImagesReply, err error)
 	ReadAllWithBinary(ctx context.Context, req *ReadAllWithBinaryRequest, opts ...http.CallOption) (rsp *ImagesReply, err error)
@@ -256,6 +348,8 @@ type InterfaceHTTPClient interface {
 	ReadOneWithBinary(ctx context.Context, req *ReadOneWithBinaryRequest, opts ...http.CallOption) (rsp *ImageReply, err error)
 	ReadOneWithBinaryAndCalArea(ctx context.Context, req *ReadOneWithBinaryAndCalAreaRequest, opts ...http.CallOption) (rsp *ImageWithAreaReply, err error)
 	Register(ctx context.Context, req *RegisterRequest, opts ...http.CallOption) (rsp *UserReply, err error)
+	RegisterMachine(ctx context.Context, req *RegisterMachineRequest, opts ...http.CallOption) (rsp *MachineReply, err error)
+	UpdateMachine(ctx context.Context, req *UpdateMachineRequest, opts ...http.CallOption) (rsp *MachineReply, err error)
 	UpdateUser(ctx context.Context, req *UpdateUserRequest, opts ...http.CallOption) (rsp *UserReply, err error)
 }
 
@@ -272,6 +366,32 @@ func (c *InterfaceHTTPClientImpl) GetCurrentUser(ctx context.Context, in *GetCur
 	pattern := "/v1/user/{id}"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/GetCurrentUser"))
+	opts = append(opts, http.PathTemplate(pattern))
+	err := c.cc.Invoke(ctx, "GET", path, nil, &out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &out, err
+}
+
+func (c *InterfaceHTTPClientImpl) GetCurrentUserMachines(ctx context.Context, in *GetCurrentUserMachinesRequest, opts ...http.CallOption) (*MachinesReply, error) {
+	var out MachinesReply
+	pattern := "/v1/machine/{user_id}"
+	path := binding.EncodeURL(pattern, in, true)
+	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/GetCurrentUserMachines"))
+	opts = append(opts, http.PathTemplate(pattern))
+	err := c.cc.Invoke(ctx, "GET", path, nil, &out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &out, err
+}
+
+func (c *InterfaceHTTPClientImpl) GetMachine(ctx context.Context, in *GetMachineRequest, opts ...http.CallOption) (*MachineReply, error) {
+	var out MachineReply
+	pattern := "/v1/machines/{machine_id}"
+	path := binding.EncodeURL(pattern, in, true)
+	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/GetMachine"))
 	opts = append(opts, http.PathTemplate(pattern))
 	err := c.cc.Invoke(ctx, "GET", path, nil, &out, opts...)
 	if err != nil {
@@ -378,6 +498,32 @@ func (c *InterfaceHTTPClientImpl) Register(ctx context.Context, in *RegisterRequ
 	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/Register"))
 	opts = append(opts, http.PathTemplate(pattern))
 	err := c.cc.Invoke(ctx, "POST", path, in, &out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &out, err
+}
+
+func (c *InterfaceHTTPClientImpl) RegisterMachine(ctx context.Context, in *RegisterMachineRequest, opts ...http.CallOption) (*MachineReply, error) {
+	var out MachineReply
+	pattern := "/v1/machines"
+	path := binding.EncodeURL(pattern, in, false)
+	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/RegisterMachine"))
+	opts = append(opts, http.PathTemplate(pattern))
+	err := c.cc.Invoke(ctx, "POST", path, in, &out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &out, err
+}
+
+func (c *InterfaceHTTPClientImpl) UpdateMachine(ctx context.Context, in *UpdateMachineRequest, opts ...http.CallOption) (*MachineReply, error) {
+	var out MachineReply
+	pattern := "/v1/machine"
+	path := binding.EncodeURL(pattern, in, false)
+	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/UpdateMachine"))
+	opts = append(opts, http.PathTemplate(pattern))
+	err := c.cc.Invoke(ctx, "PUT", path, in, &out, opts...)
 	if err != nil {
 		return nil, err
 	}

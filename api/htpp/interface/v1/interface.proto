@@ -87,7 +87,35 @@ service Interface {
       get: "/v1/capture/binary/area",
     };
   }
+
+  rpc RegisterMachine (RegisterMachineRequest) returns (MachineReply) {
+    option (google.api.http) = {
+      post: "/v1/machines",
+      body: "*",
+    };
+  }
+
+  rpc UpdateMachine (UpdateMachineRequest) returns (MachineReply) {
+    option (google.api.http) = {
+      put: "/v1/machine",
+      body: "*",
+    };
+  }
+
+  rpc GetMachine (GetMachineRequest) returns (MachineReply) {
+    option (google.api.http) = {
+      get: "/v1/machines/{machine_id}",
+    };
+  }
+
+  rpc GetCurrentUserMachines (GetCurrentUserMachinesRequest) returns (MachinesReply) {
+    option (google.api.http) = {
+      get: "/v1/machine/{user_id}",
+    };
+  }
 }
+
+// user
 
 message LoginRequest {
   message User {
@@ -129,6 +157,8 @@ message UserReply {
   }
   User user = 1;
 }
+
+// capture
 
 message ReadOneRequest {
   int64 id = 1;
@@ -176,4 +206,36 @@ message ImagesWithAreaReply {
 
 message Image {
   bytes data = 1;
+}
+
+// machine
+
+message GetCurrentUserMachinesRequest {
+  int64 user_id = 1;
+}
+
+message RegisterMachineRequest {
+  MachineStruct machine = 1;
+}
+
+message UpdateMachineRequest {
+  MachineStruct machine = 1;
+}
+
+message GetMachineRequest {
+  int64 machine_id = 1;
+}
+
+message MachineReply {
+  MachineStruct machine = 1;
+}
+
+message MachinesReply {
+  repeated MachineStruct machines = 1;
+}
+
+message MachineStruct {
+  int64 machine_id = 1;
+  int64 user_id = 2;
+  string address = 3;
 }

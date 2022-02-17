@@ -23,7 +23,8 @@ func initApp(confServer *conf.Server, registry *conf.Registry, confData *conf.Da
 	discovery := data.NewDiscovery(registry)
 	userClient := data.NewUserServiceClient(discovery)
 	captureClient := data.NewCaptureServiceClient(discovery)
-	dataData, err := data.NewData(userClient, captureClient, logger)
+	machineClient := data.NewMachineServiceClient(discovery)
+	dataData, err := data.NewData(userClient, captureClient, machineClient, logger)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -31,7 +32,9 @@ func initApp(confServer *conf.Server, registry *conf.Registry, confData *conf.Da
 	userUsecase := biz.NewUserUsecase(userRepo, jwt, logger)
 	captureRepo := data.NewCaptureRepo(dataData, logger)
 	captureUsecase := biz.NewCaptureUsecase(captureRepo, logger)
-	interfaceService := service.NewInterfaceService(userUsecase, captureUsecase, confData, logger)
+	machineRepo := data.NewMachineRepo(dataData, logger)
+	machineUsecase := biz.NewMachineUsecase(machineRepo, logger)
+	interfaceService := service.NewInterfaceService(userUsecase, captureUsecase, machineUsecase, confData, logger)
 	httpServer := server.NewHTTPServer(confServer, jwt, interfaceService, logger)
 	grpcServer := server.NewGRPCServer(confServer, interfaceService, logger)
 	registrar := server.NewRegistrar(registry)

@@ -10,6 +10,7 @@ import (
 	"github.com/google/wire"
 	consulAPI "github.com/hashicorp/consul/api"
 	captureV1 "htp-platform/api/capture/service/v1"
+	machineV1 "htp-platform/api/machine/service/v1"
 	userV1 "htp-platform/api/user/service/v1"
 	"htp-platform/app/htpp/interface/internal/conf"
 )
@@ -19,26 +20,30 @@ var ProviderSet = wire.NewSet(
 	NewData,
 	NewUserRepo,
 	NewCaptureRepo,
+	NewMachineRepo,
 	NewDiscovery,
 	NewUserServiceClient,
 	NewCaptureServiceClient,
+	NewMachineServiceClient,
 )
 
 // Data .
 type Data struct {
 	uc userV1.UserClient
 	cc captureV1.CaptureClient
+	mc machineV1.MachineClient
 
 	helper *log.Helper
 }
 
 // NewData .
-func NewData(uc userV1.UserClient, cc captureV1.CaptureClient, logger log.Logger) (*Data, error) {
+func NewData(uc userV1.UserClient, cc captureV1.CaptureClient, mc machineV1.MachineClient, logger log.Logger) (*Data, error) {
 	helper := log.NewHelper(log.With(logger, "module", "htpp-interface/data"))
 
 	return &Data{
 		uc:     uc,
 		cc:     cc,
+		mc:     mc,
 		helper: helper,
 	}, nil
 }
@@ -84,5 +89,21 @@ func NewCaptureServiceClient(r registry.Discovery) captureV1.CaptureClient {
 		panic(err)
 	}
 	c := captureV1.NewCaptureClient(conn)
+	return c
+}
+
+func NewMachineServiceClient(r registry.Discovery) machineV1.MachineClient {
+	conn, err := grpc.DialInsecure(
+		context.Background(),
+		grpc.WithEndpoint("discovery:///htp-platform.machine.service"),
+		grpc.WithDiscovery(r),
+		grpc.WithMiddleware(
+			recovery.Recovery(),
+		),
+	)
+	if err != nil {
+		panic(err)
+	}
+	c := machineV1.NewMachineClient(conn)
 	return c
 }

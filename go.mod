@@ -4,7 +4,6 @@ go 1.17
 
 require (
 	entgo.io/ent v0.10.0
-	github.com/davecgh/go-spew v1.1.1
 	github.com/go-kratos/kratos/contrib/registry/consul/v2 v2.0.0-20220131005031-86b8b6c366b9
 	github.com/go-kratos/kratos/v2 v2.1.5
 	github.com/go-sql-driver/mysql v1.6.0

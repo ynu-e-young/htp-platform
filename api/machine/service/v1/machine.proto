@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package machine.service.v1;
+
+option go_package = "api/machine/service/v1;v1";
+
+// The machine service definition.
+service Machine {
+  rpc FindByUserId (FindByUserIdRequest) returns (MachinesReply) {}
+
+  rpc Create (CreateRequest) returns (MachineReply) {}
+
+  rpc Update (UpdateRequest) returns (MachineReply) {}
+
+  rpc Get (GetRequest) returns (MachineReply) {}
+}
+
+message FindByUserIdRequest {
+  int64 user_id = 1;
+}
+
+message CreateRequest {
+  MachineStruct machine = 1;
+}
+
+message UpdateRequest {
+  MachineStruct machine = 1;
+}
+
+message GetRequest {
+  int64 machine_id = 1;
+}
+
+message MachineReply {
+  MachineStruct machine = 1;
+}
+
+message MachinesReply {
+  repeated MachineStruct machines = 1;
+}
+
+message MachineStruct {
+  int64 machine_id = 1;
+  int64 user_id = 2;
+  string address = 3;
+}
+

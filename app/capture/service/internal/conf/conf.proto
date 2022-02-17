@@ -4,7 +4,7 @@ package kratos.api;
 
 import "google/protobuf/duration.proto";
 
-option go_package = "user/service/internal/conf;conf";
+option go_package = "capture/service/internal/conf;conf";
 
 message Bootstrap {
   Server server = 1;

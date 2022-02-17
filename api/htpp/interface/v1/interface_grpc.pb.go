@@ -32,6 +32,10 @@ type InterfaceClient interface {
 	ReadAllWithBinary(ctx context.Context, in *ReadAllWithBinaryRequest, opts ...grpc.CallOption) (*ImagesReply, error)
 	ReadOneWithBinaryAndCalArea(ctx context.Context, in *ReadOneWithBinaryAndCalAreaRequest, opts ...grpc.CallOption) (*ImageWithAreaReply, error)
 	ReadAllWithBinaryAndCalArea(ctx context.Context, in *ReadAllWithBinaryAndCalAreaRequest, opts ...grpc.CallOption) (*ImagesWithAreaReply, error)
+	RegisterMachine(ctx context.Context, in *RegisterMachineRequest, opts ...grpc.CallOption) (*MachineReply, error)
+	UpdateMachine(ctx context.Context, in *UpdateMachineRequest, opts ...grpc.CallOption) (*MachineReply, error)
+	GetMachine(ctx context.Context, in *GetMachineRequest, opts ...grpc.CallOption) (*MachineReply, error)
+	GetCurrentUserMachines(ctx context.Context, in *GetCurrentUserMachinesRequest, opts ...grpc.CallOption) (*MachinesReply, error)
 }
 
 type interfaceClient struct {
@@ -132,6 +136,42 @@ func (c *interfaceClient) ReadAllWithBinaryAndCalArea(ctx context.Context, in *R
 	return out, nil
 }
 
+func (c *interfaceClient) RegisterMachine(ctx context.Context, in *RegisterMachineRequest, opts ...grpc.CallOption) (*MachineReply, error) {
+	out := new(MachineReply)
+	err := c.cc.Invoke(ctx, "/htpp.interface.v1.Interface/RegisterMachine", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interfaceClient) UpdateMachine(ctx context.Context, in *UpdateMachineRequest, opts ...grpc.CallOption) (*MachineReply, error) {
+	out := new(MachineReply)
+	err := c.cc.Invoke(ctx, "/htpp.interface.v1.Interface/UpdateMachine", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interfaceClient) GetMachine(ctx context.Context, in *GetMachineRequest, opts ...grpc.CallOption) (*MachineReply, error) {
+	out := new(MachineReply)
+	err := c.cc.Invoke(ctx, "/htpp.interface.v1.Interface/GetMachine", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interfaceClient) GetCurrentUserMachines(ctx context.Context, in *GetCurrentUserMachinesRequest, opts ...grpc.CallOption) (*MachinesReply, error) {
+	out := new(MachinesReply)
+	err := c.cc.Invoke(ctx, "/htpp.interface.v1.Interface/GetCurrentUserMachines", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // InterfaceServer is the server API for Interface service.
 // All implementations must embed UnimplementedInterfaceServer
 // for forward compatibility
@@ -146,6 +186,10 @@ type InterfaceServer interface {
 	ReadAllWithBinary(context.Context, *ReadAllWithBinaryRequest) (*ImagesReply, error)
 	ReadOneWithBinaryAndCalArea(context.Context, *ReadOneWithBinaryAndCalAreaRequest) (*ImageWithAreaReply, error)
 	ReadAllWithBinaryAndCalArea(context.Context, *ReadAllWithBinaryAndCalAreaRequest) (*ImagesWithAreaReply, error)
+	RegisterMachine(context.Context, *RegisterMachineRequest) (*MachineReply, error)
+	UpdateMachine(context.Context, *UpdateMachineRequest) (*MachineReply, error)
+	GetMachine(context.Context, *GetMachineRequest) (*MachineReply, error)
+	GetCurrentUserMachines(context.Context, *GetCurrentUserMachinesRequest) (*MachinesReply, error)
 	mustEmbedUnimplementedInterfaceServer()
 }
 
@@ -182,6 +226,18 @@ func (UnimplementedInterfaceServer) ReadOneWithBinaryAndCalArea(context.Context,
 }
 func (UnimplementedInterfaceServer) ReadAllWithBinaryAndCalArea(context.Context, *ReadAllWithBinaryAndCalAreaRequest) (*ImagesWithAreaReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReadAllWithBinaryAndCalArea not implemented")
+}
+func (UnimplementedInterfaceServer) RegisterMachine(context.Context, *RegisterMachineRequest) (*MachineReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RegisterMachine not implemented")
+}
+func (UnimplementedInterfaceServer) UpdateMachine(context.Context, *UpdateMachineRequest) (*MachineReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateMachine not implemented")
+}
+func (UnimplementedInterfaceServer) GetMachine(context.Context, *GetMachineRequest) (*MachineReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetMachine not implemented")
+}
+func (UnimplementedInterfaceServer) GetCurrentUserMachines(context.Context, *GetCurrentUserMachinesRequest) (*MachinesReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetCurrentUserMachines not implemented")
 }
 func (UnimplementedInterfaceServer) mustEmbedUnimplementedInterfaceServer() {}
 
@@ -376,6 +432,78 @@ func _Interface_ReadAllWithBinaryAndCalArea_Handler(srv interface{}, ctx context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Interface_RegisterMachine_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterMachineRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServer).RegisterMachine(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/htpp.interface.v1.Interface/RegisterMachine",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServer).RegisterMachine(ctx, req.(*RegisterMachineRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Interface_UpdateMachine_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateMachineRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServer).UpdateMachine(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/htpp.interface.v1.Interface/UpdateMachine",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServer).UpdateMachine(ctx, req.(*UpdateMachineRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Interface_GetMachine_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMachineRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServer).GetMachine(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/htpp.interface.v1.Interface/GetMachine",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServer).GetMachine(ctx, req.(*GetMachineRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Interface_GetCurrentUserMachines_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCurrentUserMachinesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServer).GetCurrentUserMachines(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/htpp.interface.v1.Interface/GetCurrentUserMachines",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServer).GetCurrentUserMachines(ctx, req.(*GetCurrentUserMachinesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Interface_ServiceDesc is the grpc.ServiceDesc for Interface service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -422,6 +550,22 @@ var Interface_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ReadAllWithBinaryAndCalArea",
 			Handler:    _Interface_ReadAllWithBinaryAndCalArea_Handler,
+		},
+		{
+			MethodName: "RegisterMachine",
+			Handler:    _Interface_RegisterMachine_Handler,
+		},
+		{
+			MethodName: "UpdateMachine",
+			Handler:    _Interface_UpdateMachine_Handler,
+		},
+		{
+			MethodName: "GetMachine",
+			Handler:    _Interface_GetMachine_Handler,
+		},
+		{
+			MethodName: "GetCurrentUserMachines",
+			Handler:    _Interface_GetCurrentUserMachines_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

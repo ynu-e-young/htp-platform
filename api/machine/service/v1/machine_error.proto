@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package machine.service.v1;
+
+import "errors/errors.proto";
+
+option go_package = "machine/service/v1;v1";
+option java_multiple_files = true;
+
+enum UserServiceErrorReason {
+  option (errors.default_code) = 500;
+
+  UNKNOWN_ERROR = 0;
+  NOT_FOUND_ERROR = 1;
+  CREATE_FAILED = 2;
+  ADDRESS_CONFLICT = 3;
+}

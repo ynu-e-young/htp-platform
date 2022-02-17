@@ -17,15 +17,17 @@ type InterfaceService struct {
 
 	uu  *biz.UserUsecase
 	cu  *biz.CaptureUsecase
+	mu  *biz.MachineUsecase
 	dcf *conf.Data
 	log *log.Helper
 }
 
 // NewInterfaceService new an interface service.
-func NewInterfaceService(uu *biz.UserUsecase, cu *biz.CaptureUsecase, conf *conf.Data, logger log.Logger) *InterfaceService {
+func NewInterfaceService(uu *biz.UserUsecase, cu *biz.CaptureUsecase, mu *biz.MachineUsecase, conf *conf.Data, logger log.Logger) *InterfaceService {
 	return &InterfaceService{
 		uu:  uu,
 		cu:  cu,
+		mu:  mu,
 		dcf: conf,
 		log: log.NewHelper(log.With(logger, "module", "service/server-service")),
 	}

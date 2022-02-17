@@ -183,6 +183,132 @@
         ]
       }
     },
+    "/v1/machine": {
+      "put": {
+        "operationId": "Interface_UpdateMachine",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MachineReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UpdateMachineRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Interface"
+        ]
+      }
+    },
+    "/v1/machine/{userId}": {
+      "get": {
+        "operationId": "Interface_GetCurrentUserMachines",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MachinesReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Interface"
+        ]
+      }
+    },
+    "/v1/machines": {
+      "post": {
+        "operationId": "Interface_RegisterMachine",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MachineReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1RegisterMachineRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Interface"
+        ]
+      }
+    },
+    "/v1/machines/{machineId}": {
+      "get": {
+        "operationId": "Interface_GetMachine",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MachineReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "machineId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Interface"
+        ]
+      }
+    },
     "/v1/user": {
       "put": {
         "operationId": "Interface_UpdateUser",
@@ -429,6 +555,49 @@
         }
       }
     },
+    "v1MachineReply": {
+      "type": "object",
+      "properties": {
+        "machine": {
+          "$ref": "#/definitions/v1MachineStruct"
+        }
+      }
+    },
+    "v1MachineStruct": {
+      "type": "object",
+      "properties": {
+        "machineId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MachinesReply": {
+      "type": "object",
+      "properties": {
+        "machines": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1MachineStruct"
+          }
+        }
+      }
+    },
+    "v1RegisterMachineRequest": {
+      "type": "object",
+      "properties": {
+        "machine": {
+          "$ref": "#/definitions/v1MachineStruct"
+        }
+      }
+    },
     "v1RegisterRequest": {
       "type": "object",
       "properties": {
@@ -448,6 +617,14 @@
         },
         "password": {
           "type": "string"
+        }
+      }
+    },
+    "v1UpdateMachineRequest": {
+      "type": "object",
+      "properties": {
+        "machine": {
+          "$ref": "#/definitions/v1MachineStruct"
         }
       }
     },
