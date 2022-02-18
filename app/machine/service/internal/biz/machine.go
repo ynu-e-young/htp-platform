@@ -36,13 +36,13 @@ func (mu *MachineUsecase) FindByUserId(ctx context.Context, userId int64) ([]*Ma
 }
 
 func (mu *MachineUsecase) Create(ctx context.Context, machine *Machine) (*Machine, error) {
-	return mu.Create(ctx, machine)
+	return mu.repo.Create(ctx, machine)
 }
 
 func (mu *MachineUsecase) Update(ctx context.Context, machine *Machine) (*Machine, error) {
-	return mu.Update(ctx, machine)
+	return mu.repo.Update(ctx, machine)
 }
 
 func (mu *MachineUsecase) Get(ctx context.Context, machineId int64) (*Machine, error) {
-	return mu.Get(ctx, machineId)
+	return mu.repo.Get(ctx, machineId)
 }

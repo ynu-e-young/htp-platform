@@ -32,6 +32,10 @@ func (r *userRepo) FindByUsername(ctx context.Context, username string) (*biz.Us
 	if err != nil && ent.IsNotFound(err) {
 		return nil, v1.ErrorNotFoundError("find username: %s not found, err: %v", username, err)
 	}
+	if err != nil {
+		r.log.Errorf("unknown err: %v", err)
+		return nil, v1.ErrorUnknownError("unknown err: %v", err)
+	}
 
 	return &biz.User{
 		Id:           target.ID,
@@ -48,6 +52,10 @@ func (r *userRepo) FindByEmail(ctx context.Context, email string) (*biz.User, er
 		Only(ctx)
 	if err != nil && ent.IsNotFound(err) {
 		return nil, v1.ErrorNotFoundError("find email: %s not found, err: %v", email, err)
+	}
+	if err != nil {
+		r.log.Errorf("unknown err: %v", err)
+		return nil, v1.ErrorUnknownError("unknown err: %v", err)
 	}
 
 	return &biz.User{
@@ -68,6 +76,10 @@ func (r *userRepo) Create(ctx context.Context, user *biz.User) (*biz.User, error
 	if err != nil && ent.IsConstraintError(err) {
 		return nil, v1.ErrorUsernameConflict("create user conflict, err: %v", err)
 	}
+	if err != nil {
+		r.log.Errorf("unknown err: %v", err)
+		return nil, v1.ErrorUnknownError("unknown err: %v", err)
+	}
 
 	return &biz.User{
 		Id:           po.ID,
@@ -87,6 +99,10 @@ func (r *userRepo) Update(ctx context.Context, user *biz.User) (*biz.User, error
 	if err != nil && ent.IsConstraintError(err) {
 		return nil, v1.ErrorUsernameConflict("update user conflict, err: %v", err)
 	}
+	if err != nil {
+		r.log.Errorf("unknown err: %v", err)
+		return nil, v1.ErrorUnknownError("unknown err: %v", err)
+	}
 
 	return &biz.User{
 		Id:           po.ID,
@@ -100,6 +116,10 @@ func (r *userRepo) Get(ctx context.Context, id int64) (*biz.User, error) {
 	po, err := r.data.db.User.Get(ctx, id)
 	if err != nil && ent.IsNotFound(err) {
 		return nil, v1.ErrorNotFoundError("find id: %s not found, err: %v", id, err)
+	}
+	if err != nil {
+		r.log.Errorf("unknown err: %v", err)
+		return nil, v1.ErrorUnknownError("unknown err: %v", err)
 	}
 
 	return &biz.User{

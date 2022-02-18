@@ -32,6 +32,10 @@ func (r *machineRepo) FindByUserId(ctx context.Context, userId int64) ([]*biz.Ma
 	if err != nil && ent.IsNotFound(err) {
 		return nil, v1.ErrorNotFoundError("find userId: %d not found, err: %v", userId, err)
 	}
+	if err != nil {
+		r.log.Errorf("unknown err: %v", err)
+		return nil, v1.ErrorUnknownError("unknown err: %v", err)
+	}
 
 	var machines []*biz.Machine
 	for _, target := range targets {
@@ -54,6 +58,10 @@ func (r *machineRepo) Create(ctx context.Context, machine *biz.Machine) (*biz.Ma
 	if err != nil && ent.IsConstraintError(err) {
 		return nil, v1.ErrorAddressConflict("create machine conflict, err: %v", err)
 	}
+	if err != nil {
+		r.log.Errorf("unknown err: %v", err)
+		return nil, v1.ErrorUnknownError("unknown err: %v", err)
+	}
 
 	return &biz.Machine{
 		MachineId: po.ID,
@@ -71,6 +79,10 @@ func (r *machineRepo) Update(ctx context.Context, machine *biz.Machine) (*biz.Ma
 	if err != nil && ent.IsConstraintError(err) {
 		return nil, v1.ErrorAddressConflict("update machine conflict, err: %v", err)
 	}
+	if err != nil {
+		r.log.Errorf("unknown err: %v", err)
+		return nil, v1.ErrorUnknownError("unknown err: %v", err)
+	}
 
 	return &biz.Machine{
 		MachineId: po.ID,
@@ -83,6 +95,10 @@ func (r *machineRepo) Get(ctx context.Context, machineId int64) (*biz.Machine, e
 	po, err := r.data.db.Machine.Get(ctx, machineId)
 	if err != nil && ent.IsNotFound(err) {
 		return nil, v1.ErrorNotFoundError("find id: %s not found, err: %v", machineId, err)
+	}
+	if err != nil {
+		r.log.Errorf("unknown err: %v", err)
+		return nil, v1.ErrorUnknownError("unknown err: %v", err)
 	}
 
 	return &biz.Machine{

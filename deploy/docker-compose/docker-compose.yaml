@@ -39,6 +39,24 @@ services:
         aliases:
           - htp-platform.user.service
 
+  htp-platform.machine.service:
+    # DockerHub:    hominsu/htp-platform-machine-service:latest
+    # GHCR:         ghcr.io/hominsu/htp-platform-machine-service:latest
+    # Ali Registry: registry.cn-shenzhen.aliyuncs.com/hominsu/htp-platform-machine-service:latest
+    # Jetbrains:    e-young.registry.jetbrains.space/p/hpt-platform/containers/htp-platform-machine-service:latest
+    image: hominsu/htp-platform-machine-service:latest
+    container_name: htp-platform.machine.service
+    restart: always
+    environment:
+      # 设置时区，不然 logs 的时间不对
+      TZ: "Asia/Shanghai" # 时区
+    volumes:
+      - "../../app/machine/service/configs:/data/conf"
+    networks:
+      net:
+        aliases:
+          - htp-platform.machine.service
+
   htp-platform.htpp.interface:
     # DockerHub:    hominsu/htp-platform-htpp-interface:latest
     # GHCR:         ghcr.io/hominsu/htp-platform-htpp-interface:latest
@@ -48,6 +66,7 @@ services:
     container_name: htp-platform.htpp.interface
     depends_on:
       - htp-platform.user.service
+      - htp-platform.machine.service
     restart: always
     environment:
       # 设置时区，不然 logs 的时间不对

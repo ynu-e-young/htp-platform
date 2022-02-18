@@ -29,9 +29,8 @@ func (s *MachineService) FindByUserId(ctx context.Context, in *v1.FindByUserIdRe
 func (s *MachineService) Create(ctx context.Context, in *v1.CreateRequest) (*v1.MachineReply, error) {
 	machine := in.GetMachine()
 	m, err := s.mu.Create(ctx, &biz.Machine{
-		MachineId: machine.MachineId,
-		UserId:    machine.UserId,
-		Address:   machine.Address,
+		UserId:  machine.UserId,
+		Address: machine.Address,
 	})
 	if err != nil {
 		return nil, err
