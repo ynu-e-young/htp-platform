@@ -21,7 +21,9 @@ type InterfaceHTTPServer interface {
 	GetCurrentUser(context.Context, *GetCurrentUserRequest) (*UserReply, error)
 	GetCurrentUserMachines(context.Context, *GetCurrentUserMachinesRequest) (*MachinesReply, error)
 	GetMachine(context.Context, *GetMachineRequest) (*MachineReply, error)
+	GetMotorStatus(context.Context, *GetMotorStatusRequest) (*GetMotorStatusReply, error)
 	Login(context.Context, *LoginRequest) (*UserReply, error)
+	Move(context.Context, *MoveRequest) (*MoveReply, error)
 	ReadAll(context.Context, *ReadAllRequest) (*ImagesReply, error)
 	ReadAllWithBinary(context.Context, *ReadAllWithBinaryRequest) (*ImagesReply, error)
 	ReadAllWithBinaryAndCalArea(context.Context, *ReadAllWithBinaryAndCalAreaRequest) (*ImagesWithAreaReply, error)
@@ -32,6 +34,7 @@ type InterfaceHTTPServer interface {
 	RegisterMachine(context.Context, *RegisterMachineRequest) (*MachineReply, error)
 	UpdateMachine(context.Context, *UpdateMachineRequest) (*MachineReply, error)
 	UpdateUser(context.Context, *UpdateUserRequest) (*UserReply, error)
+	Zero(context.Context, *ZeroRequest) (*ZeroReply, error)
 }
 
 func RegisterInterfaceHTTPServer(s *http.Server, srv InterfaceHTTPServer) {
@@ -50,6 +53,9 @@ func RegisterInterfaceHTTPServer(s *http.Server, srv InterfaceHTTPServer) {
 	r.PUT("/v1/machine", _Interface_UpdateMachine0_HTTP_Handler(srv))
 	r.GET("/v1/machines/{machine_id}", _Interface_GetMachine0_HTTP_Handler(srv))
 	r.GET("/v1/machine/{user_id}", _Interface_GetCurrentUserMachines0_HTTP_Handler(srv))
+	r.POST("/v1/machines/{machine_id}/move", _Interface_Move0_HTTP_Handler(srv))
+	r.POST("/v1/machines/{machine_id}/zero", _Interface_Zero0_HTTP_Handler(srv))
+	r.GET("/v1/machines/{machine_id}/status", _Interface_GetMotorStatus0_HTTP_Handler(srv))
 }
 
 func _Interface_Login0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
@@ -336,11 +342,82 @@ func _Interface_GetCurrentUserMachines0_HTTP_Handler(srv InterfaceHTTPServer) fu
 	}
 }
 
+func _Interface_Move0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
+	return func(ctx http.Context) error {
+		var in MoveRequest
+		if err := ctx.Bind(&in); err != nil {
+			return err
+		}
+		if err := ctx.BindVars(&in); err != nil {
+			return err
+		}
+		http.SetOperation(ctx, "/htpp.interface.v1.Interface/Move")
+		h := ctx.Middleware(func(ctx context.Context, req interface{}) (interface{}, error) {
+			return srv.Move(ctx, req.(*MoveRequest))
+		})
+		out, err := h(ctx, &in)
+		if err != nil {
+			return err
+		}
+		reply := out.(*MoveReply)
+		return ctx.Result(200, reply)
+	}
+}
+
+func _Interface_Zero0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
+	return func(ctx http.Context) error {
+		var in ZeroRequest
+		if err := ctx.Bind(&in.MachineId); err != nil {
+			return err
+		}
+		if err := ctx.BindQuery(&in); err != nil {
+			return err
+		}
+		if err := ctx.BindVars(&in); err != nil {
+			return err
+		}
+		http.SetOperation(ctx, "/htpp.interface.v1.Interface/Zero")
+		h := ctx.Middleware(func(ctx context.Context, req interface{}) (interface{}, error) {
+			return srv.Zero(ctx, req.(*ZeroRequest))
+		})
+		out, err := h(ctx, &in)
+		if err != nil {
+			return err
+		}
+		reply := out.(*ZeroReply)
+		return ctx.Result(200, reply)
+	}
+}
+
+func _Interface_GetMotorStatus0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
+	return func(ctx http.Context) error {
+		var in GetMotorStatusRequest
+		if err := ctx.BindQuery(&in); err != nil {
+			return err
+		}
+		if err := ctx.BindVars(&in); err != nil {
+			return err
+		}
+		http.SetOperation(ctx, "/htpp.interface.v1.Interface/GetMotorStatus")
+		h := ctx.Middleware(func(ctx context.Context, req interface{}) (interface{}, error) {
+			return srv.GetMotorStatus(ctx, req.(*GetMotorStatusRequest))
+		})
+		out, err := h(ctx, &in)
+		if err != nil {
+			return err
+		}
+		reply := out.(*GetMotorStatusReply)
+		return ctx.Result(200, reply)
+	}
+}
+
 type InterfaceHTTPClient interface {
 	GetCurrentUser(ctx context.Context, req *GetCurrentUserRequest, opts ...http.CallOption) (rsp *UserReply, err error)
 	GetCurrentUserMachines(ctx context.Context, req *GetCurrentUserMachinesRequest, opts ...http.CallOption) (rsp *MachinesReply, err error)
 	GetMachine(ctx context.Context, req *GetMachineRequest, opts ...http.CallOption) (rsp *MachineReply, err error)
+	GetMotorStatus(ctx context.Context, req *GetMotorStatusRequest, opts ...http.CallOption) (rsp *GetMotorStatusReply, err error)
 	Login(ctx context.Context, req *LoginRequest, opts ...http.CallOption) (rsp *UserReply, err error)
+	Move(ctx context.Context, req *MoveRequest, opts ...http.CallOption) (rsp *MoveReply, err error)
 	ReadAll(ctx context.Context, req *ReadAllRequest, opts ...http.CallOption) (rsp *ImagesReply, err error)
 	ReadAllWithBinary(ctx context.Context, req *ReadAllWithBinaryRequest, opts ...http.CallOption) (rsp *ImagesReply, err error)
 	ReadAllWithBinaryAndCalArea(ctx context.Context, req *ReadAllWithBinaryAndCalAreaRequest, opts ...http.CallOption) (rsp *ImagesWithAreaReply, err error)
@@ -351,6 +428,7 @@ type InterfaceHTTPClient interface {
 	RegisterMachine(ctx context.Context, req *RegisterMachineRequest, opts ...http.CallOption) (rsp *MachineReply, err error)
 	UpdateMachine(ctx context.Context, req *UpdateMachineRequest, opts ...http.CallOption) (rsp *MachineReply, err error)
 	UpdateUser(ctx context.Context, req *UpdateUserRequest, opts ...http.CallOption) (rsp *UserReply, err error)
+	Zero(ctx context.Context, req *ZeroRequest, opts ...http.CallOption) (rsp *ZeroReply, err error)
 }
 
 type InterfaceHTTPClientImpl struct {
@@ -400,11 +478,37 @@ func (c *InterfaceHTTPClientImpl) GetMachine(ctx context.Context, in *GetMachine
 	return &out, err
 }
 
+func (c *InterfaceHTTPClientImpl) GetMotorStatus(ctx context.Context, in *GetMotorStatusRequest, opts ...http.CallOption) (*GetMotorStatusReply, error) {
+	var out GetMotorStatusReply
+	pattern := "/v1/machines/{machine_id}/status"
+	path := binding.EncodeURL(pattern, in, true)
+	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/GetMotorStatus"))
+	opts = append(opts, http.PathTemplate(pattern))
+	err := c.cc.Invoke(ctx, "GET", path, nil, &out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &out, err
+}
+
 func (c *InterfaceHTTPClientImpl) Login(ctx context.Context, in *LoginRequest, opts ...http.CallOption) (*UserReply, error) {
 	var out UserReply
 	pattern := "/v1/users/login"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/Login"))
+	opts = append(opts, http.PathTemplate(pattern))
+	err := c.cc.Invoke(ctx, "POST", path, in, &out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &out, err
+}
+
+func (c *InterfaceHTTPClientImpl) Move(ctx context.Context, in *MoveRequest, opts ...http.CallOption) (*MoveReply, error) {
+	var out MoveReply
+	pattern := "/v1/machines/{machine_id}/move"
+	path := binding.EncodeURL(pattern, in, false)
+	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/Move"))
 	opts = append(opts, http.PathTemplate(pattern))
 	err := c.cc.Invoke(ctx, "POST", path, in, &out, opts...)
 	if err != nil {
@@ -537,6 +641,19 @@ func (c *InterfaceHTTPClientImpl) UpdateUser(ctx context.Context, in *UpdateUser
 	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/UpdateUser"))
 	opts = append(opts, http.PathTemplate(pattern))
 	err := c.cc.Invoke(ctx, "PUT", path, in, &out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &out, err
+}
+
+func (c *InterfaceHTTPClientImpl) Zero(ctx context.Context, in *ZeroRequest, opts ...http.CallOption) (*ZeroReply, error) {
+	var out ZeroReply
+	pattern := "/v1/machines/{machine_id}/zero"
+	path := binding.EncodeURL(pattern, in, false)
+	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/Zero"))
+	opts = append(opts, http.PathTemplate(pattern))
+	err := c.cc.Invoke(ctx, "POST", path, in.MachineId, &out, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -1,0 +1,7 @@
+{
+  "uuid": "f7e99dda-2b0b-4184-8863-ecb96104c805",
+  "server_rpc_address": "127.0.0.1",
+  "server_rpc_port": "50002",
+  "local_rpc_address": "0.0.0.0",
+  "local_rpc_port": "50005"
+}

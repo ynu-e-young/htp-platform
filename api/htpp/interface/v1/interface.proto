@@ -113,6 +113,27 @@ service Interface {
       get: "/v1/machine/{user_id}",
     };
   }
+
+  rpc Move (MoveRequest) returns (MoveReply) {
+    option (google.api.http) = {
+      post: "/v1/machines/{machine_id}/move",
+      body: "*",
+    };
+  }
+
+  rpc Zero (ZeroRequest) returns (ZeroReply) {
+    option (google.api.http) = {
+      post: "/v1/machines/{machine_id}/zero",
+      body: "machine_id",
+    };
+  }
+
+  rpc GetMotorStatus (GetMotorStatusRequest) returns (GetMotorStatusReply) {
+    option (google.api.http) = {
+      get: "/v1/machines/{machine_id}/status",
+    };
+  }
+
 }
 
 // user
@@ -238,4 +259,55 @@ message MachineStruct {
   int64 machine_id = 1;
   int64 user_id = 2;
   string address = 3;
+}
+
+message MoveRequest {
+  double x = 1;     // x
+  double y = 2;     // y
+  double z = 3;     // z
+  double rx = 4;    // 绕 x 角度
+  double ry = 5;    // 绕 y 角度
+  bool check = 6;   // 是否为检查动作
+  double delay = 7; // 每个动作的延时
+  int64 machine_id = 8;  // 设备的唯一识别码
+  string check_name = 9; // 检查动作名称
+}
+
+message MoveReply {
+  bool status = 1;
+}
+
+message ZeroRequest {
+  int64 machine_id = 1;
+}
+
+message ZeroReply {
+  bool status = 1;
+}
+
+// 请求电机运行信息
+message GetMotorStatusRequest {
+  int64 machine_id = 1;
+}
+
+// 响应电机运行信息
+message GetMotorStatusReply {
+  repeated MotorInfo motor_info = 1;
+}
+
+// 电机运行信息
+message MotorInfo {
+  MotorStatus motor_status = 1; // 状态监控
+  int64 instr_pos = 2;          // 命令位置
+  int64 current_pos = 3;        // 实际位置
+}
+
+// 电机状态监控
+message MotorStatus {
+  bool fault = 1;     // 故障
+  bool enabling = 2;  // 使能
+  bool running = 3;   // 运行
+  bool instruction_completion = 4;  // 指令完成
+  bool path_completion = 5;         // 路径完成
+  bool zero_completion = 6;         // 回零完成
 }

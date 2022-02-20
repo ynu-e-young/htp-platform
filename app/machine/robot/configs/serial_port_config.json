@@ -1,0 +1,11 @@
+{
+  "serial_info": {
+    "serial_port": "/dev/cu.usbserial-AB0JHQVJ",
+    "baud_rate": 115200,
+    "data_bits": 8,
+    "stop_bits": 1,
+    "parity": 0,
+    "flow_control": false,
+    "clocal": true
+  }
+}

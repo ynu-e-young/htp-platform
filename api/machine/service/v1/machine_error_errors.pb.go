@@ -13,36 +13,36 @@ const _ = errors.SupportPackageIsVersion1
 
 func IsUnknownError(err error) bool {
 	e := errors.FromError(err)
-	return e.Reason == UserServiceErrorReason_UNKNOWN_ERROR.String() && e.Code == 500
+	return e.Reason == MachineServiceErrorReason_UNKNOWN_ERROR.String() && e.Code == 500
 }
 
 func ErrorUnknownError(format string, args ...interface{}) *errors.Error {
-	return errors.New(500, UserServiceErrorReason_UNKNOWN_ERROR.String(), fmt.Sprintf(format, args...))
+	return errors.New(500, MachineServiceErrorReason_UNKNOWN_ERROR.String(), fmt.Sprintf(format, args...))
 }
 
 func IsNotFoundError(err error) bool {
 	e := errors.FromError(err)
-	return e.Reason == UserServiceErrorReason_NOT_FOUND_ERROR.String() && e.Code == 500
+	return e.Reason == MachineServiceErrorReason_NOT_FOUND_ERROR.String() && e.Code == 500
 }
 
 func ErrorNotFoundError(format string, args ...interface{}) *errors.Error {
-	return errors.New(500, UserServiceErrorReason_NOT_FOUND_ERROR.String(), fmt.Sprintf(format, args...))
+	return errors.New(500, MachineServiceErrorReason_NOT_FOUND_ERROR.String(), fmt.Sprintf(format, args...))
 }
 
 func IsCreateFailed(err error) bool {
 	e := errors.FromError(err)
-	return e.Reason == UserServiceErrorReason_CREATE_FAILED.String() && e.Code == 500
+	return e.Reason == MachineServiceErrorReason_CREATE_FAILED.String() && e.Code == 500
 }
 
 func ErrorCreateFailed(format string, args ...interface{}) *errors.Error {
-	return errors.New(500, UserServiceErrorReason_CREATE_FAILED.String(), fmt.Sprintf(format, args...))
+	return errors.New(500, MachineServiceErrorReason_CREATE_FAILED.String(), fmt.Sprintf(format, args...))
 }
 
 func IsAddressConflict(err error) bool {
 	e := errors.FromError(err)
-	return e.Reason == UserServiceErrorReason_ADDRESS_CONFLICT.String() && e.Code == 500
+	return e.Reason == MachineServiceErrorReason_ADDRESS_CONFLICT.String() && e.Code == 500
 }
 
 func ErrorAddressConflict(format string, args ...interface{}) *errors.Error {
-	return errors.New(500, UserServiceErrorReason_ADDRESS_CONFLICT.String(), fmt.Sprintf(format, args...))
+	return errors.New(500, MachineServiceErrorReason_ADDRESS_CONFLICT.String(), fmt.Sprintf(format, args...))
 }

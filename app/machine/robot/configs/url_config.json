@@ -1,0 +1,12 @@
+{
+  "post_url": {
+    "ip": "113.55.101.101",
+    "port": "8081",
+    "api": "api/v1/sendParams"
+  },
+  "get_url": {
+    "ip": "113.55.101.101",
+    "port": "8081",
+    "api": "api/v1/getData"
+  }
+}

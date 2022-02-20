@@ -36,6 +36,9 @@ type InterfaceClient interface {
 	UpdateMachine(ctx context.Context, in *UpdateMachineRequest, opts ...grpc.CallOption) (*MachineReply, error)
 	GetMachine(ctx context.Context, in *GetMachineRequest, opts ...grpc.CallOption) (*MachineReply, error)
 	GetCurrentUserMachines(ctx context.Context, in *GetCurrentUserMachinesRequest, opts ...grpc.CallOption) (*MachinesReply, error)
+	Move(ctx context.Context, in *MoveRequest, opts ...grpc.CallOption) (*MoveReply, error)
+	Zero(ctx context.Context, in *ZeroRequest, opts ...grpc.CallOption) (*ZeroReply, error)
+	GetMotorStatus(ctx context.Context, in *GetMotorStatusRequest, opts ...grpc.CallOption) (*GetMotorStatusReply, error)
 }
 
 type interfaceClient struct {
@@ -172,6 +175,33 @@ func (c *interfaceClient) GetCurrentUserMachines(ctx context.Context, in *GetCur
 	return out, nil
 }
 
+func (c *interfaceClient) Move(ctx context.Context, in *MoveRequest, opts ...grpc.CallOption) (*MoveReply, error) {
+	out := new(MoveReply)
+	err := c.cc.Invoke(ctx, "/htpp.interface.v1.Interface/Move", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interfaceClient) Zero(ctx context.Context, in *ZeroRequest, opts ...grpc.CallOption) (*ZeroReply, error) {
+	out := new(ZeroReply)
+	err := c.cc.Invoke(ctx, "/htpp.interface.v1.Interface/Zero", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interfaceClient) GetMotorStatus(ctx context.Context, in *GetMotorStatusRequest, opts ...grpc.CallOption) (*GetMotorStatusReply, error) {
+	out := new(GetMotorStatusReply)
+	err := c.cc.Invoke(ctx, "/htpp.interface.v1.Interface/GetMotorStatus", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // InterfaceServer is the server API for Interface service.
 // All implementations must embed UnimplementedInterfaceServer
 // for forward compatibility
@@ -190,6 +220,9 @@ type InterfaceServer interface {
 	UpdateMachine(context.Context, *UpdateMachineRequest) (*MachineReply, error)
 	GetMachine(context.Context, *GetMachineRequest) (*MachineReply, error)
 	GetCurrentUserMachines(context.Context, *GetCurrentUserMachinesRequest) (*MachinesReply, error)
+	Move(context.Context, *MoveRequest) (*MoveReply, error)
+	Zero(context.Context, *ZeroRequest) (*ZeroReply, error)
+	GetMotorStatus(context.Context, *GetMotorStatusRequest) (*GetMotorStatusReply, error)
 	mustEmbedUnimplementedInterfaceServer()
 }
 
@@ -238,6 +271,15 @@ func (UnimplementedInterfaceServer) GetMachine(context.Context, *GetMachineReque
 }
 func (UnimplementedInterfaceServer) GetCurrentUserMachines(context.Context, *GetCurrentUserMachinesRequest) (*MachinesReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetCurrentUserMachines not implemented")
+}
+func (UnimplementedInterfaceServer) Move(context.Context, *MoveRequest) (*MoveReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Move not implemented")
+}
+func (UnimplementedInterfaceServer) Zero(context.Context, *ZeroRequest) (*ZeroReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Zero not implemented")
+}
+func (UnimplementedInterfaceServer) GetMotorStatus(context.Context, *GetMotorStatusRequest) (*GetMotorStatusReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetMotorStatus not implemented")
 }
 func (UnimplementedInterfaceServer) mustEmbedUnimplementedInterfaceServer() {}
 
@@ -504,6 +546,60 @@ func _Interface_GetCurrentUserMachines_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Interface_Move_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MoveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServer).Move(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/htpp.interface.v1.Interface/Move",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServer).Move(ctx, req.(*MoveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Interface_Zero_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ZeroRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServer).Zero(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/htpp.interface.v1.Interface/Zero",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServer).Zero(ctx, req.(*ZeroRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Interface_GetMotorStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMotorStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServer).GetMotorStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/htpp.interface.v1.Interface/GetMotorStatus",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServer).GetMotorStatus(ctx, req.(*GetMotorStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Interface_ServiceDesc is the grpc.ServiceDesc for Interface service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -566,6 +662,18 @@ var Interface_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetCurrentUserMachines",
 			Handler:    _Interface_GetCurrentUserMachines_Handler,
+		},
+		{
+			MethodName: "Move",
+			Handler:    _Interface_Move_Handler,
+		},
+		{
+			MethodName: "Zero",
+			Handler:    _Interface_Zero_Handler,
+		},
+		{
+			MethodName: "GetMotorStatus",
+			Handler:    _Interface_GetMotorStatus_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

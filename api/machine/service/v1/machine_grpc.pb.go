@@ -26,6 +26,10 @@ type MachineClient interface {
 	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*MachineReply, error)
 	Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*MachineReply, error)
 	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*MachineReply, error)
+	Move(ctx context.Context, in *MoveRequest, opts ...grpc.CallOption) (*MoveReply, error)
+	Zero(ctx context.Context, in *ZeroRequest, opts ...grpc.CallOption) (*ZeroReply, error)
+	GetMotorStatus(ctx context.Context, in *GetMotorStatusRequest, opts ...grpc.CallOption) (*GetMotorStatusReply, error)
+	MoveDone(ctx context.Context, in *MoveDoneRequest, opts ...grpc.CallOption) (*MoveDoneReply, error)
 }
 
 type machineClient struct {
@@ -72,6 +76,42 @@ func (c *machineClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.Ca
 	return out, nil
 }
 
+func (c *machineClient) Move(ctx context.Context, in *MoveRequest, opts ...grpc.CallOption) (*MoveReply, error) {
+	out := new(MoveReply)
+	err := c.cc.Invoke(ctx, "/machine.service.v1.Machine/Move", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *machineClient) Zero(ctx context.Context, in *ZeroRequest, opts ...grpc.CallOption) (*ZeroReply, error) {
+	out := new(ZeroReply)
+	err := c.cc.Invoke(ctx, "/machine.service.v1.Machine/Zero", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *machineClient) GetMotorStatus(ctx context.Context, in *GetMotorStatusRequest, opts ...grpc.CallOption) (*GetMotorStatusReply, error) {
+	out := new(GetMotorStatusReply)
+	err := c.cc.Invoke(ctx, "/machine.service.v1.Machine/GetMotorStatus", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *machineClient) MoveDone(ctx context.Context, in *MoveDoneRequest, opts ...grpc.CallOption) (*MoveDoneReply, error) {
+	out := new(MoveDoneReply)
+	err := c.cc.Invoke(ctx, "/machine.service.v1.Machine/MoveDone", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MachineServer is the server API for Machine service.
 // All implementations must embed UnimplementedMachineServer
 // for forward compatibility
@@ -80,6 +120,10 @@ type MachineServer interface {
 	Create(context.Context, *CreateRequest) (*MachineReply, error)
 	Update(context.Context, *UpdateRequest) (*MachineReply, error)
 	Get(context.Context, *GetRequest) (*MachineReply, error)
+	Move(context.Context, *MoveRequest) (*MoveReply, error)
+	Zero(context.Context, *ZeroRequest) (*ZeroReply, error)
+	GetMotorStatus(context.Context, *GetMotorStatusRequest) (*GetMotorStatusReply, error)
+	MoveDone(context.Context, *MoveDoneRequest) (*MoveDoneReply, error)
 	mustEmbedUnimplementedMachineServer()
 }
 
@@ -98,6 +142,18 @@ func (UnimplementedMachineServer) Update(context.Context, *UpdateRequest) (*Mach
 }
 func (UnimplementedMachineServer) Get(context.Context, *GetRequest) (*MachineReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
+}
+func (UnimplementedMachineServer) Move(context.Context, *MoveRequest) (*MoveReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Move not implemented")
+}
+func (UnimplementedMachineServer) Zero(context.Context, *ZeroRequest) (*ZeroReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Zero not implemented")
+}
+func (UnimplementedMachineServer) GetMotorStatus(context.Context, *GetMotorStatusRequest) (*GetMotorStatusReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetMotorStatus not implemented")
+}
+func (UnimplementedMachineServer) MoveDone(context.Context, *MoveDoneRequest) (*MoveDoneReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method MoveDone not implemented")
 }
 func (UnimplementedMachineServer) mustEmbedUnimplementedMachineServer() {}
 
@@ -184,6 +240,78 @@ func _Machine_Get_Handler(srv interface{}, ctx context.Context, dec func(interfa
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Machine_Move_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MoveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MachineServer).Move(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/machine.service.v1.Machine/Move",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MachineServer).Move(ctx, req.(*MoveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Machine_Zero_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ZeroRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MachineServer).Zero(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/machine.service.v1.Machine/Zero",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MachineServer).Zero(ctx, req.(*ZeroRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Machine_GetMotorStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMotorStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MachineServer).GetMotorStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/machine.service.v1.Machine/GetMotorStatus",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MachineServer).GetMotorStatus(ctx, req.(*GetMotorStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Machine_MoveDone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MoveDoneRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MachineServer).MoveDone(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/machine.service.v1.Machine/MoveDone",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MachineServer).MoveDone(ctx, req.(*MoveDoneRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Machine_ServiceDesc is the grpc.ServiceDesc for Machine service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -206,6 +334,22 @@ var Machine_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Get",
 			Handler:    _Machine_Get_Handler,
+		},
+		{
+			MethodName: "Move",
+			Handler:    _Machine_Move_Handler,
+		},
+		{
+			MethodName: "Zero",
+			Handler:    _Machine_Zero_Handler,
+		},
+		{
+			MethodName: "GetMotorStatus",
+			Handler:    _Machine_GetMotorStatus_Handler,
+		},
+		{
+			MethodName: "MoveDone",
+			Handler:    _Machine_MoveDone_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

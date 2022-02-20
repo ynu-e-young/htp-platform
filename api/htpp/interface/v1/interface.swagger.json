@@ -309,6 +309,148 @@
         ]
       }
     },
+    "/v1/machines/{machineId}/move": {
+      "post": {
+        "operationId": "Interface_Move",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MoveReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "machineId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "y": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "z": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "rx": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "ry": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "check": {
+                  "type": "boolean"
+                },
+                "delay": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "checkName": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Interface"
+        ]
+      }
+    },
+    "/v1/machines/{machineId}/status": {
+      "get": {
+        "operationId": "Interface_GetMotorStatus",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetMotorStatusReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "machineId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Interface"
+        ]
+      }
+    },
+    "/v1/machines/{machineId}/zero": {
+      "post": {
+        "operationId": "Interface_Zero",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ZeroReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "machineId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "int64"
+            }
+          }
+        ],
+        "tags": [
+          "Interface"
+        ]
+      }
+    },
     "/v1/user": {
       "put": {
         "operationId": "Interface_UpdateUser",
@@ -481,6 +623,18 @@
         }
       }
     },
+    "v1GetMotorStatusReply": {
+      "type": "object",
+      "properties": {
+        "motorInfo": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1MotorInfo"
+          }
+        }
+      },
+      "title": "响应电机运行信息"
+    },
     "v1Image": {
       "type": "object",
       "properties": {
@@ -590,6 +744,55 @@
         }
       }
     },
+    "v1MotorInfo": {
+      "type": "object",
+      "properties": {
+        "motorStatus": {
+          "$ref": "#/definitions/v1MotorStatus"
+        },
+        "instrPos": {
+          "type": "string",
+          "format": "int64"
+        },
+        "currentPos": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "title": "电机运行信息"
+    },
+    "v1MotorStatus": {
+      "type": "object",
+      "properties": {
+        "fault": {
+          "type": "boolean"
+        },
+        "enabling": {
+          "type": "boolean"
+        },
+        "running": {
+          "type": "boolean"
+        },
+        "instructionCompletion": {
+          "type": "boolean"
+        },
+        "pathCompletion": {
+          "type": "boolean"
+        },
+        "zeroCompletion": {
+          "type": "boolean"
+        }
+      },
+      "title": "电机状态监控"
+    },
+    "v1MoveReply": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "boolean"
+        }
+      }
+    },
     "v1RegisterMachineRequest": {
       "type": "object",
       "properties": {
@@ -677,6 +880,14 @@
         },
         "username": {
           "type": "string"
+        }
+      }
+    },
+    "v1ZeroReply": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "boolean"
         }
       }
     }

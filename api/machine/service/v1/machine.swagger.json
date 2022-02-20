@@ -44,6 +44,18 @@
         }
       }
     },
+    "v1GetMotorStatusReply": {
+      "type": "object",
+      "properties": {
+        "motorInfo": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1MotorInfo"
+          }
+        }
+      },
+      "title": "响应电机运行信息"
+    },
     "v1MachineReply": {
       "type": "object",
       "properties": {
@@ -76,6 +88,71 @@
           "items": {
             "$ref": "#/definitions/v1MachineStruct"
           }
+        }
+      }
+    },
+    "v1MotorInfo": {
+      "type": "object",
+      "properties": {
+        "motorStatus": {
+          "$ref": "#/definitions/v1MotorStatus"
+        },
+        "instrPos": {
+          "type": "string",
+          "format": "int64"
+        },
+        "currentPos": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "title": "电机运行信息"
+    },
+    "v1MotorStatus": {
+      "type": "object",
+      "properties": {
+        "fault": {
+          "type": "boolean"
+        },
+        "enabling": {
+          "type": "boolean"
+        },
+        "running": {
+          "type": "boolean"
+        },
+        "instructionCompletion": {
+          "type": "boolean"
+        },
+        "pathCompletion": {
+          "type": "boolean"
+        },
+        "zeroCompletion": {
+          "type": "boolean"
+        }
+      },
+      "title": "电机状态监控"
+    },
+    "v1MoveDoneReply": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1MoveReply": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1ZeroReply": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "boolean"
         }
       }
     }

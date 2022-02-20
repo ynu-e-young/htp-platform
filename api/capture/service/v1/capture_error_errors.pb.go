@@ -13,36 +13,36 @@ const _ = errors.SupportPackageIsVersion1
 
 func IsUnknownError(err error) bool {
 	e := errors.FromError(err)
-	return e.Reason == UserServiceErrorReason_UNKNOWN_ERROR.String() && e.Code == 500
+	return e.Reason == CaptureServiceErrorReason_UNKNOWN_ERROR.String() && e.Code == 500
 }
 
 func ErrorUnknownError(format string, args ...interface{}) *errors.Error {
-	return errors.New(500, UserServiceErrorReason_UNKNOWN_ERROR.String(), fmt.Sprintf(format, args...))
+	return errors.New(500, CaptureServiceErrorReason_UNKNOWN_ERROR.String(), fmt.Sprintf(format, args...))
 }
 
 func IsReadDeviceError(err error) bool {
 	e := errors.FromError(err)
-	return e.Reason == UserServiceErrorReason_READ_DEVICE_ERROR.String() && e.Code == 500
+	return e.Reason == CaptureServiceErrorReason_READ_DEVICE_ERROR.String() && e.Code == 500
 }
 
 func ErrorReadDeviceError(format string, args ...interface{}) *errors.Error {
-	return errors.New(500, UserServiceErrorReason_READ_DEVICE_ERROR.String(), fmt.Sprintf(format, args...))
+	return errors.New(500, CaptureServiceErrorReason_READ_DEVICE_ERROR.String(), fmt.Sprintf(format, args...))
 }
 
 func IsConvertError(err error) bool {
 	e := errors.FromError(err)
-	return e.Reason == UserServiceErrorReason_CONVERT_ERROR.String() && e.Code == 500
+	return e.Reason == CaptureServiceErrorReason_CONVERT_ERROR.String() && e.Code == 500
 }
 
 func ErrorConvertError(format string, args ...interface{}) *errors.Error {
-	return errors.New(500, UserServiceErrorReason_CONVERT_ERROR.String(), fmt.Sprintf(format, args...))
+	return errors.New(500, CaptureServiceErrorReason_CONVERT_ERROR.String(), fmt.Sprintf(format, args...))
 }
 
 func IsBinaryError(err error) bool {
 	e := errors.FromError(err)
-	return e.Reason == UserServiceErrorReason_BINARY_ERROR.String() && e.Code == 500
+	return e.Reason == CaptureServiceErrorReason_BINARY_ERROR.String() && e.Code == 500
 }
 
 func ErrorBinaryError(format string, args ...interface{}) *errors.Error {
-	return errors.New(500, UserServiceErrorReason_BINARY_ERROR.String(), fmt.Sprintf(format, args...))
+	return errors.New(500, CaptureServiceErrorReason_BINARY_ERROR.String(), fmt.Sprintf(format, args...))
 }

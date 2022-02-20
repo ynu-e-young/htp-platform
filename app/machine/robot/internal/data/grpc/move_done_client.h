@@ -1,0 +1,26 @@
+//
+// Created by Homin Su on 2022/2/19.
+//
+
+#ifndef HTP_PLATFORM_MACHINE_ROBOT_INTERNAL_DATA_MOVE_DONE_CLIENT_H_
+#define HTP_PLATFORM_MACHINE_ROBOT_INTERNAL_DATA_MOVE_DONE_CLIENT_H_
+
+#include "../../../../../api/machine/service/v1/machine.grpc.pb.h"
+#include "../service/move_done_req.h"
+#include "../utils/get_cred.h"
+
+#include <grpc++/grpc++.h>
+
+class MoveDoneClient {
+ public:
+  explicit MoveDoneClient(const std::string &_server_address)
+      : stub_(machine::service::v1::Machine::NewStub(grpc::CreateChannel(_server_address, GetCred::GetClientCred()))) {}
+
+ public:
+  bool MoveDone(const MoveDoneRequestBody &_body);
+
+ private:
+  std::unique_ptr<machine::service::v1::Machine::Stub> stub_{};
+};
+
+#endif //HTP_PLATFORM_MACHINE_ROBOT_INTERNAL_DATA_MOVE_DONE_CLIENT_H_

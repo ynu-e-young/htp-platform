@@ -7,7 +7,7 @@ import "errors/errors.proto";
 option go_package = "htpp/interface/v1;v1";
 option java_multiple_files = true;
 
-enum UserServiceErrorReason {
+enum HtppInterfaceErrorReason {
   option (errors.default_code) = 500;
 
   UNKNOWN_ERROR = 0;
