@@ -2,14 +2,14 @@
 // Created by HominSu on 2021/5/7.
 //
 
-#ifndef TEST_MOTOR_MOTOR_H_
-#define TEST_MOTOR_MOTOR_H_
-
-#include <vector>
+#ifndef HTP_PLATFORM_MACHINE_ROBOT_INTERNAL_DATA_MOTOR_MOTOR_H
+#define HTP_PLATFORM_MACHINE_ROBOT_INTERNAL_DATA_MOTOR_MOTOR_H
 
 #include "motor_serial_comm.h"
 #include "motor_config/motor_path.h"
 #include "motor_config/motor_status_reg.h"
+
+#include <vector>
 
 const int kPulsePerRevolution = 2000;    ///< 2000 脉冲一转
 const int kMaxMotor = 6;    ///< 控制器数量
@@ -67,4 +67,4 @@ class Motor {
   void MotorGetPosReg(unsigned char _addr);
 };
 
-#endif //TEST_MOTOR_MOTOR_H_
+#endif //HTP_PLATFORM_MACHINE_ROBOT_INTERNAL_DATA_MOTOR_MOTOR_H

@@ -7,22 +7,34 @@ VERSION=$(shell git describe --tags --always)
 APP_RELATIVE_PATH=$(shell a=`basename $$PWD` && cd .. && b=`basename $$PWD` && echo $$b/$$a)
 INTERNAL_PROTO_FILES=$(shell find internal -name *.proto)
 API_PROTO_FILES=$(shell cd ../../../api/$(APP_RELATIVE_PATH) && find . -name *.proto)
+CPP_API_PROTO_FILES=$(shell cd ../../../api/$(APP_RELATIVE_PATH) && find . -name *.proto | grep -v error)
 
 REPO="hominsu"
 
 APP_NAME=$(shell echo $(APP_RELATIVE_PATH) | sed -En "s/\//-/p")
 DOCKER_IMAGE=$(REPO)/$(shell echo $(APP_NAME) |awk -F '@' '{print "htp-platform-" $$0 ":$(VERSION)"}')
 
+.PHONY: grpc-go
+# generate grpc go code
+grpc-go:
+	cd ../../../api/$(APP_RELATIVE_PATH) && protoc --proto_path=. \
+			--proto_path=../../../third_party \
+			--go_out=paths=source_relative:. \
+			--go-grpc_out=paths=source_relative:. \
+			$(API_PROTO_FILES)
+
+.PHONY: grpc-cpp
+# generate grpc cpp code
+grpc-cpp:
+	cd ../../../api/$(APP_RELATIVE_PATH) && protoc --proto_path=./v1 \
+			--proto_path=../../../third_party \
+			--cpp_out=./v1/cpp \
+			--grpc_out=./v1/cpp --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` \
+			$(CPP_API_PROTO_FILES)
+
 .PHONY: grpc
 # generate grpc code
-grpc:
-	 cd ../../../api/$(APP_RELATIVE_PATH) && protoc --proto_path=. \
-           --proto_path=../../../third_party \
-           --go_out=paths=source_relative:. \
-           --go-grpc_out=paths=source_relative:. \
-           --cpp_out=. \
-           --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` \
-           $(API_PROTO_FILES)
+grpc: grpc-go grpc-cpp
 
 .PHONY: http
 # generate http code
@@ -67,7 +79,11 @@ generate:
 .PHONY: build
 # build
 build:
-	mkdir -p bin/ && go build -ldflags "-X main.Version=$(VERSION)" -o ./bin/ ./...
+	mkdir -p bin/ && \
+	cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Release && \
+	cmake --build ./build --parallel && \
+	mv build/htp-platform.machine.robot bin/server &&\
+	rm -rf build
 
 .PHONY: test
 # test

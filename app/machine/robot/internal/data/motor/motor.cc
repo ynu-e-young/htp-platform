@@ -2,9 +2,9 @@
 // Created by HominSu on 2021/5/7.
 //
 
-#include <stdexcept>
-
 #include "motor.h"
+
+#include <stdexcept>
 
 Motor::Motor() = default;
 

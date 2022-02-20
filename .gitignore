@@ -4,3 +4,4 @@
 *.rdb
 *.log
 **/consul/data
+cmake-build-*/

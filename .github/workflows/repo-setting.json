@@ -15,13 +15,6 @@
       "token": "GITHUB_TOKEN"
     },
     {
-      "name": "Aliyuncs",
-      "register": "registry.cn-shenzhen.aliyuncs.com",
-      "push_link": "registry.cn-shenzhen.aliyuncs.com/hominsu",
-      "id": "ALIYUNCS_ID",
-      "token": "ALIYUNCS_TOKEN"
-    },
-    {
       "name": "Jetbrains",
       "register": "e-young.registry.jetbrains.space",
       "push_link": "e-young.registry.jetbrains.space/p/hpt-platform/containers",

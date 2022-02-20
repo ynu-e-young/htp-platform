@@ -11,11 +11,42 @@ type Machine struct {
 	Address   string
 }
 
+type Coordinate struct {
+	X         float64
+	Y         float64
+	Z         float64
+	Rx        float64
+	Ry        float64
+	Check     bool
+	Delay     float64
+	MachineId int64
+	CheckName string
+}
+
+type MotorInfo struct {
+	MotorStatus *MotorStatus
+	InstrPos    int64
+	CurrentPos  int64
+}
+
+type MotorStatus struct {
+	Fault                 bool
+	Enabling              bool
+	Running               bool
+	InstructionCompletion bool
+	PathCompletion        bool
+	ZeroCompletion        bool
+}
+
 type MachineRepo interface {
 	FindByUserId(ctx context.Context, userId int64) ([]*Machine, error)
 	Create(ctx context.Context, machine *Machine) (*Machine, error)
 	Update(ctx context.Context, machine *Machine) (*Machine, error)
 	Get(ctx context.Context, machineId int64) (*Machine, error)
+
+	Move(ctx context.Context, coordinate *Coordinate) (bool, error)
+	Zero(ctx context.Context, machineId int64) (bool, error)
+	GetMotorStatus(ctx context.Context, machineId int64) ([]*MotorInfo, error)
 }
 
 type MachineUsecase struct {
@@ -65,4 +96,16 @@ func (uc *MachineUsecase) GetMachine(ctx context.Context, machineId int64) (*Mac
 	}
 
 	return m, nil
+}
+
+func (uc *MachineUsecase) Move(ctx context.Context, coordinate *Coordinate) (bool, error) {
+	return uc.repo.Move(ctx, coordinate)
+}
+
+func (uc *MachineUsecase) Zero(ctx context.Context, machineId int64) (bool, error) {
+	return uc.repo.Zero(ctx, machineId)
+}
+
+func (uc *MachineUsecase) GetMotorStatus(ctx context.Context, machineId int64) ([]*MotorInfo, error) {
+	return uc.repo.GetMotorStatus(ctx, machineId)
 }

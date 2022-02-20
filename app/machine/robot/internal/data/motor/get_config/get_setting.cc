@@ -2,13 +2,13 @@
 // Created by HominSu on 2021/4/27.
 //
 
+#include "get_setting.h"
+
 #include <json/json.h>
 
 #include <iostream>
 #include <sstream>
 #include <fstream>
-
-#include "get_setting.h"
 
 GetSerialInfo::GetSerialInfo() = default;
 
@@ -24,7 +24,7 @@ void GetSerialInfo::LoadJsonInfo() {
   builder["collectComments"] = true;
 
   std::ifstream ifs;
-  ifs.open("../conf/serial_port_config.json");
+  ifs.open("/data/conf/serial_port_config.json");
 
   if (!ifs.is_open()) {
     std::cout << "Error opening file\n";
@@ -61,7 +61,7 @@ void GetPlatInfo::LoadJsonInfo() {
   builder["collectComments"] = true;
 
   std::ifstream ifs;
-  ifs.open("../conf/plat_info.json");
+  ifs.open("/data/conf/plat_info.json");
 
   if (!ifs.is_open()) {
     std::cout << "Error opening file\n";
@@ -106,7 +106,7 @@ void GetUrlInfo::LoadJsonInfo() {
   builder["collectComments"] = true;
 
   std::ifstream ifs;
-  ifs.open("../conf/url_config.json");
+  ifs.open("/data/conf/url_config.json");
 
   if (!ifs.is_open()) {
     std::cout << "Error opening file\n";

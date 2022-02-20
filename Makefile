@@ -13,6 +13,11 @@ init:
 api:
 	find app -mindepth 2 -maxdepth 2 -type d -print | xargs -L 1 bash -c 'cd "$$0" && pwd && $(MAKE) api'
 
+.PHONY: grpc-cpp
+# generate grpc-cpp
+grpc-cpp:
+	find app -mindepth 2 -maxdepth 2 -type d -print | xargs -L 1 bash -c 'cd "$$0" && pwd && $(MAKE) grpc-cpp'
+
 .PHONY: wire
 # generate wire
 wire:

@@ -2,14 +2,15 @@
 // Created by HominSu on 2021/5/8.
 //
 
+#include "controller.h"
+
+#include "internal/conf/config.h"
+#include "internal/data/grpc/move_done_client.h"
+
 #include <iostream>
 #include <string>
 #include <thread>
 #include <chrono>
-
-#include "controller.h"
-#include "config/config.h"
-#include "command_service/move_done_client.h"
 
 Controller::Controller() = default;
 

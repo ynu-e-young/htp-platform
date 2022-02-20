@@ -19,9 +19,9 @@ std::string GetCred::GetFileContents(const std::string &_path) {
 }
 
 std::shared_ptr<grpc::ServerCredentials> GetCred::GetServerCred() {
-  auto root_cert = GetFileContents("../cert/ca.crt");
-  auto key_str = GetFileContents("../cert/server.key");
-  auto cert_str = GetFileContents("../cert/server.pem");
+  auto root_cert = GetFileContents("/cert/ca.crt");
+  auto key_str = GetFileContents("/cert/server.key");
+  auto cert_str = GetFileContents("/cert/server.pem");
   auto x509KeyPair = grpc::SslServerCredentialsOptions::PemKeyCertPair{key_str, cert_str};
 
   grpc::SslServerCredentialsOptions cred_option;
@@ -32,9 +32,9 @@ std::shared_ptr<grpc::ServerCredentials> GetCred::GetServerCred() {
 }
 
 std::shared_ptr<grpc::ChannelCredentials> GetCred::GetClientCred() {
-  auto root_cert = GetFileContents("../cert/ca.crt");
-  auto key_str = GetFileContents("../cert/client.key");
-  auto cert_str = GetFileContents("../cert/client.pem");
+  auto root_cert = GetFileContents("/cert/ca.crt");
+  auto key_str = GetFileContents("/cert/client.key");
+  auto cert_str = GetFileContents("/cert/client.pem");
 
   grpc::SslCredentialsOptions cred_option;
   cred_option.pem_root_certs  = root_cert;

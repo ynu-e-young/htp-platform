@@ -18,9 +18,9 @@ Config::~Config() = default;
  */
 void Config::Init() {
   nlohmann::json j;
-  std::ifstream fp("../conf/basic_setting.json");
+  std::ifstream fp("/data/conf/basic_setting.json");
   if (!fp.is_open()) {
-    std::cerr << "open \"../conf/basic_setting.json\" failed" << std::endl;
+    std::cerr << "open \"/data/conf/basic_setting.json\" failed" << std::endl;
     exit(-1);
   }
   fp >> j;

@@ -98,3 +98,58 @@ func (r *machineRepo) Get(ctx context.Context, machineId int64) (*biz.Machine, e
 		Address:   m.Address,
 	}, nil
 }
+
+func (r *machineRepo) Move(ctx context.Context, coordinate *biz.Coordinate) (bool, error) {
+	reply, err := r.data.mc.Move(ctx, &machineV1.MoveRequest{
+		X:         coordinate.X,
+		Y:         coordinate.Y,
+		Z:         coordinate.Z,
+		Rx:        coordinate.Rx,
+		Ry:        coordinate.Ry,
+		Check:     coordinate.Check,
+		Delay:     coordinate.Delay,
+		MachineId: coordinate.MachineId,
+		CheckName: coordinate.CheckName,
+	})
+	if err != nil {
+		return false, err
+	}
+
+	return reply.GetStatus(), nil
+}
+
+func (r *machineRepo) Zero(ctx context.Context, machineId int64) (bool, error) {
+	reply, err := r.data.mc.Zero(ctx, &machineV1.ZeroRequest{MachineId: machineId})
+	if err != nil {
+		return false, err
+	}
+
+	return reply.GetStatus(), nil
+}
+
+func (r *machineRepo) GetMotorStatus(ctx context.Context, machineId int64) ([]*biz.MotorInfo, error) {
+	reply, err := r.data.mc.GetMotorStatus(ctx, &machineV1.GetMotorStatusRequest{MachineId: machineId})
+	if err != nil {
+		return nil, err
+	}
+
+	var mis []*biz.MotorInfo
+	for _, info := range reply.GetMotorInfo() {
+		mStatus := info.GetMotorStatus()
+
+		mis = append(mis, &biz.MotorInfo{
+			MotorStatus: &biz.MotorStatus{
+				Fault:                 mStatus.GetFault(),
+				Enabling:              mStatus.GetEnabling(),
+				Running:               mStatus.GetRunning(),
+				InstructionCompletion: mStatus.GetInstructionCompletion(),
+				PathCompletion:        mStatus.GetPathCompletion(),
+				ZeroCompletion:        mStatus.GetZeroCompletion(),
+			},
+			InstrPos:   info.GetInstrPos(),
+			CurrentPos: info.GetCurrentPos(),
+		})
+	}
+
+	return mis, nil
+}

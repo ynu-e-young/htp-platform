@@ -2,19 +2,19 @@
 // Created by HominSu on 2021/5/8.
 //
 
-#ifndef SYSTEM_CONTROLLER_H_
-#define SYSTEM_CONTROLLER_H_
+#ifndef HTP_PLATFORM_MACHINE_ROBOT_APP_MACHINE_ROBOT_CONTROLLER_H_
+#define HTP_PLATFORM_MACHINE_ROBOT_APP_MACHINE_ROBOT_CONTROLLER_H_
+
+#include "cal_len.h"
+#include "internal/data/motor/motor.h"
+#include "internal/utils/x_thread.h"
+#include "internal/service/robot_impl.h"
+#include "internal/service/move_done_req.h"
 
 #include <bitset>
 #include <array>
 #include <queue>
 #include <shared_mutex>
-
-#include "cal_len.h"
-#include "motor/motor.h"
-#include "utils/x_thread.h"
-#include "command_service/defs/move_done_req.h"
-#include "command_service/command_service_impl.h"
 
 const int kOffset = -510000;
 const int kMotorStatus = 1;
@@ -27,7 +27,7 @@ const int kMotorAll = 3;
  */
 class Controller : public XThread {
  private:
-  friend CommandServiceImpl;  ///< 声明 CommandServiceImpl 为友元类，确保能向 Controller 中的队列中写入数据
+  friend RobotImpl;  ///< 声明 CommandServiceImpl 为友元类，确保能向 Controller 中的队列中写入数据
 
   bool system_status_ = false; ///< 系统运行状态
   Motor motors_;    ///< 电机控制对象
@@ -109,4 +109,4 @@ class Controller : public XThread {
 
 };
 
-#endif //SYSTEM_CONTROLLER_H_
+#endif //HTP_PLATFORM_MACHINE_ROBOT_APP_MACHINE_ROBOT_CONTROLLER_H_

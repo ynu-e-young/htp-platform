@@ -72,3 +72,56 @@ func (s *InterfaceService) GetCurrentUserMachines(ctx context.Context, in *inter
 
 	return &interfaceV1.MachinesReply{Machines: ms}, err
 }
+
+func (s *InterfaceService) Move(ctx context.Context, in *interfaceV1.MoveRequest) (*interfaceV1.MoveReply, error) {
+	ok, err := s.mu.Move(ctx, &biz.Coordinate{
+		X:         in.GetX(),
+		Y:         in.GetY(),
+		Z:         in.GetZ(),
+		Rx:        in.GetRx(),
+		Ry:        in.GetRy(),
+		Check:     in.GetCheck(),
+		Delay:     in.GetDelay(),
+		MachineId: in.GetMachineId(),
+		CheckName: in.GetCheckName(),
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	return &interfaceV1.MoveReply{Status: ok}, nil
+}
+
+func (s *InterfaceService) Zero(ctx context.Context, in *interfaceV1.ZeroRequest) (*interfaceV1.ZeroReply, error) {
+	ok, err := s.mu.Zero(ctx, in.GetMachineId())
+	if err != nil {
+		return nil, err
+	}
+
+	return &interfaceV1.ZeroReply{Status: ok}, nil
+}
+func (s *InterfaceService) GetMotorStatus(ctx context.Context, in *interfaceV1.GetMotorStatusRequest) (*interfaceV1.GetMotorStatusReply, error) {
+	rv, err := s.mu.GetMotorStatus(ctx, in.GetMachineId())
+	if err != nil {
+		return nil, err
+	}
+
+	var mis []*interfaceV1.MotorInfo
+	for _, info := range rv {
+		mStatus := info.MotorStatus
+		mis = append(mis, &interfaceV1.MotorInfo{
+			MotorStatus: &interfaceV1.MotorStatus{
+				Fault:                 mStatus.Fault,
+				Enabling:              mStatus.Enabling,
+				Running:               mStatus.Running,
+				InstructionCompletion: mStatus.InstructionCompletion,
+				PathCompletion:        mStatus.PathCompletion,
+				ZeroCompletion:        mStatus.ZeroCompletion,
+			},
+			InstrPos:   info.InstrPos,
+			CurrentPos: info.CurrentPos,
+		})
+	}
+
+	return &interfaceV1.GetMotorStatusReply{MotorInfo: mis}, nil
+}

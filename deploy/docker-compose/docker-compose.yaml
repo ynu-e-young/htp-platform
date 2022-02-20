@@ -4,7 +4,6 @@ services:
   htp-platform.user.service:
     # DockerHub:    hominsu/htp-platform-user-service:latest
     # GHCR:         ghcr.io/hominsu/htp-platform-user-service:latest
-    # Ali Registry: registry.cn-shenzhen.aliyuncs.com/hominsu/htp-platform-user-service:latest
     # Jetbrains:    e-young.registry.jetbrains.space/p/hpt-platform/containers/htp-platform-user-service:latest
     image: hominsu/htp-platform-user-service:latest
     container_name: htp-platform.user.service
@@ -22,7 +21,6 @@ services:
   htp-platform.capture.service:
     # DockerHub:    hominsu/htp-platform-capture-service:latest
     # GHCR:         ghcr.io/hominsu/htp-platform-capture-service:latest
-    # Ali Registry: registry.cn-shenzhen.aliyuncs.com/hominsu/htp-platform-capture-service:latest
     # Jetbrains:    e-young.registry.jetbrains.space/p/hpt-platform/containers/htp-platform-capture-service:latest
     image: hominsu/htp-platform-capture-service:latest
     container_name: htp-platform.capture.service
@@ -42,7 +40,6 @@ services:
   htp-platform.machine.service:
     # DockerHub:    hominsu/htp-platform-machine-service:latest
     # GHCR:         ghcr.io/hominsu/htp-platform-machine-service:latest
-    # Ali Registry: registry.cn-shenzhen.aliyuncs.com/hominsu/htp-platform-machine-service:latest
     # Jetbrains:    e-young.registry.jetbrains.space/p/hpt-platform/containers/htp-platform-machine-service:latest
     image: hominsu/htp-platform-machine-service:latest
     container_name: htp-platform.machine.service
@@ -60,13 +57,13 @@ services:
   htp-platform.htpp.interface:
     # DockerHub:    hominsu/htp-platform-htpp-interface:latest
     # GHCR:         ghcr.io/hominsu/htp-platform-htpp-interface:latest
-    # Ali Registry: registry.cn-shenzhen.aliyuncs.com/hominsu/htp-platform-htpp-interface:latest
     # Jetbrains:    e-young.registry.jetbrains.space/p/hpt-platform/containers/htp-platform-htpp-interface:latest
     image: hominsu/htp-platform-htpp-interface:latest
     container_name: htp-platform.htpp.interface
     depends_on:
       - htp-platform.user.service
       - htp-platform.machine.service
+      - htp-platform.capture.service
     restart: always
     environment:
       # 设置时区，不然 logs 的时间不对
@@ -76,7 +73,6 @@ services:
       - "./images:/data/images"
     ports:
       - "8000:8000"
-      - "9000:9000"
     networks:
       net:
         aliases:

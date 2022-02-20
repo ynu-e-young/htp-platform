@@ -2,9 +2,11 @@
 // Created by HominSu on 2021/5/2.
 //
 
-#include <fcntl.h>  // 包含文件控件，例如 O_RDWR
+#include "serial.h"
+
+#include <fcntl.h>    // 包含文件控件，例如 O_RDWR
 #include <termios.h>  // 包含 POSIX 终端控件定义
-#include <unistd.h> // write(), read(), close()
+#include <unistd.h>   // write(), read(), close()
 #include <sys/file.h> // 排他锁
 
 #include <cstring>
@@ -12,8 +14,6 @@
 #include <cerrno>
 
 #include <iostream>
-
-#include "serial.h"
 
 /**
  * @brief 显示打开的串口信息

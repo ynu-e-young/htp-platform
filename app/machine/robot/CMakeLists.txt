@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(System
+project(htp-platform.machine.robot
         LANGUAGES CXX
         HOMEPAGE_URL "https://github.com/hominsu/System")
 
@@ -90,13 +90,17 @@ endif ()
 
 # ============================== add executable and link libraries ==============================
 file(GLOB ProjectSRC
-        "motor/motor_config/*.cc"
-        "motor/get_config/*.cc"
-        "motor/serial/*.cc"
-        "motor/*.cc"
-        "command_service/*.cc"
-        "config/*.cc"
-        "utils/*.cc"
+        "../../../api/machine/service/v1/cpp/*.cc"
+        "../../../api/machine/robot/v1/cpp/*.cc"
+        "internal/data/motor/motor_config/*.cc"
+        "internal/data/motor/get_config/*.cc"
+        "internal/data/motor/serial/*.cc"
+        "internal/data/motor/*.cc"
+        "internal/data/grpc/*.cc"
+        "internal/service/*.cc"
+        "internal/server/*.cc"
+        "internal/utils/*.cc"
+        "internal/conf/*.cc"
         "*.cc")
 
 if (CMAKE_BUILD_TYPE STREQUAL Debug)

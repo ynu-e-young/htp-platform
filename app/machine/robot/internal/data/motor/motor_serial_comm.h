@@ -2,9 +2,8 @@
 // Created by HominSu on 2021/5/6.
 //
 
-#ifndef SYSTEM_MOTOR_MOTOR_SERIAL_COMM_H_
-#define SYSTEM_MOTOR_MOTOR_SERIAL_COMM_H_
-
+#ifndef HTP_PLATFORM_MACHINE_ROBOT_INTERNAL_DATA_MOTOR_MOTOR_SERIAL_COMM_H_
+#define HTP_PLATFORM_MACHINE_ROBOT_INTERNAL_DATA_MOTOR_MOTOR_SERIAL_COMM_H_
 
 #include "serial/serial.h"
 #include "get_config/get_setting.h"
@@ -51,4 +50,4 @@ class MotorSerialComm {
                                   bool *_read_flag);
 };
 
-#endif //SYSTEM_MOTOR_MOTOR_SERIAL_COMM_H_
+#endif //HTP_PLATFORM_MACHINE_ROBOT_INTERNAL_DATA_MOTOR_MOTOR_SERIAL_COMM_H_

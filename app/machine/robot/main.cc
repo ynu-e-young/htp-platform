@@ -15,12 +15,12 @@
  * @details main函数完成的工作有：初始化 Controller、Curl 两个线程，将 Curl中获取的坐标传到 Controller 中
  */
 
+#include "controller.h"
+#include "internal/conf/config.h"
+#include "internal/server/robot_server.h"
+
 #include <iostream>
 #include <csignal>
-
-#include "controller.h"
-#include "config/config.h"
-#include "command_service/command_service_server.h"
 
 bool is_running = true;
 
@@ -47,7 +47,7 @@ int main(int _argc, char *_argv[]) {
       Config::Get()->BasicSetting()->local_rpc_address() + ":" + Config::Get()->BasicSetting()->local_rpc_port();
 
   // 实例化 rpc 服务
-  CommandServiceServer server(local_address, Controller::Get());
+  RobotServer server(local_address, Controller::Get());
 
   // 启动 rpc 服务
   server.Start();

@@ -2,9 +2,9 @@
 // Created by HominSu on 2021/4/29.
 //
 
-#include <cmath>
-
 #include "cal_len.h"
+
+#include <cmath>
 
 CalLen::CalLen() {
   m_dem_size_ = 0;

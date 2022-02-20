@@ -9,3 +9,5 @@ data:
   database:
     driver: mysql
     source: root:dangerous@tcp(127.0.0.1:3306)/hpt-platform?charset=utf8mb4&parseTime=True&loc=Local
+  images:
+    dir: "/data/images"
