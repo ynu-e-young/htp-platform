@@ -49,6 +49,9 @@ services:
       TZ: "Asia/Shanghai" # 时区
     volumes:
       - "../../app/machine/service/configs:/data/conf"
+      - "./images:/data/images"
+#    ports:
+#      - "9000:9000"
     networks:
       net:
         aliases:
@@ -78,6 +81,30 @@ services:
         aliases:
           - htp-platform.htpp.interface
 
+  htp-platform.machine.robot:
+    # DockerHub:    hominsu/htp-platform-machine-robot:latest
+    # GHCR:         ghcr.io/hominsu/htp-platform-machine-robot:latest
+    # Jetbrains:    e-young.registry.jetbrains.space/p/hpt-platform/containers/htp-platform-machine-robot:latest
+    image: hominsu/htp-platform-machine-robot:latest
+    container_name: htp-platform.machine.robot
+    restart: always
+    environment:
+      # 设置时区，不然 logs 的时间不对
+      TZ: "Asia/Shanghai" # 时区
+    volumes:
+      - "../../app/machine/robot/configs:/data/conf"
+    devices:
+      - "/dev/cu.usbserial-AB0JHQVJ:/dev/cu.usbserial-AB0JHQVJ" # not support in Windows and macOS
+#    ports:
+#      - "9000:9000"
+    networks:
+      net:
+        aliases:
+          - htp-platform.machine.robot
+
 networks:
   net:
-    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.10.10.0/24
