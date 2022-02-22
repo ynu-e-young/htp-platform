@@ -15,14 +15,16 @@ type MachineService struct {
 	v1.UnimplementedMachineServer
 
 	cu  *biz.CaptureUsecase
+	cr  *biz.CronUsecase
 	mu  *biz.MachineUsecase
 	dcf *conf.Data
 	log *log.Helper
 }
 
-func NewMachineService(cu *biz.CaptureUsecase, mu *biz.MachineUsecase, dcf *conf.Data, logger log.Logger) *MachineService {
+func NewMachineService(cu *biz.CaptureUsecase, cr *biz.CronUsecase, mu *biz.MachineUsecase, dcf *conf.Data, logger log.Logger) *MachineService {
 	return &MachineService{
 		cu:  cu,
+		cr:  cr,
 		mu:  mu,
 		dcf: dcf,
 		log: log.NewHelper(log.With(logger, "module", "service/server-service")),

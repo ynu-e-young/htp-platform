@@ -94,6 +94,27 @@ class Machine final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::machine::service::v1::MoveDoneReply>> PrepareAsyncMoveDone(::grpc::ClientContext* context, const ::machine::service::v1::MoveDoneRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::machine::service::v1::MoveDoneReply>>(PrepareAsyncMoveDoneRaw(context, request, cq));
     }
+    virtual ::grpc::Status CreateCronJob(::grpc::ClientContext* context, const ::machine::service::v1::CreateCronJobRequest& request, ::machine::service::v1::CronJobReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::machine::service::v1::CronJobReply>> AsyncCreateCronJob(::grpc::ClientContext* context, const ::machine::service::v1::CreateCronJobRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::machine::service::v1::CronJobReply>>(AsyncCreateCronJobRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::machine::service::v1::CronJobReply>> PrepareAsyncCreateCronJob(::grpc::ClientContext* context, const ::machine::service::v1::CreateCronJobRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::machine::service::v1::CronJobReply>>(PrepareAsyncCreateCronJobRaw(context, request, cq));
+    }
+    virtual ::grpc::Status DeleteCronJob(::grpc::ClientContext* context, const ::machine::service::v1::DeleteCronJobRequest& request, ::machine::service::v1::DeleteCronJobReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::machine::service::v1::DeleteCronJobReply>> AsyncDeleteCronJob(::grpc::ClientContext* context, const ::machine::service::v1::DeleteCronJobRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::machine::service::v1::DeleteCronJobReply>>(AsyncDeleteCronJobRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::machine::service::v1::DeleteCronJobReply>> PrepareAsyncDeleteCronJob(::grpc::ClientContext* context, const ::machine::service::v1::DeleteCronJobRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::machine::service::v1::DeleteCronJobReply>>(PrepareAsyncDeleteCronJobRaw(context, request, cq));
+    }
+    virtual ::grpc::Status ListCronJob(::grpc::ClientContext* context, const ::machine::service::v1::ListCronJobRequest& request, ::machine::service::v1::CronJobsReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::machine::service::v1::CronJobsReply>> AsyncListCronJob(::grpc::ClientContext* context, const ::machine::service::v1::ListCronJobRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::machine::service::v1::CronJobsReply>>(AsyncListCronJobRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::machine::service::v1::CronJobsReply>> PrepareAsyncListCronJob(::grpc::ClientContext* context, const ::machine::service::v1::ListCronJobRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::machine::service::v1::CronJobsReply>>(PrepareAsyncListCronJobRaw(context, request, cq));
+    }
     class async_interface {
      public:
       virtual ~async_interface() {}
@@ -113,6 +134,12 @@ class Machine final {
       virtual void GetMotorStatus(::grpc::ClientContext* context, const ::machine::service::v1::GetMotorStatusRequest* request, ::machine::service::v1::GetMotorStatusReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void MoveDone(::grpc::ClientContext* context, const ::machine::service::v1::MoveDoneRequest* request, ::machine::service::v1::MoveDoneReply* response, std::function<void(::grpc::Status)>) = 0;
       virtual void MoveDone(::grpc::ClientContext* context, const ::machine::service::v1::MoveDoneRequest* request, ::machine::service::v1::MoveDoneReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void CreateCronJob(::grpc::ClientContext* context, const ::machine::service::v1::CreateCronJobRequest* request, ::machine::service::v1::CronJobReply* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void CreateCronJob(::grpc::ClientContext* context, const ::machine::service::v1::CreateCronJobRequest* request, ::machine::service::v1::CronJobReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void DeleteCronJob(::grpc::ClientContext* context, const ::machine::service::v1::DeleteCronJobRequest* request, ::machine::service::v1::DeleteCronJobReply* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void DeleteCronJob(::grpc::ClientContext* context, const ::machine::service::v1::DeleteCronJobRequest* request, ::machine::service::v1::DeleteCronJobReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void ListCronJob(::grpc::ClientContext* context, const ::machine::service::v1::ListCronJobRequest* request, ::machine::service::v1::CronJobsReply* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void ListCronJob(::grpc::ClientContext* context, const ::machine::service::v1::ListCronJobRequest* request, ::machine::service::v1::CronJobsReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
@@ -134,6 +161,12 @@ class Machine final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::machine::service::v1::GetMotorStatusReply>* PrepareAsyncGetMotorStatusRaw(::grpc::ClientContext* context, const ::machine::service::v1::GetMotorStatusRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::machine::service::v1::MoveDoneReply>* AsyncMoveDoneRaw(::grpc::ClientContext* context, const ::machine::service::v1::MoveDoneRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::machine::service::v1::MoveDoneReply>* PrepareAsyncMoveDoneRaw(::grpc::ClientContext* context, const ::machine::service::v1::MoveDoneRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::machine::service::v1::CronJobReply>* AsyncCreateCronJobRaw(::grpc::ClientContext* context, const ::machine::service::v1::CreateCronJobRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::machine::service::v1::CronJobReply>* PrepareAsyncCreateCronJobRaw(::grpc::ClientContext* context, const ::machine::service::v1::CreateCronJobRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::machine::service::v1::DeleteCronJobReply>* AsyncDeleteCronJobRaw(::grpc::ClientContext* context, const ::machine::service::v1::DeleteCronJobRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::machine::service::v1::DeleteCronJobReply>* PrepareAsyncDeleteCronJobRaw(::grpc::ClientContext* context, const ::machine::service::v1::DeleteCronJobRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::machine::service::v1::CronJobsReply>* AsyncListCronJobRaw(::grpc::ClientContext* context, const ::machine::service::v1::ListCronJobRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::machine::service::v1::CronJobsReply>* PrepareAsyncListCronJobRaw(::grpc::ClientContext* context, const ::machine::service::v1::ListCronJobRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -194,6 +227,27 @@ class Machine final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::machine::service::v1::MoveDoneReply>> PrepareAsyncMoveDone(::grpc::ClientContext* context, const ::machine::service::v1::MoveDoneRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::machine::service::v1::MoveDoneReply>>(PrepareAsyncMoveDoneRaw(context, request, cq));
     }
+    ::grpc::Status CreateCronJob(::grpc::ClientContext* context, const ::machine::service::v1::CreateCronJobRequest& request, ::machine::service::v1::CronJobReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::machine::service::v1::CronJobReply>> AsyncCreateCronJob(::grpc::ClientContext* context, const ::machine::service::v1::CreateCronJobRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::machine::service::v1::CronJobReply>>(AsyncCreateCronJobRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::machine::service::v1::CronJobReply>> PrepareAsyncCreateCronJob(::grpc::ClientContext* context, const ::machine::service::v1::CreateCronJobRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::machine::service::v1::CronJobReply>>(PrepareAsyncCreateCronJobRaw(context, request, cq));
+    }
+    ::grpc::Status DeleteCronJob(::grpc::ClientContext* context, const ::machine::service::v1::DeleteCronJobRequest& request, ::machine::service::v1::DeleteCronJobReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::machine::service::v1::DeleteCronJobReply>> AsyncDeleteCronJob(::grpc::ClientContext* context, const ::machine::service::v1::DeleteCronJobRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::machine::service::v1::DeleteCronJobReply>>(AsyncDeleteCronJobRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::machine::service::v1::DeleteCronJobReply>> PrepareAsyncDeleteCronJob(::grpc::ClientContext* context, const ::machine::service::v1::DeleteCronJobRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::machine::service::v1::DeleteCronJobReply>>(PrepareAsyncDeleteCronJobRaw(context, request, cq));
+    }
+    ::grpc::Status ListCronJob(::grpc::ClientContext* context, const ::machine::service::v1::ListCronJobRequest& request, ::machine::service::v1::CronJobsReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::machine::service::v1::CronJobsReply>> AsyncListCronJob(::grpc::ClientContext* context, const ::machine::service::v1::ListCronJobRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::machine::service::v1::CronJobsReply>>(AsyncListCronJobRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::machine::service::v1::CronJobsReply>> PrepareAsyncListCronJob(::grpc::ClientContext* context, const ::machine::service::v1::ListCronJobRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::machine::service::v1::CronJobsReply>>(PrepareAsyncListCronJobRaw(context, request, cq));
+    }
     class async final :
       public StubInterface::async_interface {
      public:
@@ -213,6 +267,12 @@ class Machine final {
       void GetMotorStatus(::grpc::ClientContext* context, const ::machine::service::v1::GetMotorStatusRequest* request, ::machine::service::v1::GetMotorStatusReply* response, ::grpc::ClientUnaryReactor* reactor) override;
       void MoveDone(::grpc::ClientContext* context, const ::machine::service::v1::MoveDoneRequest* request, ::machine::service::v1::MoveDoneReply* response, std::function<void(::grpc::Status)>) override;
       void MoveDone(::grpc::ClientContext* context, const ::machine::service::v1::MoveDoneRequest* request, ::machine::service::v1::MoveDoneReply* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void CreateCronJob(::grpc::ClientContext* context, const ::machine::service::v1::CreateCronJobRequest* request, ::machine::service::v1::CronJobReply* response, std::function<void(::grpc::Status)>) override;
+      void CreateCronJob(::grpc::ClientContext* context, const ::machine::service::v1::CreateCronJobRequest* request, ::machine::service::v1::CronJobReply* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void DeleteCronJob(::grpc::ClientContext* context, const ::machine::service::v1::DeleteCronJobRequest* request, ::machine::service::v1::DeleteCronJobReply* response, std::function<void(::grpc::Status)>) override;
+      void DeleteCronJob(::grpc::ClientContext* context, const ::machine::service::v1::DeleteCronJobRequest* request, ::machine::service::v1::DeleteCronJobReply* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void ListCronJob(::grpc::ClientContext* context, const ::machine::service::v1::ListCronJobRequest* request, ::machine::service::v1::CronJobsReply* response, std::function<void(::grpc::Status)>) override;
+      void ListCronJob(::grpc::ClientContext* context, const ::machine::service::v1::ListCronJobRequest* request, ::machine::service::v1::CronJobsReply* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -240,6 +300,12 @@ class Machine final {
     ::grpc::ClientAsyncResponseReader< ::machine::service::v1::GetMotorStatusReply>* PrepareAsyncGetMotorStatusRaw(::grpc::ClientContext* context, const ::machine::service::v1::GetMotorStatusRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::machine::service::v1::MoveDoneReply>* AsyncMoveDoneRaw(::grpc::ClientContext* context, const ::machine::service::v1::MoveDoneRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::machine::service::v1::MoveDoneReply>* PrepareAsyncMoveDoneRaw(::grpc::ClientContext* context, const ::machine::service::v1::MoveDoneRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::machine::service::v1::CronJobReply>* AsyncCreateCronJobRaw(::grpc::ClientContext* context, const ::machine::service::v1::CreateCronJobRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::machine::service::v1::CronJobReply>* PrepareAsyncCreateCronJobRaw(::grpc::ClientContext* context, const ::machine::service::v1::CreateCronJobRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::machine::service::v1::DeleteCronJobReply>* AsyncDeleteCronJobRaw(::grpc::ClientContext* context, const ::machine::service::v1::DeleteCronJobRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::machine::service::v1::DeleteCronJobReply>* PrepareAsyncDeleteCronJobRaw(::grpc::ClientContext* context, const ::machine::service::v1::DeleteCronJobRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::machine::service::v1::CronJobsReply>* AsyncListCronJobRaw(::grpc::ClientContext* context, const ::machine::service::v1::ListCronJobRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::machine::service::v1::CronJobsReply>* PrepareAsyncListCronJobRaw(::grpc::ClientContext* context, const ::machine::service::v1::ListCronJobRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_FindByUserId_;
     const ::grpc::internal::RpcMethod rpcmethod_Create_;
     const ::grpc::internal::RpcMethod rpcmethod_Update_;
@@ -248,6 +314,9 @@ class Machine final {
     const ::grpc::internal::RpcMethod rpcmethod_Zero_;
     const ::grpc::internal::RpcMethod rpcmethod_GetMotorStatus_;
     const ::grpc::internal::RpcMethod rpcmethod_MoveDone_;
+    const ::grpc::internal::RpcMethod rpcmethod_CreateCronJob_;
+    const ::grpc::internal::RpcMethod rpcmethod_DeleteCronJob_;
+    const ::grpc::internal::RpcMethod rpcmethod_ListCronJob_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -263,6 +332,9 @@ class Machine final {
     virtual ::grpc::Status Zero(::grpc::ServerContext* context, const ::machine::service::v1::ZeroRequest* request, ::machine::service::v1::ZeroReply* response);
     virtual ::grpc::Status GetMotorStatus(::grpc::ServerContext* context, const ::machine::service::v1::GetMotorStatusRequest* request, ::machine::service::v1::GetMotorStatusReply* response);
     virtual ::grpc::Status MoveDone(::grpc::ServerContext* context, const ::machine::service::v1::MoveDoneRequest* request, ::machine::service::v1::MoveDoneReply* response);
+    virtual ::grpc::Status CreateCronJob(::grpc::ServerContext* context, const ::machine::service::v1::CreateCronJobRequest* request, ::machine::service::v1::CronJobReply* response);
+    virtual ::grpc::Status DeleteCronJob(::grpc::ServerContext* context, const ::machine::service::v1::DeleteCronJobRequest* request, ::machine::service::v1::DeleteCronJobReply* response);
+    virtual ::grpc::Status ListCronJob(::grpc::ServerContext* context, const ::machine::service::v1::ListCronJobRequest* request, ::machine::service::v1::CronJobsReply* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_FindByUserId : public BaseClass {
@@ -424,7 +496,67 @@ class Machine final {
       ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_FindByUserId<WithAsyncMethod_Create<WithAsyncMethod_Update<WithAsyncMethod_Get<WithAsyncMethod_Move<WithAsyncMethod_Zero<WithAsyncMethod_GetMotorStatus<WithAsyncMethod_MoveDone<Service > > > > > > > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_CreateCronJob : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_CreateCronJob() {
+      ::grpc::Service::MarkMethodAsync(8);
+    }
+    ~WithAsyncMethod_CreateCronJob() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CreateCronJob(::grpc::ServerContext* /*context*/, const ::machine::service::v1::CreateCronJobRequest* /*request*/, ::machine::service::v1::CronJobReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestCreateCronJob(::grpc::ServerContext* context, ::machine::service::v1::CreateCronJobRequest* request, ::grpc::ServerAsyncResponseWriter< ::machine::service::v1::CronJobReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_DeleteCronJob : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_DeleteCronJob() {
+      ::grpc::Service::MarkMethodAsync(9);
+    }
+    ~WithAsyncMethod_DeleteCronJob() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeleteCronJob(::grpc::ServerContext* /*context*/, const ::machine::service::v1::DeleteCronJobRequest* /*request*/, ::machine::service::v1::DeleteCronJobReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestDeleteCronJob(::grpc::ServerContext* context, ::machine::service::v1::DeleteCronJobRequest* request, ::grpc::ServerAsyncResponseWriter< ::machine::service::v1::DeleteCronJobReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_ListCronJob : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_ListCronJob() {
+      ::grpc::Service::MarkMethodAsync(10);
+    }
+    ~WithAsyncMethod_ListCronJob() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ListCronJob(::grpc::ServerContext* /*context*/, const ::machine::service::v1::ListCronJobRequest* /*request*/, ::machine::service::v1::CronJobsReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestListCronJob(::grpc::ServerContext* context, ::machine::service::v1::ListCronJobRequest* request, ::grpc::ServerAsyncResponseWriter< ::machine::service::v1::CronJobsReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_FindByUserId<WithAsyncMethod_Create<WithAsyncMethod_Update<WithAsyncMethod_Get<WithAsyncMethod_Move<WithAsyncMethod_Zero<WithAsyncMethod_GetMotorStatus<WithAsyncMethod_MoveDone<WithAsyncMethod_CreateCronJob<WithAsyncMethod_DeleteCronJob<WithAsyncMethod_ListCronJob<Service > > > > > > > > > > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_FindByUserId : public BaseClass {
    private:
@@ -641,7 +773,88 @@ class Machine final {
     virtual ::grpc::ServerUnaryReactor* MoveDone(
       ::grpc::CallbackServerContext* /*context*/, const ::machine::service::v1::MoveDoneRequest* /*request*/, ::machine::service::v1::MoveDoneReply* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_FindByUserId<WithCallbackMethod_Create<WithCallbackMethod_Update<WithCallbackMethod_Get<WithCallbackMethod_Move<WithCallbackMethod_Zero<WithCallbackMethod_GetMotorStatus<WithCallbackMethod_MoveDone<Service > > > > > > > > CallbackService;
+  template <class BaseClass>
+  class WithCallbackMethod_CreateCronJob : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_CreateCronJob() {
+      ::grpc::Service::MarkMethodCallback(8,
+          new ::grpc::internal::CallbackUnaryHandler< ::machine::service::v1::CreateCronJobRequest, ::machine::service::v1::CronJobReply>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::machine::service::v1::CreateCronJobRequest* request, ::machine::service::v1::CronJobReply* response) { return this->CreateCronJob(context, request, response); }));}
+    void SetMessageAllocatorFor_CreateCronJob(
+        ::grpc::MessageAllocator< ::machine::service::v1::CreateCronJobRequest, ::machine::service::v1::CronJobReply>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(8);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::machine::service::v1::CreateCronJobRequest, ::machine::service::v1::CronJobReply>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_CreateCronJob() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CreateCronJob(::grpc::ServerContext* /*context*/, const ::machine::service::v1::CreateCronJobRequest* /*request*/, ::machine::service::v1::CronJobReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* CreateCronJob(
+      ::grpc::CallbackServerContext* /*context*/, const ::machine::service::v1::CreateCronJobRequest* /*request*/, ::machine::service::v1::CronJobReply* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithCallbackMethod_DeleteCronJob : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_DeleteCronJob() {
+      ::grpc::Service::MarkMethodCallback(9,
+          new ::grpc::internal::CallbackUnaryHandler< ::machine::service::v1::DeleteCronJobRequest, ::machine::service::v1::DeleteCronJobReply>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::machine::service::v1::DeleteCronJobRequest* request, ::machine::service::v1::DeleteCronJobReply* response) { return this->DeleteCronJob(context, request, response); }));}
+    void SetMessageAllocatorFor_DeleteCronJob(
+        ::grpc::MessageAllocator< ::machine::service::v1::DeleteCronJobRequest, ::machine::service::v1::DeleteCronJobReply>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(9);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::machine::service::v1::DeleteCronJobRequest, ::machine::service::v1::DeleteCronJobReply>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_DeleteCronJob() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeleteCronJob(::grpc::ServerContext* /*context*/, const ::machine::service::v1::DeleteCronJobRequest* /*request*/, ::machine::service::v1::DeleteCronJobReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* DeleteCronJob(
+      ::grpc::CallbackServerContext* /*context*/, const ::machine::service::v1::DeleteCronJobRequest* /*request*/, ::machine::service::v1::DeleteCronJobReply* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithCallbackMethod_ListCronJob : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_ListCronJob() {
+      ::grpc::Service::MarkMethodCallback(10,
+          new ::grpc::internal::CallbackUnaryHandler< ::machine::service::v1::ListCronJobRequest, ::machine::service::v1::CronJobsReply>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::machine::service::v1::ListCronJobRequest* request, ::machine::service::v1::CronJobsReply* response) { return this->ListCronJob(context, request, response); }));}
+    void SetMessageAllocatorFor_ListCronJob(
+        ::grpc::MessageAllocator< ::machine::service::v1::ListCronJobRequest, ::machine::service::v1::CronJobsReply>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(10);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::machine::service::v1::ListCronJobRequest, ::machine::service::v1::CronJobsReply>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_ListCronJob() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ListCronJob(::grpc::ServerContext* /*context*/, const ::machine::service::v1::ListCronJobRequest* /*request*/, ::machine::service::v1::CronJobsReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* ListCronJob(
+      ::grpc::CallbackServerContext* /*context*/, const ::machine::service::v1::ListCronJobRequest* /*request*/, ::machine::service::v1::CronJobsReply* /*response*/)  { return nullptr; }
+  };
+  typedef WithCallbackMethod_FindByUserId<WithCallbackMethod_Create<WithCallbackMethod_Update<WithCallbackMethod_Get<WithCallbackMethod_Move<WithCallbackMethod_Zero<WithCallbackMethod_GetMotorStatus<WithCallbackMethod_MoveDone<WithCallbackMethod_CreateCronJob<WithCallbackMethod_DeleteCronJob<WithCallbackMethod_ListCronJob<Service > > > > > > > > > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_FindByUserId : public BaseClass {
@@ -775,6 +988,57 @@ class Machine final {
     }
     // disable synchronous version of this method
     ::grpc::Status MoveDone(::grpc::ServerContext* /*context*/, const ::machine::service::v1::MoveDoneRequest* /*request*/, ::machine::service::v1::MoveDoneReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_CreateCronJob : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_CreateCronJob() {
+      ::grpc::Service::MarkMethodGeneric(8);
+    }
+    ~WithGenericMethod_CreateCronJob() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CreateCronJob(::grpc::ServerContext* /*context*/, const ::machine::service::v1::CreateCronJobRequest* /*request*/, ::machine::service::v1::CronJobReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_DeleteCronJob : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_DeleteCronJob() {
+      ::grpc::Service::MarkMethodGeneric(9);
+    }
+    ~WithGenericMethod_DeleteCronJob() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeleteCronJob(::grpc::ServerContext* /*context*/, const ::machine::service::v1::DeleteCronJobRequest* /*request*/, ::machine::service::v1::DeleteCronJobReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_ListCronJob : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_ListCronJob() {
+      ::grpc::Service::MarkMethodGeneric(10);
+    }
+    ~WithGenericMethod_ListCronJob() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ListCronJob(::grpc::ServerContext* /*context*/, const ::machine::service::v1::ListCronJobRequest* /*request*/, ::machine::service::v1::CronJobsReply* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -937,6 +1201,66 @@ class Machine final {
     }
     void RequestMoveDone(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_CreateCronJob : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_CreateCronJob() {
+      ::grpc::Service::MarkMethodRaw(8);
+    }
+    ~WithRawMethod_CreateCronJob() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CreateCronJob(::grpc::ServerContext* /*context*/, const ::machine::service::v1::CreateCronJobRequest* /*request*/, ::machine::service::v1::CronJobReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestCreateCronJob(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_DeleteCronJob : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_DeleteCronJob() {
+      ::grpc::Service::MarkMethodRaw(9);
+    }
+    ~WithRawMethod_DeleteCronJob() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeleteCronJob(::grpc::ServerContext* /*context*/, const ::machine::service::v1::DeleteCronJobRequest* /*request*/, ::machine::service::v1::DeleteCronJobReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestDeleteCronJob(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_ListCronJob : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_ListCronJob() {
+      ::grpc::Service::MarkMethodRaw(10);
+    }
+    ~WithRawMethod_ListCronJob() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ListCronJob(::grpc::ServerContext* /*context*/, const ::machine::service::v1::ListCronJobRequest* /*request*/, ::machine::service::v1::CronJobsReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestListCronJob(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1113,6 +1437,72 @@ class Machine final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* MoveDone(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_CreateCronJob : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_CreateCronJob() {
+      ::grpc::Service::MarkMethodRawCallback(8,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->CreateCronJob(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_CreateCronJob() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CreateCronJob(::grpc::ServerContext* /*context*/, const ::machine::service::v1::CreateCronJobRequest* /*request*/, ::machine::service::v1::CronJobReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* CreateCronJob(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_DeleteCronJob : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_DeleteCronJob() {
+      ::grpc::Service::MarkMethodRawCallback(9,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeleteCronJob(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_DeleteCronJob() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeleteCronJob(::grpc::ServerContext* /*context*/, const ::machine::service::v1::DeleteCronJobRequest* /*request*/, ::machine::service::v1::DeleteCronJobReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* DeleteCronJob(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_ListCronJob : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_ListCronJob() {
+      ::grpc::Service::MarkMethodRawCallback(10,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ListCronJob(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_ListCronJob() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ListCronJob(::grpc::ServerContext* /*context*/, const ::machine::service::v1::ListCronJobRequest* /*request*/, ::machine::service::v1::CronJobsReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* ListCronJob(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -1331,9 +1721,90 @@ class Machine final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedMoveDone(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::machine::service::v1::MoveDoneRequest,::machine::service::v1::MoveDoneReply>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_FindByUserId<WithStreamedUnaryMethod_Create<WithStreamedUnaryMethod_Update<WithStreamedUnaryMethod_Get<WithStreamedUnaryMethod_Move<WithStreamedUnaryMethod_Zero<WithStreamedUnaryMethod_GetMotorStatus<WithStreamedUnaryMethod_MoveDone<Service > > > > > > > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_CreateCronJob : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_CreateCronJob() {
+      ::grpc::Service::MarkMethodStreamed(8,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::machine::service::v1::CreateCronJobRequest, ::machine::service::v1::CronJobReply>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::machine::service::v1::CreateCronJobRequest, ::machine::service::v1::CronJobReply>* streamer) {
+                       return this->StreamedCreateCronJob(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_CreateCronJob() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status CreateCronJob(::grpc::ServerContext* /*context*/, const ::machine::service::v1::CreateCronJobRequest* /*request*/, ::machine::service::v1::CronJobReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedCreateCronJob(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::machine::service::v1::CreateCronJobRequest,::machine::service::v1::CronJobReply>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_DeleteCronJob : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_DeleteCronJob() {
+      ::grpc::Service::MarkMethodStreamed(9,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::machine::service::v1::DeleteCronJobRequest, ::machine::service::v1::DeleteCronJobReply>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::machine::service::v1::DeleteCronJobRequest, ::machine::service::v1::DeleteCronJobReply>* streamer) {
+                       return this->StreamedDeleteCronJob(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_DeleteCronJob() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status DeleteCronJob(::grpc::ServerContext* /*context*/, const ::machine::service::v1::DeleteCronJobRequest* /*request*/, ::machine::service::v1::DeleteCronJobReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedDeleteCronJob(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::machine::service::v1::DeleteCronJobRequest,::machine::service::v1::DeleteCronJobReply>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_ListCronJob : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_ListCronJob() {
+      ::grpc::Service::MarkMethodStreamed(10,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::machine::service::v1::ListCronJobRequest, ::machine::service::v1::CronJobsReply>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::machine::service::v1::ListCronJobRequest, ::machine::service::v1::CronJobsReply>* streamer) {
+                       return this->StreamedListCronJob(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_ListCronJob() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status ListCronJob(::grpc::ServerContext* /*context*/, const ::machine::service::v1::ListCronJobRequest* /*request*/, ::machine::service::v1::CronJobsReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedListCronJob(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::machine::service::v1::ListCronJobRequest,::machine::service::v1::CronJobsReply>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_FindByUserId<WithStreamedUnaryMethod_Create<WithStreamedUnaryMethod_Update<WithStreamedUnaryMethod_Get<WithStreamedUnaryMethod_Move<WithStreamedUnaryMethod_Zero<WithStreamedUnaryMethod_GetMotorStatus<WithStreamedUnaryMethod_MoveDone<WithStreamedUnaryMethod_CreateCronJob<WithStreamedUnaryMethod_DeleteCronJob<WithStreamedUnaryMethod_ListCronJob<Service > > > > > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_FindByUserId<WithStreamedUnaryMethod_Create<WithStreamedUnaryMethod_Update<WithStreamedUnaryMethod_Get<WithStreamedUnaryMethod_Move<WithStreamedUnaryMethod_Zero<WithStreamedUnaryMethod_GetMotorStatus<WithStreamedUnaryMethod_MoveDone<Service > > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_FindByUserId<WithStreamedUnaryMethod_Create<WithStreamedUnaryMethod_Update<WithStreamedUnaryMethod_Get<WithStreamedUnaryMethod_Move<WithStreamedUnaryMethod_Zero<WithStreamedUnaryMethod_GetMotorStatus<WithStreamedUnaryMethod_MoveDone<WithStreamedUnaryMethod_CreateCronJob<WithStreamedUnaryMethod_DeleteCronJob<WithStreamedUnaryMethod_ListCronJob<Service > > > > > > > > > > > StreamedService;
 };
 
 }  // namespace v1

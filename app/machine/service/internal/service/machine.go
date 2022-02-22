@@ -6,6 +6,7 @@ import (
 	machineV1 "htp-platform/api/machine/service/v1"
 	"htp-platform/app/machine/service/internal/biz"
 	"os"
+	"sort"
 	"strconv"
 	"time"
 )
@@ -219,4 +220,151 @@ func (s *MachineService) MoveDone(ctx context.Context, in *machineV1.MoveDoneReq
 
 	ret.Status = true
 	return ret, nil
+}
+
+func (s *MachineService) jobFunc(machineId int64, checkName string, coordinates []*biz.CheckCoordinate) func() {
+	return func() {
+		// 将坐标 Slice 以结构体中的 Seq 进行降序排序
+		sort.Slice(coordinates, func(i, j int) bool {
+			return coordinates[i].Seq < coordinates[j].Seq
+		})
+
+		// 通过 grpc 服务将坐标发送到客户端
+		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+		defer cancel()
+
+		m, err := s.mu.Get(ctx, machineId)
+		if err != nil {
+			s.log.Error(err)
+			return
+		}
+
+		rCli, cleanup, err := s.robotClient(m.Address)
+		if err != nil {
+			s.log.Error(err)
+			return
+		}
+		defer cleanup()
+
+		// 遍历坐标，发送到机器
+		for _, coordinate := range coordinates {
+			coordinate.Crd.CheckName = checkName
+
+			_, err := rCli.AppendCoordinate(ctx, &robotV1.CoordinateRequest{
+				X:         coordinate.Crd.X,
+				Y:         coordinate.Crd.Y,
+				Z:         coordinate.Crd.Z,
+				Rx:        coordinate.Crd.Rx,
+				Ry:        coordinate.Crd.Ry,
+				Check:     coordinate.Crd.Check,
+				Delay:     coordinate.Crd.Delay,
+				Uuid:      strconv.FormatInt(coordinate.Crd.MachineId, 10),
+				CheckName: coordinate.Crd.CheckName,
+			})
+			if err != nil {
+				s.log.Error(err)
+				return
+			}
+		}
+	}
+}
+
+func (s *MachineService) CreateCronJob(ctx context.Context, in *machineV1.CreateCronJobRequest) (*machineV1.CronJobReply, error) {
+	c := in.GetCronJob()
+
+	var bCcs []*biz.CheckCoordinate
+	for _, coordinate := range c.GetCheckCoordinates() {
+		crd := coordinate.GetCrd()
+		bCrd := &biz.Coordinate{
+			X:         crd.GetX(),
+			Y:         crd.GetY(),
+			Z:         crd.GetZ(),
+			Rx:        crd.GetRx(),
+			Ry:        crd.GetRy(),
+			Check:     crd.GetCheck(),
+			Delay:     crd.GetDelay(),
+			MachineId: crd.GetMachineId(),
+			CheckName: crd.GetCheckName(),
+		}
+
+		bCcs = append(bCcs, &biz.CheckCoordinate{
+			Seq: coordinate.GetSeq(),
+			Crd: bCrd,
+		})
+	}
+
+	if err := s.cr.AddCronJob(ctx, &biz.Cron{
+		CheckCoordinates: bCcs,
+		CheckName:        c.GetCheckName(),
+		MachineId:        c.GetMachineId(),
+		CronString:       c.GetCronString(),
+	}, s.jobFunc(c.GetMachineId(), c.GetCheckName(), bCcs)); err != nil {
+		return nil, err
+	}
+
+	po, err := s.cr.Create(ctx, &biz.Cron{
+		CheckCoordinates: bCcs,
+		CheckName:        c.GetCheckName(),
+		MachineId:        c.GetMachineId(),
+		CronString:       c.GetCronString(),
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	cj := in.GetCronJob()
+	cj.Id = po.ID
+
+	return &machineV1.CronJobReply{CronJob: cj}, nil
+}
+
+func (s *MachineService) DeleteCronJob(ctx context.Context, in *machineV1.DeleteCronJobRequest) (*machineV1.DeleteCronJobReply, error) {
+	po, err := s.cr.Get(ctx, in.GetId())
+	if err != nil {
+		return nil, err
+	}
+
+	if err := s.cr.DelCronJob(ctx, po.MachineId, po.CheckName); err != nil {
+		return nil, err
+	}
+
+	return &machineV1.DeleteCronJobReply{Num: 1}, nil
+}
+
+func (s *MachineService) ListCronJob(ctx context.Context, in *machineV1.ListCronJobRequest) (*machineV1.CronJobsReply, error) {
+	targets, err := s.cr.FindByMachineId(ctx, in.GetMachineId())
+	if err != nil {
+		return nil, err
+	}
+
+	var cjs []*machineV1.CronJob
+	for _, target := range targets {
+		var cc []*machineV1.CheckCoordinate
+		for _, coordinate := range target.CheckCoordinates {
+			crd := coordinate.Crd
+			cc = append(cc, &machineV1.CheckCoordinate{
+				Seq: coordinate.Seq,
+				Crd: &machineV1.Coordinate{
+					X:         crd.X,
+					Y:         crd.Y,
+					Z:         crd.Z,
+					Rx:        crd.Rx,
+					Ry:        crd.Ry,
+					Check:     crd.Check,
+					Delay:     crd.Delay,
+					MachineId: crd.MachineId,
+					CheckName: crd.CheckName,
+				},
+			})
+		}
+		cjs = append(cjs, &machineV1.CronJob{
+			Id:               target.ID,
+			MachineId:        target.MachineId,
+			CheckName:        target.CheckName,
+			CronString:       target.CronString,
+			CheckCoordinates: cc,
+		})
+	}
+
+	return &machineV1.CronJobsReply{CronJobs: cjs}, nil
 }

@@ -30,6 +30,9 @@ type MachineClient interface {
 	Zero(ctx context.Context, in *ZeroRequest, opts ...grpc.CallOption) (*ZeroReply, error)
 	GetMotorStatus(ctx context.Context, in *GetMotorStatusRequest, opts ...grpc.CallOption) (*GetMotorStatusReply, error)
 	MoveDone(ctx context.Context, in *MoveDoneRequest, opts ...grpc.CallOption) (*MoveDoneReply, error)
+	CreateCronJob(ctx context.Context, in *CreateCronJobRequest, opts ...grpc.CallOption) (*CronJobReply, error)
+	DeleteCronJob(ctx context.Context, in *DeleteCronJobRequest, opts ...grpc.CallOption) (*DeleteCronJobReply, error)
+	ListCronJob(ctx context.Context, in *ListCronJobRequest, opts ...grpc.CallOption) (*CronJobsReply, error)
 }
 
 type machineClient struct {
@@ -112,6 +115,33 @@ func (c *machineClient) MoveDone(ctx context.Context, in *MoveDoneRequest, opts 
 	return out, nil
 }
 
+func (c *machineClient) CreateCronJob(ctx context.Context, in *CreateCronJobRequest, opts ...grpc.CallOption) (*CronJobReply, error) {
+	out := new(CronJobReply)
+	err := c.cc.Invoke(ctx, "/machine.service.v1.Machine/CreateCronJob", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *machineClient) DeleteCronJob(ctx context.Context, in *DeleteCronJobRequest, opts ...grpc.CallOption) (*DeleteCronJobReply, error) {
+	out := new(DeleteCronJobReply)
+	err := c.cc.Invoke(ctx, "/machine.service.v1.Machine/DeleteCronJob", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *machineClient) ListCronJob(ctx context.Context, in *ListCronJobRequest, opts ...grpc.CallOption) (*CronJobsReply, error) {
+	out := new(CronJobsReply)
+	err := c.cc.Invoke(ctx, "/machine.service.v1.Machine/ListCronJob", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MachineServer is the server API for Machine service.
 // All implementations must embed UnimplementedMachineServer
 // for forward compatibility
@@ -124,6 +154,9 @@ type MachineServer interface {
 	Zero(context.Context, *ZeroRequest) (*ZeroReply, error)
 	GetMotorStatus(context.Context, *GetMotorStatusRequest) (*GetMotorStatusReply, error)
 	MoveDone(context.Context, *MoveDoneRequest) (*MoveDoneReply, error)
+	CreateCronJob(context.Context, *CreateCronJobRequest) (*CronJobReply, error)
+	DeleteCronJob(context.Context, *DeleteCronJobRequest) (*DeleteCronJobReply, error)
+	ListCronJob(context.Context, *ListCronJobRequest) (*CronJobsReply, error)
 	mustEmbedUnimplementedMachineServer()
 }
 
@@ -154,6 +187,15 @@ func (UnimplementedMachineServer) GetMotorStatus(context.Context, *GetMotorStatu
 }
 func (UnimplementedMachineServer) MoveDone(context.Context, *MoveDoneRequest) (*MoveDoneReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method MoveDone not implemented")
+}
+func (UnimplementedMachineServer) CreateCronJob(context.Context, *CreateCronJobRequest) (*CronJobReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateCronJob not implemented")
+}
+func (UnimplementedMachineServer) DeleteCronJob(context.Context, *DeleteCronJobRequest) (*DeleteCronJobReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteCronJob not implemented")
+}
+func (UnimplementedMachineServer) ListCronJob(context.Context, *ListCronJobRequest) (*CronJobsReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListCronJob not implemented")
 }
 func (UnimplementedMachineServer) mustEmbedUnimplementedMachineServer() {}
 
@@ -312,6 +354,60 @@ func _Machine_MoveDone_Handler(srv interface{}, ctx context.Context, dec func(in
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Machine_CreateCronJob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateCronJobRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MachineServer).CreateCronJob(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/machine.service.v1.Machine/CreateCronJob",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MachineServer).CreateCronJob(ctx, req.(*CreateCronJobRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Machine_DeleteCronJob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteCronJobRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MachineServer).DeleteCronJob(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/machine.service.v1.Machine/DeleteCronJob",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MachineServer).DeleteCronJob(ctx, req.(*DeleteCronJobRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Machine_ListCronJob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListCronJobRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MachineServer).ListCronJob(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/machine.service.v1.Machine/ListCronJob",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MachineServer).ListCronJob(ctx, req.(*ListCronJobRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Machine_ServiceDesc is the grpc.ServiceDesc for Machine service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -350,6 +446,18 @@ var Machine_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "MoveDone",
 			Handler:    _Machine_MoveDone_Handler,
+		},
+		{
+			MethodName: "CreateCronJob",
+			Handler:    _Machine_CreateCronJob_Handler,
+		},
+		{
+			MethodName: "DeleteCronJob",
+			Handler:    _Machine_DeleteCronJob_Handler,
+		},
+		{
+			MethodName: "ListCronJob",
+			Handler:    _Machine_ListCronJob_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

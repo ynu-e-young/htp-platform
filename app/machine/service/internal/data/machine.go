@@ -3,7 +3,7 @@ package data
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
-	v1 "htp-platform/api/machine/service/v1"
+	machineV1 "htp-platform/api/machine/service/v1"
 	"htp-platform/app/machine/service/internal/biz"
 	"htp-platform/app/machine/service/internal/data/ent"
 	"htp-platform/app/machine/service/internal/data/ent/machine"
@@ -30,11 +30,11 @@ func (r *machineRepo) FindByUserId(ctx context.Context, userId int64) ([]*biz.Ma
 		All(ctx)
 
 	if err != nil && ent.IsNotFound(err) {
-		return nil, v1.ErrorNotFoundError("find userId: %d not found, err: %v", userId, err)
+		return nil, machineV1.ErrorNotFoundError("find userId: %d not found, err: %v", userId, err)
 	}
 	if err != nil {
 		r.log.Errorf("unknown err: %v", err)
-		return nil, v1.ErrorUnknownError("unknown err: %v", err)
+		return nil, machineV1.ErrorUnknownError("unknown err: %v", err)
 	}
 
 	var machines []*biz.Machine
@@ -56,11 +56,11 @@ func (r *machineRepo) Create(ctx context.Context, machine *biz.Machine) (*biz.Ma
 		SetAddress(machine.Address).
 		Save(ctx)
 	if err != nil && ent.IsConstraintError(err) {
-		return nil, v1.ErrorAddressConflict("create machine conflict, err: %v", err)
+		return nil, machineV1.ErrorAddressConflict("create machine conflict, err: %v", err)
 	}
 	if err != nil {
 		r.log.Errorf("unknown err: %v", err)
-		return nil, v1.ErrorUnknownError("unknown err: %v", err)
+		return nil, machineV1.ErrorUnknownError("unknown err: %v", err)
 	}
 
 	return &biz.Machine{
@@ -77,11 +77,11 @@ func (r *machineRepo) Update(ctx context.Context, machine *biz.Machine) (*biz.Ma
 		SetAddress(machine.Address).
 		Save(ctx)
 	if err != nil && ent.IsConstraintError(err) {
-		return nil, v1.ErrorAddressConflict("update machine conflict, err: %v", err)
+		return nil, machineV1.ErrorAddressConflict("update machine conflict, err: %v", err)
 	}
 	if err != nil {
 		r.log.Errorf("unknown err: %v", err)
-		return nil, v1.ErrorUnknownError("unknown err: %v", err)
+		return nil, machineV1.ErrorUnknownError("unknown err: %v", err)
 	}
 
 	return &biz.Machine{
@@ -94,11 +94,11 @@ func (r *machineRepo) Update(ctx context.Context, machine *biz.Machine) (*biz.Ma
 func (r *machineRepo) Get(ctx context.Context, machineId int64) (*biz.Machine, error) {
 	po, err := r.data.db.Machine.Get(ctx, machineId)
 	if err != nil && ent.IsNotFound(err) {
-		return nil, v1.ErrorNotFoundError("find id: %s not found, err: %v", machineId, err)
+		return nil, machineV1.ErrorNotFoundError("find id: %s not found, err: %v", machineId, err)
 	}
 	if err != nil {
 		r.log.Errorf("unknown err: %v", err)
-		return nil, v1.ErrorUnknownError("unknown err: %v", err)
+		return nil, machineV1.ErrorUnknownError("unknown err: %v", err)
 	}
 
 	return &biz.Machine{

@@ -9,6 +9,7 @@ import (
 
 	"htp-platform/app/machine/service/internal/data/ent/migrate"
 
+	"htp-platform/app/machine/service/internal/data/ent/cronjob"
 	"htp-platform/app/machine/service/internal/data/ent/machine"
 
 	"entgo.io/ent/dialect"
@@ -20,6 +21,8 @@ type Client struct {
 	config
 	// Schema is the client for creating, migrating and dropping schema.
 	Schema *migrate.Schema
+	// CronJob is the client for interacting with the CronJob builders.
+	CronJob *CronJobClient
 	// Machine is the client for interacting with the Machine builders.
 	Machine *MachineClient
 }
@@ -35,6 +38,7 @@ func NewClient(opts ...Option) *Client {
 
 func (c *Client) init() {
 	c.Schema = migrate.NewSchema(c.driver)
+	c.CronJob = NewCronJobClient(c.config)
 	c.Machine = NewMachineClient(c.config)
 }
 
@@ -69,6 +73,7 @@ func (c *Client) Tx(ctx context.Context) (*Tx, error) {
 	return &Tx{
 		ctx:     ctx,
 		config:  cfg,
+		CronJob: NewCronJobClient(cfg),
 		Machine: NewMachineClient(cfg),
 	}, nil
 }
@@ -89,6 +94,7 @@ func (c *Client) BeginTx(ctx context.Context, opts *sql.TxOptions) (*Tx, error) 
 	return &Tx{
 		ctx:     ctx,
 		config:  cfg,
+		CronJob: NewCronJobClient(cfg),
 		Machine: NewMachineClient(cfg),
 	}, nil
 }
@@ -96,7 +102,7 @@ func (c *Client) BeginTx(ctx context.Context, opts *sql.TxOptions) (*Tx, error) 
 // Debug returns a new debug-client. It's used to get verbose logging on specific operations.
 //
 //	client.Debug().
-//		Machine.
+//		CronJob.
 //		Query().
 //		Count(ctx)
 //
@@ -119,7 +125,98 @@ func (c *Client) Close() error {
 // Use adds the mutation hooks to all the entity clients.
 // In order to add hooks to a specific client, call: `client.Node.Use(...)`.
 func (c *Client) Use(hooks ...Hook) {
+	c.CronJob.Use(hooks...)
 	c.Machine.Use(hooks...)
+}
+
+// CronJobClient is a client for the CronJob schema.
+type CronJobClient struct {
+	config
+}
+
+// NewCronJobClient returns a client for the CronJob from the given config.
+func NewCronJobClient(c config) *CronJobClient {
+	return &CronJobClient{config: c}
+}
+
+// Use adds a list of mutation hooks to the hooks stack.
+// A call to `Use(f, g, h)` equals to `cronjob.Hooks(f(g(h())))`.
+func (c *CronJobClient) Use(hooks ...Hook) {
+	c.hooks.CronJob = append(c.hooks.CronJob, hooks...)
+}
+
+// Create returns a create builder for CronJob.
+func (c *CronJobClient) Create() *CronJobCreate {
+	mutation := newCronJobMutation(c.config, OpCreate)
+	return &CronJobCreate{config: c.config, hooks: c.Hooks(), mutation: mutation}
+}
+
+// CreateBulk returns a builder for creating a bulk of CronJob entities.
+func (c *CronJobClient) CreateBulk(builders ...*CronJobCreate) *CronJobCreateBulk {
+	return &CronJobCreateBulk{config: c.config, builders: builders}
+}
+
+// Update returns an update builder for CronJob.
+func (c *CronJobClient) Update() *CronJobUpdate {
+	mutation := newCronJobMutation(c.config, OpUpdate)
+	return &CronJobUpdate{config: c.config, hooks: c.Hooks(), mutation: mutation}
+}
+
+// UpdateOne returns an update builder for the given entity.
+func (c *CronJobClient) UpdateOne(cj *CronJob) *CronJobUpdateOne {
+	mutation := newCronJobMutation(c.config, OpUpdateOne, withCronJob(cj))
+	return &CronJobUpdateOne{config: c.config, hooks: c.Hooks(), mutation: mutation}
+}
+
+// UpdateOneID returns an update builder for the given id.
+func (c *CronJobClient) UpdateOneID(id int64) *CronJobUpdateOne {
+	mutation := newCronJobMutation(c.config, OpUpdateOne, withCronJobID(id))
+	return &CronJobUpdateOne{config: c.config, hooks: c.Hooks(), mutation: mutation}
+}
+
+// Delete returns a delete builder for CronJob.
+func (c *CronJobClient) Delete() *CronJobDelete {
+	mutation := newCronJobMutation(c.config, OpDelete)
+	return &CronJobDelete{config: c.config, hooks: c.Hooks(), mutation: mutation}
+}
+
+// DeleteOne returns a delete builder for the given entity.
+func (c *CronJobClient) DeleteOne(cj *CronJob) *CronJobDeleteOne {
+	return c.DeleteOneID(cj.ID)
+}
+
+// DeleteOneID returns a delete builder for the given id.
+func (c *CronJobClient) DeleteOneID(id int64) *CronJobDeleteOne {
+	builder := c.Delete().Where(cronjob.ID(id))
+	builder.mutation.id = &id
+	builder.mutation.op = OpDeleteOne
+	return &CronJobDeleteOne{builder}
+}
+
+// Query returns a query builder for CronJob.
+func (c *CronJobClient) Query() *CronJobQuery {
+	return &CronJobQuery{
+		config: c.config,
+	}
+}
+
+// Get returns a CronJob entity by its id.
+func (c *CronJobClient) Get(ctx context.Context, id int64) (*CronJob, error) {
+	return c.Query().Where(cronjob.ID(id)).Only(ctx)
+}
+
+// GetX is like Get, but panics if an error occurs.
+func (c *CronJobClient) GetX(ctx context.Context, id int64) *CronJob {
+	obj, err := c.Get(ctx, id)
+	if err != nil {
+		panic(err)
+	}
+	return obj
+}
+
+// Hooks returns the client hooks.
+func (c *CronJobClient) Hooks() []Hook {
+	return c.hooks.CronJob
 }
 
 // MachineClient is a client for the Machine schema.

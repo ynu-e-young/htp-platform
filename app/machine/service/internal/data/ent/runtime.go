@@ -3,6 +3,7 @@
 package ent
 
 import (
+	"htp-platform/app/machine/service/internal/data/ent/cronjob"
 	"htp-platform/app/machine/service/internal/data/ent/machine"
 	"htp-platform/app/machine/service/internal/data/ent/schema"
 	"time"
@@ -12,6 +13,16 @@ import (
 // (default values, validators, hooks and policies) and stitches it
 // to their package variables.
 func init() {
+	cronjobFields := schema.CronJob{}.Fields()
+	_ = cronjobFields
+	// cronjobDescCreatedAt is the schema descriptor for created_at field.
+	cronjobDescCreatedAt := cronjobFields[5].Descriptor()
+	// cronjob.DefaultCreatedAt holds the default value on creation for the created_at field.
+	cronjob.DefaultCreatedAt = cronjobDescCreatedAt.Default.(func() time.Time)
+	// cronjobDescUpdatedAt is the schema descriptor for updated_at field.
+	cronjobDescUpdatedAt := cronjobFields[6].Descriptor()
+	// cronjob.DefaultUpdatedAt holds the default value on creation for the updated_at field.
+	cronjob.DefaultUpdatedAt = cronjobDescUpdatedAt.Default.(func() time.Time)
 	machineFields := schema.Machine{}.Fields()
 	_ = machineFields
 	// machineDescCreatedAt is the schema descriptor for created_at field.

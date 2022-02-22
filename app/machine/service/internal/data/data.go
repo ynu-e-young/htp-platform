@@ -7,6 +7,7 @@ import (
 	"github.com/go-kratos/kratos/v2/registry"
 	"github.com/go-kratos/kratos/v2/transport/grpc"
 	"github.com/google/wire"
+	"github.com/robfig/cron/v3"
 	captureV1 "htp-platform/api/capture/service/v1"
 	"htp-platform/app/machine/service/internal/conf"
 	"htp-platform/app/machine/service/internal/data/ent"
@@ -22,7 +23,9 @@ import (
 // ProviderSet is data providers.
 var ProviderSet = wire.NewSet(
 	NewData,
+	NewCron,
 	NewEntClient,
+	NewCronRepo,
 	NewMachineRepo,
 	NewCaptureRepo,
 	NewDiscovery,
@@ -33,15 +36,18 @@ var ProviderSet = wire.NewSet(
 type Data struct {
 	cc captureV1.CaptureClient
 
+	cr map[string]*cron.Cron
+
 	db *ent.Client
 }
 
 // NewData .
-func NewData(entClient *ent.Client, cc captureV1.CaptureClient, logger log.Logger) (*Data, func(), error) {
+func NewData(entClient *ent.Client, cr map[string]*cron.Cron, cc captureV1.CaptureClient, logger log.Logger) (*Data, func(), error) {
 	helper := log.NewHelper(log.With(logger, "module", "machine-service/data"))
 
 	d := &Data{
 		cc: cc,
+		cr: cr,
 		db: entClient,
 	}
 	return d, func() {
@@ -66,6 +72,10 @@ func NewEntClient(conf *conf.Data, logger log.Logger) *ent.Client {
 		helper.Fatalf("failed creating schema resources: %v", err)
 	}
 	return client
+}
+
+func NewCron() map[string]*cron.Cron {
+	return make(map[string]*cron.Cron)
 }
 
 func NewDiscovery(conf *conf.Registry) registry.Discovery {

@@ -21,17 +21,20 @@ import (
 // initApp init kratos application.
 func initApp(confServer *conf.Server, registry *conf.Registry, confData *conf.Data, logger log.Logger) (*kratos.App, func(), error) {
 	client := data.NewEntClient(confData, logger)
+	v := data.NewCron()
 	discovery := data.NewDiscovery(registry)
 	captureClient := data.NewCaptureServiceClient(discovery)
-	dataData, cleanup, err := data.NewData(client, captureClient, logger)
+	dataData, cleanup, err := data.NewData(client, v, captureClient, logger)
 	if err != nil {
 		return nil, nil, err
 	}
 	captureRepo := data.NewCaptureRepo(dataData, logger)
 	captureUsecase := biz.NewCaptureUsecase(captureRepo, logger)
+	cronRepo := data.NewCronRepo(dataData, logger)
+	cronUsecase := biz.NewCronUsecase(cronRepo, logger)
 	machineRepo := data.NewMachineRepo(dataData, logger)
 	machineUsecase := biz.NewMachineUsecase(machineRepo, logger)
-	machineService := service.NewMachineService(captureUsecase, machineUsecase, confData, logger)
+	machineService := service.NewMachineService(captureUsecase, cronUsecase, machineUsecase, confData, logger)
 	grpcServer := server.NewGRPCServer(confServer, machineService, logger)
 	registrar := server.NewRegistrar(registry)
 	app := newApp(logger, grpcServer, registrar)

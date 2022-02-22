@@ -8,6 +8,19 @@ import (
 	"htp-platform/app/machine/service/internal/data/ent"
 )
 
+// The CronJobFunc type is an adapter to allow the use of ordinary
+// function as CronJob mutator.
+type CronJobFunc func(context.Context, *ent.CronJobMutation) (ent.Value, error)
+
+// Mutate calls f(ctx, m).
+func (f CronJobFunc) Mutate(ctx context.Context, m ent.Mutation) (ent.Value, error) {
+	mv, ok := m.(*ent.CronJobMutation)
+	if !ok {
+		return nil, fmt.Errorf("unexpected mutation type %T. expect *ent.CronJobMutation", m)
+	}
+	return f(ctx, mv)
+}
+
 // The MachineFunc type is an adapter to allow the use of ordinary
 // function as Machine mutator.
 type MachineFunc func(context.Context, *ent.MachineMutation) (ent.Value, error)

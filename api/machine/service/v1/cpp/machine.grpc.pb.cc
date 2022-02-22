@@ -32,6 +32,9 @@ static const char* Machine_method_names[] = {
   "/machine.service.v1.Machine/Zero",
   "/machine.service.v1.Machine/GetMotorStatus",
   "/machine.service.v1.Machine/MoveDone",
+  "/machine.service.v1.Machine/CreateCronJob",
+  "/machine.service.v1.Machine/DeleteCronJob",
+  "/machine.service.v1.Machine/ListCronJob",
 };
 
 std::unique_ptr< Machine::Stub> Machine::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -49,6 +52,9 @@ Machine::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, c
   , rpcmethod_Zero_(Machine_method_names[5], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetMotorStatus_(Machine_method_names[6], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_MoveDone_(Machine_method_names[7], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_CreateCronJob_(Machine_method_names[8], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_DeleteCronJob_(Machine_method_names[9], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_ListCronJob_(Machine_method_names[10], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status Machine::Stub::FindByUserId(::grpc::ClientContext* context, const ::machine::service::v1::FindByUserIdRequest& request, ::machine::service::v1::MachinesReply* response) {
@@ -235,6 +241,75 @@ void Machine::Stub::async::MoveDone(::grpc::ClientContext* context, const ::mach
   return result;
 }
 
+::grpc::Status Machine::Stub::CreateCronJob(::grpc::ClientContext* context, const ::machine::service::v1::CreateCronJobRequest& request, ::machine::service::v1::CronJobReply* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::machine::service::v1::CreateCronJobRequest, ::machine::service::v1::CronJobReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_CreateCronJob_, context, request, response);
+}
+
+void Machine::Stub::async::CreateCronJob(::grpc::ClientContext* context, const ::machine::service::v1::CreateCronJobRequest* request, ::machine::service::v1::CronJobReply* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::machine::service::v1::CreateCronJobRequest, ::machine::service::v1::CronJobReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CreateCronJob_, context, request, response, std::move(f));
+}
+
+void Machine::Stub::async::CreateCronJob(::grpc::ClientContext* context, const ::machine::service::v1::CreateCronJobRequest* request, ::machine::service::v1::CronJobReply* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CreateCronJob_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::machine::service::v1::CronJobReply>* Machine::Stub::PrepareAsyncCreateCronJobRaw(::grpc::ClientContext* context, const ::machine::service::v1::CreateCronJobRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::machine::service::v1::CronJobReply, ::machine::service::v1::CreateCronJobRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_CreateCronJob_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::machine::service::v1::CronJobReply>* Machine::Stub::AsyncCreateCronJobRaw(::grpc::ClientContext* context, const ::machine::service::v1::CreateCronJobRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncCreateCronJobRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status Machine::Stub::DeleteCronJob(::grpc::ClientContext* context, const ::machine::service::v1::DeleteCronJobRequest& request, ::machine::service::v1::DeleteCronJobReply* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::machine::service::v1::DeleteCronJobRequest, ::machine::service::v1::DeleteCronJobReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_DeleteCronJob_, context, request, response);
+}
+
+void Machine::Stub::async::DeleteCronJob(::grpc::ClientContext* context, const ::machine::service::v1::DeleteCronJobRequest* request, ::machine::service::v1::DeleteCronJobReply* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::machine::service::v1::DeleteCronJobRequest, ::machine::service::v1::DeleteCronJobReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeleteCronJob_, context, request, response, std::move(f));
+}
+
+void Machine::Stub::async::DeleteCronJob(::grpc::ClientContext* context, const ::machine::service::v1::DeleteCronJobRequest* request, ::machine::service::v1::DeleteCronJobReply* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeleteCronJob_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::machine::service::v1::DeleteCronJobReply>* Machine::Stub::PrepareAsyncDeleteCronJobRaw(::grpc::ClientContext* context, const ::machine::service::v1::DeleteCronJobRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::machine::service::v1::DeleteCronJobReply, ::machine::service::v1::DeleteCronJobRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_DeleteCronJob_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::machine::service::v1::DeleteCronJobReply>* Machine::Stub::AsyncDeleteCronJobRaw(::grpc::ClientContext* context, const ::machine::service::v1::DeleteCronJobRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncDeleteCronJobRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status Machine::Stub::ListCronJob(::grpc::ClientContext* context, const ::machine::service::v1::ListCronJobRequest& request, ::machine::service::v1::CronJobsReply* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::machine::service::v1::ListCronJobRequest, ::machine::service::v1::CronJobsReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_ListCronJob_, context, request, response);
+}
+
+void Machine::Stub::async::ListCronJob(::grpc::ClientContext* context, const ::machine::service::v1::ListCronJobRequest* request, ::machine::service::v1::CronJobsReply* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::machine::service::v1::ListCronJobRequest, ::machine::service::v1::CronJobsReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ListCronJob_, context, request, response, std::move(f));
+}
+
+void Machine::Stub::async::ListCronJob(::grpc::ClientContext* context, const ::machine::service::v1::ListCronJobRequest* request, ::machine::service::v1::CronJobsReply* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ListCronJob_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::machine::service::v1::CronJobsReply>* Machine::Stub::PrepareAsyncListCronJobRaw(::grpc::ClientContext* context, const ::machine::service::v1::ListCronJobRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::machine::service::v1::CronJobsReply, ::machine::service::v1::ListCronJobRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_ListCronJob_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::machine::service::v1::CronJobsReply>* Machine::Stub::AsyncListCronJobRaw(::grpc::ClientContext* context, const ::machine::service::v1::ListCronJobRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncListCronJobRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
 Machine::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Machine_method_names[0],
@@ -316,6 +391,36 @@ Machine::Service::Service() {
              ::machine::service::v1::MoveDoneReply* resp) {
                return service->MoveDone(ctx, req, resp);
              }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Machine_method_names[8],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Machine::Service, ::machine::service::v1::CreateCronJobRequest, ::machine::service::v1::CronJobReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](Machine::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::machine::service::v1::CreateCronJobRequest* req,
+             ::machine::service::v1::CronJobReply* resp) {
+               return service->CreateCronJob(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Machine_method_names[9],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Machine::Service, ::machine::service::v1::DeleteCronJobRequest, ::machine::service::v1::DeleteCronJobReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](Machine::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::machine::service::v1::DeleteCronJobRequest* req,
+             ::machine::service::v1::DeleteCronJobReply* resp) {
+               return service->DeleteCronJob(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Machine_method_names[10],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Machine::Service, ::machine::service::v1::ListCronJobRequest, ::machine::service::v1::CronJobsReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](Machine::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::machine::service::v1::ListCronJobRequest* req,
+             ::machine::service::v1::CronJobsReply* resp) {
+               return service->ListCronJob(ctx, req, resp);
+             }, this)));
 }
 
 Machine::Service::~Service() {
@@ -371,6 +476,27 @@ Machine::Service::~Service() {
 }
 
 ::grpc::Status Machine::Service::MoveDone(::grpc::ServerContext* context, const ::machine::service::v1::MoveDoneRequest* request, ::machine::service::v1::MoveDoneReply* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Machine::Service::CreateCronJob(::grpc::ServerContext* context, const ::machine::service::v1::CreateCronJobRequest* request, ::machine::service::v1::CronJobReply* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Machine::Service::DeleteCronJob(::grpc::ServerContext* context, const ::machine::service::v1::DeleteCronJobRequest* request, ::machine::service::v1::DeleteCronJobReply* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Machine::Service::ListCronJob(::grpc::ServerContext* context, const ::machine::service::v1::ListCronJobRequest* request, ::machine::service::v1::CronJobsReply* response) {
   (void) context;
   (void) request;
   (void) response;

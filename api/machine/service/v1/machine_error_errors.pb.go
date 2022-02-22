@@ -46,3 +46,21 @@ func IsAddressConflict(err error) bool {
 func ErrorAddressConflict(format string, args ...interface{}) *errors.Error {
 	return errors.New(500, MachineServiceErrorReason_ADDRESS_CONFLICT.String(), fmt.Sprintf(format, args...))
 }
+
+func IsCronConflict(err error) bool {
+	e := errors.FromError(err)
+	return e.Reason == MachineServiceErrorReason_CRON_CONFLICT.String() && e.Code == 500
+}
+
+func ErrorCronConflict(format string, args ...interface{}) *errors.Error {
+	return errors.New(500, MachineServiceErrorReason_CRON_CONFLICT.String(), fmt.Sprintf(format, args...))
+}
+
+func IsCronSetupFailed(err error) bool {
+	e := errors.FromError(err)
+	return e.Reason == MachineServiceErrorReason_CRON_SETUP_FAILED.String() && e.Code == 500
+}
+
+func ErrorCronSetupFailed(format string, args ...interface{}) *errors.Error {
+	return errors.New(500, MachineServiceErrorReason_CRON_SETUP_FAILED.String(), fmt.Sprintf(format, args...))
+}

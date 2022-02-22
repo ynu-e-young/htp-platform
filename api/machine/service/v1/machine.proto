@@ -21,6 +21,12 @@ service Machine {
   rpc GetMotorStatus (GetMotorStatusRequest) returns (GetMotorStatusReply) {}
 
   rpc MoveDone (MoveDoneRequest) returns (MoveDoneReply) {}
+
+  rpc CreateCronJob (CreateCronJobRequest) returns (CronJobReply) {}
+
+  rpc DeleteCronJob (DeleteCronJobRequest) returns (DeleteCronJobReply) {}
+
+  rpc ListCronJob (ListCronJobRequest) returns (CronJobsReply) {}
 }
 
 message FindByUserIdRequest {
@@ -119,5 +125,55 @@ message MoveDoneRequest {
 
 message MoveDoneReply {
   bool status = 1;
+}
+
+// Cron Job
+message CreateCronJobRequest {
+    CronJob cron_job = 1;
+}
+
+message DeleteCronJobRequest {
+  int64 id = 1;
+}
+
+message DeleteCronJobReply {
+  int64 num = 1;
+}
+
+message ListCronJobRequest {
+  int64 machineId = 1;
+}
+
+message CronJobReply {
+  CronJob cron_job = 1;
+}
+
+message CronJobsReply {
+  repeated CronJob cron_jobs = 1;
+}
+
+message CronJob {
+  int64 id = 1;
+  int64 machineId = 2;
+  string check_name = 3;
+  string cron_string = 4;
+  repeated CheckCoordinate check_coordinates = 5;
+}
+
+message CheckCoordinate {
+  int64 seq = 1;
+  Coordinate crd = 2;
+}
+
+message Coordinate {
+  double x = 1;     // x
+  double y = 2;     // y
+  double z = 3;     // z
+  double rx = 4;    // 绕 x 角度
+  double ry = 5;    // 绕 y 角度
+  bool check = 6;   // 是否为检查动作
+  double delay = 7; // 每个动作的延时
+  int64 machine_id = 8;  // 设备的唯一识别码
+  string check_name = 9; // 检查动作名称
 }
 

@@ -14,4 +14,6 @@ enum MachineServiceErrorReason {
   NOT_FOUND_ERROR = 1;
   CREATE_FAILED = 2;
   ADDRESS_CONFLICT = 3;
+  CRON_CONFLICT = 4;
+  CRON_SETUP_FAILED = 5;
 }

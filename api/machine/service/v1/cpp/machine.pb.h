@@ -46,7 +46,7 @@ struct TableStruct_machine_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[17]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[26]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -56,9 +56,33 @@ extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table
 namespace machine {
 namespace service {
 namespace v1 {
+class CheckCoordinate;
+struct CheckCoordinateDefaultTypeInternal;
+extern CheckCoordinateDefaultTypeInternal _CheckCoordinate_default_instance_;
+class Coordinate;
+struct CoordinateDefaultTypeInternal;
+extern CoordinateDefaultTypeInternal _Coordinate_default_instance_;
+class CreateCronJobRequest;
+struct CreateCronJobRequestDefaultTypeInternal;
+extern CreateCronJobRequestDefaultTypeInternal _CreateCronJobRequest_default_instance_;
 class CreateRequest;
 struct CreateRequestDefaultTypeInternal;
 extern CreateRequestDefaultTypeInternal _CreateRequest_default_instance_;
+class CronJob;
+struct CronJobDefaultTypeInternal;
+extern CronJobDefaultTypeInternal _CronJob_default_instance_;
+class CronJobReply;
+struct CronJobReplyDefaultTypeInternal;
+extern CronJobReplyDefaultTypeInternal _CronJobReply_default_instance_;
+class CronJobsReply;
+struct CronJobsReplyDefaultTypeInternal;
+extern CronJobsReplyDefaultTypeInternal _CronJobsReply_default_instance_;
+class DeleteCronJobReply;
+struct DeleteCronJobReplyDefaultTypeInternal;
+extern DeleteCronJobReplyDefaultTypeInternal _DeleteCronJobReply_default_instance_;
+class DeleteCronJobRequest;
+struct DeleteCronJobRequestDefaultTypeInternal;
+extern DeleteCronJobRequestDefaultTypeInternal _DeleteCronJobRequest_default_instance_;
 class FindByUserIdRequest;
 struct FindByUserIdRequestDefaultTypeInternal;
 extern FindByUserIdRequestDefaultTypeInternal _FindByUserIdRequest_default_instance_;
@@ -71,6 +95,9 @@ extern GetMotorStatusRequestDefaultTypeInternal _GetMotorStatusRequest_default_i
 class GetRequest;
 struct GetRequestDefaultTypeInternal;
 extern GetRequestDefaultTypeInternal _GetRequest_default_instance_;
+class ListCronJobRequest;
+struct ListCronJobRequestDefaultTypeInternal;
+extern ListCronJobRequestDefaultTypeInternal _ListCronJobRequest_default_instance_;
 class MachineReply;
 struct MachineReplyDefaultTypeInternal;
 extern MachineReplyDefaultTypeInternal _MachineReply_default_instance_;
@@ -111,11 +138,20 @@ extern ZeroRequestDefaultTypeInternal _ZeroRequest_default_instance_;
 }  // namespace service
 }  // namespace machine
 PROTOBUF_NAMESPACE_OPEN
+template<> ::machine::service::v1::CheckCoordinate* Arena::CreateMaybeMessage<::machine::service::v1::CheckCoordinate>(Arena*);
+template<> ::machine::service::v1::Coordinate* Arena::CreateMaybeMessage<::machine::service::v1::Coordinate>(Arena*);
+template<> ::machine::service::v1::CreateCronJobRequest* Arena::CreateMaybeMessage<::machine::service::v1::CreateCronJobRequest>(Arena*);
 template<> ::machine::service::v1::CreateRequest* Arena::CreateMaybeMessage<::machine::service::v1::CreateRequest>(Arena*);
+template<> ::machine::service::v1::CronJob* Arena::CreateMaybeMessage<::machine::service::v1::CronJob>(Arena*);
+template<> ::machine::service::v1::CronJobReply* Arena::CreateMaybeMessage<::machine::service::v1::CronJobReply>(Arena*);
+template<> ::machine::service::v1::CronJobsReply* Arena::CreateMaybeMessage<::machine::service::v1::CronJobsReply>(Arena*);
+template<> ::machine::service::v1::DeleteCronJobReply* Arena::CreateMaybeMessage<::machine::service::v1::DeleteCronJobReply>(Arena*);
+template<> ::machine::service::v1::DeleteCronJobRequest* Arena::CreateMaybeMessage<::machine::service::v1::DeleteCronJobRequest>(Arena*);
 template<> ::machine::service::v1::FindByUserIdRequest* Arena::CreateMaybeMessage<::machine::service::v1::FindByUserIdRequest>(Arena*);
 template<> ::machine::service::v1::GetMotorStatusReply* Arena::CreateMaybeMessage<::machine::service::v1::GetMotorStatusReply>(Arena*);
 template<> ::machine::service::v1::GetMotorStatusRequest* Arena::CreateMaybeMessage<::machine::service::v1::GetMotorStatusRequest>(Arena*);
 template<> ::machine::service::v1::GetRequest* Arena::CreateMaybeMessage<::machine::service::v1::GetRequest>(Arena*);
+template<> ::machine::service::v1::ListCronJobRequest* Arena::CreateMaybeMessage<::machine::service::v1::ListCronJobRequest>(Arena*);
 template<> ::machine::service::v1::MachineReply* Arena::CreateMaybeMessage<::machine::service::v1::MachineReply>(Arena*);
 template<> ::machine::service::v1::MachineStruct* Arena::CreateMaybeMessage<::machine::service::v1::MachineStruct>(Arena*);
 template<> ::machine::service::v1::MachinesReply* Arena::CreateMaybeMessage<::machine::service::v1::MachinesReply>(Arena*);
@@ -2964,6 +3000,1523 @@ class MoveDoneReply final :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_machine_2eproto;
 };
+// -------------------------------------------------------------------
+
+class CreateCronJobRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:machine.service.v1.CreateCronJobRequest) */ {
+ public:
+  inline CreateCronJobRequest() : CreateCronJobRequest(nullptr) {}
+  ~CreateCronJobRequest() override;
+  explicit constexpr CreateCronJobRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CreateCronJobRequest(const CreateCronJobRequest& from);
+  CreateCronJobRequest(CreateCronJobRequest&& from) noexcept
+    : CreateCronJobRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline CreateCronJobRequest& operator=(const CreateCronJobRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CreateCronJobRequest& operator=(CreateCronJobRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CreateCronJobRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CreateCronJobRequest* internal_default_instance() {
+    return reinterpret_cast<const CreateCronJobRequest*>(
+               &_CreateCronJobRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    17;
+
+  friend void swap(CreateCronJobRequest& a, CreateCronJobRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CreateCronJobRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CreateCronJobRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CreateCronJobRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CreateCronJobRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CreateCronJobRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const CreateCronJobRequest& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CreateCronJobRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "machine.service.v1.CreateCronJobRequest";
+  }
+  protected:
+  explicit CreateCronJobRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCronJobFieldNumber = 1,
+  };
+  // .machine.service.v1.CronJob cron_job = 1;
+  bool has_cron_job() const;
+  private:
+  bool _internal_has_cron_job() const;
+  public:
+  void clear_cron_job();
+  const ::machine::service::v1::CronJob& cron_job() const;
+  PROTOBUF_NODISCARD ::machine::service::v1::CronJob* release_cron_job();
+  ::machine::service::v1::CronJob* mutable_cron_job();
+  void set_allocated_cron_job(::machine::service::v1::CronJob* cron_job);
+  private:
+  const ::machine::service::v1::CronJob& _internal_cron_job() const;
+  ::machine::service::v1::CronJob* _internal_mutable_cron_job();
+  public:
+  void unsafe_arena_set_allocated_cron_job(
+      ::machine::service::v1::CronJob* cron_job);
+  ::machine::service::v1::CronJob* unsafe_arena_release_cron_job();
+
+  // @@protoc_insertion_point(class_scope:machine.service.v1.CreateCronJobRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::machine::service::v1::CronJob* cron_job_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_machine_2eproto;
+};
+// -------------------------------------------------------------------
+
+class DeleteCronJobRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:machine.service.v1.DeleteCronJobRequest) */ {
+ public:
+  inline DeleteCronJobRequest() : DeleteCronJobRequest(nullptr) {}
+  ~DeleteCronJobRequest() override;
+  explicit constexpr DeleteCronJobRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  DeleteCronJobRequest(const DeleteCronJobRequest& from);
+  DeleteCronJobRequest(DeleteCronJobRequest&& from) noexcept
+    : DeleteCronJobRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline DeleteCronJobRequest& operator=(const DeleteCronJobRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DeleteCronJobRequest& operator=(DeleteCronJobRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const DeleteCronJobRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DeleteCronJobRequest* internal_default_instance() {
+    return reinterpret_cast<const DeleteCronJobRequest*>(
+               &_DeleteCronJobRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    18;
+
+  friend void swap(DeleteCronJobRequest& a, DeleteCronJobRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DeleteCronJobRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DeleteCronJobRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  DeleteCronJobRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<DeleteCronJobRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const DeleteCronJobRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const DeleteCronJobRequest& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DeleteCronJobRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "machine.service.v1.DeleteCronJobRequest";
+  }
+  protected:
+  explicit DeleteCronJobRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kIdFieldNumber = 1,
+  };
+  // int64 id = 1;
+  void clear_id();
+  int64_t id() const;
+  void set_id(int64_t value);
+  private:
+  int64_t _internal_id() const;
+  void _internal_set_id(int64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:machine.service.v1.DeleteCronJobRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  int64_t id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_machine_2eproto;
+};
+// -------------------------------------------------------------------
+
+class DeleteCronJobReply final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:machine.service.v1.DeleteCronJobReply) */ {
+ public:
+  inline DeleteCronJobReply() : DeleteCronJobReply(nullptr) {}
+  ~DeleteCronJobReply() override;
+  explicit constexpr DeleteCronJobReply(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  DeleteCronJobReply(const DeleteCronJobReply& from);
+  DeleteCronJobReply(DeleteCronJobReply&& from) noexcept
+    : DeleteCronJobReply() {
+    *this = ::std::move(from);
+  }
+
+  inline DeleteCronJobReply& operator=(const DeleteCronJobReply& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DeleteCronJobReply& operator=(DeleteCronJobReply&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const DeleteCronJobReply& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DeleteCronJobReply* internal_default_instance() {
+    return reinterpret_cast<const DeleteCronJobReply*>(
+               &_DeleteCronJobReply_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    19;
+
+  friend void swap(DeleteCronJobReply& a, DeleteCronJobReply& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DeleteCronJobReply* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DeleteCronJobReply* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  DeleteCronJobReply* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<DeleteCronJobReply>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const DeleteCronJobReply& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const DeleteCronJobReply& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DeleteCronJobReply* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "machine.service.v1.DeleteCronJobReply";
+  }
+  protected:
+  explicit DeleteCronJobReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNumFieldNumber = 1,
+  };
+  // int64 num = 1;
+  void clear_num();
+  int64_t num() const;
+  void set_num(int64_t value);
+  private:
+  int64_t _internal_num() const;
+  void _internal_set_num(int64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:machine.service.v1.DeleteCronJobReply)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  int64_t num_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_machine_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ListCronJobRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:machine.service.v1.ListCronJobRequest) */ {
+ public:
+  inline ListCronJobRequest() : ListCronJobRequest(nullptr) {}
+  ~ListCronJobRequest() override;
+  explicit constexpr ListCronJobRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ListCronJobRequest(const ListCronJobRequest& from);
+  ListCronJobRequest(ListCronJobRequest&& from) noexcept
+    : ListCronJobRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline ListCronJobRequest& operator=(const ListCronJobRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ListCronJobRequest& operator=(ListCronJobRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ListCronJobRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ListCronJobRequest* internal_default_instance() {
+    return reinterpret_cast<const ListCronJobRequest*>(
+               &_ListCronJobRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    20;
+
+  friend void swap(ListCronJobRequest& a, ListCronJobRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ListCronJobRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ListCronJobRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ListCronJobRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ListCronJobRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ListCronJobRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const ListCronJobRequest& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ListCronJobRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "machine.service.v1.ListCronJobRequest";
+  }
+  protected:
+  explicit ListCronJobRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kMachineIdFieldNumber = 1,
+  };
+  // int64 machineId = 1;
+  void clear_machineid();
+  int64_t machineid() const;
+  void set_machineid(int64_t value);
+  private:
+  int64_t _internal_machineid() const;
+  void _internal_set_machineid(int64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:machine.service.v1.ListCronJobRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  int64_t machineid_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_machine_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CronJobReply final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:machine.service.v1.CronJobReply) */ {
+ public:
+  inline CronJobReply() : CronJobReply(nullptr) {}
+  ~CronJobReply() override;
+  explicit constexpr CronJobReply(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CronJobReply(const CronJobReply& from);
+  CronJobReply(CronJobReply&& from) noexcept
+    : CronJobReply() {
+    *this = ::std::move(from);
+  }
+
+  inline CronJobReply& operator=(const CronJobReply& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CronJobReply& operator=(CronJobReply&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CronJobReply& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CronJobReply* internal_default_instance() {
+    return reinterpret_cast<const CronJobReply*>(
+               &_CronJobReply_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    21;
+
+  friend void swap(CronJobReply& a, CronJobReply& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CronJobReply* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CronJobReply* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CronJobReply* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CronJobReply>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CronJobReply& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const CronJobReply& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CronJobReply* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "machine.service.v1.CronJobReply";
+  }
+  protected:
+  explicit CronJobReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCronJobFieldNumber = 1,
+  };
+  // .machine.service.v1.CronJob cron_job = 1;
+  bool has_cron_job() const;
+  private:
+  bool _internal_has_cron_job() const;
+  public:
+  void clear_cron_job();
+  const ::machine::service::v1::CronJob& cron_job() const;
+  PROTOBUF_NODISCARD ::machine::service::v1::CronJob* release_cron_job();
+  ::machine::service::v1::CronJob* mutable_cron_job();
+  void set_allocated_cron_job(::machine::service::v1::CronJob* cron_job);
+  private:
+  const ::machine::service::v1::CronJob& _internal_cron_job() const;
+  ::machine::service::v1::CronJob* _internal_mutable_cron_job();
+  public:
+  void unsafe_arena_set_allocated_cron_job(
+      ::machine::service::v1::CronJob* cron_job);
+  ::machine::service::v1::CronJob* unsafe_arena_release_cron_job();
+
+  // @@protoc_insertion_point(class_scope:machine.service.v1.CronJobReply)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::machine::service::v1::CronJob* cron_job_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_machine_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CronJobsReply final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:machine.service.v1.CronJobsReply) */ {
+ public:
+  inline CronJobsReply() : CronJobsReply(nullptr) {}
+  ~CronJobsReply() override;
+  explicit constexpr CronJobsReply(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CronJobsReply(const CronJobsReply& from);
+  CronJobsReply(CronJobsReply&& from) noexcept
+    : CronJobsReply() {
+    *this = ::std::move(from);
+  }
+
+  inline CronJobsReply& operator=(const CronJobsReply& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CronJobsReply& operator=(CronJobsReply&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CronJobsReply& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CronJobsReply* internal_default_instance() {
+    return reinterpret_cast<const CronJobsReply*>(
+               &_CronJobsReply_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    22;
+
+  friend void swap(CronJobsReply& a, CronJobsReply& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CronJobsReply* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CronJobsReply* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CronJobsReply* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CronJobsReply>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CronJobsReply& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const CronJobsReply& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CronJobsReply* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "machine.service.v1.CronJobsReply";
+  }
+  protected:
+  explicit CronJobsReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCronJobsFieldNumber = 1,
+  };
+  // repeated .machine.service.v1.CronJob cron_jobs = 1;
+  int cron_jobs_size() const;
+  private:
+  int _internal_cron_jobs_size() const;
+  public:
+  void clear_cron_jobs();
+  ::machine::service::v1::CronJob* mutable_cron_jobs(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::machine::service::v1::CronJob >*
+      mutable_cron_jobs();
+  private:
+  const ::machine::service::v1::CronJob& _internal_cron_jobs(int index) const;
+  ::machine::service::v1::CronJob* _internal_add_cron_jobs();
+  public:
+  const ::machine::service::v1::CronJob& cron_jobs(int index) const;
+  ::machine::service::v1::CronJob* add_cron_jobs();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::machine::service::v1::CronJob >&
+      cron_jobs() const;
+
+  // @@protoc_insertion_point(class_scope:machine.service.v1.CronJobsReply)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::machine::service::v1::CronJob > cron_jobs_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_machine_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CronJob final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:machine.service.v1.CronJob) */ {
+ public:
+  inline CronJob() : CronJob(nullptr) {}
+  ~CronJob() override;
+  explicit constexpr CronJob(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CronJob(const CronJob& from);
+  CronJob(CronJob&& from) noexcept
+    : CronJob() {
+    *this = ::std::move(from);
+  }
+
+  inline CronJob& operator=(const CronJob& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CronJob& operator=(CronJob&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CronJob& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CronJob* internal_default_instance() {
+    return reinterpret_cast<const CronJob*>(
+               &_CronJob_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    23;
+
+  friend void swap(CronJob& a, CronJob& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CronJob* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CronJob* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CronJob* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CronJob>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CronJob& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const CronJob& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CronJob* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "machine.service.v1.CronJob";
+  }
+  protected:
+  explicit CronJob(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCheckCoordinatesFieldNumber = 5,
+    kCheckNameFieldNumber = 3,
+    kCronStringFieldNumber = 4,
+    kIdFieldNumber = 1,
+    kMachineIdFieldNumber = 2,
+  };
+  // repeated .machine.service.v1.CheckCoordinate check_coordinates = 5;
+  int check_coordinates_size() const;
+  private:
+  int _internal_check_coordinates_size() const;
+  public:
+  void clear_check_coordinates();
+  ::machine::service::v1::CheckCoordinate* mutable_check_coordinates(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::machine::service::v1::CheckCoordinate >*
+      mutable_check_coordinates();
+  private:
+  const ::machine::service::v1::CheckCoordinate& _internal_check_coordinates(int index) const;
+  ::machine::service::v1::CheckCoordinate* _internal_add_check_coordinates();
+  public:
+  const ::machine::service::v1::CheckCoordinate& check_coordinates(int index) const;
+  ::machine::service::v1::CheckCoordinate* add_check_coordinates();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::machine::service::v1::CheckCoordinate >&
+      check_coordinates() const;
+
+  // string check_name = 3;
+  void clear_check_name();
+  const std::string& check_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_check_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_check_name();
+  PROTOBUF_NODISCARD std::string* release_check_name();
+  void set_allocated_check_name(std::string* check_name);
+  private:
+  const std::string& _internal_check_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_check_name(const std::string& value);
+  std::string* _internal_mutable_check_name();
+  public:
+
+  // string cron_string = 4;
+  void clear_cron_string();
+  const std::string& cron_string() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_cron_string(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_cron_string();
+  PROTOBUF_NODISCARD std::string* release_cron_string();
+  void set_allocated_cron_string(std::string* cron_string);
+  private:
+  const std::string& _internal_cron_string() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_cron_string(const std::string& value);
+  std::string* _internal_mutable_cron_string();
+  public:
+
+  // int64 id = 1;
+  void clear_id();
+  int64_t id() const;
+  void set_id(int64_t value);
+  private:
+  int64_t _internal_id() const;
+  void _internal_set_id(int64_t value);
+  public:
+
+  // int64 machineId = 2;
+  void clear_machineid();
+  int64_t machineid() const;
+  void set_machineid(int64_t value);
+  private:
+  int64_t _internal_machineid() const;
+  void _internal_set_machineid(int64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:machine.service.v1.CronJob)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::machine::service::v1::CheckCoordinate > check_coordinates_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr check_name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr cron_string_;
+  int64_t id_;
+  int64_t machineid_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_machine_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CheckCoordinate final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:machine.service.v1.CheckCoordinate) */ {
+ public:
+  inline CheckCoordinate() : CheckCoordinate(nullptr) {}
+  ~CheckCoordinate() override;
+  explicit constexpr CheckCoordinate(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CheckCoordinate(const CheckCoordinate& from);
+  CheckCoordinate(CheckCoordinate&& from) noexcept
+    : CheckCoordinate() {
+    *this = ::std::move(from);
+  }
+
+  inline CheckCoordinate& operator=(const CheckCoordinate& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CheckCoordinate& operator=(CheckCoordinate&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CheckCoordinate& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CheckCoordinate* internal_default_instance() {
+    return reinterpret_cast<const CheckCoordinate*>(
+               &_CheckCoordinate_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    24;
+
+  friend void swap(CheckCoordinate& a, CheckCoordinate& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CheckCoordinate* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CheckCoordinate* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CheckCoordinate* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CheckCoordinate>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CheckCoordinate& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const CheckCoordinate& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CheckCoordinate* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "machine.service.v1.CheckCoordinate";
+  }
+  protected:
+  explicit CheckCoordinate(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCrdFieldNumber = 2,
+    kSeqFieldNumber = 1,
+  };
+  // .machine.service.v1.Coordinate crd = 2;
+  bool has_crd() const;
+  private:
+  bool _internal_has_crd() const;
+  public:
+  void clear_crd();
+  const ::machine::service::v1::Coordinate& crd() const;
+  PROTOBUF_NODISCARD ::machine::service::v1::Coordinate* release_crd();
+  ::machine::service::v1::Coordinate* mutable_crd();
+  void set_allocated_crd(::machine::service::v1::Coordinate* crd);
+  private:
+  const ::machine::service::v1::Coordinate& _internal_crd() const;
+  ::machine::service::v1::Coordinate* _internal_mutable_crd();
+  public:
+  void unsafe_arena_set_allocated_crd(
+      ::machine::service::v1::Coordinate* crd);
+  ::machine::service::v1::Coordinate* unsafe_arena_release_crd();
+
+  // int64 seq = 1;
+  void clear_seq();
+  int64_t seq() const;
+  void set_seq(int64_t value);
+  private:
+  int64_t _internal_seq() const;
+  void _internal_set_seq(int64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:machine.service.v1.CheckCoordinate)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::machine::service::v1::Coordinate* crd_;
+  int64_t seq_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_machine_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Coordinate final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:machine.service.v1.Coordinate) */ {
+ public:
+  inline Coordinate() : Coordinate(nullptr) {}
+  ~Coordinate() override;
+  explicit constexpr Coordinate(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Coordinate(const Coordinate& from);
+  Coordinate(Coordinate&& from) noexcept
+    : Coordinate() {
+    *this = ::std::move(from);
+  }
+
+  inline Coordinate& operator=(const Coordinate& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Coordinate& operator=(Coordinate&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Coordinate& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Coordinate* internal_default_instance() {
+    return reinterpret_cast<const Coordinate*>(
+               &_Coordinate_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    25;
+
+  friend void swap(Coordinate& a, Coordinate& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Coordinate* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Coordinate* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Coordinate* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Coordinate>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Coordinate& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const Coordinate& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Coordinate* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "machine.service.v1.Coordinate";
+  }
+  protected:
+  explicit Coordinate(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCheckNameFieldNumber = 9,
+    kXFieldNumber = 1,
+    kYFieldNumber = 2,
+    kZFieldNumber = 3,
+    kRxFieldNumber = 4,
+    kRyFieldNumber = 5,
+    kDelayFieldNumber = 7,
+    kMachineIdFieldNumber = 8,
+    kCheckFieldNumber = 6,
+  };
+  // string check_name = 9;
+  void clear_check_name();
+  const std::string& check_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_check_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_check_name();
+  PROTOBUF_NODISCARD std::string* release_check_name();
+  void set_allocated_check_name(std::string* check_name);
+  private:
+  const std::string& _internal_check_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_check_name(const std::string& value);
+  std::string* _internal_mutable_check_name();
+  public:
+
+  // double x = 1;
+  void clear_x();
+  double x() const;
+  void set_x(double value);
+  private:
+  double _internal_x() const;
+  void _internal_set_x(double value);
+  public:
+
+  // double y = 2;
+  void clear_y();
+  double y() const;
+  void set_y(double value);
+  private:
+  double _internal_y() const;
+  void _internal_set_y(double value);
+  public:
+
+  // double z = 3;
+  void clear_z();
+  double z() const;
+  void set_z(double value);
+  private:
+  double _internal_z() const;
+  void _internal_set_z(double value);
+  public:
+
+  // double rx = 4;
+  void clear_rx();
+  double rx() const;
+  void set_rx(double value);
+  private:
+  double _internal_rx() const;
+  void _internal_set_rx(double value);
+  public:
+
+  // double ry = 5;
+  void clear_ry();
+  double ry() const;
+  void set_ry(double value);
+  private:
+  double _internal_ry() const;
+  void _internal_set_ry(double value);
+  public:
+
+  // double delay = 7;
+  void clear_delay();
+  double delay() const;
+  void set_delay(double value);
+  private:
+  double _internal_delay() const;
+  void _internal_set_delay(double value);
+  public:
+
+  // int64 machine_id = 8;
+  void clear_machine_id();
+  int64_t machine_id() const;
+  void set_machine_id(int64_t value);
+  private:
+  int64_t _internal_machine_id() const;
+  void _internal_set_machine_id(int64_t value);
+  public:
+
+  // bool check = 6;
+  void clear_check();
+  bool check() const;
+  void set_check(bool value);
+  private:
+  bool _internal_check() const;
+  void _internal_set_check(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:machine.service.v1.Coordinate)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr check_name_;
+  double x_;
+  double y_;
+  double z_;
+  double rx_;
+  double ry_;
+  double delay_;
+  int64_t machine_id_;
+  bool check_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_machine_2eproto;
+};
 // ===================================================================
 
 
@@ -4323,9 +5876,846 @@ inline void MoveDoneReply::set_status(bool value) {
   // @@protoc_insertion_point(field_set:machine.service.v1.MoveDoneReply.status)
 }
 
+// -------------------------------------------------------------------
+
+// CreateCronJobRequest
+
+// .machine.service.v1.CronJob cron_job = 1;
+inline bool CreateCronJobRequest::_internal_has_cron_job() const {
+  return this != internal_default_instance() && cron_job_ != nullptr;
+}
+inline bool CreateCronJobRequest::has_cron_job() const {
+  return _internal_has_cron_job();
+}
+inline void CreateCronJobRequest::clear_cron_job() {
+  if (GetArenaForAllocation() == nullptr && cron_job_ != nullptr) {
+    delete cron_job_;
+  }
+  cron_job_ = nullptr;
+}
+inline const ::machine::service::v1::CronJob& CreateCronJobRequest::_internal_cron_job() const {
+  const ::machine::service::v1::CronJob* p = cron_job_;
+  return p != nullptr ? *p : reinterpret_cast<const ::machine::service::v1::CronJob&>(
+      ::machine::service::v1::_CronJob_default_instance_);
+}
+inline const ::machine::service::v1::CronJob& CreateCronJobRequest::cron_job() const {
+  // @@protoc_insertion_point(field_get:machine.service.v1.CreateCronJobRequest.cron_job)
+  return _internal_cron_job();
+}
+inline void CreateCronJobRequest::unsafe_arena_set_allocated_cron_job(
+    ::machine::service::v1::CronJob* cron_job) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(cron_job_);
+  }
+  cron_job_ = cron_job;
+  if (cron_job) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:machine.service.v1.CreateCronJobRequest.cron_job)
+}
+inline ::machine::service::v1::CronJob* CreateCronJobRequest::release_cron_job() {
+  
+  ::machine::service::v1::CronJob* temp = cron_job_;
+  cron_job_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::machine::service::v1::CronJob* CreateCronJobRequest::unsafe_arena_release_cron_job() {
+  // @@protoc_insertion_point(field_release:machine.service.v1.CreateCronJobRequest.cron_job)
+  
+  ::machine::service::v1::CronJob* temp = cron_job_;
+  cron_job_ = nullptr;
+  return temp;
+}
+inline ::machine::service::v1::CronJob* CreateCronJobRequest::_internal_mutable_cron_job() {
+  
+  if (cron_job_ == nullptr) {
+    auto* p = CreateMaybeMessage<::machine::service::v1::CronJob>(GetArenaForAllocation());
+    cron_job_ = p;
+  }
+  return cron_job_;
+}
+inline ::machine::service::v1::CronJob* CreateCronJobRequest::mutable_cron_job() {
+  ::machine::service::v1::CronJob* _msg = _internal_mutable_cron_job();
+  // @@protoc_insertion_point(field_mutable:machine.service.v1.CreateCronJobRequest.cron_job)
+  return _msg;
+}
+inline void CreateCronJobRequest::set_allocated_cron_job(::machine::service::v1::CronJob* cron_job) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete cron_job_;
+  }
+  if (cron_job) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::machine::service::v1::CronJob>::GetOwningArena(cron_job);
+    if (message_arena != submessage_arena) {
+      cron_job = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, cron_job, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  cron_job_ = cron_job;
+  // @@protoc_insertion_point(field_set_allocated:machine.service.v1.CreateCronJobRequest.cron_job)
+}
+
+// -------------------------------------------------------------------
+
+// DeleteCronJobRequest
+
+// int64 id = 1;
+inline void DeleteCronJobRequest::clear_id() {
+  id_ = int64_t{0};
+}
+inline int64_t DeleteCronJobRequest::_internal_id() const {
+  return id_;
+}
+inline int64_t DeleteCronJobRequest::id() const {
+  // @@protoc_insertion_point(field_get:machine.service.v1.DeleteCronJobRequest.id)
+  return _internal_id();
+}
+inline void DeleteCronJobRequest::_internal_set_id(int64_t value) {
+  
+  id_ = value;
+}
+inline void DeleteCronJobRequest::set_id(int64_t value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:machine.service.v1.DeleteCronJobRequest.id)
+}
+
+// -------------------------------------------------------------------
+
+// DeleteCronJobReply
+
+// int64 num = 1;
+inline void DeleteCronJobReply::clear_num() {
+  num_ = int64_t{0};
+}
+inline int64_t DeleteCronJobReply::_internal_num() const {
+  return num_;
+}
+inline int64_t DeleteCronJobReply::num() const {
+  // @@protoc_insertion_point(field_get:machine.service.v1.DeleteCronJobReply.num)
+  return _internal_num();
+}
+inline void DeleteCronJobReply::_internal_set_num(int64_t value) {
+  
+  num_ = value;
+}
+inline void DeleteCronJobReply::set_num(int64_t value) {
+  _internal_set_num(value);
+  // @@protoc_insertion_point(field_set:machine.service.v1.DeleteCronJobReply.num)
+}
+
+// -------------------------------------------------------------------
+
+// ListCronJobRequest
+
+// int64 machineId = 1;
+inline void ListCronJobRequest::clear_machineid() {
+  machineid_ = int64_t{0};
+}
+inline int64_t ListCronJobRequest::_internal_machineid() const {
+  return machineid_;
+}
+inline int64_t ListCronJobRequest::machineid() const {
+  // @@protoc_insertion_point(field_get:machine.service.v1.ListCronJobRequest.machineId)
+  return _internal_machineid();
+}
+inline void ListCronJobRequest::_internal_set_machineid(int64_t value) {
+  
+  machineid_ = value;
+}
+inline void ListCronJobRequest::set_machineid(int64_t value) {
+  _internal_set_machineid(value);
+  // @@protoc_insertion_point(field_set:machine.service.v1.ListCronJobRequest.machineId)
+}
+
+// -------------------------------------------------------------------
+
+// CronJobReply
+
+// .machine.service.v1.CronJob cron_job = 1;
+inline bool CronJobReply::_internal_has_cron_job() const {
+  return this != internal_default_instance() && cron_job_ != nullptr;
+}
+inline bool CronJobReply::has_cron_job() const {
+  return _internal_has_cron_job();
+}
+inline void CronJobReply::clear_cron_job() {
+  if (GetArenaForAllocation() == nullptr && cron_job_ != nullptr) {
+    delete cron_job_;
+  }
+  cron_job_ = nullptr;
+}
+inline const ::machine::service::v1::CronJob& CronJobReply::_internal_cron_job() const {
+  const ::machine::service::v1::CronJob* p = cron_job_;
+  return p != nullptr ? *p : reinterpret_cast<const ::machine::service::v1::CronJob&>(
+      ::machine::service::v1::_CronJob_default_instance_);
+}
+inline const ::machine::service::v1::CronJob& CronJobReply::cron_job() const {
+  // @@protoc_insertion_point(field_get:machine.service.v1.CronJobReply.cron_job)
+  return _internal_cron_job();
+}
+inline void CronJobReply::unsafe_arena_set_allocated_cron_job(
+    ::machine::service::v1::CronJob* cron_job) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(cron_job_);
+  }
+  cron_job_ = cron_job;
+  if (cron_job) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:machine.service.v1.CronJobReply.cron_job)
+}
+inline ::machine::service::v1::CronJob* CronJobReply::release_cron_job() {
+  
+  ::machine::service::v1::CronJob* temp = cron_job_;
+  cron_job_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::machine::service::v1::CronJob* CronJobReply::unsafe_arena_release_cron_job() {
+  // @@protoc_insertion_point(field_release:machine.service.v1.CronJobReply.cron_job)
+  
+  ::machine::service::v1::CronJob* temp = cron_job_;
+  cron_job_ = nullptr;
+  return temp;
+}
+inline ::machine::service::v1::CronJob* CronJobReply::_internal_mutable_cron_job() {
+  
+  if (cron_job_ == nullptr) {
+    auto* p = CreateMaybeMessage<::machine::service::v1::CronJob>(GetArenaForAllocation());
+    cron_job_ = p;
+  }
+  return cron_job_;
+}
+inline ::machine::service::v1::CronJob* CronJobReply::mutable_cron_job() {
+  ::machine::service::v1::CronJob* _msg = _internal_mutable_cron_job();
+  // @@protoc_insertion_point(field_mutable:machine.service.v1.CronJobReply.cron_job)
+  return _msg;
+}
+inline void CronJobReply::set_allocated_cron_job(::machine::service::v1::CronJob* cron_job) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete cron_job_;
+  }
+  if (cron_job) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::machine::service::v1::CronJob>::GetOwningArena(cron_job);
+    if (message_arena != submessage_arena) {
+      cron_job = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, cron_job, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  cron_job_ = cron_job;
+  // @@protoc_insertion_point(field_set_allocated:machine.service.v1.CronJobReply.cron_job)
+}
+
+// -------------------------------------------------------------------
+
+// CronJobsReply
+
+// repeated .machine.service.v1.CronJob cron_jobs = 1;
+inline int CronJobsReply::_internal_cron_jobs_size() const {
+  return cron_jobs_.size();
+}
+inline int CronJobsReply::cron_jobs_size() const {
+  return _internal_cron_jobs_size();
+}
+inline void CronJobsReply::clear_cron_jobs() {
+  cron_jobs_.Clear();
+}
+inline ::machine::service::v1::CronJob* CronJobsReply::mutable_cron_jobs(int index) {
+  // @@protoc_insertion_point(field_mutable:machine.service.v1.CronJobsReply.cron_jobs)
+  return cron_jobs_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::machine::service::v1::CronJob >*
+CronJobsReply::mutable_cron_jobs() {
+  // @@protoc_insertion_point(field_mutable_list:machine.service.v1.CronJobsReply.cron_jobs)
+  return &cron_jobs_;
+}
+inline const ::machine::service::v1::CronJob& CronJobsReply::_internal_cron_jobs(int index) const {
+  return cron_jobs_.Get(index);
+}
+inline const ::machine::service::v1::CronJob& CronJobsReply::cron_jobs(int index) const {
+  // @@protoc_insertion_point(field_get:machine.service.v1.CronJobsReply.cron_jobs)
+  return _internal_cron_jobs(index);
+}
+inline ::machine::service::v1::CronJob* CronJobsReply::_internal_add_cron_jobs() {
+  return cron_jobs_.Add();
+}
+inline ::machine::service::v1::CronJob* CronJobsReply::add_cron_jobs() {
+  ::machine::service::v1::CronJob* _add = _internal_add_cron_jobs();
+  // @@protoc_insertion_point(field_add:machine.service.v1.CronJobsReply.cron_jobs)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::machine::service::v1::CronJob >&
+CronJobsReply::cron_jobs() const {
+  // @@protoc_insertion_point(field_list:machine.service.v1.CronJobsReply.cron_jobs)
+  return cron_jobs_;
+}
+
+// -------------------------------------------------------------------
+
+// CronJob
+
+// int64 id = 1;
+inline void CronJob::clear_id() {
+  id_ = int64_t{0};
+}
+inline int64_t CronJob::_internal_id() const {
+  return id_;
+}
+inline int64_t CronJob::id() const {
+  // @@protoc_insertion_point(field_get:machine.service.v1.CronJob.id)
+  return _internal_id();
+}
+inline void CronJob::_internal_set_id(int64_t value) {
+  
+  id_ = value;
+}
+inline void CronJob::set_id(int64_t value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:machine.service.v1.CronJob.id)
+}
+
+// int64 machineId = 2;
+inline void CronJob::clear_machineid() {
+  machineid_ = int64_t{0};
+}
+inline int64_t CronJob::_internal_machineid() const {
+  return machineid_;
+}
+inline int64_t CronJob::machineid() const {
+  // @@protoc_insertion_point(field_get:machine.service.v1.CronJob.machineId)
+  return _internal_machineid();
+}
+inline void CronJob::_internal_set_machineid(int64_t value) {
+  
+  machineid_ = value;
+}
+inline void CronJob::set_machineid(int64_t value) {
+  _internal_set_machineid(value);
+  // @@protoc_insertion_point(field_set:machine.service.v1.CronJob.machineId)
+}
+
+// string check_name = 3;
+inline void CronJob::clear_check_name() {
+  check_name_.ClearToEmpty();
+}
+inline const std::string& CronJob::check_name() const {
+  // @@protoc_insertion_point(field_get:machine.service.v1.CronJob.check_name)
+  return _internal_check_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CronJob::set_check_name(ArgT0&& arg0, ArgT... args) {
+ 
+ check_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:machine.service.v1.CronJob.check_name)
+}
+inline std::string* CronJob::mutable_check_name() {
+  std::string* _s = _internal_mutable_check_name();
+  // @@protoc_insertion_point(field_mutable:machine.service.v1.CronJob.check_name)
+  return _s;
+}
+inline const std::string& CronJob::_internal_check_name() const {
+  return check_name_.Get();
+}
+inline void CronJob::_internal_set_check_name(const std::string& value) {
+  
+  check_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* CronJob::_internal_mutable_check_name() {
+  
+  return check_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* CronJob::release_check_name() {
+  // @@protoc_insertion_point(field_release:machine.service.v1.CronJob.check_name)
+  return check_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void CronJob::set_allocated_check_name(std::string* check_name) {
+  if (check_name != nullptr) {
+    
+  } else {
+    
+  }
+  check_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), check_name,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (check_name_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    check_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:machine.service.v1.CronJob.check_name)
+}
+
+// string cron_string = 4;
+inline void CronJob::clear_cron_string() {
+  cron_string_.ClearToEmpty();
+}
+inline const std::string& CronJob::cron_string() const {
+  // @@protoc_insertion_point(field_get:machine.service.v1.CronJob.cron_string)
+  return _internal_cron_string();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CronJob::set_cron_string(ArgT0&& arg0, ArgT... args) {
+ 
+ cron_string_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:machine.service.v1.CronJob.cron_string)
+}
+inline std::string* CronJob::mutable_cron_string() {
+  std::string* _s = _internal_mutable_cron_string();
+  // @@protoc_insertion_point(field_mutable:machine.service.v1.CronJob.cron_string)
+  return _s;
+}
+inline const std::string& CronJob::_internal_cron_string() const {
+  return cron_string_.Get();
+}
+inline void CronJob::_internal_set_cron_string(const std::string& value) {
+  
+  cron_string_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* CronJob::_internal_mutable_cron_string() {
+  
+  return cron_string_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* CronJob::release_cron_string() {
+  // @@protoc_insertion_point(field_release:machine.service.v1.CronJob.cron_string)
+  return cron_string_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void CronJob::set_allocated_cron_string(std::string* cron_string) {
+  if (cron_string != nullptr) {
+    
+  } else {
+    
+  }
+  cron_string_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), cron_string,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (cron_string_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    cron_string_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:machine.service.v1.CronJob.cron_string)
+}
+
+// repeated .machine.service.v1.CheckCoordinate check_coordinates = 5;
+inline int CronJob::_internal_check_coordinates_size() const {
+  return check_coordinates_.size();
+}
+inline int CronJob::check_coordinates_size() const {
+  return _internal_check_coordinates_size();
+}
+inline void CronJob::clear_check_coordinates() {
+  check_coordinates_.Clear();
+}
+inline ::machine::service::v1::CheckCoordinate* CronJob::mutable_check_coordinates(int index) {
+  // @@protoc_insertion_point(field_mutable:machine.service.v1.CronJob.check_coordinates)
+  return check_coordinates_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::machine::service::v1::CheckCoordinate >*
+CronJob::mutable_check_coordinates() {
+  // @@protoc_insertion_point(field_mutable_list:machine.service.v1.CronJob.check_coordinates)
+  return &check_coordinates_;
+}
+inline const ::machine::service::v1::CheckCoordinate& CronJob::_internal_check_coordinates(int index) const {
+  return check_coordinates_.Get(index);
+}
+inline const ::machine::service::v1::CheckCoordinate& CronJob::check_coordinates(int index) const {
+  // @@protoc_insertion_point(field_get:machine.service.v1.CronJob.check_coordinates)
+  return _internal_check_coordinates(index);
+}
+inline ::machine::service::v1::CheckCoordinate* CronJob::_internal_add_check_coordinates() {
+  return check_coordinates_.Add();
+}
+inline ::machine::service::v1::CheckCoordinate* CronJob::add_check_coordinates() {
+  ::machine::service::v1::CheckCoordinate* _add = _internal_add_check_coordinates();
+  // @@protoc_insertion_point(field_add:machine.service.v1.CronJob.check_coordinates)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::machine::service::v1::CheckCoordinate >&
+CronJob::check_coordinates() const {
+  // @@protoc_insertion_point(field_list:machine.service.v1.CronJob.check_coordinates)
+  return check_coordinates_;
+}
+
+// -------------------------------------------------------------------
+
+// CheckCoordinate
+
+// int64 seq = 1;
+inline void CheckCoordinate::clear_seq() {
+  seq_ = int64_t{0};
+}
+inline int64_t CheckCoordinate::_internal_seq() const {
+  return seq_;
+}
+inline int64_t CheckCoordinate::seq() const {
+  // @@protoc_insertion_point(field_get:machine.service.v1.CheckCoordinate.seq)
+  return _internal_seq();
+}
+inline void CheckCoordinate::_internal_set_seq(int64_t value) {
+  
+  seq_ = value;
+}
+inline void CheckCoordinate::set_seq(int64_t value) {
+  _internal_set_seq(value);
+  // @@protoc_insertion_point(field_set:machine.service.v1.CheckCoordinate.seq)
+}
+
+// .machine.service.v1.Coordinate crd = 2;
+inline bool CheckCoordinate::_internal_has_crd() const {
+  return this != internal_default_instance() && crd_ != nullptr;
+}
+inline bool CheckCoordinate::has_crd() const {
+  return _internal_has_crd();
+}
+inline void CheckCoordinate::clear_crd() {
+  if (GetArenaForAllocation() == nullptr && crd_ != nullptr) {
+    delete crd_;
+  }
+  crd_ = nullptr;
+}
+inline const ::machine::service::v1::Coordinate& CheckCoordinate::_internal_crd() const {
+  const ::machine::service::v1::Coordinate* p = crd_;
+  return p != nullptr ? *p : reinterpret_cast<const ::machine::service::v1::Coordinate&>(
+      ::machine::service::v1::_Coordinate_default_instance_);
+}
+inline const ::machine::service::v1::Coordinate& CheckCoordinate::crd() const {
+  // @@protoc_insertion_point(field_get:machine.service.v1.CheckCoordinate.crd)
+  return _internal_crd();
+}
+inline void CheckCoordinate::unsafe_arena_set_allocated_crd(
+    ::machine::service::v1::Coordinate* crd) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(crd_);
+  }
+  crd_ = crd;
+  if (crd) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:machine.service.v1.CheckCoordinate.crd)
+}
+inline ::machine::service::v1::Coordinate* CheckCoordinate::release_crd() {
+  
+  ::machine::service::v1::Coordinate* temp = crd_;
+  crd_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::machine::service::v1::Coordinate* CheckCoordinate::unsafe_arena_release_crd() {
+  // @@protoc_insertion_point(field_release:machine.service.v1.CheckCoordinate.crd)
+  
+  ::machine::service::v1::Coordinate* temp = crd_;
+  crd_ = nullptr;
+  return temp;
+}
+inline ::machine::service::v1::Coordinate* CheckCoordinate::_internal_mutable_crd() {
+  
+  if (crd_ == nullptr) {
+    auto* p = CreateMaybeMessage<::machine::service::v1::Coordinate>(GetArenaForAllocation());
+    crd_ = p;
+  }
+  return crd_;
+}
+inline ::machine::service::v1::Coordinate* CheckCoordinate::mutable_crd() {
+  ::machine::service::v1::Coordinate* _msg = _internal_mutable_crd();
+  // @@protoc_insertion_point(field_mutable:machine.service.v1.CheckCoordinate.crd)
+  return _msg;
+}
+inline void CheckCoordinate::set_allocated_crd(::machine::service::v1::Coordinate* crd) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete crd_;
+  }
+  if (crd) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::machine::service::v1::Coordinate>::GetOwningArena(crd);
+    if (message_arena != submessage_arena) {
+      crd = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, crd, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  crd_ = crd;
+  // @@protoc_insertion_point(field_set_allocated:machine.service.v1.CheckCoordinate.crd)
+}
+
+// -------------------------------------------------------------------
+
+// Coordinate
+
+// double x = 1;
+inline void Coordinate::clear_x() {
+  x_ = 0;
+}
+inline double Coordinate::_internal_x() const {
+  return x_;
+}
+inline double Coordinate::x() const {
+  // @@protoc_insertion_point(field_get:machine.service.v1.Coordinate.x)
+  return _internal_x();
+}
+inline void Coordinate::_internal_set_x(double value) {
+  
+  x_ = value;
+}
+inline void Coordinate::set_x(double value) {
+  _internal_set_x(value);
+  // @@protoc_insertion_point(field_set:machine.service.v1.Coordinate.x)
+}
+
+// double y = 2;
+inline void Coordinate::clear_y() {
+  y_ = 0;
+}
+inline double Coordinate::_internal_y() const {
+  return y_;
+}
+inline double Coordinate::y() const {
+  // @@protoc_insertion_point(field_get:machine.service.v1.Coordinate.y)
+  return _internal_y();
+}
+inline void Coordinate::_internal_set_y(double value) {
+  
+  y_ = value;
+}
+inline void Coordinate::set_y(double value) {
+  _internal_set_y(value);
+  // @@protoc_insertion_point(field_set:machine.service.v1.Coordinate.y)
+}
+
+// double z = 3;
+inline void Coordinate::clear_z() {
+  z_ = 0;
+}
+inline double Coordinate::_internal_z() const {
+  return z_;
+}
+inline double Coordinate::z() const {
+  // @@protoc_insertion_point(field_get:machine.service.v1.Coordinate.z)
+  return _internal_z();
+}
+inline void Coordinate::_internal_set_z(double value) {
+  
+  z_ = value;
+}
+inline void Coordinate::set_z(double value) {
+  _internal_set_z(value);
+  // @@protoc_insertion_point(field_set:machine.service.v1.Coordinate.z)
+}
+
+// double rx = 4;
+inline void Coordinate::clear_rx() {
+  rx_ = 0;
+}
+inline double Coordinate::_internal_rx() const {
+  return rx_;
+}
+inline double Coordinate::rx() const {
+  // @@protoc_insertion_point(field_get:machine.service.v1.Coordinate.rx)
+  return _internal_rx();
+}
+inline void Coordinate::_internal_set_rx(double value) {
+  
+  rx_ = value;
+}
+inline void Coordinate::set_rx(double value) {
+  _internal_set_rx(value);
+  // @@protoc_insertion_point(field_set:machine.service.v1.Coordinate.rx)
+}
+
+// double ry = 5;
+inline void Coordinate::clear_ry() {
+  ry_ = 0;
+}
+inline double Coordinate::_internal_ry() const {
+  return ry_;
+}
+inline double Coordinate::ry() const {
+  // @@protoc_insertion_point(field_get:machine.service.v1.Coordinate.ry)
+  return _internal_ry();
+}
+inline void Coordinate::_internal_set_ry(double value) {
+  
+  ry_ = value;
+}
+inline void Coordinate::set_ry(double value) {
+  _internal_set_ry(value);
+  // @@protoc_insertion_point(field_set:machine.service.v1.Coordinate.ry)
+}
+
+// bool check = 6;
+inline void Coordinate::clear_check() {
+  check_ = false;
+}
+inline bool Coordinate::_internal_check() const {
+  return check_;
+}
+inline bool Coordinate::check() const {
+  // @@protoc_insertion_point(field_get:machine.service.v1.Coordinate.check)
+  return _internal_check();
+}
+inline void Coordinate::_internal_set_check(bool value) {
+  
+  check_ = value;
+}
+inline void Coordinate::set_check(bool value) {
+  _internal_set_check(value);
+  // @@protoc_insertion_point(field_set:machine.service.v1.Coordinate.check)
+}
+
+// double delay = 7;
+inline void Coordinate::clear_delay() {
+  delay_ = 0;
+}
+inline double Coordinate::_internal_delay() const {
+  return delay_;
+}
+inline double Coordinate::delay() const {
+  // @@protoc_insertion_point(field_get:machine.service.v1.Coordinate.delay)
+  return _internal_delay();
+}
+inline void Coordinate::_internal_set_delay(double value) {
+  
+  delay_ = value;
+}
+inline void Coordinate::set_delay(double value) {
+  _internal_set_delay(value);
+  // @@protoc_insertion_point(field_set:machine.service.v1.Coordinate.delay)
+}
+
+// int64 machine_id = 8;
+inline void Coordinate::clear_machine_id() {
+  machine_id_ = int64_t{0};
+}
+inline int64_t Coordinate::_internal_machine_id() const {
+  return machine_id_;
+}
+inline int64_t Coordinate::machine_id() const {
+  // @@protoc_insertion_point(field_get:machine.service.v1.Coordinate.machine_id)
+  return _internal_machine_id();
+}
+inline void Coordinate::_internal_set_machine_id(int64_t value) {
+  
+  machine_id_ = value;
+}
+inline void Coordinate::set_machine_id(int64_t value) {
+  _internal_set_machine_id(value);
+  // @@protoc_insertion_point(field_set:machine.service.v1.Coordinate.machine_id)
+}
+
+// string check_name = 9;
+inline void Coordinate::clear_check_name() {
+  check_name_.ClearToEmpty();
+}
+inline const std::string& Coordinate::check_name() const {
+  // @@protoc_insertion_point(field_get:machine.service.v1.Coordinate.check_name)
+  return _internal_check_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Coordinate::set_check_name(ArgT0&& arg0, ArgT... args) {
+ 
+ check_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:machine.service.v1.Coordinate.check_name)
+}
+inline std::string* Coordinate::mutable_check_name() {
+  std::string* _s = _internal_mutable_check_name();
+  // @@protoc_insertion_point(field_mutable:machine.service.v1.Coordinate.check_name)
+  return _s;
+}
+inline const std::string& Coordinate::_internal_check_name() const {
+  return check_name_.Get();
+}
+inline void Coordinate::_internal_set_check_name(const std::string& value) {
+  
+  check_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* Coordinate::_internal_mutable_check_name() {
+  
+  return check_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* Coordinate::release_check_name() {
+  // @@protoc_insertion_point(field_release:machine.service.v1.Coordinate.check_name)
+  return check_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void Coordinate::set_allocated_check_name(std::string* check_name) {
+  if (check_name != nullptr) {
+    
+  } else {
+    
+  }
+  check_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), check_name,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (check_name_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    check_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:machine.service.v1.Coordinate.check_name)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

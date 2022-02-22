@@ -5,6 +5,7 @@ package ent
 import (
 	"errors"
 	"fmt"
+	"htp-platform/app/machine/service/internal/data/ent/cronjob"
 	"htp-platform/app/machine/service/internal/data/ent/machine"
 
 	"entgo.io/ent"
@@ -29,6 +30,7 @@ type OrderFunc func(*sql.Selector)
 // columnChecker returns a function indicates if the column exists in the given column.
 func columnChecker(table string) func(string) error {
 	checks := map[string]func(string) bool{
+		cronjob.Table: cronjob.ValidColumn,
 		machine.Table: machine.ValidColumn,
 	}
 	check, ok := checks[table]

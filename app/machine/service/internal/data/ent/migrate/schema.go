@@ -8,6 +8,22 @@ import (
 )
 
 var (
+	// CronJobsColumns holds the columns for the "cron_jobs" table.
+	CronJobsColumns = []*schema.Column{
+		{Name: "id", Type: field.TypeInt64, Increment: true},
+		{Name: "machine_id", Type: field.TypeInt64},
+		{Name: "check_name", Type: field.TypeString},
+		{Name: "cron_string", Type: field.TypeString},
+		{Name: "coordinates", Type: field.TypeJSON, Nullable: true},
+		{Name: "created_at", Type: field.TypeTime, SchemaType: map[string]string{"mysql": "datetime"}},
+		{Name: "updated_at", Type: field.TypeTime, SchemaType: map[string]string{"mysql": "datetime"}},
+	}
+	// CronJobsTable holds the schema information for the "cron_jobs" table.
+	CronJobsTable = &schema.Table{
+		Name:       "cron_jobs",
+		Columns:    CronJobsColumns,
+		PrimaryKey: []*schema.Column{CronJobsColumns[0]},
+	}
 	// MachinesColumns holds the columns for the "machines" table.
 	MachinesColumns = []*schema.Column{
 		{Name: "id", Type: field.TypeInt64, Increment: true},
@@ -24,6 +40,7 @@ var (
 	}
 	// Tables holds all the tables in the schema.
 	Tables = []*schema.Table{
+		CronJobsTable,
 		MachinesTable,
 	}
 )
