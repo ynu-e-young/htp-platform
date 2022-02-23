@@ -13,7 +13,6 @@
 **/azds.yaml
 **/bin
 **/charts
-**/docker-compose*
 **/compose*
 **/Dockerfile*
 **/node_modules

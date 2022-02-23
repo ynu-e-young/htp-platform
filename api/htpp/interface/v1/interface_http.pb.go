@@ -18,10 +18,13 @@ var _ = binding.EncodeURL
 const _ = http.SupportPackageIsVersion1
 
 type InterfaceHTTPServer interface {
+	CreateCronJob(context.Context, *CreateCronJobRequest) (*CronJobReply, error)
+	DeleteCronJob(context.Context, *DeleteCronJobRequest) (*DeleteCronJobReply, error)
 	GetCurrentUser(context.Context, *GetCurrentUserRequest) (*UserReply, error)
 	GetCurrentUserMachines(context.Context, *GetCurrentUserMachinesRequest) (*MachinesReply, error)
 	GetMachine(context.Context, *GetMachineRequest) (*MachineReply, error)
 	GetMotorStatus(context.Context, *GetMotorStatusRequest) (*GetMotorStatusReply, error)
+	ListCronJob(context.Context, *ListCronJobRequest) (*CronJobsReply, error)
 	Login(context.Context, *LoginRequest) (*UserReply, error)
 	Move(context.Context, *MoveRequest) (*MoveReply, error)
 	ReadAll(context.Context, *ReadAllRequest) (*ImagesReply, error)
@@ -56,6 +59,9 @@ func RegisterInterfaceHTTPServer(s *http.Server, srv InterfaceHTTPServer) {
 	r.POST("/v1/machines/{machine_id}/move", _Interface_Move0_HTTP_Handler(srv))
 	r.POST("/v1/machines/{machine_id}/zero", _Interface_Zero0_HTTP_Handler(srv))
 	r.GET("/v1/machines/{machine_id}/status", _Interface_GetMotorStatus0_HTTP_Handler(srv))
+	r.POST("/v1/cronJobs", _Interface_CreateCronJob0_HTTP_Handler(srv))
+	r.DELETE("/v1/cronJobs/{id}", _Interface_DeleteCronJob0_HTTP_Handler(srv))
+	r.GET("/v1/cronJobs/{machineId}", _Interface_ListCronJob0_HTTP_Handler(srv))
 }
 
 func _Interface_Login0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
@@ -367,10 +373,7 @@ func _Interface_Move0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Contex
 func _Interface_Zero0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
 	return func(ctx http.Context) error {
 		var in ZeroRequest
-		if err := ctx.Bind(&in.MachineId); err != nil {
-			return err
-		}
-		if err := ctx.BindQuery(&in); err != nil {
+		if err := ctx.Bind(&in); err != nil {
 			return err
 		}
 		if err := ctx.BindVars(&in); err != nil {
@@ -411,11 +414,77 @@ func _Interface_GetMotorStatus0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx h
 	}
 }
 
+func _Interface_CreateCronJob0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
+	return func(ctx http.Context) error {
+		var in CreateCronJobRequest
+		if err := ctx.Bind(&in); err != nil {
+			return err
+		}
+		http.SetOperation(ctx, "/htpp.interface.v1.Interface/CreateCronJob")
+		h := ctx.Middleware(func(ctx context.Context, req interface{}) (interface{}, error) {
+			return srv.CreateCronJob(ctx, req.(*CreateCronJobRequest))
+		})
+		out, err := h(ctx, &in)
+		if err != nil {
+			return err
+		}
+		reply := out.(*CronJobReply)
+		return ctx.Result(200, reply)
+	}
+}
+
+func _Interface_DeleteCronJob0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
+	return func(ctx http.Context) error {
+		var in DeleteCronJobRequest
+		if err := ctx.BindQuery(&in); err != nil {
+			return err
+		}
+		if err := ctx.BindVars(&in); err != nil {
+			return err
+		}
+		http.SetOperation(ctx, "/htpp.interface.v1.Interface/DeleteCronJob")
+		h := ctx.Middleware(func(ctx context.Context, req interface{}) (interface{}, error) {
+			return srv.DeleteCronJob(ctx, req.(*DeleteCronJobRequest))
+		})
+		out, err := h(ctx, &in)
+		if err != nil {
+			return err
+		}
+		reply := out.(*DeleteCronJobReply)
+		return ctx.Result(200, reply)
+	}
+}
+
+func _Interface_ListCronJob0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
+	return func(ctx http.Context) error {
+		var in ListCronJobRequest
+		if err := ctx.BindQuery(&in); err != nil {
+			return err
+		}
+		if err := ctx.BindVars(&in); err != nil {
+			return err
+		}
+		http.SetOperation(ctx, "/htpp.interface.v1.Interface/ListCronJob")
+		h := ctx.Middleware(func(ctx context.Context, req interface{}) (interface{}, error) {
+			return srv.ListCronJob(ctx, req.(*ListCronJobRequest))
+		})
+		out, err := h(ctx, &in)
+		if err != nil {
+			return err
+		}
+		reply := out.(*CronJobsReply)
+		return ctx.Result(200, reply)
+	}
+}
+
 type InterfaceHTTPClient interface {
+	CreateCronJob(ctx context.Context, req *CreateCronJobRequest, opts ...http.CallOption) (rsp *CronJobReply, err error)
+	DeleteCronJob(ctx context.Context, req *DeleteCronJobRequest, opts ...http.CallOption) (rsp *DeleteCronJobReply, err error)
 	GetCurrentUser(ctx context.Context, req *GetCurrentUserRequest, opts ...http.CallOption) (rsp *UserReply, err error)
 	GetCurrentUserMachines(ctx context.Context, req *GetCurrentUserMachinesRequest, opts ...http.CallOption) (rsp *MachinesReply, err error)
 	GetMachine(ctx context.Context, req *GetMachineRequest, opts ...http.CallOption) (rsp *MachineReply, err error)
 	GetMotorStatus(ctx context.Context, req *GetMotorStatusRequest, opts ...http.CallOption) (rsp *GetMotorStatusReply, err error)
+	ListCronJob(ctx context.Context, req *ListCronJobRequest, opts ...http.CallOption) (rsp *CronJobsReply, err error)
 	Login(ctx context.Context, req *LoginRequest, opts ...http.CallOption) (rsp *UserReply, err error)
 	Move(ctx context.Context, req *MoveRequest, opts ...http.CallOption) (rsp *MoveReply, err error)
 	ReadAll(ctx context.Context, req *ReadAllRequest, opts ...http.CallOption) (rsp *ImagesReply, err error)
@@ -437,6 +506,32 @@ type InterfaceHTTPClientImpl struct {
 
 func NewInterfaceHTTPClient(client *http.Client) InterfaceHTTPClient {
 	return &InterfaceHTTPClientImpl{client}
+}
+
+func (c *InterfaceHTTPClientImpl) CreateCronJob(ctx context.Context, in *CreateCronJobRequest, opts ...http.CallOption) (*CronJobReply, error) {
+	var out CronJobReply
+	pattern := "/v1/cronJobs"
+	path := binding.EncodeURL(pattern, in, false)
+	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/CreateCronJob"))
+	opts = append(opts, http.PathTemplate(pattern))
+	err := c.cc.Invoke(ctx, "POST", path, in, &out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &out, err
+}
+
+func (c *InterfaceHTTPClientImpl) DeleteCronJob(ctx context.Context, in *DeleteCronJobRequest, opts ...http.CallOption) (*DeleteCronJobReply, error) {
+	var out DeleteCronJobReply
+	pattern := "/v1/cronJobs/{id}"
+	path := binding.EncodeURL(pattern, in, true)
+	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/DeleteCronJob"))
+	opts = append(opts, http.PathTemplate(pattern))
+	err := c.cc.Invoke(ctx, "DELETE", path, nil, &out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &out, err
 }
 
 func (c *InterfaceHTTPClientImpl) GetCurrentUser(ctx context.Context, in *GetCurrentUserRequest, opts ...http.CallOption) (*UserReply, error) {
@@ -483,6 +578,19 @@ func (c *InterfaceHTTPClientImpl) GetMotorStatus(ctx context.Context, in *GetMot
 	pattern := "/v1/machines/{machine_id}/status"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/GetMotorStatus"))
+	opts = append(opts, http.PathTemplate(pattern))
+	err := c.cc.Invoke(ctx, "GET", path, nil, &out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &out, err
+}
+
+func (c *InterfaceHTTPClientImpl) ListCronJob(ctx context.Context, in *ListCronJobRequest, opts ...http.CallOption) (*CronJobsReply, error) {
+	var out CronJobsReply
+	pattern := "/v1/cronJobs/{machineId}"
+	path := binding.EncodeURL(pattern, in, true)
+	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/ListCronJob"))
 	opts = append(opts, http.PathTemplate(pattern))
 	err := c.cc.Invoke(ctx, "GET", path, nil, &out, opts...)
 	if err != nil {
@@ -653,7 +761,7 @@ func (c *InterfaceHTTPClientImpl) Zero(ctx context.Context, in *ZeroRequest, opt
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/Zero"))
 	opts = append(opts, http.PathTemplate(pattern))
-	err := c.cc.Invoke(ctx, "POST", path, in.MachineId, &out, opts...)
+	err := c.cc.Invoke(ctx, "POST", path, in, &out, opts...)
 	if err != nil {
 		return nil, err
 	}

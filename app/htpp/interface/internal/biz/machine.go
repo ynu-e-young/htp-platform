@@ -12,15 +12,15 @@ type Machine struct {
 }
 
 type Coordinate struct {
-	X         float64
-	Y         float64
-	Z         float64
-	Rx        float64
-	Ry        float64
-	Check     bool
-	Delay     float64
-	MachineId int64
-	CheckName string
+	X         float64 `json:"x,omitempty"`
+	Y         float64 `json:"y,omitempty"`
+	Z         float64 `json:"z,omitempty"`
+	Rx        float64 `json:"rx,omitempty"`
+	Ry        float64 `json:"ry,omitempty"`
+	Check     bool    `json:"check,omitempty"`
+	Delay     float64 `json:"delay,omitempty"`
+	MachineId int64   `json:"machine_id,omitempty"`
+	CheckName string  `json:"check_name,omitempty"`
 }
 
 type MotorInfo struct {

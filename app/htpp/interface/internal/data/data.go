@@ -22,6 +22,7 @@ var ProviderSet = wire.NewSet(
 	NewUserRepo,
 	NewCaptureRepo,
 	NewMachineRepo,
+	NewCronJobRepo,
 	NewDiscovery,
 	NewUserServiceClient,
 	NewCaptureServiceClient,

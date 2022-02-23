@@ -41,6 +41,9 @@ static const char* Interface_method_names[] = {
   "/htpp.interface.v1.Interface/Move",
   "/htpp.interface.v1.Interface/Zero",
   "/htpp.interface.v1.Interface/GetMotorStatus",
+  "/htpp.interface.v1.Interface/CreateCronJob",
+  "/htpp.interface.v1.Interface/DeleteCronJob",
+  "/htpp.interface.v1.Interface/ListCronJob",
 };
 
 std::unique_ptr< Interface::Stub> Interface::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -67,6 +70,9 @@ Interface::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel,
   , rpcmethod_Move_(Interface_method_names[14], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_Zero_(Interface_method_names[15], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetMotorStatus_(Interface_method_names[16], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_CreateCronJob_(Interface_method_names[17], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_DeleteCronJob_(Interface_method_names[18], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_ListCronJob_(Interface_method_names[19], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status Interface::Stub::Login(::grpc::ClientContext* context, const ::htpp::interface::v1::LoginRequest& request, ::htpp::interface::v1::UserReply* response) {
@@ -460,6 +466,75 @@ void Interface::Stub::async::GetMotorStatus(::grpc::ClientContext* context, cons
   return result;
 }
 
+::grpc::Status Interface::Stub::CreateCronJob(::grpc::ClientContext* context, const ::htpp::interface::v1::CreateCronJobRequest& request, ::htpp::interface::v1::CronJobReply* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::htpp::interface::v1::CreateCronJobRequest, ::htpp::interface::v1::CronJobReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_CreateCronJob_, context, request, response);
+}
+
+void Interface::Stub::async::CreateCronJob(::grpc::ClientContext* context, const ::htpp::interface::v1::CreateCronJobRequest* request, ::htpp::interface::v1::CronJobReply* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::htpp::interface::v1::CreateCronJobRequest, ::htpp::interface::v1::CronJobReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CreateCronJob_, context, request, response, std::move(f));
+}
+
+void Interface::Stub::async::CreateCronJob(::grpc::ClientContext* context, const ::htpp::interface::v1::CreateCronJobRequest* request, ::htpp::interface::v1::CronJobReply* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CreateCronJob_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::htpp::interface::v1::CronJobReply>* Interface::Stub::PrepareAsyncCreateCronJobRaw(::grpc::ClientContext* context, const ::htpp::interface::v1::CreateCronJobRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::htpp::interface::v1::CronJobReply, ::htpp::interface::v1::CreateCronJobRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_CreateCronJob_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::htpp::interface::v1::CronJobReply>* Interface::Stub::AsyncCreateCronJobRaw(::grpc::ClientContext* context, const ::htpp::interface::v1::CreateCronJobRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncCreateCronJobRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status Interface::Stub::DeleteCronJob(::grpc::ClientContext* context, const ::htpp::interface::v1::DeleteCronJobRequest& request, ::htpp::interface::v1::DeleteCronJobReply* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::htpp::interface::v1::DeleteCronJobRequest, ::htpp::interface::v1::DeleteCronJobReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_DeleteCronJob_, context, request, response);
+}
+
+void Interface::Stub::async::DeleteCronJob(::grpc::ClientContext* context, const ::htpp::interface::v1::DeleteCronJobRequest* request, ::htpp::interface::v1::DeleteCronJobReply* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::htpp::interface::v1::DeleteCronJobRequest, ::htpp::interface::v1::DeleteCronJobReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeleteCronJob_, context, request, response, std::move(f));
+}
+
+void Interface::Stub::async::DeleteCronJob(::grpc::ClientContext* context, const ::htpp::interface::v1::DeleteCronJobRequest* request, ::htpp::interface::v1::DeleteCronJobReply* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeleteCronJob_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::htpp::interface::v1::DeleteCronJobReply>* Interface::Stub::PrepareAsyncDeleteCronJobRaw(::grpc::ClientContext* context, const ::htpp::interface::v1::DeleteCronJobRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::htpp::interface::v1::DeleteCronJobReply, ::htpp::interface::v1::DeleteCronJobRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_DeleteCronJob_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::htpp::interface::v1::DeleteCronJobReply>* Interface::Stub::AsyncDeleteCronJobRaw(::grpc::ClientContext* context, const ::htpp::interface::v1::DeleteCronJobRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncDeleteCronJobRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status Interface::Stub::ListCronJob(::grpc::ClientContext* context, const ::htpp::interface::v1::ListCronJobRequest& request, ::htpp::interface::v1::CronJobsReply* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::htpp::interface::v1::ListCronJobRequest, ::htpp::interface::v1::CronJobsReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_ListCronJob_, context, request, response);
+}
+
+void Interface::Stub::async::ListCronJob(::grpc::ClientContext* context, const ::htpp::interface::v1::ListCronJobRequest* request, ::htpp::interface::v1::CronJobsReply* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::htpp::interface::v1::ListCronJobRequest, ::htpp::interface::v1::CronJobsReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ListCronJob_, context, request, response, std::move(f));
+}
+
+void Interface::Stub::async::ListCronJob(::grpc::ClientContext* context, const ::htpp::interface::v1::ListCronJobRequest* request, ::htpp::interface::v1::CronJobsReply* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ListCronJob_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::htpp::interface::v1::CronJobsReply>* Interface::Stub::PrepareAsyncListCronJobRaw(::grpc::ClientContext* context, const ::htpp::interface::v1::ListCronJobRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::htpp::interface::v1::CronJobsReply, ::htpp::interface::v1::ListCronJobRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_ListCronJob_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::htpp::interface::v1::CronJobsReply>* Interface::Stub::AsyncListCronJobRaw(::grpc::ClientContext* context, const ::htpp::interface::v1::ListCronJobRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncListCronJobRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
 Interface::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Interface_method_names[0],
@@ -631,6 +706,36 @@ Interface::Service::Service() {
              ::htpp::interface::v1::GetMotorStatusReply* resp) {
                return service->GetMotorStatus(ctx, req, resp);
              }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Interface_method_names[17],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Interface::Service, ::htpp::interface::v1::CreateCronJobRequest, ::htpp::interface::v1::CronJobReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](Interface::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::htpp::interface::v1::CreateCronJobRequest* req,
+             ::htpp::interface::v1::CronJobReply* resp) {
+               return service->CreateCronJob(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Interface_method_names[18],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Interface::Service, ::htpp::interface::v1::DeleteCronJobRequest, ::htpp::interface::v1::DeleteCronJobReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](Interface::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::htpp::interface::v1::DeleteCronJobRequest* req,
+             ::htpp::interface::v1::DeleteCronJobReply* resp) {
+               return service->DeleteCronJob(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Interface_method_names[19],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Interface::Service, ::htpp::interface::v1::ListCronJobRequest, ::htpp::interface::v1::CronJobsReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](Interface::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::htpp::interface::v1::ListCronJobRequest* req,
+             ::htpp::interface::v1::CronJobsReply* resp) {
+               return service->ListCronJob(ctx, req, resp);
+             }, this)));
 }
 
 Interface::Service::~Service() {
@@ -749,6 +854,27 @@ Interface::Service::~Service() {
 }
 
 ::grpc::Status Interface::Service::GetMotorStatus(::grpc::ServerContext* context, const ::htpp::interface::v1::GetMotorStatusRequest* request, ::htpp::interface::v1::GetMotorStatusReply* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Interface::Service::CreateCronJob(::grpc::ServerContext* context, const ::htpp::interface::v1::CreateCronJobRequest* request, ::htpp::interface::v1::CronJobReply* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Interface::Service::DeleteCronJob(::grpc::ServerContext* context, const ::htpp::interface::v1::DeleteCronJobRequest* request, ::htpp::interface::v1::DeleteCronJobReply* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Interface::Service::ListCronJob(::grpc::ServerContext* context, const ::htpp::interface::v1::ListCronJobRequest* request, ::htpp::interface::v1::CronJobsReply* response) {
   (void) context;
   (void) request;
   (void) response;

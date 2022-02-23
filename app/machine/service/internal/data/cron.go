@@ -11,6 +11,8 @@ import (
 	"strconv"
 )
 
+var _ biz.CronRepo = (*cronRepo)(nil)
+
 type cronRepo struct {
 	data *Data
 	log  *log.Helper
@@ -87,11 +89,11 @@ func (r *cronRepo) FindByMachineId(ctx context.Context, machineId int64) ([]*biz
 }
 
 func (r *cronRepo) Create(ctx context.Context, cr *biz.Cron) (*biz.Cron, error) {
-	_, err := r.data.db.CronJob.
+	if po, err := r.data.db.CronJob.
 		Query().
-		Where(cronjob.MachineIDEQ(cr.MachineId), cronjob.CheckNameEQ(cr.CheckName)).
-		All(ctx)
-	if err != nil && ent.IsNotFound(err) {
+		Where(cronjob.And(cronjob.MachineIDEQ(cr.MachineId), cronjob.CheckNameEQ(cr.CheckName))).
+		All(ctx);
+		len(po) == 0 || (err != nil && ent.IsNotFound(err)) {
 		po, err := r.data.db.CronJob.
 			Create().
 			SetMachineID(cr.MachineId).

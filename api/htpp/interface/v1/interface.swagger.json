@@ -183,6 +183,100 @@
         ]
       }
     },
+    "/v1/cronJobs": {
+      "post": {
+        "operationId": "Interface_CreateCronJob",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CronJobReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CreateCronJobRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Interface"
+        ]
+      }
+    },
+    "/v1/cronJobs/{id}": {
+      "delete": {
+        "operationId": "Interface_DeleteCronJob",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeleteCronJobReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Interface"
+        ]
+      }
+    },
+    "/v1/cronJobs/{machineId}": {
+      "get": {
+        "operationId": "Interface_ListCronJob",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CronJobsReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "machineId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Interface"
+        ]
+      }
+    },
     "/v1/machine": {
       "put": {
         "operationId": "Interface_UpdateMachine",
@@ -441,8 +535,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "int64"
+              "type": "object"
             }
           }
         ],
@@ -620,6 +713,119 @@
           "items": {
             "$ref": "#/definitions/protobufAny"
           }
+        }
+      }
+    },
+    "v1CheckCoordinate": {
+      "type": "object",
+      "properties": {
+        "seq": {
+          "type": "string",
+          "format": "int64"
+        },
+        "crd": {
+          "$ref": "#/definitions/v1Coordinate"
+        }
+      }
+    },
+    "v1Coordinate": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "number",
+          "format": "double"
+        },
+        "y": {
+          "type": "number",
+          "format": "double"
+        },
+        "z": {
+          "type": "number",
+          "format": "double"
+        },
+        "rx": {
+          "type": "number",
+          "format": "double"
+        },
+        "ry": {
+          "type": "number",
+          "format": "double"
+        },
+        "check": {
+          "type": "boolean"
+        },
+        "delay": {
+          "type": "number",
+          "format": "double"
+        },
+        "machineId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "checkName": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CreateCronJobRequest": {
+      "type": "object",
+      "properties": {
+        "cronJob": {
+          "$ref": "#/definitions/v1CronJob"
+        }
+      },
+      "title": "Cron Job"
+    },
+    "v1CronJob": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "machineId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "checkName": {
+          "type": "string"
+        },
+        "cronString": {
+          "type": "string"
+        },
+        "checkCoordinates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1CheckCoordinate"
+          }
+        }
+      }
+    },
+    "v1CronJobReply": {
+      "type": "object",
+      "properties": {
+        "cronJob": {
+          "$ref": "#/definitions/v1CronJob"
+        }
+      }
+    },
+    "v1CronJobsReply": {
+      "type": "object",
+      "properties": {
+        "cronJobs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1CronJob"
+          }
+        }
+      }
+    },
+    "v1DeleteCronJobReply": {
+      "type": "object",
+      "properties": {
+        "num": {
+          "type": "string",
+          "format": "int64"
         }
       }
     },

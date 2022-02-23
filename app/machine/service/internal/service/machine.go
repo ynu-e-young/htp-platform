@@ -293,15 +293,6 @@ func (s *MachineService) CreateCronJob(ctx context.Context, in *machineV1.Create
 		})
 	}
 
-	if err := s.cr.AddCronJob(ctx, &biz.Cron{
-		CheckCoordinates: bCcs,
-		CheckName:        c.GetCheckName(),
-		MachineId:        c.GetMachineId(),
-		CronString:       c.GetCronString(),
-	}, s.jobFunc(c.GetMachineId(), c.GetCheckName(), bCcs)); err != nil {
-		return nil, err
-	}
-
 	po, err := s.cr.Create(ctx, &biz.Cron{
 		CheckCoordinates: bCcs,
 		CheckName:        c.GetCheckName(),
@@ -312,8 +303,20 @@ func (s *MachineService) CreateCronJob(ctx context.Context, in *machineV1.Create
 		return nil, err
 	}
 
+	if err := s.cr.AddCronJob(ctx, &biz.Cron{
+		CheckCoordinates: bCcs,
+		CheckName:        c.GetCheckName(),
+		MachineId:        c.GetMachineId(),
+		CronString:       c.GetCronString(),
+	}, s.jobFunc(c.GetMachineId(), c.GetCheckName(), bCcs)); err != nil {
+		return nil, err
+	}
+
 	cj := in.GetCronJob()
 	cj.Id = po.ID
+	for _, cCrd := range cj.CheckCoordinates {
+		cCrd.GetCrd().CheckName = c.GetCheckName()
+	}
 
 	return &machineV1.CronJobReply{CronJob: cj}, nil
 }
@@ -321,6 +324,10 @@ func (s *MachineService) CreateCronJob(ctx context.Context, in *machineV1.Create
 func (s *MachineService) DeleteCronJob(ctx context.Context, in *machineV1.DeleteCronJobRequest) (*machineV1.DeleteCronJobReply, error) {
 	po, err := s.cr.Get(ctx, in.GetId())
 	if err != nil {
+		return nil, err
+	}
+
+	if err := s.cr.Delete(ctx, in.GetId()); err != nil {
 		return nil, err
 	}
 

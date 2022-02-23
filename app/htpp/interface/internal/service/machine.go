@@ -100,6 +100,7 @@ func (s *InterfaceService) Zero(ctx context.Context, in *interfaceV1.ZeroRequest
 
 	return &interfaceV1.ZeroReply{Status: ok}, nil
 }
+
 func (s *InterfaceService) GetMotorStatus(ctx context.Context, in *interfaceV1.GetMotorStatusRequest) (*interfaceV1.GetMotorStatusReply, error) {
 	rv, err := s.mu.GetMotorStatus(ctx, in.GetMachineId())
 	if err != nil {

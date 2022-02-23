@@ -29,7 +29,8 @@ grpc-cpp:
 	cd ../../../api/$(APP_RELATIVE_PATH) && protoc --proto_path=./v1 \
 			--proto_path=../../../third_party \
 			--cpp_out=./v1/cpp \
-			--grpc_out=./v1/cpp --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` \
+			--grpc_out=./v1/cpp \
+			--plugin=protoc-gen-grpc=`which grpc_cpp_plugin` \
 			$(CPP_API_PROTO_FILES)
 
 .PHONY: grpc

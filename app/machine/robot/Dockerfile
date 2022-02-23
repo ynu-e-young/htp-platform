@@ -1,10 +1,9 @@
 #build stage
-FROM golang:alpine as builder
+FROM hominsu/grpc-alpine:alpine3.15-build as builder
 # app dir
 ARG APP_RELATIVE_PATH
-# install: gcc、g++、make、openssl、c-ares、cmake、grpc、protobuf、protoc、nlohmann-json
-RUN apk --no-cache add bash findutils build-base openssl-dev openssl-libs-static re2-dev cmake c-ares-dev \
-    grpc grpc-dev protobuf-dev libprotobuf protoc libprotoc nlohmann-json jsoncpp-dev jsoncpp-static
+# install: git(makefile use git to describe the version)
+RUN apk --no-cache add git
 # build app
 COPY . /src
 WORKDIR /src
@@ -13,7 +12,7 @@ WORKDIR /src/app/${APP_RELATIVE_PATH}
 RUN make build
 
 #final stage
-FROM alpine:latest
+FROM hominsu/grpc-alpine:alpine3.15-runtime
 # image info
 ARG AUTHOR_NAME
 ARG AUTHOR_EMAIL
@@ -23,7 +22,7 @@ LABEL author=$AUTHOR_NAME email=${AUTHOR_EMAIL} version=$VERSION
 # app dir
 ARG APP_RELATIVE_PATH
 # install: tzdata c-ares libprotobuf
-RUN apk --no-cache add tzdata c-ares libprotobuf
+RUN apk --no-cache add tzdata ca-certificates
 # cpoy the app from builder
 COPY --from=builder /src/app/${APP_RELATIVE_PATH}/bin /app
 WORKDIR /app

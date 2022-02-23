@@ -478,10 +478,131 @@ struct MotorStatusDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT MotorStatusDefaultTypeInternal _MotorStatus_default_instance_;
+constexpr CreateCronJobRequest::CreateCronJobRequest(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : cron_job_(nullptr){}
+struct CreateCronJobRequestDefaultTypeInternal {
+  constexpr CreateCronJobRequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CreateCronJobRequestDefaultTypeInternal() {}
+  union {
+    CreateCronJobRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CreateCronJobRequestDefaultTypeInternal _CreateCronJobRequest_default_instance_;
+constexpr DeleteCronJobRequest::DeleteCronJobRequest(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : id_(int64_t{0}){}
+struct DeleteCronJobRequestDefaultTypeInternal {
+  constexpr DeleteCronJobRequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~DeleteCronJobRequestDefaultTypeInternal() {}
+  union {
+    DeleteCronJobRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DeleteCronJobRequestDefaultTypeInternal _DeleteCronJobRequest_default_instance_;
+constexpr DeleteCronJobReply::DeleteCronJobReply(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : num_(int64_t{0}){}
+struct DeleteCronJobReplyDefaultTypeInternal {
+  constexpr DeleteCronJobReplyDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~DeleteCronJobReplyDefaultTypeInternal() {}
+  union {
+    DeleteCronJobReply _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DeleteCronJobReplyDefaultTypeInternal _DeleteCronJobReply_default_instance_;
+constexpr ListCronJobRequest::ListCronJobRequest(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : machineid_(int64_t{0}){}
+struct ListCronJobRequestDefaultTypeInternal {
+  constexpr ListCronJobRequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~ListCronJobRequestDefaultTypeInternal() {}
+  union {
+    ListCronJobRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ListCronJobRequestDefaultTypeInternal _ListCronJobRequest_default_instance_;
+constexpr CronJobReply::CronJobReply(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : cron_job_(nullptr){}
+struct CronJobReplyDefaultTypeInternal {
+  constexpr CronJobReplyDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CronJobReplyDefaultTypeInternal() {}
+  union {
+    CronJobReply _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CronJobReplyDefaultTypeInternal _CronJobReply_default_instance_;
+constexpr CronJobsReply::CronJobsReply(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : cron_jobs_(){}
+struct CronJobsReplyDefaultTypeInternal {
+  constexpr CronJobsReplyDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CronJobsReplyDefaultTypeInternal() {}
+  union {
+    CronJobsReply _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CronJobsReplyDefaultTypeInternal _CronJobsReply_default_instance_;
+constexpr CronJob::CronJob(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : check_coordinates_()
+  , check_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , cron_string_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , id_(int64_t{0})
+  , machineid_(int64_t{0}){}
+struct CronJobDefaultTypeInternal {
+  constexpr CronJobDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CronJobDefaultTypeInternal() {}
+  union {
+    CronJob _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CronJobDefaultTypeInternal _CronJob_default_instance_;
+constexpr CheckCoordinate::CheckCoordinate(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : crd_(nullptr)
+  , seq_(int64_t{0}){}
+struct CheckCoordinateDefaultTypeInternal {
+  constexpr CheckCoordinateDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CheckCoordinateDefaultTypeInternal() {}
+  union {
+    CheckCoordinate _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CheckCoordinateDefaultTypeInternal _CheckCoordinate_default_instance_;
+constexpr Coordinate::Coordinate(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : check_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , x_(0)
+  , y_(0)
+  , z_(0)
+  , rx_(0)
+  , ry_(0)
+  , delay_(0)
+  , machine_id_(int64_t{0})
+  , check_(false){}
+struct CoordinateDefaultTypeInternal {
+  constexpr CoordinateDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CoordinateDefaultTypeInternal() {}
+  union {
+    Coordinate _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CoordinateDefaultTypeInternal _Coordinate_default_instance_;
 }  // namespace v1
 }  // namespace interface
 }  // namespace htpp
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_interface_2eproto[36];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_interface_2eproto[45];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_interface_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_interface_2eproto = nullptr;
 
@@ -765,6 +886,82 @@ const uint32_t TableStruct_interface_2eproto::offsets[] PROTOBUF_SECTION_VARIABL
   PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::MotorStatus, instruction_completion_),
   PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::MotorStatus, path_completion_),
   PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::MotorStatus, zero_completion_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::CreateCronJobRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::CreateCronJobRequest, cron_job_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::DeleteCronJobRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::DeleteCronJobRequest, id_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::DeleteCronJobReply, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::DeleteCronJobReply, num_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::ListCronJobRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::ListCronJobRequest, machineid_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::CronJobReply, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::CronJobReply, cron_job_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::CronJobsReply, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::CronJobsReply, cron_jobs_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::CronJob, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::CronJob, id_),
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::CronJob, machineid_),
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::CronJob, check_name_),
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::CronJob, cron_string_),
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::CronJob, check_coordinates_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::CheckCoordinate, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::CheckCoordinate, seq_),
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::CheckCoordinate, crd_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::Coordinate, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::Coordinate, x_),
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::Coordinate, y_),
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::Coordinate, z_),
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::Coordinate, rx_),
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::Coordinate, ry_),
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::Coordinate, check_),
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::Coordinate, delay_),
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::Coordinate, machine_id_),
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::Coordinate, check_name_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::htpp::interface::v1::LoginRequest_User)},
@@ -803,6 +1000,15 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 251, -1, -1, sizeof(::htpp::interface::v1::GetMotorStatusReply)},
   { 258, -1, -1, sizeof(::htpp::interface::v1::MotorInfo)},
   { 267, -1, -1, sizeof(::htpp::interface::v1::MotorStatus)},
+  { 279, -1, -1, sizeof(::htpp::interface::v1::CreateCronJobRequest)},
+  { 286, -1, -1, sizeof(::htpp::interface::v1::DeleteCronJobRequest)},
+  { 293, -1, -1, sizeof(::htpp::interface::v1::DeleteCronJobReply)},
+  { 300, -1, -1, sizeof(::htpp::interface::v1::ListCronJobRequest)},
+  { 307, -1, -1, sizeof(::htpp::interface::v1::CronJobReply)},
+  { 314, -1, -1, sizeof(::htpp::interface::v1::CronJobsReply)},
+  { 321, -1, -1, sizeof(::htpp::interface::v1::CronJob)},
+  { 332, -1, -1, sizeof(::htpp::interface::v1::CheckCoordinate)},
+  { 340, -1, -1, sizeof(::htpp::interface::v1::Coordinate)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -842,6 +1048,15 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::htpp::interface::v1::_GetMotorStatusReply_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::htpp::interface::v1::_MotorInfo_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::htpp::interface::v1::_MotorStatus_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::htpp::interface::v1::_CreateCronJobRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::htpp::interface::v1::_DeleteCronJobRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::htpp::interface::v1::_DeleteCronJobReply_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::htpp::interface::v1::_ListCronJobRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::htpp::interface::v1::_CronJobReply_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::htpp::interface::v1::_CronJobsReply_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::htpp::interface::v1::_CronJob_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::htpp::interface::v1::_CheckCoordinate_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::htpp::interface::v1::_Coordinate_default_instance_),
 };
 
 const char descriptor_table_protodef_interface_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -903,64 +1118,89 @@ const char descriptor_table_protodef_interface_2eproto[] PROTOBUF_SECTION_VARIAB
   "fault\030\001 \001(\010\022\020\n\010enabling\030\002 \001(\010\022\017\n\007running"
   "\030\003 \001(\010\022\036\n\026instruction_completion\030\004 \001(\010\022\027"
   "\n\017path_completion\030\005 \001(\010\022\027\n\017zero_completi"
-  "on\030\006 \001(\0102\245\020\n\tInterface\022b\n\005Login\022\037.htpp.i"
-  "nterface.v1.LoginRequest\032\034.htpp.interfac"
-  "e.v1.UserReply\"\032\202\323\344\223\002\024\"\017/v1/users/login:"
-  "\001*\022b\n\010Register\022\".htpp.interface.v1.Regis"
-  "terRequest\032\034.htpp.interface.v1.UserReply"
-  "\"\024\202\323\344\223\002\016\"\t/v1/users:\001*\022o\n\016GetCurrentUser"
-  "\022(.htpp.interface.v1.GetCurrentUserReque"
-  "st\032\034.htpp.interface.v1.UserReply\"\025\202\323\344\223\002\017"
-  "\022\r/v1/user/{id}\022e\n\nUpdateUser\022$.htpp.int"
-  "erface.v1.UpdateUserRequest\032\034.htpp.inter"
-  "face.v1.UserReply\"\023\202\323\344\223\002\r\032\010/v1/user:\001*\022e"
-  "\n\007ReadOne\022!.htpp.interface.v1.ReadOneReq"
-  "uest\032\035.htpp.interface.v1.ImageReply\"\030\202\323\344"
-  "\223\002\022\022\020/v1/capture/{id}\022a\n\007ReadAll\022!.htpp."
-  "interface.v1.ReadAllRequest\032\036.htpp.inter"
-  "face.v1.ImagesReply\"\023\202\323\344\223\002\r\022\013/v1/capture"
-  "\022\200\001\n\021ReadOneWithBinary\022+.htpp.interface."
-  "v1.ReadOneWithBinaryRequest\032\035.htpp.inter"
-  "face.v1.ImageReply\"\037\202\323\344\223\002\031\022\027/v1/capture/"
-  "{id}/binary\022|\n\021ReadAllWithBinary\022+.htpp."
-  "interface.v1.ReadAllWithBinaryRequest\032\036."
-  "htpp.interface.v1.ImagesReply\"\032\202\323\344\223\002\024\022\022/"
-  "v1/capture/binary\022\241\001\n\033ReadOneWithBinaryA"
-  "ndCalArea\0225.htpp.interface.v1.ReadOneWit"
-  "hBinaryAndCalAreaRequest\032%.htpp.interfac"
-  "e.v1.ImageWithAreaReply\"$\202\323\344\223\002\036\022\034/v1/cap"
-  "ture/{id}/binary/area\022\235\001\n\033ReadAllWithBin"
-  "aryAndCalArea\0225.htpp.interface.v1.ReadAl"
-  "lWithBinaryAndCalAreaRequest\032&.htpp.inte"
-  "rface.v1.ImagesWithAreaReply\"\037\202\323\344\223\002\031\022\027/v"
-  "1/capture/binary/area\022v\n\017RegisterMachine"
-  "\022).htpp.interface.v1.RegisterMachineRequ"
-  "est\032\037.htpp.interface.v1.MachineReply\"\027\202\323"
-  "\344\223\002\021\"\014/v1/machines:\001*\022q\n\rUpdateMachine\022\'"
-  ".htpp.interface.v1.UpdateMachineRequest\032"
-  "\037.htpp.interface.v1.MachineReply\"\026\202\323\344\223\002\020"
-  "\032\013/v1/machine:\001*\022v\n\nGetMachine\022$.htpp.in"
-  "terface.v1.GetMachineRequest\032\037.htpp.inte"
-  "rface.v1.MachineReply\"!\202\323\344\223\002\033\022\031/v1/machi"
-  "nes/{machine_id}\022\213\001\n\026GetCurrentUserMachi"
-  "nes\0220.htpp.interface.v1.GetCurrentUserMa"
-  "chinesRequest\032 .htpp.interface.v1.Machin"
-  "esReply\"\035\202\323\344\223\002\027\022\025/v1/machine/{user_id}\022o"
-  "\n\004Move\022\036.htpp.interface.v1.MoveRequest\032\034"
-  ".htpp.interface.v1.MoveReply\")\202\323\344\223\002#\"\036/v"
-  "1/machines/{machine_id}/move:\001*\022x\n\004Zero\022"
-  "\036.htpp.interface.v1.ZeroRequest\032\034.htpp.i"
-  "nterface.v1.ZeroReply\"2\202\323\344\223\002,\"\036/v1/machi"
-  "nes/{machine_id}/zero:\nmachine_id\022\214\001\n\016Ge"
-  "tMotorStatus\022(.htpp.interface.v1.GetMoto"
-  "rStatusRequest\032&.htpp.interface.v1.GetMo"
-  "torStatusReply\"(\202\323\344\223\002\"\022 /v1/machines/{ma"
-  "chine_id}/statusB\264\001Z\030api/htpp/interface/"
-  "v1;v1\222A\226\001\022m\n\032htp-platform Interface API\""
-  "J\n\014htp-platform\022\'https://github.com/homi"
-  "nsu/htp-platform\032\0211774069959@qq.com2\0031.0"
-  "*\001\0022\020application/json:\020application/jsonb"
-  "\006proto3"
+  "on\030\006 \001(\010\"D\n\024CreateCronJobRequest\022,\n\010cron"
+  "_job\030\001 \001(\0132\032.htpp.interface.v1.CronJob\"\""
+  "\n\024DeleteCronJobRequest\022\n\n\002id\030\001 \001(\003\"!\n\022De"
+  "leteCronJobReply\022\013\n\003num\030\001 \001(\003\"\'\n\022ListCro"
+  "nJobRequest\022\021\n\tmachineId\030\001 \001(\003\"<\n\014CronJo"
+  "bReply\022,\n\010cron_job\030\001 \001(\0132\032.htpp.interfac"
+  "e.v1.CronJob\">\n\rCronJobsReply\022-\n\tcron_jo"
+  "bs\030\001 \003(\0132\032.htpp.interface.v1.CronJob\"\220\001\n"
+  "\007CronJob\022\n\n\002id\030\001 \001(\003\022\021\n\tmachineId\030\002 \001(\003\022"
+  "\022\n\ncheck_name\030\003 \001(\t\022\023\n\013cron_string\030\004 \001(\t"
+  "\022=\n\021check_coordinates\030\005 \003(\0132\".htpp.inter"
+  "face.v1.CheckCoordinate\"J\n\017CheckCoordina"
+  "te\022\013\n\003seq\030\001 \001(\003\022*\n\003crd\030\002 \001(\0132\035.htpp.inte"
+  "rface.v1.Coordinate\"\213\001\n\nCoordinate\022\t\n\001x\030"
+  "\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\022\n\n\002rx\030\004 \001(\001\022"
+  "\n\n\002ry\030\005 \001(\001\022\r\n\005check\030\006 \001(\010\022\r\n\005delay\030\007 \001("
+  "\001\022\022\n\nmachine_id\030\010 \001(\003\022\022\n\ncheck_name\030\t \001("
+  "\t2\206\023\n\tInterface\022b\n\005Login\022\037.htpp.interfac"
+  "e.v1.LoginRequest\032\034.htpp.interface.v1.Us"
+  "erReply\"\032\202\323\344\223\002\024\"\017/v1/users/login:\001*\022b\n\010R"
+  "egister\022\".htpp.interface.v1.RegisterRequ"
+  "est\032\034.htpp.interface.v1.UserReply\"\024\202\323\344\223\002"
+  "\016\"\t/v1/users:\001*\022o\n\016GetCurrentUser\022(.htpp"
+  ".interface.v1.GetCurrentUserRequest\032\034.ht"
+  "pp.interface.v1.UserReply\"\025\202\323\344\223\002\017\022\r/v1/u"
+  "ser/{id}\022e\n\nUpdateUser\022$.htpp.interface."
+  "v1.UpdateUserRequest\032\034.htpp.interface.v1"
+  ".UserReply\"\023\202\323\344\223\002\r\032\010/v1/user:\001*\022e\n\007ReadO"
+  "ne\022!.htpp.interface.v1.ReadOneRequest\032\035."
+  "htpp.interface.v1.ImageReply\"\030\202\323\344\223\002\022\022\020/v"
+  "1/capture/{id}\022a\n\007ReadAll\022!.htpp.interfa"
+  "ce.v1.ReadAllRequest\032\036.htpp.interface.v1"
+  ".ImagesReply\"\023\202\323\344\223\002\r\022\013/v1/capture\022\200\001\n\021Re"
+  "adOneWithBinary\022+.htpp.interface.v1.Read"
+  "OneWithBinaryRequest\032\035.htpp.interface.v1"
+  ".ImageReply\"\037\202\323\344\223\002\031\022\027/v1/capture/{id}/bi"
+  "nary\022|\n\021ReadAllWithBinary\022+.htpp.interfa"
+  "ce.v1.ReadAllWithBinaryRequest\032\036.htpp.in"
+  "terface.v1.ImagesReply\"\032\202\323\344\223\002\024\022\022/v1/capt"
+  "ure/binary\022\241\001\n\033ReadOneWithBinaryAndCalAr"
+  "ea\0225.htpp.interface.v1.ReadOneWithBinary"
+  "AndCalAreaRequest\032%.htpp.interface.v1.Im"
+  "ageWithAreaReply\"$\202\323\344\223\002\036\022\034/v1/capture/{i"
+  "d}/binary/area\022\235\001\n\033ReadAllWithBinaryAndC"
+  "alArea\0225.htpp.interface.v1.ReadAllWithBi"
+  "naryAndCalAreaRequest\032&.htpp.interface.v"
+  "1.ImagesWithAreaReply\"\037\202\323\344\223\002\031\022\027/v1/captu"
+  "re/binary/area\022v\n\017RegisterMachine\022).htpp"
+  ".interface.v1.RegisterMachineRequest\032\037.h"
+  "tpp.interface.v1.MachineReply\"\027\202\323\344\223\002\021\"\014/"
+  "v1/machines:\001*\022q\n\rUpdateMachine\022\'.htpp.i"
+  "nterface.v1.UpdateMachineRequest\032\037.htpp."
+  "interface.v1.MachineReply\"\026\202\323\344\223\002\020\032\013/v1/m"
+  "achine:\001*\022v\n\nGetMachine\022$.htpp.interface"
+  ".v1.GetMachineRequest\032\037.htpp.interface.v"
+  "1.MachineReply\"!\202\323\344\223\002\033\022\031/v1/machines/{ma"
+  "chine_id}\022\213\001\n\026GetCurrentUserMachines\0220.h"
+  "tpp.interface.v1.GetCurrentUserMachinesR"
+  "equest\032 .htpp.interface.v1.MachinesReply"
+  "\"\035\202\323\344\223\002\027\022\025/v1/machine/{user_id}\022o\n\004Move\022"
+  "\036.htpp.interface.v1.MoveRequest\032\034.htpp.i"
+  "nterface.v1.MoveReply\")\202\323\344\223\002#\"\036/v1/machi"
+  "nes/{machine_id}/move:\001*\022o\n\004Zero\022\036.htpp."
+  "interface.v1.ZeroRequest\032\034.htpp.interfac"
+  "e.v1.ZeroReply\")\202\323\344\223\002#\"\036/v1/machines/{ma"
+  "chine_id}/zero:\001*\022\214\001\n\016GetMotorStatus\022(.h"
+  "tpp.interface.v1.GetMotorStatusRequest\032&"
+  ".htpp.interface.v1.GetMotorStatusReply\"("
+  "\202\323\344\223\002\"\022 /v1/machines/{machine_id}/status"
+  "\022r\n\rCreateCronJob\022\'.htpp.interface.v1.Cr"
+  "eateCronJobRequest\032\037.htpp.interface.v1.C"
+  "ronJobReply\"\027\202\323\344\223\002\021\"\014/v1/cronJobs:\001*\022z\n\r"
+  "DeleteCronJob\022\'.htpp.interface.v1.Delete"
+  "CronJobRequest\032%.htpp.interface.v1.Delet"
+  "eCronJobReply\"\031\202\323\344\223\002\023*\021/v1/cronJobs/{id}"
+  "\022x\n\013ListCronJob\022%.htpp.interface.v1.List"
+  "CronJobRequest\032 .htpp.interface.v1.CronJ"
+  "obsReply\" \202\323\344\223\002\032\022\030/v1/cronJobs/{machineI"
+  "d}B\264\001Z\030api/htpp/interface/v1;v1\222A\226\001\022m\n\032h"
+  "tp-platform Interface API\"J\n\014htp-platfor"
+  "m\022\'https://github.com/hominsu/htp-platfo"
+  "rm\032\0211774069959@qq.com2\0031.0*\001\0022\020applicati"
+  "on/json:\020application/jsonb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_interface_2eproto_deps[2] = {
   &::descriptor_table_google_2fapi_2fannotations_2eproto,
@@ -968,8 +1208,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_interface_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_interface_2eproto = {
-  false, false, 4607, descriptor_table_protodef_interface_2eproto, "interface.proto", 
-  &descriptor_table_interface_2eproto_once, descriptor_table_interface_2eproto_deps, 2, 36,
+  false, false, 5633, descriptor_table_protodef_interface_2eproto, "interface.proto", 
+  &descriptor_table_interface_2eproto_once, descriptor_table_interface_2eproto_deps, 2, 45,
   schemas, file_default_instances, TableStruct_interface_2eproto::offsets,
   file_level_metadata_interface_2eproto, file_level_enum_descriptors_interface_2eproto, file_level_service_descriptors_interface_2eproto,
 };
@@ -8398,6 +8638,2154 @@ void MotorStatus::InternalSwap(MotorStatus* other) {
       file_level_metadata_interface_2eproto[35]);
 }
 
+// ===================================================================
+
+class CreateCronJobRequest::_Internal {
+ public:
+  static const ::htpp::interface::v1::CronJob& cron_job(const CreateCronJobRequest* msg);
+};
+
+const ::htpp::interface::v1::CronJob&
+CreateCronJobRequest::_Internal::cron_job(const CreateCronJobRequest* msg) {
+  return *msg->cron_job_;
+}
+CreateCronJobRequest::CreateCronJobRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:htpp.interface.v1.CreateCronJobRequest)
+}
+CreateCronJobRequest::CreateCronJobRequest(const CreateCronJobRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_cron_job()) {
+    cron_job_ = new ::htpp::interface::v1::CronJob(*from.cron_job_);
+  } else {
+    cron_job_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:htpp.interface.v1.CreateCronJobRequest)
+}
+
+inline void CreateCronJobRequest::SharedCtor() {
+cron_job_ = nullptr;
+}
+
+CreateCronJobRequest::~CreateCronJobRequest() {
+  // @@protoc_insertion_point(destructor:htpp.interface.v1.CreateCronJobRequest)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void CreateCronJobRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete cron_job_;
+}
+
+void CreateCronJobRequest::ArenaDtor(void* object) {
+  CreateCronJobRequest* _this = reinterpret_cast< CreateCronJobRequest* >(object);
+  (void)_this;
+}
+void CreateCronJobRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CreateCronJobRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CreateCronJobRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:htpp.interface.v1.CreateCronJobRequest)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && cron_job_ != nullptr) {
+    delete cron_job_;
+  }
+  cron_job_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CreateCronJobRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .htpp.interface.v1.CronJob cron_job = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_cron_job(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CreateCronJobRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:htpp.interface.v1.CreateCronJobRequest)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .htpp.interface.v1.CronJob cron_job = 1;
+  if (this->_internal_has_cron_job()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::cron_job(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:htpp.interface.v1.CreateCronJobRequest)
+  return target;
+}
+
+size_t CreateCronJobRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:htpp.interface.v1.CreateCronJobRequest)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .htpp.interface.v1.CronJob cron_job = 1;
+  if (this->_internal_has_cron_job()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *cron_job_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CreateCronJobRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    CreateCronJobRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CreateCronJobRequest::GetClassData() const { return &_class_data_; }
+
+void CreateCronJobRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<CreateCronJobRequest *>(to)->MergeFrom(
+      static_cast<const CreateCronJobRequest &>(from));
+}
+
+
+void CreateCronJobRequest::MergeFrom(const CreateCronJobRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:htpp.interface.v1.CreateCronJobRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_cron_job()) {
+    _internal_mutable_cron_job()->::htpp::interface::v1::CronJob::MergeFrom(from._internal_cron_job());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CreateCronJobRequest::CopyFrom(const CreateCronJobRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:htpp.interface.v1.CreateCronJobRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CreateCronJobRequest::IsInitialized() const {
+  return true;
+}
+
+void CreateCronJobRequest::InternalSwap(CreateCronJobRequest* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(cron_job_, other->cron_job_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CreateCronJobRequest::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_interface_2eproto_getter, &descriptor_table_interface_2eproto_once,
+      file_level_metadata_interface_2eproto[36]);
+}
+
+// ===================================================================
+
+class DeleteCronJobRequest::_Internal {
+ public:
+};
+
+DeleteCronJobRequest::DeleteCronJobRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:htpp.interface.v1.DeleteCronJobRequest)
+}
+DeleteCronJobRequest::DeleteCronJobRequest(const DeleteCronJobRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  id_ = from.id_;
+  // @@protoc_insertion_point(copy_constructor:htpp.interface.v1.DeleteCronJobRequest)
+}
+
+inline void DeleteCronJobRequest::SharedCtor() {
+id_ = int64_t{0};
+}
+
+DeleteCronJobRequest::~DeleteCronJobRequest() {
+  // @@protoc_insertion_point(destructor:htpp.interface.v1.DeleteCronJobRequest)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void DeleteCronJobRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void DeleteCronJobRequest::ArenaDtor(void* object) {
+  DeleteCronJobRequest* _this = reinterpret_cast< DeleteCronJobRequest* >(object);
+  (void)_this;
+}
+void DeleteCronJobRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void DeleteCronJobRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void DeleteCronJobRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:htpp.interface.v1.DeleteCronJobRequest)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  id_ = int64_t{0};
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DeleteCronJobRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int64 id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* DeleteCronJobRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:htpp.interface.v1.DeleteCronJobRequest)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int64 id = 1;
+  if (this->_internal_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_id(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:htpp.interface.v1.DeleteCronJobRequest)
+  return target;
+}
+
+size_t DeleteCronJobRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:htpp.interface.v1.DeleteCronJobRequest)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // int64 id = 1;
+  if (this->_internal_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_id());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData DeleteCronJobRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    DeleteCronJobRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*DeleteCronJobRequest::GetClassData() const { return &_class_data_; }
+
+void DeleteCronJobRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<DeleteCronJobRequest *>(to)->MergeFrom(
+      static_cast<const DeleteCronJobRequest &>(from));
+}
+
+
+void DeleteCronJobRequest::MergeFrom(const DeleteCronJobRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:htpp.interface.v1.DeleteCronJobRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_id() != 0) {
+    _internal_set_id(from._internal_id());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void DeleteCronJobRequest::CopyFrom(const DeleteCronJobRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:htpp.interface.v1.DeleteCronJobRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DeleteCronJobRequest::IsInitialized() const {
+  return true;
+}
+
+void DeleteCronJobRequest::InternalSwap(DeleteCronJobRequest* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(id_, other->id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DeleteCronJobRequest::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_interface_2eproto_getter, &descriptor_table_interface_2eproto_once,
+      file_level_metadata_interface_2eproto[37]);
+}
+
+// ===================================================================
+
+class DeleteCronJobReply::_Internal {
+ public:
+};
+
+DeleteCronJobReply::DeleteCronJobReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:htpp.interface.v1.DeleteCronJobReply)
+}
+DeleteCronJobReply::DeleteCronJobReply(const DeleteCronJobReply& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  num_ = from.num_;
+  // @@protoc_insertion_point(copy_constructor:htpp.interface.v1.DeleteCronJobReply)
+}
+
+inline void DeleteCronJobReply::SharedCtor() {
+num_ = int64_t{0};
+}
+
+DeleteCronJobReply::~DeleteCronJobReply() {
+  // @@protoc_insertion_point(destructor:htpp.interface.v1.DeleteCronJobReply)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void DeleteCronJobReply::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void DeleteCronJobReply::ArenaDtor(void* object) {
+  DeleteCronJobReply* _this = reinterpret_cast< DeleteCronJobReply* >(object);
+  (void)_this;
+}
+void DeleteCronJobReply::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void DeleteCronJobReply::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void DeleteCronJobReply::Clear() {
+// @@protoc_insertion_point(message_clear_start:htpp.interface.v1.DeleteCronJobReply)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  num_ = int64_t{0};
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DeleteCronJobReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int64 num = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          num_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* DeleteCronJobReply::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:htpp.interface.v1.DeleteCronJobReply)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int64 num = 1;
+  if (this->_internal_num() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_num(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:htpp.interface.v1.DeleteCronJobReply)
+  return target;
+}
+
+size_t DeleteCronJobReply::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:htpp.interface.v1.DeleteCronJobReply)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // int64 num = 1;
+  if (this->_internal_num() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_num());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData DeleteCronJobReply::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    DeleteCronJobReply::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*DeleteCronJobReply::GetClassData() const { return &_class_data_; }
+
+void DeleteCronJobReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<DeleteCronJobReply *>(to)->MergeFrom(
+      static_cast<const DeleteCronJobReply &>(from));
+}
+
+
+void DeleteCronJobReply::MergeFrom(const DeleteCronJobReply& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:htpp.interface.v1.DeleteCronJobReply)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_num() != 0) {
+    _internal_set_num(from._internal_num());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void DeleteCronJobReply::CopyFrom(const DeleteCronJobReply& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:htpp.interface.v1.DeleteCronJobReply)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DeleteCronJobReply::IsInitialized() const {
+  return true;
+}
+
+void DeleteCronJobReply::InternalSwap(DeleteCronJobReply* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(num_, other->num_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DeleteCronJobReply::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_interface_2eproto_getter, &descriptor_table_interface_2eproto_once,
+      file_level_metadata_interface_2eproto[38]);
+}
+
+// ===================================================================
+
+class ListCronJobRequest::_Internal {
+ public:
+};
+
+ListCronJobRequest::ListCronJobRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:htpp.interface.v1.ListCronJobRequest)
+}
+ListCronJobRequest::ListCronJobRequest(const ListCronJobRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  machineid_ = from.machineid_;
+  // @@protoc_insertion_point(copy_constructor:htpp.interface.v1.ListCronJobRequest)
+}
+
+inline void ListCronJobRequest::SharedCtor() {
+machineid_ = int64_t{0};
+}
+
+ListCronJobRequest::~ListCronJobRequest() {
+  // @@protoc_insertion_point(destructor:htpp.interface.v1.ListCronJobRequest)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void ListCronJobRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void ListCronJobRequest::ArenaDtor(void* object) {
+  ListCronJobRequest* _this = reinterpret_cast< ListCronJobRequest* >(object);
+  (void)_this;
+}
+void ListCronJobRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void ListCronJobRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void ListCronJobRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:htpp.interface.v1.ListCronJobRequest)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  machineid_ = int64_t{0};
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ListCronJobRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int64 machineId = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          machineid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ListCronJobRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:htpp.interface.v1.ListCronJobRequest)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int64 machineId = 1;
+  if (this->_internal_machineid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_machineid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:htpp.interface.v1.ListCronJobRequest)
+  return target;
+}
+
+size_t ListCronJobRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:htpp.interface.v1.ListCronJobRequest)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // int64 machineId = 1;
+  if (this->_internal_machineid() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_machineid());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ListCronJobRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ListCronJobRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ListCronJobRequest::GetClassData() const { return &_class_data_; }
+
+void ListCronJobRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ListCronJobRequest *>(to)->MergeFrom(
+      static_cast<const ListCronJobRequest &>(from));
+}
+
+
+void ListCronJobRequest::MergeFrom(const ListCronJobRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:htpp.interface.v1.ListCronJobRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_machineid() != 0) {
+    _internal_set_machineid(from._internal_machineid());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ListCronJobRequest::CopyFrom(const ListCronJobRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:htpp.interface.v1.ListCronJobRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ListCronJobRequest::IsInitialized() const {
+  return true;
+}
+
+void ListCronJobRequest::InternalSwap(ListCronJobRequest* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(machineid_, other->machineid_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ListCronJobRequest::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_interface_2eproto_getter, &descriptor_table_interface_2eproto_once,
+      file_level_metadata_interface_2eproto[39]);
+}
+
+// ===================================================================
+
+class CronJobReply::_Internal {
+ public:
+  static const ::htpp::interface::v1::CronJob& cron_job(const CronJobReply* msg);
+};
+
+const ::htpp::interface::v1::CronJob&
+CronJobReply::_Internal::cron_job(const CronJobReply* msg) {
+  return *msg->cron_job_;
+}
+CronJobReply::CronJobReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:htpp.interface.v1.CronJobReply)
+}
+CronJobReply::CronJobReply(const CronJobReply& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_cron_job()) {
+    cron_job_ = new ::htpp::interface::v1::CronJob(*from.cron_job_);
+  } else {
+    cron_job_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:htpp.interface.v1.CronJobReply)
+}
+
+inline void CronJobReply::SharedCtor() {
+cron_job_ = nullptr;
+}
+
+CronJobReply::~CronJobReply() {
+  // @@protoc_insertion_point(destructor:htpp.interface.v1.CronJobReply)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void CronJobReply::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete cron_job_;
+}
+
+void CronJobReply::ArenaDtor(void* object) {
+  CronJobReply* _this = reinterpret_cast< CronJobReply* >(object);
+  (void)_this;
+}
+void CronJobReply::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CronJobReply::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CronJobReply::Clear() {
+// @@protoc_insertion_point(message_clear_start:htpp.interface.v1.CronJobReply)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && cron_job_ != nullptr) {
+    delete cron_job_;
+  }
+  cron_job_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CronJobReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .htpp.interface.v1.CronJob cron_job = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_cron_job(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CronJobReply::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:htpp.interface.v1.CronJobReply)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .htpp.interface.v1.CronJob cron_job = 1;
+  if (this->_internal_has_cron_job()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::cron_job(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:htpp.interface.v1.CronJobReply)
+  return target;
+}
+
+size_t CronJobReply::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:htpp.interface.v1.CronJobReply)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .htpp.interface.v1.CronJob cron_job = 1;
+  if (this->_internal_has_cron_job()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *cron_job_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CronJobReply::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    CronJobReply::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CronJobReply::GetClassData() const { return &_class_data_; }
+
+void CronJobReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<CronJobReply *>(to)->MergeFrom(
+      static_cast<const CronJobReply &>(from));
+}
+
+
+void CronJobReply::MergeFrom(const CronJobReply& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:htpp.interface.v1.CronJobReply)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_cron_job()) {
+    _internal_mutable_cron_job()->::htpp::interface::v1::CronJob::MergeFrom(from._internal_cron_job());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CronJobReply::CopyFrom(const CronJobReply& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:htpp.interface.v1.CronJobReply)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CronJobReply::IsInitialized() const {
+  return true;
+}
+
+void CronJobReply::InternalSwap(CronJobReply* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(cron_job_, other->cron_job_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CronJobReply::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_interface_2eproto_getter, &descriptor_table_interface_2eproto_once,
+      file_level_metadata_interface_2eproto[40]);
+}
+
+// ===================================================================
+
+class CronJobsReply::_Internal {
+ public:
+};
+
+CronJobsReply::CronJobsReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  cron_jobs_(arena) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:htpp.interface.v1.CronJobsReply)
+}
+CronJobsReply::CronJobsReply(const CronJobsReply& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      cron_jobs_(from.cron_jobs_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:htpp.interface.v1.CronJobsReply)
+}
+
+inline void CronJobsReply::SharedCtor() {
+}
+
+CronJobsReply::~CronJobsReply() {
+  // @@protoc_insertion_point(destructor:htpp.interface.v1.CronJobsReply)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void CronJobsReply::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CronJobsReply::ArenaDtor(void* object) {
+  CronJobsReply* _this = reinterpret_cast< CronJobsReply* >(object);
+  (void)_this;
+}
+void CronJobsReply::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CronJobsReply::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CronJobsReply::Clear() {
+// @@protoc_insertion_point(message_clear_start:htpp.interface.v1.CronJobsReply)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cron_jobs_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CronJobsReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated .htpp.interface.v1.CronJob cron_jobs = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_cron_jobs(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CronJobsReply::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:htpp.interface.v1.CronJobsReply)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .htpp.interface.v1.CronJob cron_jobs = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_cron_jobs_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, this->_internal_cron_jobs(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:htpp.interface.v1.CronJobsReply)
+  return target;
+}
+
+size_t CronJobsReply::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:htpp.interface.v1.CronJobsReply)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .htpp.interface.v1.CronJob cron_jobs = 1;
+  total_size += 1UL * this->_internal_cron_jobs_size();
+  for (const auto& msg : this->cron_jobs_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CronJobsReply::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    CronJobsReply::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CronJobsReply::GetClassData() const { return &_class_data_; }
+
+void CronJobsReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<CronJobsReply *>(to)->MergeFrom(
+      static_cast<const CronJobsReply &>(from));
+}
+
+
+void CronJobsReply::MergeFrom(const CronJobsReply& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:htpp.interface.v1.CronJobsReply)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cron_jobs_.MergeFrom(from.cron_jobs_);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CronJobsReply::CopyFrom(const CronJobsReply& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:htpp.interface.v1.CronJobsReply)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CronJobsReply::IsInitialized() const {
+  return true;
+}
+
+void CronJobsReply::InternalSwap(CronJobsReply* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  cron_jobs_.InternalSwap(&other->cron_jobs_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CronJobsReply::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_interface_2eproto_getter, &descriptor_table_interface_2eproto_once,
+      file_level_metadata_interface_2eproto[41]);
+}
+
+// ===================================================================
+
+class CronJob::_Internal {
+ public:
+};
+
+CronJob::CronJob(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  check_coordinates_(arena) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:htpp.interface.v1.CronJob)
+}
+CronJob::CronJob(const CronJob& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      check_coordinates_(from.check_coordinates_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  check_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    check_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_check_name().empty()) {
+    check_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_check_name(), 
+      GetArenaForAllocation());
+  }
+  cron_string_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    cron_string_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_cron_string().empty()) {
+    cron_string_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_cron_string(), 
+      GetArenaForAllocation());
+  }
+  ::memcpy(&id_, &from.id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&machineid_) -
+    reinterpret_cast<char*>(&id_)) + sizeof(machineid_));
+  // @@protoc_insertion_point(copy_constructor:htpp.interface.v1.CronJob)
+}
+
+inline void CronJob::SharedCtor() {
+check_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  check_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+cron_string_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  cron_string_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&machineid_) -
+    reinterpret_cast<char*>(&id_)) + sizeof(machineid_));
+}
+
+CronJob::~CronJob() {
+  // @@protoc_insertion_point(destructor:htpp.interface.v1.CronJob)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void CronJob::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  check_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  cron_string_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void CronJob::ArenaDtor(void* object) {
+  CronJob* _this = reinterpret_cast< CronJob* >(object);
+  (void)_this;
+}
+void CronJob::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CronJob::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CronJob::Clear() {
+// @@protoc_insertion_point(message_clear_start:htpp.interface.v1.CronJob)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  check_coordinates_.Clear();
+  check_name_.ClearToEmpty();
+  cron_string_.ClearToEmpty();
+  ::memset(&id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&machineid_) -
+      reinterpret_cast<char*>(&id_)) + sizeof(machineid_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CronJob::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int64 id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int64 machineId = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          machineid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string check_name = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_check_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "htpp.interface.v1.CronJob.check_name"));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string cron_string = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          auto str = _internal_mutable_cron_string();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "htpp.interface.v1.CronJob.cron_string"));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .htpp.interface.v1.CheckCoordinate check_coordinates = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_check_coordinates(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CronJob::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:htpp.interface.v1.CronJob)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int64 id = 1;
+  if (this->_internal_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_id(), target);
+  }
+
+  // int64 machineId = 2;
+  if (this->_internal_machineid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_machineid(), target);
+  }
+
+  // string check_name = 3;
+  if (!this->_internal_check_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_check_name().data(), static_cast<int>(this->_internal_check_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "htpp.interface.v1.CronJob.check_name");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_check_name(), target);
+  }
+
+  // string cron_string = 4;
+  if (!this->_internal_cron_string().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_cron_string().data(), static_cast<int>(this->_internal_cron_string().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "htpp.interface.v1.CronJob.cron_string");
+    target = stream->WriteStringMaybeAliased(
+        4, this->_internal_cron_string(), target);
+  }
+
+  // repeated .htpp.interface.v1.CheckCoordinate check_coordinates = 5;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_check_coordinates_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(5, this->_internal_check_coordinates(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:htpp.interface.v1.CronJob)
+  return target;
+}
+
+size_t CronJob::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:htpp.interface.v1.CronJob)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .htpp.interface.v1.CheckCoordinate check_coordinates = 5;
+  total_size += 1UL * this->_internal_check_coordinates_size();
+  for (const auto& msg : this->check_coordinates_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // string check_name = 3;
+  if (!this->_internal_check_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_check_name());
+  }
+
+  // string cron_string = 4;
+  if (!this->_internal_cron_string().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_cron_string());
+  }
+
+  // int64 id = 1;
+  if (this->_internal_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_id());
+  }
+
+  // int64 machineId = 2;
+  if (this->_internal_machineid() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_machineid());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CronJob::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    CronJob::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CronJob::GetClassData() const { return &_class_data_; }
+
+void CronJob::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<CronJob *>(to)->MergeFrom(
+      static_cast<const CronJob &>(from));
+}
+
+
+void CronJob::MergeFrom(const CronJob& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:htpp.interface.v1.CronJob)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  check_coordinates_.MergeFrom(from.check_coordinates_);
+  if (!from._internal_check_name().empty()) {
+    _internal_set_check_name(from._internal_check_name());
+  }
+  if (!from._internal_cron_string().empty()) {
+    _internal_set_cron_string(from._internal_cron_string());
+  }
+  if (from._internal_id() != 0) {
+    _internal_set_id(from._internal_id());
+  }
+  if (from._internal_machineid() != 0) {
+    _internal_set_machineid(from._internal_machineid());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CronJob::CopyFrom(const CronJob& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:htpp.interface.v1.CronJob)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CronJob::IsInitialized() const {
+  return true;
+}
+
+void CronJob::InternalSwap(CronJob* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  check_coordinates_.InternalSwap(&other->check_coordinates_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &check_name_, lhs_arena,
+      &other->check_name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &cron_string_, lhs_arena,
+      &other->cron_string_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CronJob, machineid_)
+      + sizeof(CronJob::machineid_)
+      - PROTOBUF_FIELD_OFFSET(CronJob, id_)>(
+          reinterpret_cast<char*>(&id_),
+          reinterpret_cast<char*>(&other->id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CronJob::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_interface_2eproto_getter, &descriptor_table_interface_2eproto_once,
+      file_level_metadata_interface_2eproto[42]);
+}
+
+// ===================================================================
+
+class CheckCoordinate::_Internal {
+ public:
+  static const ::htpp::interface::v1::Coordinate& crd(const CheckCoordinate* msg);
+};
+
+const ::htpp::interface::v1::Coordinate&
+CheckCoordinate::_Internal::crd(const CheckCoordinate* msg) {
+  return *msg->crd_;
+}
+CheckCoordinate::CheckCoordinate(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:htpp.interface.v1.CheckCoordinate)
+}
+CheckCoordinate::CheckCoordinate(const CheckCoordinate& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_crd()) {
+    crd_ = new ::htpp::interface::v1::Coordinate(*from.crd_);
+  } else {
+    crd_ = nullptr;
+  }
+  seq_ = from.seq_;
+  // @@protoc_insertion_point(copy_constructor:htpp.interface.v1.CheckCoordinate)
+}
+
+inline void CheckCoordinate::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&crd_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&seq_) -
+    reinterpret_cast<char*>(&crd_)) + sizeof(seq_));
+}
+
+CheckCoordinate::~CheckCoordinate() {
+  // @@protoc_insertion_point(destructor:htpp.interface.v1.CheckCoordinate)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void CheckCoordinate::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete crd_;
+}
+
+void CheckCoordinate::ArenaDtor(void* object) {
+  CheckCoordinate* _this = reinterpret_cast< CheckCoordinate* >(object);
+  (void)_this;
+}
+void CheckCoordinate::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CheckCoordinate::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CheckCoordinate::Clear() {
+// @@protoc_insertion_point(message_clear_start:htpp.interface.v1.CheckCoordinate)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && crd_ != nullptr) {
+    delete crd_;
+  }
+  crd_ = nullptr;
+  seq_ = int64_t{0};
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CheckCoordinate::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int64 seq = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          seq_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .htpp.interface.v1.Coordinate crd = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_crd(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CheckCoordinate::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:htpp.interface.v1.CheckCoordinate)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int64 seq = 1;
+  if (this->_internal_seq() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_seq(), target);
+  }
+
+  // .htpp.interface.v1.Coordinate crd = 2;
+  if (this->_internal_has_crd()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::crd(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:htpp.interface.v1.CheckCoordinate)
+  return target;
+}
+
+size_t CheckCoordinate::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:htpp.interface.v1.CheckCoordinate)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .htpp.interface.v1.Coordinate crd = 2;
+  if (this->_internal_has_crd()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *crd_);
+  }
+
+  // int64 seq = 1;
+  if (this->_internal_seq() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_seq());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CheckCoordinate::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    CheckCoordinate::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CheckCoordinate::GetClassData() const { return &_class_data_; }
+
+void CheckCoordinate::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<CheckCoordinate *>(to)->MergeFrom(
+      static_cast<const CheckCoordinate &>(from));
+}
+
+
+void CheckCoordinate::MergeFrom(const CheckCoordinate& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:htpp.interface.v1.CheckCoordinate)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_crd()) {
+    _internal_mutable_crd()->::htpp::interface::v1::Coordinate::MergeFrom(from._internal_crd());
+  }
+  if (from._internal_seq() != 0) {
+    _internal_set_seq(from._internal_seq());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CheckCoordinate::CopyFrom(const CheckCoordinate& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:htpp.interface.v1.CheckCoordinate)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CheckCoordinate::IsInitialized() const {
+  return true;
+}
+
+void CheckCoordinate::InternalSwap(CheckCoordinate* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CheckCoordinate, seq_)
+      + sizeof(CheckCoordinate::seq_)
+      - PROTOBUF_FIELD_OFFSET(CheckCoordinate, crd_)>(
+          reinterpret_cast<char*>(&crd_),
+          reinterpret_cast<char*>(&other->crd_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CheckCoordinate::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_interface_2eproto_getter, &descriptor_table_interface_2eproto_once,
+      file_level_metadata_interface_2eproto[43]);
+}
+
+// ===================================================================
+
+class Coordinate::_Internal {
+ public:
+};
+
+Coordinate::Coordinate(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:htpp.interface.v1.Coordinate)
+}
+Coordinate::Coordinate(const Coordinate& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  check_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    check_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_check_name().empty()) {
+    check_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_check_name(), 
+      GetArenaForAllocation());
+  }
+  ::memcpy(&x_, &from.x_,
+    static_cast<size_t>(reinterpret_cast<char*>(&check_) -
+    reinterpret_cast<char*>(&x_)) + sizeof(check_));
+  // @@protoc_insertion_point(copy_constructor:htpp.interface.v1.Coordinate)
+}
+
+inline void Coordinate::SharedCtor() {
+check_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  check_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&x_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&check_) -
+    reinterpret_cast<char*>(&x_)) + sizeof(check_));
+}
+
+Coordinate::~Coordinate() {
+  // @@protoc_insertion_point(destructor:htpp.interface.v1.Coordinate)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void Coordinate::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  check_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void Coordinate::ArenaDtor(void* object) {
+  Coordinate* _this = reinterpret_cast< Coordinate* >(object);
+  (void)_this;
+}
+void Coordinate::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void Coordinate::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void Coordinate::Clear() {
+// @@protoc_insertion_point(message_clear_start:htpp.interface.v1.Coordinate)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  check_name_.ClearToEmpty();
+  ::memset(&x_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&check_) -
+      reinterpret_cast<char*>(&x_)) + sizeof(check_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Coordinate::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // double x = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 9)) {
+          x_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      // double y = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 17)) {
+          y_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      // double z = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 25)) {
+          z_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      // double rx = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 33)) {
+          rx_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      // double ry = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 41)) {
+          ry_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      // bool check = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+          check_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // double delay = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 57)) {
+          delay_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      // int64 machine_id = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
+          machine_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string check_name = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 74)) {
+          auto str = _internal_mutable_check_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "htpp.interface.v1.Coordinate.check_name"));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* Coordinate::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:htpp.interface.v1.Coordinate)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // double x = 1;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_x = this->_internal_x();
+  uint64_t raw_x;
+  memcpy(&raw_x, &tmp_x, sizeof(tmp_x));
+  if (raw_x != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(1, this->_internal_x(), target);
+  }
+
+  // double y = 2;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_y = this->_internal_y();
+  uint64_t raw_y;
+  memcpy(&raw_y, &tmp_y, sizeof(tmp_y));
+  if (raw_y != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(2, this->_internal_y(), target);
+  }
+
+  // double z = 3;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_z = this->_internal_z();
+  uint64_t raw_z;
+  memcpy(&raw_z, &tmp_z, sizeof(tmp_z));
+  if (raw_z != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(3, this->_internal_z(), target);
+  }
+
+  // double rx = 4;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_rx = this->_internal_rx();
+  uint64_t raw_rx;
+  memcpy(&raw_rx, &tmp_rx, sizeof(tmp_rx));
+  if (raw_rx != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(4, this->_internal_rx(), target);
+  }
+
+  // double ry = 5;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_ry = this->_internal_ry();
+  uint64_t raw_ry;
+  memcpy(&raw_ry, &tmp_ry, sizeof(tmp_ry));
+  if (raw_ry != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(5, this->_internal_ry(), target);
+  }
+
+  // bool check = 6;
+  if (this->_internal_check() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_check(), target);
+  }
+
+  // double delay = 7;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_delay = this->_internal_delay();
+  uint64_t raw_delay;
+  memcpy(&raw_delay, &tmp_delay, sizeof(tmp_delay));
+  if (raw_delay != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(7, this->_internal_delay(), target);
+  }
+
+  // int64 machine_id = 8;
+  if (this->_internal_machine_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(8, this->_internal_machine_id(), target);
+  }
+
+  // string check_name = 9;
+  if (!this->_internal_check_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_check_name().data(), static_cast<int>(this->_internal_check_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "htpp.interface.v1.Coordinate.check_name");
+    target = stream->WriteStringMaybeAliased(
+        9, this->_internal_check_name(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:htpp.interface.v1.Coordinate)
+  return target;
+}
+
+size_t Coordinate::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:htpp.interface.v1.Coordinate)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string check_name = 9;
+  if (!this->_internal_check_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_check_name());
+  }
+
+  // double x = 1;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_x = this->_internal_x();
+  uint64_t raw_x;
+  memcpy(&raw_x, &tmp_x, sizeof(tmp_x));
+  if (raw_x != 0) {
+    total_size += 1 + 8;
+  }
+
+  // double y = 2;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_y = this->_internal_y();
+  uint64_t raw_y;
+  memcpy(&raw_y, &tmp_y, sizeof(tmp_y));
+  if (raw_y != 0) {
+    total_size += 1 + 8;
+  }
+
+  // double z = 3;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_z = this->_internal_z();
+  uint64_t raw_z;
+  memcpy(&raw_z, &tmp_z, sizeof(tmp_z));
+  if (raw_z != 0) {
+    total_size += 1 + 8;
+  }
+
+  // double rx = 4;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_rx = this->_internal_rx();
+  uint64_t raw_rx;
+  memcpy(&raw_rx, &tmp_rx, sizeof(tmp_rx));
+  if (raw_rx != 0) {
+    total_size += 1 + 8;
+  }
+
+  // double ry = 5;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_ry = this->_internal_ry();
+  uint64_t raw_ry;
+  memcpy(&raw_ry, &tmp_ry, sizeof(tmp_ry));
+  if (raw_ry != 0) {
+    total_size += 1 + 8;
+  }
+
+  // double delay = 7;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_delay = this->_internal_delay();
+  uint64_t raw_delay;
+  memcpy(&raw_delay, &tmp_delay, sizeof(tmp_delay));
+  if (raw_delay != 0) {
+    total_size += 1 + 8;
+  }
+
+  // int64 machine_id = 8;
+  if (this->_internal_machine_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_machine_id());
+  }
+
+  // bool check = 6;
+  if (this->_internal_check() != 0) {
+    total_size += 1 + 1;
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Coordinate::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    Coordinate::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Coordinate::GetClassData() const { return &_class_data_; }
+
+void Coordinate::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<Coordinate *>(to)->MergeFrom(
+      static_cast<const Coordinate &>(from));
+}
+
+
+void Coordinate::MergeFrom(const Coordinate& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:htpp.interface.v1.Coordinate)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_check_name().empty()) {
+    _internal_set_check_name(from._internal_check_name());
+  }
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_x = from._internal_x();
+  uint64_t raw_x;
+  memcpy(&raw_x, &tmp_x, sizeof(tmp_x));
+  if (raw_x != 0) {
+    _internal_set_x(from._internal_x());
+  }
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_y = from._internal_y();
+  uint64_t raw_y;
+  memcpy(&raw_y, &tmp_y, sizeof(tmp_y));
+  if (raw_y != 0) {
+    _internal_set_y(from._internal_y());
+  }
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_z = from._internal_z();
+  uint64_t raw_z;
+  memcpy(&raw_z, &tmp_z, sizeof(tmp_z));
+  if (raw_z != 0) {
+    _internal_set_z(from._internal_z());
+  }
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_rx = from._internal_rx();
+  uint64_t raw_rx;
+  memcpy(&raw_rx, &tmp_rx, sizeof(tmp_rx));
+  if (raw_rx != 0) {
+    _internal_set_rx(from._internal_rx());
+  }
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_ry = from._internal_ry();
+  uint64_t raw_ry;
+  memcpy(&raw_ry, &tmp_ry, sizeof(tmp_ry));
+  if (raw_ry != 0) {
+    _internal_set_ry(from._internal_ry());
+  }
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_delay = from._internal_delay();
+  uint64_t raw_delay;
+  memcpy(&raw_delay, &tmp_delay, sizeof(tmp_delay));
+  if (raw_delay != 0) {
+    _internal_set_delay(from._internal_delay());
+  }
+  if (from._internal_machine_id() != 0) {
+    _internal_set_machine_id(from._internal_machine_id());
+  }
+  if (from._internal_check() != 0) {
+    _internal_set_check(from._internal_check());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void Coordinate::CopyFrom(const Coordinate& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:htpp.interface.v1.Coordinate)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Coordinate::IsInitialized() const {
+  return true;
+}
+
+void Coordinate::InternalSwap(Coordinate* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &check_name_, lhs_arena,
+      &other->check_name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Coordinate, check_)
+      + sizeof(Coordinate::check_)
+      - PROTOBUF_FIELD_OFFSET(Coordinate, x_)>(
+          reinterpret_cast<char*>(&x_),
+          reinterpret_cast<char*>(&other->x_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Coordinate::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_interface_2eproto_getter, &descriptor_table_interface_2eproto_once,
+      file_level_metadata_interface_2eproto[44]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace v1
 }  // namespace interface
@@ -8510,6 +10898,33 @@ template<> PROTOBUF_NOINLINE ::htpp::interface::v1::MotorInfo* Arena::CreateMayb
 }
 template<> PROTOBUF_NOINLINE ::htpp::interface::v1::MotorStatus* Arena::CreateMaybeMessage< ::htpp::interface::v1::MotorStatus >(Arena* arena) {
   return Arena::CreateMessageInternal< ::htpp::interface::v1::MotorStatus >(arena);
+}
+template<> PROTOBUF_NOINLINE ::htpp::interface::v1::CreateCronJobRequest* Arena::CreateMaybeMessage< ::htpp::interface::v1::CreateCronJobRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::htpp::interface::v1::CreateCronJobRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::htpp::interface::v1::DeleteCronJobRequest* Arena::CreateMaybeMessage< ::htpp::interface::v1::DeleteCronJobRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::htpp::interface::v1::DeleteCronJobRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::htpp::interface::v1::DeleteCronJobReply* Arena::CreateMaybeMessage< ::htpp::interface::v1::DeleteCronJobReply >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::htpp::interface::v1::DeleteCronJobReply >(arena);
+}
+template<> PROTOBUF_NOINLINE ::htpp::interface::v1::ListCronJobRequest* Arena::CreateMaybeMessage< ::htpp::interface::v1::ListCronJobRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::htpp::interface::v1::ListCronJobRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::htpp::interface::v1::CronJobReply* Arena::CreateMaybeMessage< ::htpp::interface::v1::CronJobReply >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::htpp::interface::v1::CronJobReply >(arena);
+}
+template<> PROTOBUF_NOINLINE ::htpp::interface::v1::CronJobsReply* Arena::CreateMaybeMessage< ::htpp::interface::v1::CronJobsReply >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::htpp::interface::v1::CronJobsReply >(arena);
+}
+template<> PROTOBUF_NOINLINE ::htpp::interface::v1::CronJob* Arena::CreateMaybeMessage< ::htpp::interface::v1::CronJob >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::htpp::interface::v1::CronJob >(arena);
+}
+template<> PROTOBUF_NOINLINE ::htpp::interface::v1::CheckCoordinate* Arena::CreateMaybeMessage< ::htpp::interface::v1::CheckCoordinate >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::htpp::interface::v1::CheckCoordinate >(arena);
+}
+template<> PROTOBUF_NOINLINE ::htpp::interface::v1::Coordinate* Arena::CreateMaybeMessage< ::htpp::interface::v1::Coordinate >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::htpp::interface::v1::Coordinate >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

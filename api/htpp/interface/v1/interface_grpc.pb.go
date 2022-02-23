@@ -39,6 +39,9 @@ type InterfaceClient interface {
 	Move(ctx context.Context, in *MoveRequest, opts ...grpc.CallOption) (*MoveReply, error)
 	Zero(ctx context.Context, in *ZeroRequest, opts ...grpc.CallOption) (*ZeroReply, error)
 	GetMotorStatus(ctx context.Context, in *GetMotorStatusRequest, opts ...grpc.CallOption) (*GetMotorStatusReply, error)
+	CreateCronJob(ctx context.Context, in *CreateCronJobRequest, opts ...grpc.CallOption) (*CronJobReply, error)
+	DeleteCronJob(ctx context.Context, in *DeleteCronJobRequest, opts ...grpc.CallOption) (*DeleteCronJobReply, error)
+	ListCronJob(ctx context.Context, in *ListCronJobRequest, opts ...grpc.CallOption) (*CronJobsReply, error)
 }
 
 type interfaceClient struct {
@@ -202,6 +205,33 @@ func (c *interfaceClient) GetMotorStatus(ctx context.Context, in *GetMotorStatus
 	return out, nil
 }
 
+func (c *interfaceClient) CreateCronJob(ctx context.Context, in *CreateCronJobRequest, opts ...grpc.CallOption) (*CronJobReply, error) {
+	out := new(CronJobReply)
+	err := c.cc.Invoke(ctx, "/htpp.interface.v1.Interface/CreateCronJob", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interfaceClient) DeleteCronJob(ctx context.Context, in *DeleteCronJobRequest, opts ...grpc.CallOption) (*DeleteCronJobReply, error) {
+	out := new(DeleteCronJobReply)
+	err := c.cc.Invoke(ctx, "/htpp.interface.v1.Interface/DeleteCronJob", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interfaceClient) ListCronJob(ctx context.Context, in *ListCronJobRequest, opts ...grpc.CallOption) (*CronJobsReply, error) {
+	out := new(CronJobsReply)
+	err := c.cc.Invoke(ctx, "/htpp.interface.v1.Interface/ListCronJob", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // InterfaceServer is the server API for Interface service.
 // All implementations must embed UnimplementedInterfaceServer
 // for forward compatibility
@@ -223,6 +253,9 @@ type InterfaceServer interface {
 	Move(context.Context, *MoveRequest) (*MoveReply, error)
 	Zero(context.Context, *ZeroRequest) (*ZeroReply, error)
 	GetMotorStatus(context.Context, *GetMotorStatusRequest) (*GetMotorStatusReply, error)
+	CreateCronJob(context.Context, *CreateCronJobRequest) (*CronJobReply, error)
+	DeleteCronJob(context.Context, *DeleteCronJobRequest) (*DeleteCronJobReply, error)
+	ListCronJob(context.Context, *ListCronJobRequest) (*CronJobsReply, error)
 	mustEmbedUnimplementedInterfaceServer()
 }
 
@@ -280,6 +313,15 @@ func (UnimplementedInterfaceServer) Zero(context.Context, *ZeroRequest) (*ZeroRe
 }
 func (UnimplementedInterfaceServer) GetMotorStatus(context.Context, *GetMotorStatusRequest) (*GetMotorStatusReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetMotorStatus not implemented")
+}
+func (UnimplementedInterfaceServer) CreateCronJob(context.Context, *CreateCronJobRequest) (*CronJobReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateCronJob not implemented")
+}
+func (UnimplementedInterfaceServer) DeleteCronJob(context.Context, *DeleteCronJobRequest) (*DeleteCronJobReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteCronJob not implemented")
+}
+func (UnimplementedInterfaceServer) ListCronJob(context.Context, *ListCronJobRequest) (*CronJobsReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListCronJob not implemented")
 }
 func (UnimplementedInterfaceServer) mustEmbedUnimplementedInterfaceServer() {}
 
@@ -600,6 +642,60 @@ func _Interface_GetMotorStatus_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Interface_CreateCronJob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateCronJobRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServer).CreateCronJob(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/htpp.interface.v1.Interface/CreateCronJob",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServer).CreateCronJob(ctx, req.(*CreateCronJobRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Interface_DeleteCronJob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteCronJobRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServer).DeleteCronJob(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/htpp.interface.v1.Interface/DeleteCronJob",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServer).DeleteCronJob(ctx, req.(*DeleteCronJobRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Interface_ListCronJob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListCronJobRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServer).ListCronJob(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/htpp.interface.v1.Interface/ListCronJob",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServer).ListCronJob(ctx, req.(*ListCronJobRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Interface_ServiceDesc is the grpc.ServiceDesc for Interface service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -674,6 +770,18 @@ var Interface_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetMotorStatus",
 			Handler:    _Interface_GetMotorStatus_Handler,
+		},
+		{
+			MethodName: "CreateCronJob",
+			Handler:    _Interface_CreateCronJob_Handler,
+		},
+		{
+			MethodName: "DeleteCronJob",
+			Handler:    _Interface_DeleteCronJob_Handler,
+		},
+		{
+			MethodName: "ListCronJob",
+			Handler:    _Interface_ListCronJob_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
