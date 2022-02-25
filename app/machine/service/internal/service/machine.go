@@ -100,41 +100,45 @@ func (s *MachineService) ReadAllWithBinaryAndCalAreaAndSrc(ctx context.Context, 
 			s.log.Error(err)
 		}
 
-		path := filepath.Join(s.dcf.Images.Dir, time.Now().String())
-		if _, err := os.Stat(path); os.IsNotExist(err) {
-			if err := os.Mkdir(path, 0777); err != nil {
+		timeStr := time.Now().String()
+		localPath := filepath.Join(s.dcf.Images.Dir, timeStr)
+		if _, err := os.Stat(localPath); os.IsNotExist(err) {
+			if err := os.Mkdir(localPath, 0777); err != nil {
 				s.log.Error(err)
 				return
 			}
-			if err := os.Chmod(path, 0777); err != nil {
+			if err := os.Chmod(localPath, 0777); err != nil {
 				s.log.Error(err)
 				return
 			}
 		}
 
-		srcPath := filepath.Join(path, "src.jpg")
-		procPath := filepath.Join(path, "proc.jpg")
-
-		if err = s.saveImage(srcPath, capture.Src); err != nil {
+		localSrcPath := filepath.Join(localPath, "src.jpg")
+		localProcPath := filepath.Join(localPath, "proc.jpg")
+		if err = s.saveImage(localSrcPath, capture.Src); err != nil {
+			s.log.Error(err)
+			return
+		}
+		if err = s.saveImage(localProcPath, capture.Proc); err != nil {
 			s.log.Error(err)
 			return
 		}
 
-		if err = s.saveImage(procPath, capture.Proc); err != nil {
-			s.log.Error(err)
-			return
-		}
+		cloudSrcRelativePath := filepath.Join(timeStr, "src.jpg")
+		cloudProcRelativePath := filepath.Join(timeStr, "proc.jpg")
+		go s.OssUpload(cloudSrcRelativePath, capture.Src)
+		go s.OssUpload(cloudProcRelativePath, capture.Proc)
 
-		//go s.OssUpload(fileName, capture.Data)
+		ossBasePath := "https://" + s.dcf.Oss.Bucket + "." + s.dcf.Oss.Endpoint
 
 		if _, err := s.cu.CreateLog(ctx, &biz.CaptureLog{
 			MachineId:  machineId,
 			Pixels:     capture.Pixels,
 			Area:       capture.Area,
-			SrcName:    srcPath,
-			ProcName:   procPath,
-			SrcOssUrl:  "",
-			ProcOssUrl: "",
+			SrcName:    localSrcPath,
+			ProcName:   localProcPath,
+			SrcOssUrl:  ossBasePath + "/" + cloudSrcRelativePath,
+			ProcOssUrl: ossBasePath + "/" + cloudSrcRelativePath,
 		}); err != nil {
 			s.log.Error(err)
 			return
