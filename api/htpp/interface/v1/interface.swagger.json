@@ -535,7 +535,8 @@
             "in": "body",
             "required": true,
             "schema": {
-              "type": "object"
+              "type": "string",
+              "format": "int64"
             }
           }
         ],
@@ -773,8 +774,7 @@
         "cronJob": {
           "$ref": "#/definitions/v1CronJob"
         }
-      },
-      "title": "Cron Job"
+      }
     },
     "v1CronJob": {
       "type": "object",

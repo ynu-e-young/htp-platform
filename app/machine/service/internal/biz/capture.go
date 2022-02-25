@@ -11,22 +11,39 @@ type Capture struct {
 	Area   float64
 }
 
+type CaptureSrc struct {
+	Proc   []byte
+	Src    []byte
+	Pixels int64
+	Area   float64
+}
+
 type CaptureLog struct {
-	Id        int64
-	MachineId int64
-	Pixels    int64
-	Area      float64
-	ImageName string
-	OssUrl    string
+	Id         int64
+	MachineId  int64
+	Pixels     int64
+	Area       float64
+	SrcName    string
+	ProcName   string
+	SrcOssUrl  string
+	ProcOssUrl string
 }
 
 type CaptureRepo interface {
 	ReadOne(ctx context.Context, device int64) (*Capture, error)
 	ReadAll(ctx context.Context) ([]*Capture, error)
+
 	ReadOneWithBinary(ctx context.Context, device int64) (*Capture, error)
+	ReadOneWithBinaryAndSrc(ctx context.Context, device int64) (*CaptureSrc, error)
+
 	ReadAllWithBinary(ctx context.Context) ([]*Capture, error)
+	ReadAllWithBinaryAndSrc(ctx context.Context) ([]*CaptureSrc, error)
+
 	ReadOneWithBinaryAndCalArea(ctx context.Context, device int64) (*Capture, error)
+	ReadOneWithBinaryAndCalAreaAndSrc(ctx context.Context, device int64) (*CaptureSrc, error)
+
 	ReadAllWithBinaryAndCalArea(ctx context.Context) ([]*Capture, error)
+	ReadAllWithBinaryAndCalAreaAndSrc(ctx context.Context) ([]*CaptureSrc, error)
 
 	FindLogsByMachineId(ctx context.Context, machineId int64) ([]*CaptureLog, error)
 	CreateLog(ctx context.Context, captureLog *CaptureLog) (*CaptureLog, error)
@@ -47,57 +64,43 @@ func NewCaptureUsecase(repo CaptureRepo, logger log.Logger) *CaptureUsecase {
 }
 
 func (uc *CaptureUsecase) ReadOne(ctx context.Context, device int64) (*Capture, error) {
-	capture, err := uc.repo.ReadOne(ctx, device)
-	if err != nil {
-		return nil, err
-	}
-
-	return capture, nil
+	return uc.repo.ReadOne(ctx, device)
 }
 
 func (uc *CaptureUsecase) ReadAll(ctx context.Context) ([]*Capture, error) {
-	captures, err := uc.repo.ReadAll(ctx)
-	if err != nil {
-		return nil, err
-	}
-
-	return captures, nil
+	return uc.repo.ReadAll(ctx)
 }
 
 func (uc *CaptureUsecase) ReadOneWithBinary(ctx context.Context, device int64) (*Capture, error) {
-	capture, err := uc.repo.ReadOneWithBinary(ctx, device)
-	if err != nil {
-		return nil, err
-	}
+	return uc.repo.ReadOneWithBinary(ctx, device)
+}
 
-	return capture, nil
+func (uc *CaptureUsecase) ReadOneWithBinaryAndSrc(ctx context.Context, device int64) (*CaptureSrc, error) {
+	return uc.repo.ReadOneWithBinaryAndSrc(ctx, device)
 }
 
 func (uc *CaptureUsecase) ReadAllWithBinary(ctx context.Context) ([]*Capture, error) {
-	captures, err := uc.repo.ReadAllWithBinary(ctx)
-	if err != nil {
-		return nil, err
-	}
+	return uc.repo.ReadAllWithBinary(ctx)
+}
 
-	return captures, nil
+func (uc *CaptureUsecase) ReadAllWithBinaryAndSrc(ctx context.Context) ([]*CaptureSrc, error) {
+	return uc.repo.ReadAllWithBinaryAndSrc(ctx)
 }
 
 func (uc *CaptureUsecase) ReadOneWithBinaryAndCalArea(ctx context.Context, device int64) (*Capture, error) {
-	capture, err := uc.repo.ReadOneWithBinaryAndCalArea(ctx, device)
-	if err != nil {
-		return nil, err
-	}
+	return uc.repo.ReadOneWithBinaryAndCalArea(ctx, device)
+}
 
-	return capture, nil
+func (uc *CaptureUsecase) ReadOneWithBinaryAndCalAreaAndSrc(ctx context.Context, device int64) (*CaptureSrc, error) {
+	return uc.repo.ReadOneWithBinaryAndCalAreaAndSrc(ctx, device)
 }
 
 func (uc *CaptureUsecase) ReadAllWithBinaryAndCalArea(ctx context.Context) ([]*Capture, error) {
-	captures, err := uc.repo.ReadAllWithBinaryAndCalArea(ctx)
-	if err != nil {
-		return nil, err
-	}
+	return uc.repo.ReadAllWithBinaryAndCalArea(ctx)
+}
 
-	return captures, nil
+func (uc *CaptureUsecase) ReadAllWithBinaryAndCalAreaAndSrc(ctx context.Context) ([]*CaptureSrc, error) {
+	return uc.repo.ReadAllWithBinaryAndCalAreaAndSrc(ctx)
 }
 
 func (uc *CaptureUsecase) FindLogsByMachineId(ctx context.Context, machineId int64) ([]*CaptureLog, error) {

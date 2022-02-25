@@ -19,8 +19,10 @@ func (CaptureLog) Fields() []ent.Field {
 		field.Int64("machine_id"),
 		field.Int64("pixels"),
 		field.Float("area"),
-		field.String("image_name"),
-		field.String("oss_url"),
+		field.String("src_name"),
+		field.String("proc_name"),
+		field.String("src_oss_url"),
+		field.String("proc_oss_url"),
 		field.Time("created_at").
 			Default(time.Now).SchemaType(map[string]string{
 			dialect.MySQL: "datetime",

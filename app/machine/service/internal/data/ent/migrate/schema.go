@@ -14,8 +14,10 @@ var (
 		{Name: "machine_id", Type: field.TypeInt64},
 		{Name: "pixels", Type: field.TypeInt64},
 		{Name: "area", Type: field.TypeFloat64},
-		{Name: "image_name", Type: field.TypeString},
-		{Name: "oss_url", Type: field.TypeString},
+		{Name: "src_name", Type: field.TypeString},
+		{Name: "proc_name", Type: field.TypeString},
+		{Name: "src_oss_url", Type: field.TypeString},
+		{Name: "proc_oss_url", Type: field.TypeString},
 		{Name: "created_at", Type: field.TypeTime, SchemaType: map[string]string{"mysql": "datetime"}},
 		{Name: "updated_at", Type: field.TypeTime, SchemaType: map[string]string{"mysql": "datetime"}},
 	}

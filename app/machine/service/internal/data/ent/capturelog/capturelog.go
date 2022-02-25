@@ -17,10 +17,14 @@ const (
 	FieldPixels = "pixels"
 	// FieldArea holds the string denoting the area field in the database.
 	FieldArea = "area"
-	// FieldImageName holds the string denoting the image_name field in the database.
-	FieldImageName = "image_name"
-	// FieldOssURL holds the string denoting the oss_url field in the database.
-	FieldOssURL = "oss_url"
+	// FieldSrcName holds the string denoting the src_name field in the database.
+	FieldSrcName = "src_name"
+	// FieldProcName holds the string denoting the proc_name field in the database.
+	FieldProcName = "proc_name"
+	// FieldSrcOssURL holds the string denoting the src_oss_url field in the database.
+	FieldSrcOssURL = "src_oss_url"
+	// FieldProcOssURL holds the string denoting the proc_oss_url field in the database.
+	FieldProcOssURL = "proc_oss_url"
 	// FieldCreatedAt holds the string denoting the created_at field in the database.
 	FieldCreatedAt = "created_at"
 	// FieldUpdatedAt holds the string denoting the updated_at field in the database.
@@ -35,8 +39,10 @@ var Columns = []string{
 	FieldMachineID,
 	FieldPixels,
 	FieldArea,
-	FieldImageName,
-	FieldOssURL,
+	FieldSrcName,
+	FieldProcName,
+	FieldSrcOssURL,
+	FieldProcOssURL,
 	FieldCreatedAt,
 	FieldUpdatedAt,
 }

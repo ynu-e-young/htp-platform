@@ -1135,7 +1135,7 @@ const char descriptor_table_protodef_interface_2eproto[] PROTOBUF_SECTION_VARIAB
   "\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\022\n\n\002rx\030\004 \001(\001\022"
   "\n\n\002ry\030\005 \001(\001\022\r\n\005check\030\006 \001(\010\022\r\n\005delay\030\007 \001("
   "\001\022\022\n\nmachine_id\030\010 \001(\003\022\022\n\ncheck_name\030\t \001("
-  "\t2\206\023\n\tInterface\022b\n\005Login\022\037.htpp.interfac"
+  "\t2\217\023\n\tInterface\022b\n\005Login\022\037.htpp.interfac"
   "e.v1.LoginRequest\032\034.htpp.interface.v1.Us"
   "erReply\"\032\202\323\344\223\002\024\"\017/v1/users/login:\001*\022b\n\010R"
   "egister\022\".htpp.interface.v1.RegisterRequ"
@@ -1180,27 +1180,28 @@ const char descriptor_table_protodef_interface_2eproto[] PROTOBUF_SECTION_VARIAB
   "\"\035\202\323\344\223\002\027\022\025/v1/machine/{user_id}\022o\n\004Move\022"
   "\036.htpp.interface.v1.MoveRequest\032\034.htpp.i"
   "nterface.v1.MoveReply\")\202\323\344\223\002#\"\036/v1/machi"
-  "nes/{machine_id}/move:\001*\022o\n\004Zero\022\036.htpp."
+  "nes/{machine_id}/move:\001*\022x\n\004Zero\022\036.htpp."
   "interface.v1.ZeroRequest\032\034.htpp.interfac"
-  "e.v1.ZeroReply\")\202\323\344\223\002#\"\036/v1/machines/{ma"
-  "chine_id}/zero:\001*\022\214\001\n\016GetMotorStatus\022(.h"
-  "tpp.interface.v1.GetMotorStatusRequest\032&"
-  ".htpp.interface.v1.GetMotorStatusReply\"("
-  "\202\323\344\223\002\"\022 /v1/machines/{machine_id}/status"
-  "\022r\n\rCreateCronJob\022\'.htpp.interface.v1.Cr"
-  "eateCronJobRequest\032\037.htpp.interface.v1.C"
-  "ronJobReply\"\027\202\323\344\223\002\021\"\014/v1/cronJobs:\001*\022z\n\r"
-  "DeleteCronJob\022\'.htpp.interface.v1.Delete"
-  "CronJobRequest\032%.htpp.interface.v1.Delet"
-  "eCronJobReply\"\031\202\323\344\223\002\023*\021/v1/cronJobs/{id}"
-  "\022x\n\013ListCronJob\022%.htpp.interface.v1.List"
-  "CronJobRequest\032 .htpp.interface.v1.CronJ"
-  "obsReply\" \202\323\344\223\002\032\022\030/v1/cronJobs/{machineI"
-  "d}B\264\001Z\030api/htpp/interface/v1;v1\222A\226\001\022m\n\032h"
-  "tp-platform Interface API\"J\n\014htp-platfor"
-  "m\022\'https://github.com/hominsu/htp-platfo"
-  "rm\032\0211774069959@qq.com2\0031.0*\001\0022\020applicati"
-  "on/json:\020application/jsonb\006proto3"
+  "e.v1.ZeroReply\"2\202\323\344\223\002,\"\036/v1/machines/{ma"
+  "chine_id}/zero:\nmachine_id\022\214\001\n\016GetMotorS"
+  "tatus\022(.htpp.interface.v1.GetMotorStatus"
+  "Request\032&.htpp.interface.v1.GetMotorStat"
+  "usReply\"(\202\323\344\223\002\"\022 /v1/machines/{machine_i"
+  "d}/status\022r\n\rCreateCronJob\022\'.htpp.interf"
+  "ace.v1.CreateCronJobRequest\032\037.htpp.inter"
+  "face.v1.CronJobReply\"\027\202\323\344\223\002\021\"\014/v1/cronJo"
+  "bs:\001*\022z\n\rDeleteCronJob\022\'.htpp.interface."
+  "v1.DeleteCronJobRequest\032%.htpp.interface"
+  ".v1.DeleteCronJobReply\"\031\202\323\344\223\002\023*\021/v1/cron"
+  "Jobs/{id}\022x\n\013ListCronJob\022%.htpp.interfac"
+  "e.v1.ListCronJobRequest\032 .htpp.interface"
+  ".v1.CronJobsReply\" \202\323\344\223\002\032\022\030/v1/cronJobs/"
+  "{machineId}B\264\001Z\030api/htpp/interface/v1;v1"
+  "\222A\226\001\022m\n\032htp-platform Interface API\"J\n\014ht"
+  "p-platform\022\'https://github.com/hominsu/h"
+  "tp-platform\032\0211774069959@qq.com2\0031.0*\001\0022\020"
+  "application/json:\020application/jsonb\006prot"
+  "o3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_interface_2eproto_deps[2] = {
   &::descriptor_table_google_2fapi_2fannotations_2eproto,
@@ -1208,7 +1209,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_interface_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_interface_2eproto = {
-  false, false, 5633, descriptor_table_protodef_interface_2eproto, "interface.proto", 
+  false, false, 5642, descriptor_table_protodef_interface_2eproto, "interface.proto", 
   &descriptor_table_interface_2eproto_once, descriptor_table_interface_2eproto_deps, 2, 45,
   schemas, file_default_instances, TableStruct_interface_2eproto::offsets,
   file_level_metadata_interface_2eproto, file_level_enum_descriptors_interface_2eproto, file_level_service_descriptors_interface_2eproto,

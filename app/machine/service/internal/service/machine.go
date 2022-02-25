@@ -6,6 +6,7 @@ import (
 	machineV1 "htp-platform/api/machine/service/v1"
 	"htp-platform/app/machine/service/internal/biz"
 	"os"
+	"path/filepath"
 	"sort"
 	"strconv"
 	"time"
@@ -80,41 +81,64 @@ func (s *MachineService) Get(ctx context.Context, in *machineV1.GetRequest) (*ma
 }
 
 func (s *MachineService) saveImage(fileName string, data []byte) error {
-	if err := os.WriteFile(fileName, data, 0644); err != nil {
+	if err := os.WriteFile(fileName, data, 0777); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (s *MachineService) ReadAllWithBinaryAndCalArea(ctx context.Context, machineIdStr string) {
-	captures, err := s.cu.ReadAllWithBinaryAndCalArea(ctx)
+func (s *MachineService) ReadAllWithBinaryAndCalAreaAndSrc(ctx context.Context, machineIdStr string) {
+	captures, err := s.cu.ReadAllWithBinaryAndCalAreaAndSrc(ctx)
 	if err != nil {
 		s.log.Error(err)
 		return
 	}
 
 	for _, capture := range captures {
-		fileName := s.dcf.Images.Dir + "/" + time.Now().String() + ".jpg"
 		machineId, err := strconv.ParseInt(machineIdStr, 10, 64)
 		if err != nil {
 			s.log.Error(err)
 		}
 
-		if _, err := s.cu.CreateLog(ctx, &biz.CaptureLog{
-			MachineId: machineId,
-			Pixels:    capture.Pixels,
-			Area:      capture.Area,
-			ImageName: fileName,
-			OssUrl:    "",
-		}); err != nil {
-			s.log.Error(err)
+		path := filepath.Join(s.dcf.Images.Dir, time.Now().String())
+		if _, err := os.Stat(path); os.IsNotExist(err) {
+			if err := os.Mkdir(path, 0777); err != nil {
+				s.log.Error(err)
+				return
+			}
+			if err := os.Chmod(path, 0777); err != nil {
+				s.log.Error(err)
+				return
+			}
 		}
 
-		if err = s.saveImage(fileName, capture.Data); err != nil {
+		srcPath := filepath.Join(path, "src.jpg")
+		procPath := filepath.Join(path, "proc.jpg")
+
+		if err = s.saveImage(srcPath, capture.Src); err != nil {
 			s.log.Error(err)
+			return
+		}
+
+		if err = s.saveImage(procPath, capture.Proc); err != nil {
+			s.log.Error(err)
+			return
 		}
 
 		//go s.OssUpload(fileName, capture.Data)
+
+		if _, err := s.cu.CreateLog(ctx, &biz.CaptureLog{
+			MachineId:  machineId,
+			Pixels:     capture.Pixels,
+			Area:       capture.Area,
+			SrcName:    srcPath,
+			ProcName:   procPath,
+			SrcOssUrl:  "",
+			ProcOssUrl: "",
+		}); err != nil {
+			s.log.Error(err)
+			return
+		}
 	}
 }
 
@@ -233,7 +257,7 @@ func (s *MachineService) MoveDone(ctx context.Context, in *machineV1.MoveDoneReq
 	//}
 
 	if in.GetCheck() {
-		s.ReadAllWithBinaryAndCalArea(ctx, in.GetUuid())
+		s.ReadAllWithBinaryAndCalAreaAndSrc(ctx, in.GetUuid())
 	}
 
 	ret.Status = true

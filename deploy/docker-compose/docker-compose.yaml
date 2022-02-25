@@ -50,8 +50,8 @@ services:
     volumes:
       - "../../app/machine/service/configs:/data/conf"
       - "./images:/data/images"
-#    ports:
-#      - "9000:9000"
+    ports:
+      - "9000:9000"
     networks:
       net:
         aliases:

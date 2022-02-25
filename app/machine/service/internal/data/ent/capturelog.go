@@ -22,10 +22,14 @@ type CaptureLog struct {
 	Pixels int64 `json:"pixels,omitempty"`
 	// Area holds the value of the "area" field.
 	Area float64 `json:"area,omitempty"`
-	// ImageName holds the value of the "image_name" field.
-	ImageName string `json:"image_name,omitempty"`
-	// OssURL holds the value of the "oss_url" field.
-	OssURL string `json:"oss_url,omitempty"`
+	// SrcName holds the value of the "src_name" field.
+	SrcName string `json:"src_name,omitempty"`
+	// ProcName holds the value of the "proc_name" field.
+	ProcName string `json:"proc_name,omitempty"`
+	// SrcOssURL holds the value of the "src_oss_url" field.
+	SrcOssURL string `json:"src_oss_url,omitempty"`
+	// ProcOssURL holds the value of the "proc_oss_url" field.
+	ProcOssURL string `json:"proc_oss_url,omitempty"`
 	// CreatedAt holds the value of the "created_at" field.
 	CreatedAt time.Time `json:"created_at,omitempty"`
 	// UpdatedAt holds the value of the "updated_at" field.
@@ -41,7 +45,7 @@ func (*CaptureLog) scanValues(columns []string) ([]interface{}, error) {
 			values[i] = new(sql.NullFloat64)
 		case capturelog.FieldID, capturelog.FieldMachineID, capturelog.FieldPixels:
 			values[i] = new(sql.NullInt64)
-		case capturelog.FieldImageName, capturelog.FieldOssURL:
+		case capturelog.FieldSrcName, capturelog.FieldProcName, capturelog.FieldSrcOssURL, capturelog.FieldProcOssURL:
 			values[i] = new(sql.NullString)
 		case capturelog.FieldCreatedAt, capturelog.FieldUpdatedAt:
 			values[i] = new(sql.NullTime)
@@ -84,17 +88,29 @@ func (cl *CaptureLog) assignValues(columns []string, values []interface{}) error
 			} else if value.Valid {
 				cl.Area = value.Float64
 			}
-		case capturelog.FieldImageName:
+		case capturelog.FieldSrcName:
 			if value, ok := values[i].(*sql.NullString); !ok {
-				return fmt.Errorf("unexpected type %T for field image_name", values[i])
+				return fmt.Errorf("unexpected type %T for field src_name", values[i])
 			} else if value.Valid {
-				cl.ImageName = value.String
+				cl.SrcName = value.String
 			}
-		case capturelog.FieldOssURL:
+		case capturelog.FieldProcName:
 			if value, ok := values[i].(*sql.NullString); !ok {
-				return fmt.Errorf("unexpected type %T for field oss_url", values[i])
+				return fmt.Errorf("unexpected type %T for field proc_name", values[i])
 			} else if value.Valid {
-				cl.OssURL = value.String
+				cl.ProcName = value.String
+			}
+		case capturelog.FieldSrcOssURL:
+			if value, ok := values[i].(*sql.NullString); !ok {
+				return fmt.Errorf("unexpected type %T for field src_oss_url", values[i])
+			} else if value.Valid {
+				cl.SrcOssURL = value.String
+			}
+		case capturelog.FieldProcOssURL:
+			if value, ok := values[i].(*sql.NullString); !ok {
+				return fmt.Errorf("unexpected type %T for field proc_oss_url", values[i])
+			} else if value.Valid {
+				cl.ProcOssURL = value.String
 			}
 		case capturelog.FieldCreatedAt:
 			if value, ok := values[i].(*sql.NullTime); !ok {
@@ -142,10 +158,14 @@ func (cl *CaptureLog) String() string {
 	builder.WriteString(fmt.Sprintf("%v", cl.Pixels))
 	builder.WriteString(", area=")
 	builder.WriteString(fmt.Sprintf("%v", cl.Area))
-	builder.WriteString(", image_name=")
-	builder.WriteString(cl.ImageName)
-	builder.WriteString(", oss_url=")
-	builder.WriteString(cl.OssURL)
+	builder.WriteString(", src_name=")
+	builder.WriteString(cl.SrcName)
+	builder.WriteString(", proc_name=")
+	builder.WriteString(cl.ProcName)
+	builder.WriteString(", src_oss_url=")
+	builder.WriteString(cl.SrcOssURL)
+	builder.WriteString(", proc_oss_url=")
+	builder.WriteString(cl.ProcOssURL)
 	builder.WriteString(", created_at=")
 	builder.WriteString(cl.CreatedAt.Format(time.ANSIC))
 	builder.WriteString(", updated_at=")

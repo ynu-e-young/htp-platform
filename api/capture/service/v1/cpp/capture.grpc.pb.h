@@ -59,12 +59,26 @@ class Capture final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImageReply>> PrepareAsyncReadOneWithBinary(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImageReply>>(PrepareAsyncReadOneWithBinaryRaw(context, request, cq));
     }
+    virtual ::grpc::Status ReadOneWithBinaryAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest& request, ::capture::service::v1::ImageWithSrcReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImageWithSrcReply>> AsyncReadOneWithBinaryAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImageWithSrcReply>>(AsyncReadOneWithBinaryAndSrcRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImageWithSrcReply>> PrepareAsyncReadOneWithBinaryAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImageWithSrcReply>>(PrepareAsyncReadOneWithBinaryAndSrcRaw(context, request, cq));
+    }
     virtual ::grpc::Status ReadAllWithBinary(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryRequest& request, ::capture::service::v1::ImagesReply* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImagesReply>> AsyncReadAllWithBinary(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImagesReply>>(AsyncReadAllWithBinaryRaw(context, request, cq));
     }
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImagesReply>> PrepareAsyncReadAllWithBinary(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImagesReply>>(PrepareAsyncReadAllWithBinaryRaw(context, request, cq));
+    }
+    virtual ::grpc::Status ReadAllWithBinaryAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest& request, ::capture::service::v1::ImagesWithSrcReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImagesWithSrcReply>> AsyncReadAllWithBinaryAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImagesWithSrcReply>>(AsyncReadAllWithBinaryAndSrcRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImagesWithSrcReply>> PrepareAsyncReadAllWithBinaryAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImagesWithSrcReply>>(PrepareAsyncReadAllWithBinaryAndSrcRaw(context, request, cq));
     }
     virtual ::grpc::Status ReadOneWithBinaryAndCalArea(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest& request, ::capture::service::v1::ImageWithAreaReply* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImageWithAreaReply>> AsyncReadOneWithBinaryAndCalArea(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest& request, ::grpc::CompletionQueue* cq) {
@@ -73,12 +87,26 @@ class Capture final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImageWithAreaReply>> PrepareAsyncReadOneWithBinaryAndCalArea(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImageWithAreaReply>>(PrepareAsyncReadOneWithBinaryAndCalAreaRaw(context, request, cq));
     }
+    virtual ::grpc::Status ReadOneWithBinaryAndCalAreaAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest& request, ::capture::service::v1::ImageWithAreaAndSrcReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImageWithAreaAndSrcReply>> AsyncReadOneWithBinaryAndCalAreaAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImageWithAreaAndSrcReply>>(AsyncReadOneWithBinaryAndCalAreaAndSrcRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImageWithAreaAndSrcReply>> PrepareAsyncReadOneWithBinaryAndCalAreaAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImageWithAreaAndSrcReply>>(PrepareAsyncReadOneWithBinaryAndCalAreaAndSrcRaw(context, request, cq));
+    }
     virtual ::grpc::Status ReadAllWithBinaryAndCalArea(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest& request, ::capture::service::v1::ImagesWithAreaReply* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImagesWithAreaReply>> AsyncReadAllWithBinaryAndCalArea(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImagesWithAreaReply>>(AsyncReadAllWithBinaryAndCalAreaRaw(context, request, cq));
     }
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImagesWithAreaReply>> PrepareAsyncReadAllWithBinaryAndCalArea(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImagesWithAreaReply>>(PrepareAsyncReadAllWithBinaryAndCalAreaRaw(context, request, cq));
+    }
+    virtual ::grpc::Status ReadAllWithBinaryAndCalAreaAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest& request, ::capture::service::v1::ImagesWithAreaAndSrcReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImagesWithAreaAndSrcReply>> AsyncReadAllWithBinaryAndCalAreaAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImagesWithAreaAndSrcReply>>(AsyncReadAllWithBinaryAndCalAreaAndSrcRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImagesWithAreaAndSrcReply>> PrepareAsyncReadAllWithBinaryAndCalAreaAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImagesWithAreaAndSrcReply>>(PrepareAsyncReadAllWithBinaryAndCalAreaAndSrcRaw(context, request, cq));
     }
     class async_interface {
      public:
@@ -89,12 +117,20 @@ class Capture final {
       virtual void ReadAll(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllRequest* request, ::capture::service::v1::ImagesReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void ReadOneWithBinary(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryRequest* request, ::capture::service::v1::ImageReply* response, std::function<void(::grpc::Status)>) = 0;
       virtual void ReadOneWithBinary(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryRequest* request, ::capture::service::v1::ImageReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void ReadOneWithBinaryAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest* request, ::capture::service::v1::ImageWithSrcReply* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void ReadOneWithBinaryAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest* request, ::capture::service::v1::ImageWithSrcReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void ReadAllWithBinary(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryRequest* request, ::capture::service::v1::ImagesReply* response, std::function<void(::grpc::Status)>) = 0;
       virtual void ReadAllWithBinary(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryRequest* request, ::capture::service::v1::ImagesReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void ReadAllWithBinaryAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest* request, ::capture::service::v1::ImagesWithSrcReply* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void ReadAllWithBinaryAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest* request, ::capture::service::v1::ImagesWithSrcReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void ReadOneWithBinaryAndCalArea(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest* request, ::capture::service::v1::ImageWithAreaReply* response, std::function<void(::grpc::Status)>) = 0;
       virtual void ReadOneWithBinaryAndCalArea(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest* request, ::capture::service::v1::ImageWithAreaReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void ReadOneWithBinaryAndCalAreaAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest* request, ::capture::service::v1::ImageWithAreaAndSrcReply* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void ReadOneWithBinaryAndCalAreaAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest* request, ::capture::service::v1::ImageWithAreaAndSrcReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void ReadAllWithBinaryAndCalArea(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest* request, ::capture::service::v1::ImagesWithAreaReply* response, std::function<void(::grpc::Status)>) = 0;
       virtual void ReadAllWithBinaryAndCalArea(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest* request, ::capture::service::v1::ImagesWithAreaReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void ReadAllWithBinaryAndCalAreaAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest* request, ::capture::service::v1::ImagesWithAreaAndSrcReply* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void ReadAllWithBinaryAndCalAreaAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest* request, ::capture::service::v1::ImagesWithAreaAndSrcReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
@@ -106,12 +142,20 @@ class Capture final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImagesReply>* PrepareAsyncReadAllRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImageReply>* AsyncReadOneWithBinaryRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImageReply>* PrepareAsyncReadOneWithBinaryRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImageWithSrcReply>* AsyncReadOneWithBinaryAndSrcRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImageWithSrcReply>* PrepareAsyncReadOneWithBinaryAndSrcRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImagesReply>* AsyncReadAllWithBinaryRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImagesReply>* PrepareAsyncReadAllWithBinaryRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImagesWithSrcReply>* AsyncReadAllWithBinaryAndSrcRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImagesWithSrcReply>* PrepareAsyncReadAllWithBinaryAndSrcRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImageWithAreaReply>* AsyncReadOneWithBinaryAndCalAreaRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImageWithAreaReply>* PrepareAsyncReadOneWithBinaryAndCalAreaRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImageWithAreaAndSrcReply>* AsyncReadOneWithBinaryAndCalAreaAndSrcRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImageWithAreaAndSrcReply>* PrepareAsyncReadOneWithBinaryAndCalAreaAndSrcRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImagesWithAreaReply>* AsyncReadAllWithBinaryAndCalAreaRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImagesWithAreaReply>* PrepareAsyncReadAllWithBinaryAndCalAreaRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImagesWithAreaAndSrcReply>* AsyncReadAllWithBinaryAndCalAreaAndSrcRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::capture::service::v1::ImagesWithAreaAndSrcReply>* PrepareAsyncReadAllWithBinaryAndCalAreaAndSrcRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -137,12 +181,26 @@ class Capture final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImageReply>> PrepareAsyncReadOneWithBinary(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImageReply>>(PrepareAsyncReadOneWithBinaryRaw(context, request, cq));
     }
+    ::grpc::Status ReadOneWithBinaryAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest& request, ::capture::service::v1::ImageWithSrcReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImageWithSrcReply>> AsyncReadOneWithBinaryAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImageWithSrcReply>>(AsyncReadOneWithBinaryAndSrcRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImageWithSrcReply>> PrepareAsyncReadOneWithBinaryAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImageWithSrcReply>>(PrepareAsyncReadOneWithBinaryAndSrcRaw(context, request, cq));
+    }
     ::grpc::Status ReadAllWithBinary(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryRequest& request, ::capture::service::v1::ImagesReply* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesReply>> AsyncReadAllWithBinary(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesReply>>(AsyncReadAllWithBinaryRaw(context, request, cq));
     }
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesReply>> PrepareAsyncReadAllWithBinary(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesReply>>(PrepareAsyncReadAllWithBinaryRaw(context, request, cq));
+    }
+    ::grpc::Status ReadAllWithBinaryAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest& request, ::capture::service::v1::ImagesWithSrcReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesWithSrcReply>> AsyncReadAllWithBinaryAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesWithSrcReply>>(AsyncReadAllWithBinaryAndSrcRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesWithSrcReply>> PrepareAsyncReadAllWithBinaryAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesWithSrcReply>>(PrepareAsyncReadAllWithBinaryAndSrcRaw(context, request, cq));
     }
     ::grpc::Status ReadOneWithBinaryAndCalArea(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest& request, ::capture::service::v1::ImageWithAreaReply* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImageWithAreaReply>> AsyncReadOneWithBinaryAndCalArea(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest& request, ::grpc::CompletionQueue* cq) {
@@ -151,12 +209,26 @@ class Capture final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImageWithAreaReply>> PrepareAsyncReadOneWithBinaryAndCalArea(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImageWithAreaReply>>(PrepareAsyncReadOneWithBinaryAndCalAreaRaw(context, request, cq));
     }
+    ::grpc::Status ReadOneWithBinaryAndCalAreaAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest& request, ::capture::service::v1::ImageWithAreaAndSrcReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImageWithAreaAndSrcReply>> AsyncReadOneWithBinaryAndCalAreaAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImageWithAreaAndSrcReply>>(AsyncReadOneWithBinaryAndCalAreaAndSrcRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImageWithAreaAndSrcReply>> PrepareAsyncReadOneWithBinaryAndCalAreaAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImageWithAreaAndSrcReply>>(PrepareAsyncReadOneWithBinaryAndCalAreaAndSrcRaw(context, request, cq));
+    }
     ::grpc::Status ReadAllWithBinaryAndCalArea(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest& request, ::capture::service::v1::ImagesWithAreaReply* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesWithAreaReply>> AsyncReadAllWithBinaryAndCalArea(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesWithAreaReply>>(AsyncReadAllWithBinaryAndCalAreaRaw(context, request, cq));
     }
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesWithAreaReply>> PrepareAsyncReadAllWithBinaryAndCalArea(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesWithAreaReply>>(PrepareAsyncReadAllWithBinaryAndCalAreaRaw(context, request, cq));
+    }
+    ::grpc::Status ReadAllWithBinaryAndCalAreaAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest& request, ::capture::service::v1::ImagesWithAreaAndSrcReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesWithAreaAndSrcReply>> AsyncReadAllWithBinaryAndCalAreaAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesWithAreaAndSrcReply>>(AsyncReadAllWithBinaryAndCalAreaAndSrcRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesWithAreaAndSrcReply>> PrepareAsyncReadAllWithBinaryAndCalAreaAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesWithAreaAndSrcReply>>(PrepareAsyncReadAllWithBinaryAndCalAreaAndSrcRaw(context, request, cq));
     }
     class async final :
       public StubInterface::async_interface {
@@ -167,12 +239,20 @@ class Capture final {
       void ReadAll(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllRequest* request, ::capture::service::v1::ImagesReply* response, ::grpc::ClientUnaryReactor* reactor) override;
       void ReadOneWithBinary(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryRequest* request, ::capture::service::v1::ImageReply* response, std::function<void(::grpc::Status)>) override;
       void ReadOneWithBinary(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryRequest* request, ::capture::service::v1::ImageReply* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void ReadOneWithBinaryAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest* request, ::capture::service::v1::ImageWithSrcReply* response, std::function<void(::grpc::Status)>) override;
+      void ReadOneWithBinaryAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest* request, ::capture::service::v1::ImageWithSrcReply* response, ::grpc::ClientUnaryReactor* reactor) override;
       void ReadAllWithBinary(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryRequest* request, ::capture::service::v1::ImagesReply* response, std::function<void(::grpc::Status)>) override;
       void ReadAllWithBinary(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryRequest* request, ::capture::service::v1::ImagesReply* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void ReadAllWithBinaryAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest* request, ::capture::service::v1::ImagesWithSrcReply* response, std::function<void(::grpc::Status)>) override;
+      void ReadAllWithBinaryAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest* request, ::capture::service::v1::ImagesWithSrcReply* response, ::grpc::ClientUnaryReactor* reactor) override;
       void ReadOneWithBinaryAndCalArea(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest* request, ::capture::service::v1::ImageWithAreaReply* response, std::function<void(::grpc::Status)>) override;
       void ReadOneWithBinaryAndCalArea(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest* request, ::capture::service::v1::ImageWithAreaReply* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void ReadOneWithBinaryAndCalAreaAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest* request, ::capture::service::v1::ImageWithAreaAndSrcReply* response, std::function<void(::grpc::Status)>) override;
+      void ReadOneWithBinaryAndCalAreaAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest* request, ::capture::service::v1::ImageWithAreaAndSrcReply* response, ::grpc::ClientUnaryReactor* reactor) override;
       void ReadAllWithBinaryAndCalArea(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest* request, ::capture::service::v1::ImagesWithAreaReply* response, std::function<void(::grpc::Status)>) override;
       void ReadAllWithBinaryAndCalArea(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest* request, ::capture::service::v1::ImagesWithAreaReply* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void ReadAllWithBinaryAndCalAreaAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest* request, ::capture::service::v1::ImagesWithAreaAndSrcReply* response, std::function<void(::grpc::Status)>) override;
+      void ReadAllWithBinaryAndCalAreaAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest* request, ::capture::service::v1::ImagesWithAreaAndSrcReply* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -190,18 +270,30 @@ class Capture final {
     ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesReply>* PrepareAsyncReadAllRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImageReply>* AsyncReadOneWithBinaryRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImageReply>* PrepareAsyncReadOneWithBinaryRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImageWithSrcReply>* AsyncReadOneWithBinaryAndSrcRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImageWithSrcReply>* PrepareAsyncReadOneWithBinaryAndSrcRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesReply>* AsyncReadAllWithBinaryRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesReply>* PrepareAsyncReadAllWithBinaryRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesWithSrcReply>* AsyncReadAllWithBinaryAndSrcRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesWithSrcReply>* PrepareAsyncReadAllWithBinaryAndSrcRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImageWithAreaReply>* AsyncReadOneWithBinaryAndCalAreaRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImageWithAreaReply>* PrepareAsyncReadOneWithBinaryAndCalAreaRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImageWithAreaAndSrcReply>* AsyncReadOneWithBinaryAndCalAreaAndSrcRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImageWithAreaAndSrcReply>* PrepareAsyncReadOneWithBinaryAndCalAreaAndSrcRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesWithAreaReply>* AsyncReadAllWithBinaryAndCalAreaRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesWithAreaReply>* PrepareAsyncReadAllWithBinaryAndCalAreaRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesWithAreaAndSrcReply>* AsyncReadAllWithBinaryAndCalAreaAndSrcRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesWithAreaAndSrcReply>* PrepareAsyncReadAllWithBinaryAndCalAreaAndSrcRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_ReadOne_;
     const ::grpc::internal::RpcMethod rpcmethod_ReadAll_;
     const ::grpc::internal::RpcMethod rpcmethod_ReadOneWithBinary_;
+    const ::grpc::internal::RpcMethod rpcmethod_ReadOneWithBinaryAndSrc_;
     const ::grpc::internal::RpcMethod rpcmethod_ReadAllWithBinary_;
+    const ::grpc::internal::RpcMethod rpcmethod_ReadAllWithBinaryAndSrc_;
     const ::grpc::internal::RpcMethod rpcmethod_ReadOneWithBinaryAndCalArea_;
+    const ::grpc::internal::RpcMethod rpcmethod_ReadOneWithBinaryAndCalAreaAndSrc_;
     const ::grpc::internal::RpcMethod rpcmethod_ReadAllWithBinaryAndCalArea_;
+    const ::grpc::internal::RpcMethod rpcmethod_ReadAllWithBinaryAndCalAreaAndSrc_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -212,9 +304,13 @@ class Capture final {
     virtual ::grpc::Status ReadOne(::grpc::ServerContext* context, const ::capture::service::v1::ReadOneRequest* request, ::capture::service::v1::ImageReply* response);
     virtual ::grpc::Status ReadAll(::grpc::ServerContext* context, const ::capture::service::v1::ReadAllRequest* request, ::capture::service::v1::ImagesReply* response);
     virtual ::grpc::Status ReadOneWithBinary(::grpc::ServerContext* context, const ::capture::service::v1::ReadOneWithBinaryRequest* request, ::capture::service::v1::ImageReply* response);
+    virtual ::grpc::Status ReadOneWithBinaryAndSrc(::grpc::ServerContext* context, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest* request, ::capture::service::v1::ImageWithSrcReply* response);
     virtual ::grpc::Status ReadAllWithBinary(::grpc::ServerContext* context, const ::capture::service::v1::ReadAllWithBinaryRequest* request, ::capture::service::v1::ImagesReply* response);
+    virtual ::grpc::Status ReadAllWithBinaryAndSrc(::grpc::ServerContext* context, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest* request, ::capture::service::v1::ImagesWithSrcReply* response);
     virtual ::grpc::Status ReadOneWithBinaryAndCalArea(::grpc::ServerContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest* request, ::capture::service::v1::ImageWithAreaReply* response);
+    virtual ::grpc::Status ReadOneWithBinaryAndCalAreaAndSrc(::grpc::ServerContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest* request, ::capture::service::v1::ImageWithAreaAndSrcReply* response);
     virtual ::grpc::Status ReadAllWithBinaryAndCalArea(::grpc::ServerContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest* request, ::capture::service::v1::ImagesWithAreaReply* response);
+    virtual ::grpc::Status ReadAllWithBinaryAndCalAreaAndSrc(::grpc::ServerContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest* request, ::capture::service::v1::ImagesWithAreaAndSrcReply* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_ReadOne : public BaseClass {
@@ -277,12 +373,32 @@ class Capture final {
     }
   };
   template <class BaseClass>
+  class WithAsyncMethod_ReadOneWithBinaryAndSrc : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_ReadOneWithBinaryAndSrc() {
+      ::grpc::Service::MarkMethodAsync(3);
+    }
+    ~WithAsyncMethod_ReadOneWithBinaryAndSrc() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReadOneWithBinaryAndSrc(::grpc::ServerContext* /*context*/, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest* /*request*/, ::capture::service::v1::ImageWithSrcReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestReadOneWithBinaryAndSrc(::grpc::ServerContext* context, ::capture::service::v1::ReadOneWithBinaryAndSrcRequest* request, ::grpc::ServerAsyncResponseWriter< ::capture::service::v1::ImageWithSrcReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithAsyncMethod_ReadAllWithBinary : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_ReadAllWithBinary() {
-      ::grpc::Service::MarkMethodAsync(3);
+      ::grpc::Service::MarkMethodAsync(4);
     }
     ~WithAsyncMethod_ReadAllWithBinary() override {
       BaseClassMustBeDerivedFromService(this);
@@ -293,7 +409,27 @@ class Capture final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestReadAllWithBinary(::grpc::ServerContext* context, ::capture::service::v1::ReadAllWithBinaryRequest* request, ::grpc::ServerAsyncResponseWriter< ::capture::service::v1::ImagesReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_ReadAllWithBinaryAndSrc : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_ReadAllWithBinaryAndSrc() {
+      ::grpc::Service::MarkMethodAsync(5);
+    }
+    ~WithAsyncMethod_ReadAllWithBinaryAndSrc() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReadAllWithBinaryAndSrc(::grpc::ServerContext* /*context*/, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest* /*request*/, ::capture::service::v1::ImagesWithSrcReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestReadAllWithBinaryAndSrc(::grpc::ServerContext* context, ::capture::service::v1::ReadAllWithBinaryAndSrcRequest* request, ::grpc::ServerAsyncResponseWriter< ::capture::service::v1::ImagesWithSrcReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -302,7 +438,7 @@ class Capture final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_ReadOneWithBinaryAndCalArea() {
-      ::grpc::Service::MarkMethodAsync(4);
+      ::grpc::Service::MarkMethodAsync(6);
     }
     ~WithAsyncMethod_ReadOneWithBinaryAndCalArea() override {
       BaseClassMustBeDerivedFromService(this);
@@ -313,7 +449,27 @@ class Capture final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestReadOneWithBinaryAndCalArea(::grpc::ServerContext* context, ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest* request, ::grpc::ServerAsyncResponseWriter< ::capture::service::v1::ImageWithAreaReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_ReadOneWithBinaryAndCalAreaAndSrc : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_ReadOneWithBinaryAndCalAreaAndSrc() {
+      ::grpc::Service::MarkMethodAsync(7);
+    }
+    ~WithAsyncMethod_ReadOneWithBinaryAndCalAreaAndSrc() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReadOneWithBinaryAndCalAreaAndSrc(::grpc::ServerContext* /*context*/, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest* /*request*/, ::capture::service::v1::ImageWithAreaAndSrcReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestReadOneWithBinaryAndCalAreaAndSrc(::grpc::ServerContext* context, ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest* request, ::grpc::ServerAsyncResponseWriter< ::capture::service::v1::ImageWithAreaAndSrcReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -322,7 +478,7 @@ class Capture final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_ReadAllWithBinaryAndCalArea() {
-      ::grpc::Service::MarkMethodAsync(5);
+      ::grpc::Service::MarkMethodAsync(8);
     }
     ~WithAsyncMethod_ReadAllWithBinaryAndCalArea() override {
       BaseClassMustBeDerivedFromService(this);
@@ -333,10 +489,30 @@ class Capture final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestReadAllWithBinaryAndCalArea(::grpc::ServerContext* context, ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest* request, ::grpc::ServerAsyncResponseWriter< ::capture::service::v1::ImagesWithAreaReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_ReadOne<WithAsyncMethod_ReadAll<WithAsyncMethod_ReadOneWithBinary<WithAsyncMethod_ReadAllWithBinary<WithAsyncMethod_ReadOneWithBinaryAndCalArea<WithAsyncMethod_ReadAllWithBinaryAndCalArea<Service > > > > > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_ReadAllWithBinaryAndCalAreaAndSrc : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_ReadAllWithBinaryAndCalAreaAndSrc() {
+      ::grpc::Service::MarkMethodAsync(9);
+    }
+    ~WithAsyncMethod_ReadAllWithBinaryAndCalAreaAndSrc() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReadAllWithBinaryAndCalAreaAndSrc(::grpc::ServerContext* /*context*/, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest* /*request*/, ::capture::service::v1::ImagesWithAreaAndSrcReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestReadAllWithBinaryAndCalAreaAndSrc(::grpc::ServerContext* context, ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest* request, ::grpc::ServerAsyncResponseWriter< ::capture::service::v1::ImagesWithAreaAndSrcReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_ReadOne<WithAsyncMethod_ReadAll<WithAsyncMethod_ReadOneWithBinary<WithAsyncMethod_ReadOneWithBinaryAndSrc<WithAsyncMethod_ReadAllWithBinary<WithAsyncMethod_ReadAllWithBinaryAndSrc<WithAsyncMethod_ReadOneWithBinaryAndCalArea<WithAsyncMethod_ReadOneWithBinaryAndCalAreaAndSrc<WithAsyncMethod_ReadAllWithBinaryAndCalArea<WithAsyncMethod_ReadAllWithBinaryAndCalAreaAndSrc<Service > > > > > > > > > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_ReadOne : public BaseClass {
    private:
@@ -419,18 +595,45 @@ class Capture final {
       ::grpc::CallbackServerContext* /*context*/, const ::capture::service::v1::ReadOneWithBinaryRequest* /*request*/, ::capture::service::v1::ImageReply* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithCallbackMethod_ReadOneWithBinaryAndSrc : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_ReadOneWithBinaryAndSrc() {
+      ::grpc::Service::MarkMethodCallback(3,
+          new ::grpc::internal::CallbackUnaryHandler< ::capture::service::v1::ReadOneWithBinaryAndSrcRequest, ::capture::service::v1::ImageWithSrcReply>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest* request, ::capture::service::v1::ImageWithSrcReply* response) { return this->ReadOneWithBinaryAndSrc(context, request, response); }));}
+    void SetMessageAllocatorFor_ReadOneWithBinaryAndSrc(
+        ::grpc::MessageAllocator< ::capture::service::v1::ReadOneWithBinaryAndSrcRequest, ::capture::service::v1::ImageWithSrcReply>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::capture::service::v1::ReadOneWithBinaryAndSrcRequest, ::capture::service::v1::ImageWithSrcReply>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_ReadOneWithBinaryAndSrc() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReadOneWithBinaryAndSrc(::grpc::ServerContext* /*context*/, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest* /*request*/, ::capture::service::v1::ImageWithSrcReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* ReadOneWithBinaryAndSrc(
+      ::grpc::CallbackServerContext* /*context*/, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest* /*request*/, ::capture::service::v1::ImageWithSrcReply* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
   class WithCallbackMethod_ReadAllWithBinary : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_ReadAllWithBinary() {
-      ::grpc::Service::MarkMethodCallback(3,
+      ::grpc::Service::MarkMethodCallback(4,
           new ::grpc::internal::CallbackUnaryHandler< ::capture::service::v1::ReadAllWithBinaryRequest, ::capture::service::v1::ImagesReply>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::capture::service::v1::ReadAllWithBinaryRequest* request, ::capture::service::v1::ImagesReply* response) { return this->ReadAllWithBinary(context, request, response); }));}
     void SetMessageAllocatorFor_ReadAllWithBinary(
         ::grpc::MessageAllocator< ::capture::service::v1::ReadAllWithBinaryRequest, ::capture::service::v1::ImagesReply>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::capture::service::v1::ReadAllWithBinaryRequest, ::capture::service::v1::ImagesReply>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -446,18 +649,45 @@ class Capture final {
       ::grpc::CallbackServerContext* /*context*/, const ::capture::service::v1::ReadAllWithBinaryRequest* /*request*/, ::capture::service::v1::ImagesReply* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithCallbackMethod_ReadAllWithBinaryAndSrc : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_ReadAllWithBinaryAndSrc() {
+      ::grpc::Service::MarkMethodCallback(5,
+          new ::grpc::internal::CallbackUnaryHandler< ::capture::service::v1::ReadAllWithBinaryAndSrcRequest, ::capture::service::v1::ImagesWithSrcReply>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest* request, ::capture::service::v1::ImagesWithSrcReply* response) { return this->ReadAllWithBinaryAndSrc(context, request, response); }));}
+    void SetMessageAllocatorFor_ReadAllWithBinaryAndSrc(
+        ::grpc::MessageAllocator< ::capture::service::v1::ReadAllWithBinaryAndSrcRequest, ::capture::service::v1::ImagesWithSrcReply>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::capture::service::v1::ReadAllWithBinaryAndSrcRequest, ::capture::service::v1::ImagesWithSrcReply>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_ReadAllWithBinaryAndSrc() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReadAllWithBinaryAndSrc(::grpc::ServerContext* /*context*/, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest* /*request*/, ::capture::service::v1::ImagesWithSrcReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* ReadAllWithBinaryAndSrc(
+      ::grpc::CallbackServerContext* /*context*/, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest* /*request*/, ::capture::service::v1::ImagesWithSrcReply* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
   class WithCallbackMethod_ReadOneWithBinaryAndCalArea : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_ReadOneWithBinaryAndCalArea() {
-      ::grpc::Service::MarkMethodCallback(4,
+      ::grpc::Service::MarkMethodCallback(6,
           new ::grpc::internal::CallbackUnaryHandler< ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest, ::capture::service::v1::ImageWithAreaReply>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest* request, ::capture::service::v1::ImageWithAreaReply* response) { return this->ReadOneWithBinaryAndCalArea(context, request, response); }));}
     void SetMessageAllocatorFor_ReadOneWithBinaryAndCalArea(
         ::grpc::MessageAllocator< ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest, ::capture::service::v1::ImageWithAreaReply>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest, ::capture::service::v1::ImageWithAreaReply>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -473,18 +703,45 @@ class Capture final {
       ::grpc::CallbackServerContext* /*context*/, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest* /*request*/, ::capture::service::v1::ImageWithAreaReply* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithCallbackMethod_ReadOneWithBinaryAndCalAreaAndSrc : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_ReadOneWithBinaryAndCalAreaAndSrc() {
+      ::grpc::Service::MarkMethodCallback(7,
+          new ::grpc::internal::CallbackUnaryHandler< ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest, ::capture::service::v1::ImageWithAreaAndSrcReply>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest* request, ::capture::service::v1::ImageWithAreaAndSrcReply* response) { return this->ReadOneWithBinaryAndCalAreaAndSrc(context, request, response); }));}
+    void SetMessageAllocatorFor_ReadOneWithBinaryAndCalAreaAndSrc(
+        ::grpc::MessageAllocator< ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest, ::capture::service::v1::ImageWithAreaAndSrcReply>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(7);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest, ::capture::service::v1::ImageWithAreaAndSrcReply>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_ReadOneWithBinaryAndCalAreaAndSrc() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReadOneWithBinaryAndCalAreaAndSrc(::grpc::ServerContext* /*context*/, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest* /*request*/, ::capture::service::v1::ImageWithAreaAndSrcReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* ReadOneWithBinaryAndCalAreaAndSrc(
+      ::grpc::CallbackServerContext* /*context*/, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest* /*request*/, ::capture::service::v1::ImageWithAreaAndSrcReply* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
   class WithCallbackMethod_ReadAllWithBinaryAndCalArea : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_ReadAllWithBinaryAndCalArea() {
-      ::grpc::Service::MarkMethodCallback(5,
+      ::grpc::Service::MarkMethodCallback(8,
           new ::grpc::internal::CallbackUnaryHandler< ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest, ::capture::service::v1::ImagesWithAreaReply>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest* request, ::capture::service::v1::ImagesWithAreaReply* response) { return this->ReadAllWithBinaryAndCalArea(context, request, response); }));}
     void SetMessageAllocatorFor_ReadAllWithBinaryAndCalArea(
         ::grpc::MessageAllocator< ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest, ::capture::service::v1::ImagesWithAreaReply>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(8);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest, ::capture::service::v1::ImagesWithAreaReply>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -499,7 +756,34 @@ class Capture final {
     virtual ::grpc::ServerUnaryReactor* ReadAllWithBinaryAndCalArea(
       ::grpc::CallbackServerContext* /*context*/, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest* /*request*/, ::capture::service::v1::ImagesWithAreaReply* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_ReadOne<WithCallbackMethod_ReadAll<WithCallbackMethod_ReadOneWithBinary<WithCallbackMethod_ReadAllWithBinary<WithCallbackMethod_ReadOneWithBinaryAndCalArea<WithCallbackMethod_ReadAllWithBinaryAndCalArea<Service > > > > > > CallbackService;
+  template <class BaseClass>
+  class WithCallbackMethod_ReadAllWithBinaryAndCalAreaAndSrc : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_ReadAllWithBinaryAndCalAreaAndSrc() {
+      ::grpc::Service::MarkMethodCallback(9,
+          new ::grpc::internal::CallbackUnaryHandler< ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest, ::capture::service::v1::ImagesWithAreaAndSrcReply>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest* request, ::capture::service::v1::ImagesWithAreaAndSrcReply* response) { return this->ReadAllWithBinaryAndCalAreaAndSrc(context, request, response); }));}
+    void SetMessageAllocatorFor_ReadAllWithBinaryAndCalAreaAndSrc(
+        ::grpc::MessageAllocator< ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest, ::capture::service::v1::ImagesWithAreaAndSrcReply>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(9);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest, ::capture::service::v1::ImagesWithAreaAndSrcReply>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_ReadAllWithBinaryAndCalAreaAndSrc() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReadAllWithBinaryAndCalAreaAndSrc(::grpc::ServerContext* /*context*/, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest* /*request*/, ::capture::service::v1::ImagesWithAreaAndSrcReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* ReadAllWithBinaryAndCalAreaAndSrc(
+      ::grpc::CallbackServerContext* /*context*/, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest* /*request*/, ::capture::service::v1::ImagesWithAreaAndSrcReply* /*response*/)  { return nullptr; }
+  };
+  typedef WithCallbackMethod_ReadOne<WithCallbackMethod_ReadAll<WithCallbackMethod_ReadOneWithBinary<WithCallbackMethod_ReadOneWithBinaryAndSrc<WithCallbackMethod_ReadAllWithBinary<WithCallbackMethod_ReadAllWithBinaryAndSrc<WithCallbackMethod_ReadOneWithBinaryAndCalArea<WithCallbackMethod_ReadOneWithBinaryAndCalAreaAndSrc<WithCallbackMethod_ReadAllWithBinaryAndCalArea<WithCallbackMethod_ReadAllWithBinaryAndCalAreaAndSrc<Service > > > > > > > > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_ReadOne : public BaseClass {
@@ -553,12 +837,29 @@ class Capture final {
     }
   };
   template <class BaseClass>
+  class WithGenericMethod_ReadOneWithBinaryAndSrc : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_ReadOneWithBinaryAndSrc() {
+      ::grpc::Service::MarkMethodGeneric(3);
+    }
+    ~WithGenericMethod_ReadOneWithBinaryAndSrc() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReadOneWithBinaryAndSrc(::grpc::ServerContext* /*context*/, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest* /*request*/, ::capture::service::v1::ImageWithSrcReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
   class WithGenericMethod_ReadAllWithBinary : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_ReadAllWithBinary() {
-      ::grpc::Service::MarkMethodGeneric(3);
+      ::grpc::Service::MarkMethodGeneric(4);
     }
     ~WithGenericMethod_ReadAllWithBinary() override {
       BaseClassMustBeDerivedFromService(this);
@@ -570,12 +871,29 @@ class Capture final {
     }
   };
   template <class BaseClass>
+  class WithGenericMethod_ReadAllWithBinaryAndSrc : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_ReadAllWithBinaryAndSrc() {
+      ::grpc::Service::MarkMethodGeneric(5);
+    }
+    ~WithGenericMethod_ReadAllWithBinaryAndSrc() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReadAllWithBinaryAndSrc(::grpc::ServerContext* /*context*/, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest* /*request*/, ::capture::service::v1::ImagesWithSrcReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
   class WithGenericMethod_ReadOneWithBinaryAndCalArea : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_ReadOneWithBinaryAndCalArea() {
-      ::grpc::Service::MarkMethodGeneric(4);
+      ::grpc::Service::MarkMethodGeneric(6);
     }
     ~WithGenericMethod_ReadOneWithBinaryAndCalArea() override {
       BaseClassMustBeDerivedFromService(this);
@@ -587,18 +905,52 @@ class Capture final {
     }
   };
   template <class BaseClass>
+  class WithGenericMethod_ReadOneWithBinaryAndCalAreaAndSrc : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_ReadOneWithBinaryAndCalAreaAndSrc() {
+      ::grpc::Service::MarkMethodGeneric(7);
+    }
+    ~WithGenericMethod_ReadOneWithBinaryAndCalAreaAndSrc() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReadOneWithBinaryAndCalAreaAndSrc(::grpc::ServerContext* /*context*/, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest* /*request*/, ::capture::service::v1::ImageWithAreaAndSrcReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
   class WithGenericMethod_ReadAllWithBinaryAndCalArea : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_ReadAllWithBinaryAndCalArea() {
-      ::grpc::Service::MarkMethodGeneric(5);
+      ::grpc::Service::MarkMethodGeneric(8);
     }
     ~WithGenericMethod_ReadAllWithBinaryAndCalArea() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
     ::grpc::Status ReadAllWithBinaryAndCalArea(::grpc::ServerContext* /*context*/, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest* /*request*/, ::capture::service::v1::ImagesWithAreaReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_ReadAllWithBinaryAndCalAreaAndSrc : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_ReadAllWithBinaryAndCalAreaAndSrc() {
+      ::grpc::Service::MarkMethodGeneric(9);
+    }
+    ~WithGenericMethod_ReadAllWithBinaryAndCalAreaAndSrc() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReadAllWithBinaryAndCalAreaAndSrc(::grpc::ServerContext* /*context*/, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest* /*request*/, ::capture::service::v1::ImagesWithAreaAndSrcReply* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -664,12 +1016,32 @@ class Capture final {
     }
   };
   template <class BaseClass>
+  class WithRawMethod_ReadOneWithBinaryAndSrc : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_ReadOneWithBinaryAndSrc() {
+      ::grpc::Service::MarkMethodRaw(3);
+    }
+    ~WithRawMethod_ReadOneWithBinaryAndSrc() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReadOneWithBinaryAndSrc(::grpc::ServerContext* /*context*/, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest* /*request*/, ::capture::service::v1::ImageWithSrcReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestReadOneWithBinaryAndSrc(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithRawMethod_ReadAllWithBinary : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_ReadAllWithBinary() {
-      ::grpc::Service::MarkMethodRaw(3);
+      ::grpc::Service::MarkMethodRaw(4);
     }
     ~WithRawMethod_ReadAllWithBinary() override {
       BaseClassMustBeDerivedFromService(this);
@@ -680,7 +1052,27 @@ class Capture final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestReadAllWithBinary(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_ReadAllWithBinaryAndSrc : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_ReadAllWithBinaryAndSrc() {
+      ::grpc::Service::MarkMethodRaw(5);
+    }
+    ~WithRawMethod_ReadAllWithBinaryAndSrc() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReadAllWithBinaryAndSrc(::grpc::ServerContext* /*context*/, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest* /*request*/, ::capture::service::v1::ImagesWithSrcReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestReadAllWithBinaryAndSrc(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -689,7 +1081,7 @@ class Capture final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_ReadOneWithBinaryAndCalArea() {
-      ::grpc::Service::MarkMethodRaw(4);
+      ::grpc::Service::MarkMethodRaw(6);
     }
     ~WithRawMethod_ReadOneWithBinaryAndCalArea() override {
       BaseClassMustBeDerivedFromService(this);
@@ -700,7 +1092,27 @@ class Capture final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestReadOneWithBinaryAndCalArea(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_ReadOneWithBinaryAndCalAreaAndSrc : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_ReadOneWithBinaryAndCalAreaAndSrc() {
+      ::grpc::Service::MarkMethodRaw(7);
+    }
+    ~WithRawMethod_ReadOneWithBinaryAndCalAreaAndSrc() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReadOneWithBinaryAndCalAreaAndSrc(::grpc::ServerContext* /*context*/, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest* /*request*/, ::capture::service::v1::ImageWithAreaAndSrcReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestReadOneWithBinaryAndCalAreaAndSrc(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -709,7 +1121,7 @@ class Capture final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_ReadAllWithBinaryAndCalArea() {
-      ::grpc::Service::MarkMethodRaw(5);
+      ::grpc::Service::MarkMethodRaw(8);
     }
     ~WithRawMethod_ReadAllWithBinaryAndCalArea() override {
       BaseClassMustBeDerivedFromService(this);
@@ -720,7 +1132,27 @@ class Capture final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestReadAllWithBinaryAndCalArea(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_ReadAllWithBinaryAndCalAreaAndSrc : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_ReadAllWithBinaryAndCalAreaAndSrc() {
+      ::grpc::Service::MarkMethodRaw(9);
+    }
+    ~WithRawMethod_ReadAllWithBinaryAndCalAreaAndSrc() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReadAllWithBinaryAndCalAreaAndSrc(::grpc::ServerContext* /*context*/, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest* /*request*/, ::capture::service::v1::ImagesWithAreaAndSrcReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestReadAllWithBinaryAndCalAreaAndSrc(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -790,12 +1222,34 @@ class Capture final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithRawCallbackMethod_ReadOneWithBinaryAndSrc : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_ReadOneWithBinaryAndSrc() {
+      ::grpc::Service::MarkMethodRawCallback(3,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ReadOneWithBinaryAndSrc(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_ReadOneWithBinaryAndSrc() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReadOneWithBinaryAndSrc(::grpc::ServerContext* /*context*/, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest* /*request*/, ::capture::service::v1::ImageWithSrcReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* ReadOneWithBinaryAndSrc(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
   class WithRawCallbackMethod_ReadAllWithBinary : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_ReadAllWithBinary() {
-      ::grpc::Service::MarkMethodRawCallback(3,
+      ::grpc::Service::MarkMethodRawCallback(4,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ReadAllWithBinary(context, request, response); }));
@@ -812,12 +1266,34 @@ class Capture final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithRawCallbackMethod_ReadAllWithBinaryAndSrc : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_ReadAllWithBinaryAndSrc() {
+      ::grpc::Service::MarkMethodRawCallback(5,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ReadAllWithBinaryAndSrc(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_ReadAllWithBinaryAndSrc() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReadAllWithBinaryAndSrc(::grpc::ServerContext* /*context*/, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest* /*request*/, ::capture::service::v1::ImagesWithSrcReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* ReadAllWithBinaryAndSrc(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
   class WithRawCallbackMethod_ReadOneWithBinaryAndCalArea : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_ReadOneWithBinaryAndCalArea() {
-      ::grpc::Service::MarkMethodRawCallback(4,
+      ::grpc::Service::MarkMethodRawCallback(6,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ReadOneWithBinaryAndCalArea(context, request, response); }));
@@ -834,12 +1310,34 @@ class Capture final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithRawCallbackMethod_ReadOneWithBinaryAndCalAreaAndSrc : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_ReadOneWithBinaryAndCalAreaAndSrc() {
+      ::grpc::Service::MarkMethodRawCallback(7,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ReadOneWithBinaryAndCalAreaAndSrc(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_ReadOneWithBinaryAndCalAreaAndSrc() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReadOneWithBinaryAndCalAreaAndSrc(::grpc::ServerContext* /*context*/, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest* /*request*/, ::capture::service::v1::ImageWithAreaAndSrcReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* ReadOneWithBinaryAndCalAreaAndSrc(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
   class WithRawCallbackMethod_ReadAllWithBinaryAndCalArea : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_ReadAllWithBinaryAndCalArea() {
-      ::grpc::Service::MarkMethodRawCallback(5,
+      ::grpc::Service::MarkMethodRawCallback(8,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ReadAllWithBinaryAndCalArea(context, request, response); }));
@@ -853,6 +1351,28 @@ class Capture final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* ReadAllWithBinaryAndCalArea(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_ReadAllWithBinaryAndCalAreaAndSrc : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_ReadAllWithBinaryAndCalAreaAndSrc() {
+      ::grpc::Service::MarkMethodRawCallback(9,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ReadAllWithBinaryAndCalAreaAndSrc(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_ReadAllWithBinaryAndCalAreaAndSrc() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReadAllWithBinaryAndCalAreaAndSrc(::grpc::ServerContext* /*context*/, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest* /*request*/, ::capture::service::v1::ImagesWithAreaAndSrcReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* ReadAllWithBinaryAndCalAreaAndSrc(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -937,12 +1457,39 @@ class Capture final {
     virtual ::grpc::Status StreamedReadOneWithBinary(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::capture::service::v1::ReadOneWithBinaryRequest,::capture::service::v1::ImageReply>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
+  class WithStreamedUnaryMethod_ReadOneWithBinaryAndSrc : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_ReadOneWithBinaryAndSrc() {
+      ::grpc::Service::MarkMethodStreamed(3,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::capture::service::v1::ReadOneWithBinaryAndSrcRequest, ::capture::service::v1::ImageWithSrcReply>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::capture::service::v1::ReadOneWithBinaryAndSrcRequest, ::capture::service::v1::ImageWithSrcReply>* streamer) {
+                       return this->StreamedReadOneWithBinaryAndSrc(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_ReadOneWithBinaryAndSrc() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status ReadOneWithBinaryAndSrc(::grpc::ServerContext* /*context*/, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest* /*request*/, ::capture::service::v1::ImageWithSrcReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedReadOneWithBinaryAndSrc(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::capture::service::v1::ReadOneWithBinaryAndSrcRequest,::capture::service::v1::ImageWithSrcReply>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_ReadAllWithBinary : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_ReadAllWithBinary() {
-      ::grpc::Service::MarkMethodStreamed(3,
+      ::grpc::Service::MarkMethodStreamed(4,
         new ::grpc::internal::StreamedUnaryHandler<
           ::capture::service::v1::ReadAllWithBinaryRequest, ::capture::service::v1::ImagesReply>(
             [this](::grpc::ServerContext* context,
@@ -964,12 +1511,39 @@ class Capture final {
     virtual ::grpc::Status StreamedReadAllWithBinary(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::capture::service::v1::ReadAllWithBinaryRequest,::capture::service::v1::ImagesReply>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
+  class WithStreamedUnaryMethod_ReadAllWithBinaryAndSrc : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_ReadAllWithBinaryAndSrc() {
+      ::grpc::Service::MarkMethodStreamed(5,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::capture::service::v1::ReadAllWithBinaryAndSrcRequest, ::capture::service::v1::ImagesWithSrcReply>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::capture::service::v1::ReadAllWithBinaryAndSrcRequest, ::capture::service::v1::ImagesWithSrcReply>* streamer) {
+                       return this->StreamedReadAllWithBinaryAndSrc(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_ReadAllWithBinaryAndSrc() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status ReadAllWithBinaryAndSrc(::grpc::ServerContext* /*context*/, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest* /*request*/, ::capture::service::v1::ImagesWithSrcReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedReadAllWithBinaryAndSrc(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::capture::service::v1::ReadAllWithBinaryAndSrcRequest,::capture::service::v1::ImagesWithSrcReply>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_ReadOneWithBinaryAndCalArea : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_ReadOneWithBinaryAndCalArea() {
-      ::grpc::Service::MarkMethodStreamed(4,
+      ::grpc::Service::MarkMethodStreamed(6,
         new ::grpc::internal::StreamedUnaryHandler<
           ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest, ::capture::service::v1::ImageWithAreaReply>(
             [this](::grpc::ServerContext* context,
@@ -991,12 +1565,39 @@ class Capture final {
     virtual ::grpc::Status StreamedReadOneWithBinaryAndCalArea(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest,::capture::service::v1::ImageWithAreaReply>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
+  class WithStreamedUnaryMethod_ReadOneWithBinaryAndCalAreaAndSrc : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_ReadOneWithBinaryAndCalAreaAndSrc() {
+      ::grpc::Service::MarkMethodStreamed(7,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest, ::capture::service::v1::ImageWithAreaAndSrcReply>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest, ::capture::service::v1::ImageWithAreaAndSrcReply>* streamer) {
+                       return this->StreamedReadOneWithBinaryAndCalAreaAndSrc(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_ReadOneWithBinaryAndCalAreaAndSrc() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status ReadOneWithBinaryAndCalAreaAndSrc(::grpc::ServerContext* /*context*/, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest* /*request*/, ::capture::service::v1::ImageWithAreaAndSrcReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedReadOneWithBinaryAndCalAreaAndSrc(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest,::capture::service::v1::ImageWithAreaAndSrcReply>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_ReadAllWithBinaryAndCalArea : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_ReadAllWithBinaryAndCalArea() {
-      ::grpc::Service::MarkMethodStreamed(5,
+      ::grpc::Service::MarkMethodStreamed(8,
         new ::grpc::internal::StreamedUnaryHandler<
           ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest, ::capture::service::v1::ImagesWithAreaReply>(
             [this](::grpc::ServerContext* context,
@@ -1017,9 +1618,36 @@ class Capture final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedReadAllWithBinaryAndCalArea(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest,::capture::service::v1::ImagesWithAreaReply>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_ReadOne<WithStreamedUnaryMethod_ReadAll<WithStreamedUnaryMethod_ReadOneWithBinary<WithStreamedUnaryMethod_ReadAllWithBinary<WithStreamedUnaryMethod_ReadOneWithBinaryAndCalArea<WithStreamedUnaryMethod_ReadAllWithBinaryAndCalArea<Service > > > > > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_ReadAllWithBinaryAndCalAreaAndSrc : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_ReadAllWithBinaryAndCalAreaAndSrc() {
+      ::grpc::Service::MarkMethodStreamed(9,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest, ::capture::service::v1::ImagesWithAreaAndSrcReply>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest, ::capture::service::v1::ImagesWithAreaAndSrcReply>* streamer) {
+                       return this->StreamedReadAllWithBinaryAndCalAreaAndSrc(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_ReadAllWithBinaryAndCalAreaAndSrc() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status ReadAllWithBinaryAndCalAreaAndSrc(::grpc::ServerContext* /*context*/, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest* /*request*/, ::capture::service::v1::ImagesWithAreaAndSrcReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedReadAllWithBinaryAndCalAreaAndSrc(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest,::capture::service::v1::ImagesWithAreaAndSrcReply>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_ReadOne<WithStreamedUnaryMethod_ReadAll<WithStreamedUnaryMethod_ReadOneWithBinary<WithStreamedUnaryMethod_ReadOneWithBinaryAndSrc<WithStreamedUnaryMethod_ReadAllWithBinary<WithStreamedUnaryMethod_ReadAllWithBinaryAndSrc<WithStreamedUnaryMethod_ReadOneWithBinaryAndCalArea<WithStreamedUnaryMethod_ReadOneWithBinaryAndCalAreaAndSrc<WithStreamedUnaryMethod_ReadAllWithBinaryAndCalArea<WithStreamedUnaryMethod_ReadAllWithBinaryAndCalAreaAndSrc<Service > > > > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_ReadOne<WithStreamedUnaryMethod_ReadAll<WithStreamedUnaryMethod_ReadOneWithBinary<WithStreamedUnaryMethod_ReadAllWithBinary<WithStreamedUnaryMethod_ReadOneWithBinaryAndCalArea<WithStreamedUnaryMethod_ReadAllWithBinaryAndCalArea<Service > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_ReadOne<WithStreamedUnaryMethod_ReadAll<WithStreamedUnaryMethod_ReadOneWithBinary<WithStreamedUnaryMethod_ReadOneWithBinaryAndSrc<WithStreamedUnaryMethod_ReadAllWithBinary<WithStreamedUnaryMethod_ReadAllWithBinaryAndSrc<WithStreamedUnaryMethod_ReadOneWithBinaryAndCalArea<WithStreamedUnaryMethod_ReadOneWithBinaryAndCalAreaAndSrc<WithStreamedUnaryMethod_ReadAllWithBinaryAndCalArea<WithStreamedUnaryMethod_ReadAllWithBinaryAndCalAreaAndSrc<Service > > > > > > > > > > StreamedService;
 };
 
 }  // namespace v1

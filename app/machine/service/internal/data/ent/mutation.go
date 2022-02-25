@@ -43,8 +43,10 @@ type CaptureLogMutation struct {
 	addpixels     *int64
 	area          *float64
 	addarea       *float64
-	image_name    *string
-	oss_url       *string
+	src_name      *string
+	proc_name     *string
+	src_oss_url   *string
+	proc_oss_url  *string
 	created_at    *time.Time
 	updated_at    *time.Time
 	clearedFields map[string]struct{}
@@ -325,76 +327,148 @@ func (m *CaptureLogMutation) ResetArea() {
 	m.addarea = nil
 }
 
-// SetImageName sets the "image_name" field.
-func (m *CaptureLogMutation) SetImageName(s string) {
-	m.image_name = &s
+// SetSrcName sets the "src_name" field.
+func (m *CaptureLogMutation) SetSrcName(s string) {
+	m.src_name = &s
 }
 
-// ImageName returns the value of the "image_name" field in the mutation.
-func (m *CaptureLogMutation) ImageName() (r string, exists bool) {
-	v := m.image_name
+// SrcName returns the value of the "src_name" field in the mutation.
+func (m *CaptureLogMutation) SrcName() (r string, exists bool) {
+	v := m.src_name
 	if v == nil {
 		return
 	}
 	return *v, true
 }
 
-// OldImageName returns the old "image_name" field's value of the CaptureLog entity.
+// OldSrcName returns the old "src_name" field's value of the CaptureLog entity.
 // If the CaptureLog object wasn't provided to the builder, the object is fetched from the database.
 // An error is returned if the mutation operation is not UpdateOne, or the database query fails.
-func (m *CaptureLogMutation) OldImageName(ctx context.Context) (v string, err error) {
+func (m *CaptureLogMutation) OldSrcName(ctx context.Context) (v string, err error) {
 	if !m.op.Is(OpUpdateOne) {
-		return v, errors.New("OldImageName is only allowed on UpdateOne operations")
+		return v, errors.New("OldSrcName is only allowed on UpdateOne operations")
 	}
 	if m.id == nil || m.oldValue == nil {
-		return v, errors.New("OldImageName requires an ID field in the mutation")
+		return v, errors.New("OldSrcName requires an ID field in the mutation")
 	}
 	oldValue, err := m.oldValue(ctx)
 	if err != nil {
-		return v, fmt.Errorf("querying old value for OldImageName: %w", err)
+		return v, fmt.Errorf("querying old value for OldSrcName: %w", err)
 	}
-	return oldValue.ImageName, nil
+	return oldValue.SrcName, nil
 }
 
-// ResetImageName resets all changes to the "image_name" field.
-func (m *CaptureLogMutation) ResetImageName() {
-	m.image_name = nil
+// ResetSrcName resets all changes to the "src_name" field.
+func (m *CaptureLogMutation) ResetSrcName() {
+	m.src_name = nil
 }
 
-// SetOssURL sets the "oss_url" field.
-func (m *CaptureLogMutation) SetOssURL(s string) {
-	m.oss_url = &s
+// SetProcName sets the "proc_name" field.
+func (m *CaptureLogMutation) SetProcName(s string) {
+	m.proc_name = &s
 }
 
-// OssURL returns the value of the "oss_url" field in the mutation.
-func (m *CaptureLogMutation) OssURL() (r string, exists bool) {
-	v := m.oss_url
+// ProcName returns the value of the "proc_name" field in the mutation.
+func (m *CaptureLogMutation) ProcName() (r string, exists bool) {
+	v := m.proc_name
 	if v == nil {
 		return
 	}
 	return *v, true
 }
 
-// OldOssURL returns the old "oss_url" field's value of the CaptureLog entity.
+// OldProcName returns the old "proc_name" field's value of the CaptureLog entity.
 // If the CaptureLog object wasn't provided to the builder, the object is fetched from the database.
 // An error is returned if the mutation operation is not UpdateOne, or the database query fails.
-func (m *CaptureLogMutation) OldOssURL(ctx context.Context) (v string, err error) {
+func (m *CaptureLogMutation) OldProcName(ctx context.Context) (v string, err error) {
 	if !m.op.Is(OpUpdateOne) {
-		return v, errors.New("OldOssURL is only allowed on UpdateOne operations")
+		return v, errors.New("OldProcName is only allowed on UpdateOne operations")
 	}
 	if m.id == nil || m.oldValue == nil {
-		return v, errors.New("OldOssURL requires an ID field in the mutation")
+		return v, errors.New("OldProcName requires an ID field in the mutation")
 	}
 	oldValue, err := m.oldValue(ctx)
 	if err != nil {
-		return v, fmt.Errorf("querying old value for OldOssURL: %w", err)
+		return v, fmt.Errorf("querying old value for OldProcName: %w", err)
 	}
-	return oldValue.OssURL, nil
+	return oldValue.ProcName, nil
 }
 
-// ResetOssURL resets all changes to the "oss_url" field.
-func (m *CaptureLogMutation) ResetOssURL() {
-	m.oss_url = nil
+// ResetProcName resets all changes to the "proc_name" field.
+func (m *CaptureLogMutation) ResetProcName() {
+	m.proc_name = nil
+}
+
+// SetSrcOssURL sets the "src_oss_url" field.
+func (m *CaptureLogMutation) SetSrcOssURL(s string) {
+	m.src_oss_url = &s
+}
+
+// SrcOssURL returns the value of the "src_oss_url" field in the mutation.
+func (m *CaptureLogMutation) SrcOssURL() (r string, exists bool) {
+	v := m.src_oss_url
+	if v == nil {
+		return
+	}
+	return *v, true
+}
+
+// OldSrcOssURL returns the old "src_oss_url" field's value of the CaptureLog entity.
+// If the CaptureLog object wasn't provided to the builder, the object is fetched from the database.
+// An error is returned if the mutation operation is not UpdateOne, or the database query fails.
+func (m *CaptureLogMutation) OldSrcOssURL(ctx context.Context) (v string, err error) {
+	if !m.op.Is(OpUpdateOne) {
+		return v, errors.New("OldSrcOssURL is only allowed on UpdateOne operations")
+	}
+	if m.id == nil || m.oldValue == nil {
+		return v, errors.New("OldSrcOssURL requires an ID field in the mutation")
+	}
+	oldValue, err := m.oldValue(ctx)
+	if err != nil {
+		return v, fmt.Errorf("querying old value for OldSrcOssURL: %w", err)
+	}
+	return oldValue.SrcOssURL, nil
+}
+
+// ResetSrcOssURL resets all changes to the "src_oss_url" field.
+func (m *CaptureLogMutation) ResetSrcOssURL() {
+	m.src_oss_url = nil
+}
+
+// SetProcOssURL sets the "proc_oss_url" field.
+func (m *CaptureLogMutation) SetProcOssURL(s string) {
+	m.proc_oss_url = &s
+}
+
+// ProcOssURL returns the value of the "proc_oss_url" field in the mutation.
+func (m *CaptureLogMutation) ProcOssURL() (r string, exists bool) {
+	v := m.proc_oss_url
+	if v == nil {
+		return
+	}
+	return *v, true
+}
+
+// OldProcOssURL returns the old "proc_oss_url" field's value of the CaptureLog entity.
+// If the CaptureLog object wasn't provided to the builder, the object is fetched from the database.
+// An error is returned if the mutation operation is not UpdateOne, or the database query fails.
+func (m *CaptureLogMutation) OldProcOssURL(ctx context.Context) (v string, err error) {
+	if !m.op.Is(OpUpdateOne) {
+		return v, errors.New("OldProcOssURL is only allowed on UpdateOne operations")
+	}
+	if m.id == nil || m.oldValue == nil {
+		return v, errors.New("OldProcOssURL requires an ID field in the mutation")
+	}
+	oldValue, err := m.oldValue(ctx)
+	if err != nil {
+		return v, fmt.Errorf("querying old value for OldProcOssURL: %w", err)
+	}
+	return oldValue.ProcOssURL, nil
+}
+
+// ResetProcOssURL resets all changes to the "proc_oss_url" field.
+func (m *CaptureLogMutation) ResetProcOssURL() {
+	m.proc_oss_url = nil
 }
 
 // SetCreatedAt sets the "created_at" field.
@@ -488,7 +562,7 @@ func (m *CaptureLogMutation) Type() string {
 // order to get all numeric fields that were incremented/decremented, call
 // AddedFields().
 func (m *CaptureLogMutation) Fields() []string {
-	fields := make([]string, 0, 7)
+	fields := make([]string, 0, 9)
 	if m.machine_id != nil {
 		fields = append(fields, capturelog.FieldMachineID)
 	}
@@ -498,11 +572,17 @@ func (m *CaptureLogMutation) Fields() []string {
 	if m.area != nil {
 		fields = append(fields, capturelog.FieldArea)
 	}
-	if m.image_name != nil {
-		fields = append(fields, capturelog.FieldImageName)
+	if m.src_name != nil {
+		fields = append(fields, capturelog.FieldSrcName)
 	}
-	if m.oss_url != nil {
-		fields = append(fields, capturelog.FieldOssURL)
+	if m.proc_name != nil {
+		fields = append(fields, capturelog.FieldProcName)
+	}
+	if m.src_oss_url != nil {
+		fields = append(fields, capturelog.FieldSrcOssURL)
+	}
+	if m.proc_oss_url != nil {
+		fields = append(fields, capturelog.FieldProcOssURL)
 	}
 	if m.created_at != nil {
 		fields = append(fields, capturelog.FieldCreatedAt)
@@ -524,10 +604,14 @@ func (m *CaptureLogMutation) Field(name string) (ent.Value, bool) {
 		return m.Pixels()
 	case capturelog.FieldArea:
 		return m.Area()
-	case capturelog.FieldImageName:
-		return m.ImageName()
-	case capturelog.FieldOssURL:
-		return m.OssURL()
+	case capturelog.FieldSrcName:
+		return m.SrcName()
+	case capturelog.FieldProcName:
+		return m.ProcName()
+	case capturelog.FieldSrcOssURL:
+		return m.SrcOssURL()
+	case capturelog.FieldProcOssURL:
+		return m.ProcOssURL()
 	case capturelog.FieldCreatedAt:
 		return m.CreatedAt()
 	case capturelog.FieldUpdatedAt:
@@ -547,10 +631,14 @@ func (m *CaptureLogMutation) OldField(ctx context.Context, name string) (ent.Val
 		return m.OldPixels(ctx)
 	case capturelog.FieldArea:
 		return m.OldArea(ctx)
-	case capturelog.FieldImageName:
-		return m.OldImageName(ctx)
-	case capturelog.FieldOssURL:
-		return m.OldOssURL(ctx)
+	case capturelog.FieldSrcName:
+		return m.OldSrcName(ctx)
+	case capturelog.FieldProcName:
+		return m.OldProcName(ctx)
+	case capturelog.FieldSrcOssURL:
+		return m.OldSrcOssURL(ctx)
+	case capturelog.FieldProcOssURL:
+		return m.OldProcOssURL(ctx)
 	case capturelog.FieldCreatedAt:
 		return m.OldCreatedAt(ctx)
 	case capturelog.FieldUpdatedAt:
@@ -585,19 +673,33 @@ func (m *CaptureLogMutation) SetField(name string, value ent.Value) error {
 		}
 		m.SetArea(v)
 		return nil
-	case capturelog.FieldImageName:
+	case capturelog.FieldSrcName:
 		v, ok := value.(string)
 		if !ok {
 			return fmt.Errorf("unexpected type %T for field %s", value, name)
 		}
-		m.SetImageName(v)
+		m.SetSrcName(v)
 		return nil
-	case capturelog.FieldOssURL:
+	case capturelog.FieldProcName:
 		v, ok := value.(string)
 		if !ok {
 			return fmt.Errorf("unexpected type %T for field %s", value, name)
 		}
-		m.SetOssURL(v)
+		m.SetProcName(v)
+		return nil
+	case capturelog.FieldSrcOssURL:
+		v, ok := value.(string)
+		if !ok {
+			return fmt.Errorf("unexpected type %T for field %s", value, name)
+		}
+		m.SetSrcOssURL(v)
+		return nil
+	case capturelog.FieldProcOssURL:
+		v, ok := value.(string)
+		if !ok {
+			return fmt.Errorf("unexpected type %T for field %s", value, name)
+		}
+		m.SetProcOssURL(v)
 		return nil
 	case capturelog.FieldCreatedAt:
 		v, ok := value.(time.Time)
@@ -710,11 +812,17 @@ func (m *CaptureLogMutation) ResetField(name string) error {
 	case capturelog.FieldArea:
 		m.ResetArea()
 		return nil
-	case capturelog.FieldImageName:
-		m.ResetImageName()
+	case capturelog.FieldSrcName:
+		m.ResetSrcName()
 		return nil
-	case capturelog.FieldOssURL:
-		m.ResetOssURL()
+	case capturelog.FieldProcName:
+		m.ResetProcName()
+		return nil
+	case capturelog.FieldSrcOssURL:
+		m.ResetSrcOssURL()
+		return nil
+	case capturelog.FieldProcOssURL:
+		m.ResetProcOssURL()
 		return nil
 	case capturelog.FieldCreatedAt:
 		m.ResetCreatedAt()

@@ -47,7 +47,7 @@ struct TableStruct_capture_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[12]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[22]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -63,33 +63,63 @@ extern ImageDefaultTypeInternal _Image_default_instance_;
 class ImageReply;
 struct ImageReplyDefaultTypeInternal;
 extern ImageReplyDefaultTypeInternal _ImageReply_default_instance_;
+class ImageSrc;
+struct ImageSrcDefaultTypeInternal;
+extern ImageSrcDefaultTypeInternal _ImageSrc_default_instance_;
+class ImageWithAreaAndSrcReply;
+struct ImageWithAreaAndSrcReplyDefaultTypeInternal;
+extern ImageWithAreaAndSrcReplyDefaultTypeInternal _ImageWithAreaAndSrcReply_default_instance_;
 class ImageWithAreaReply;
 struct ImageWithAreaReplyDefaultTypeInternal;
 extern ImageWithAreaReplyDefaultTypeInternal _ImageWithAreaReply_default_instance_;
+class ImageWithSrcReply;
+struct ImageWithSrcReplyDefaultTypeInternal;
+extern ImageWithSrcReplyDefaultTypeInternal _ImageWithSrcReply_default_instance_;
 class ImagesReply;
 struct ImagesReplyDefaultTypeInternal;
 extern ImagesReplyDefaultTypeInternal _ImagesReply_default_instance_;
+class ImagesWithAreaAndSrcReply;
+struct ImagesWithAreaAndSrcReplyDefaultTypeInternal;
+extern ImagesWithAreaAndSrcReplyDefaultTypeInternal _ImagesWithAreaAndSrcReply_default_instance_;
+class ImagesWithAreaAndSrcReply_Data;
+struct ImagesWithAreaAndSrcReply_DataDefaultTypeInternal;
+extern ImagesWithAreaAndSrcReply_DataDefaultTypeInternal _ImagesWithAreaAndSrcReply_Data_default_instance_;
 class ImagesWithAreaReply;
 struct ImagesWithAreaReplyDefaultTypeInternal;
 extern ImagesWithAreaReplyDefaultTypeInternal _ImagesWithAreaReply_default_instance_;
 class ImagesWithAreaReply_Data;
 struct ImagesWithAreaReply_DataDefaultTypeInternal;
 extern ImagesWithAreaReply_DataDefaultTypeInternal _ImagesWithAreaReply_Data_default_instance_;
+class ImagesWithSrcReply;
+struct ImagesWithSrcReplyDefaultTypeInternal;
+extern ImagesWithSrcReplyDefaultTypeInternal _ImagesWithSrcReply_default_instance_;
 class ReadAllRequest;
 struct ReadAllRequestDefaultTypeInternal;
 extern ReadAllRequestDefaultTypeInternal _ReadAllRequest_default_instance_;
+class ReadAllWithBinaryAndCalAreaAndSrcRequest;
+struct ReadAllWithBinaryAndCalAreaAndSrcRequestDefaultTypeInternal;
+extern ReadAllWithBinaryAndCalAreaAndSrcRequestDefaultTypeInternal _ReadAllWithBinaryAndCalAreaAndSrcRequest_default_instance_;
 class ReadAllWithBinaryAndCalAreaRequest;
 struct ReadAllWithBinaryAndCalAreaRequestDefaultTypeInternal;
 extern ReadAllWithBinaryAndCalAreaRequestDefaultTypeInternal _ReadAllWithBinaryAndCalAreaRequest_default_instance_;
+class ReadAllWithBinaryAndSrcRequest;
+struct ReadAllWithBinaryAndSrcRequestDefaultTypeInternal;
+extern ReadAllWithBinaryAndSrcRequestDefaultTypeInternal _ReadAllWithBinaryAndSrcRequest_default_instance_;
 class ReadAllWithBinaryRequest;
 struct ReadAllWithBinaryRequestDefaultTypeInternal;
 extern ReadAllWithBinaryRequestDefaultTypeInternal _ReadAllWithBinaryRequest_default_instance_;
 class ReadOneRequest;
 struct ReadOneRequestDefaultTypeInternal;
 extern ReadOneRequestDefaultTypeInternal _ReadOneRequest_default_instance_;
+class ReadOneWithBinaryAndCalAreaAndSrcRequest;
+struct ReadOneWithBinaryAndCalAreaAndSrcRequestDefaultTypeInternal;
+extern ReadOneWithBinaryAndCalAreaAndSrcRequestDefaultTypeInternal _ReadOneWithBinaryAndCalAreaAndSrcRequest_default_instance_;
 class ReadOneWithBinaryAndCalAreaRequest;
 struct ReadOneWithBinaryAndCalAreaRequestDefaultTypeInternal;
 extern ReadOneWithBinaryAndCalAreaRequestDefaultTypeInternal _ReadOneWithBinaryAndCalAreaRequest_default_instance_;
+class ReadOneWithBinaryAndSrcRequest;
+struct ReadOneWithBinaryAndSrcRequestDefaultTypeInternal;
+extern ReadOneWithBinaryAndSrcRequestDefaultTypeInternal _ReadOneWithBinaryAndSrcRequest_default_instance_;
 class ReadOneWithBinaryRequest;
 struct ReadOneWithBinaryRequestDefaultTypeInternal;
 extern ReadOneWithBinaryRequestDefaultTypeInternal _ReadOneWithBinaryRequest_default_instance_;
@@ -99,15 +129,25 @@ extern ReadOneWithBinaryRequestDefaultTypeInternal _ReadOneWithBinaryRequest_def
 PROTOBUF_NAMESPACE_OPEN
 template<> ::capture::service::v1::Image* Arena::CreateMaybeMessage<::capture::service::v1::Image>(Arena*);
 template<> ::capture::service::v1::ImageReply* Arena::CreateMaybeMessage<::capture::service::v1::ImageReply>(Arena*);
+template<> ::capture::service::v1::ImageSrc* Arena::CreateMaybeMessage<::capture::service::v1::ImageSrc>(Arena*);
+template<> ::capture::service::v1::ImageWithAreaAndSrcReply* Arena::CreateMaybeMessage<::capture::service::v1::ImageWithAreaAndSrcReply>(Arena*);
 template<> ::capture::service::v1::ImageWithAreaReply* Arena::CreateMaybeMessage<::capture::service::v1::ImageWithAreaReply>(Arena*);
+template<> ::capture::service::v1::ImageWithSrcReply* Arena::CreateMaybeMessage<::capture::service::v1::ImageWithSrcReply>(Arena*);
 template<> ::capture::service::v1::ImagesReply* Arena::CreateMaybeMessage<::capture::service::v1::ImagesReply>(Arena*);
+template<> ::capture::service::v1::ImagesWithAreaAndSrcReply* Arena::CreateMaybeMessage<::capture::service::v1::ImagesWithAreaAndSrcReply>(Arena*);
+template<> ::capture::service::v1::ImagesWithAreaAndSrcReply_Data* Arena::CreateMaybeMessage<::capture::service::v1::ImagesWithAreaAndSrcReply_Data>(Arena*);
 template<> ::capture::service::v1::ImagesWithAreaReply* Arena::CreateMaybeMessage<::capture::service::v1::ImagesWithAreaReply>(Arena*);
 template<> ::capture::service::v1::ImagesWithAreaReply_Data* Arena::CreateMaybeMessage<::capture::service::v1::ImagesWithAreaReply_Data>(Arena*);
+template<> ::capture::service::v1::ImagesWithSrcReply* Arena::CreateMaybeMessage<::capture::service::v1::ImagesWithSrcReply>(Arena*);
 template<> ::capture::service::v1::ReadAllRequest* Arena::CreateMaybeMessage<::capture::service::v1::ReadAllRequest>(Arena*);
+template<> ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest* Arena::CreateMaybeMessage<::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest>(Arena*);
 template<> ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest* Arena::CreateMaybeMessage<::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest>(Arena*);
+template<> ::capture::service::v1::ReadAllWithBinaryAndSrcRequest* Arena::CreateMaybeMessage<::capture::service::v1::ReadAllWithBinaryAndSrcRequest>(Arena*);
 template<> ::capture::service::v1::ReadAllWithBinaryRequest* Arena::CreateMaybeMessage<::capture::service::v1::ReadAllWithBinaryRequest>(Arena*);
 template<> ::capture::service::v1::ReadOneRequest* Arena::CreateMaybeMessage<::capture::service::v1::ReadOneRequest>(Arena*);
+template<> ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest* Arena::CreateMaybeMessage<::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest>(Arena*);
 template<> ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest* Arena::CreateMaybeMessage<::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest>(Arena*);
+template<> ::capture::service::v1::ReadOneWithBinaryAndSrcRequest* Arena::CreateMaybeMessage<::capture::service::v1::ReadOneWithBinaryAndSrcRequest>(Arena*);
 template<> ::capture::service::v1::ReadOneWithBinaryRequest* Arena::CreateMaybeMessage<::capture::service::v1::ReadOneWithBinaryRequest>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace capture {
@@ -526,6 +566,152 @@ class ReadOneWithBinaryRequest final :
 };
 // -------------------------------------------------------------------
 
+class ReadOneWithBinaryAndSrcRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:capture.service.v1.ReadOneWithBinaryAndSrcRequest) */ {
+ public:
+  inline ReadOneWithBinaryAndSrcRequest() : ReadOneWithBinaryAndSrcRequest(nullptr) {}
+  ~ReadOneWithBinaryAndSrcRequest() override;
+  explicit constexpr ReadOneWithBinaryAndSrcRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ReadOneWithBinaryAndSrcRequest(const ReadOneWithBinaryAndSrcRequest& from);
+  ReadOneWithBinaryAndSrcRequest(ReadOneWithBinaryAndSrcRequest&& from) noexcept
+    : ReadOneWithBinaryAndSrcRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline ReadOneWithBinaryAndSrcRequest& operator=(const ReadOneWithBinaryAndSrcRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ReadOneWithBinaryAndSrcRequest& operator=(ReadOneWithBinaryAndSrcRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ReadOneWithBinaryAndSrcRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ReadOneWithBinaryAndSrcRequest* internal_default_instance() {
+    return reinterpret_cast<const ReadOneWithBinaryAndSrcRequest*>(
+               &_ReadOneWithBinaryAndSrcRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(ReadOneWithBinaryAndSrcRequest& a, ReadOneWithBinaryAndSrcRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ReadOneWithBinaryAndSrcRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ReadOneWithBinaryAndSrcRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ReadOneWithBinaryAndSrcRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ReadOneWithBinaryAndSrcRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ReadOneWithBinaryAndSrcRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const ReadOneWithBinaryAndSrcRequest& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ReadOneWithBinaryAndSrcRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "capture.service.v1.ReadOneWithBinaryAndSrcRequest";
+  }
+  protected:
+  explicit ReadOneWithBinaryAndSrcRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kIdFieldNumber = 1,
+  };
+  // int64 id = 1;
+  void clear_id();
+  int64_t id() const;
+  void set_id(int64_t value);
+  private:
+  int64_t _internal_id() const;
+  void _internal_set_id(int64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:capture.service.v1.ReadOneWithBinaryAndSrcRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  int64_t id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_capture_2eproto;
+};
+// -------------------------------------------------------------------
+
 class ReadAllWithBinaryRequest final :
     public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:capture.service.v1.ReadAllWithBinaryRequest) */ {
  public:
@@ -573,7 +759,7 @@ class ReadAllWithBinaryRequest final :
                &_ReadAllWithBinaryRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(ReadAllWithBinaryRequest& a, ReadAllWithBinaryRequest& b) {
     a.Swap(&b);
@@ -644,6 +830,124 @@ class ReadAllWithBinaryRequest final :
 };
 // -------------------------------------------------------------------
 
+class ReadAllWithBinaryAndSrcRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:capture.service.v1.ReadAllWithBinaryAndSrcRequest) */ {
+ public:
+  inline ReadAllWithBinaryAndSrcRequest() : ReadAllWithBinaryAndSrcRequest(nullptr) {}
+  explicit constexpr ReadAllWithBinaryAndSrcRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ReadAllWithBinaryAndSrcRequest(const ReadAllWithBinaryAndSrcRequest& from);
+  ReadAllWithBinaryAndSrcRequest(ReadAllWithBinaryAndSrcRequest&& from) noexcept
+    : ReadAllWithBinaryAndSrcRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline ReadAllWithBinaryAndSrcRequest& operator=(const ReadAllWithBinaryAndSrcRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ReadAllWithBinaryAndSrcRequest& operator=(ReadAllWithBinaryAndSrcRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ReadAllWithBinaryAndSrcRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ReadAllWithBinaryAndSrcRequest* internal_default_instance() {
+    return reinterpret_cast<const ReadAllWithBinaryAndSrcRequest*>(
+               &_ReadAllWithBinaryAndSrcRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  friend void swap(ReadAllWithBinaryAndSrcRequest& a, ReadAllWithBinaryAndSrcRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ReadAllWithBinaryAndSrcRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ReadAllWithBinaryAndSrcRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ReadAllWithBinaryAndSrcRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ReadAllWithBinaryAndSrcRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const ReadAllWithBinaryAndSrcRequest& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(this, from);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const ReadAllWithBinaryAndSrcRequest& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(this, from);
+  }
+  public:
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "capture.service.v1.ReadAllWithBinaryAndSrcRequest";
+  }
+  protected:
+  explicit ReadAllWithBinaryAndSrcRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:capture.service.v1.ReadAllWithBinaryAndSrcRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_capture_2eproto;
+};
+// -------------------------------------------------------------------
+
 class ReadOneWithBinaryAndCalAreaRequest final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:capture.service.v1.ReadOneWithBinaryAndCalAreaRequest) */ {
  public:
@@ -692,7 +996,7 @@ class ReadOneWithBinaryAndCalAreaRequest final :
                &_ReadOneWithBinaryAndCalAreaRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    6;
 
   friend void swap(ReadOneWithBinaryAndCalAreaRequest& a, ReadOneWithBinaryAndCalAreaRequest& b) {
     a.Swap(&b);
@@ -790,6 +1094,152 @@ class ReadOneWithBinaryAndCalAreaRequest final :
 };
 // -------------------------------------------------------------------
 
+class ReadOneWithBinaryAndCalAreaAndSrcRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:capture.service.v1.ReadOneWithBinaryAndCalAreaAndSrcRequest) */ {
+ public:
+  inline ReadOneWithBinaryAndCalAreaAndSrcRequest() : ReadOneWithBinaryAndCalAreaAndSrcRequest(nullptr) {}
+  ~ReadOneWithBinaryAndCalAreaAndSrcRequest() override;
+  explicit constexpr ReadOneWithBinaryAndCalAreaAndSrcRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ReadOneWithBinaryAndCalAreaAndSrcRequest(const ReadOneWithBinaryAndCalAreaAndSrcRequest& from);
+  ReadOneWithBinaryAndCalAreaAndSrcRequest(ReadOneWithBinaryAndCalAreaAndSrcRequest&& from) noexcept
+    : ReadOneWithBinaryAndCalAreaAndSrcRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline ReadOneWithBinaryAndCalAreaAndSrcRequest& operator=(const ReadOneWithBinaryAndCalAreaAndSrcRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ReadOneWithBinaryAndCalAreaAndSrcRequest& operator=(ReadOneWithBinaryAndCalAreaAndSrcRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ReadOneWithBinaryAndCalAreaAndSrcRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ReadOneWithBinaryAndCalAreaAndSrcRequest* internal_default_instance() {
+    return reinterpret_cast<const ReadOneWithBinaryAndCalAreaAndSrcRequest*>(
+               &_ReadOneWithBinaryAndCalAreaAndSrcRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  friend void swap(ReadOneWithBinaryAndCalAreaAndSrcRequest& a, ReadOneWithBinaryAndCalAreaAndSrcRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ReadOneWithBinaryAndCalAreaAndSrcRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ReadOneWithBinaryAndCalAreaAndSrcRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ReadOneWithBinaryAndCalAreaAndSrcRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ReadOneWithBinaryAndCalAreaAndSrcRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ReadOneWithBinaryAndCalAreaAndSrcRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const ReadOneWithBinaryAndCalAreaAndSrcRequest& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ReadOneWithBinaryAndCalAreaAndSrcRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "capture.service.v1.ReadOneWithBinaryAndCalAreaAndSrcRequest";
+  }
+  protected:
+  explicit ReadOneWithBinaryAndCalAreaAndSrcRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kIdFieldNumber = 1,
+  };
+  // int64 id = 1;
+  void clear_id();
+  int64_t id() const;
+  void set_id(int64_t value);
+  private:
+  int64_t _internal_id() const;
+  void _internal_set_id(int64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:capture.service.v1.ReadOneWithBinaryAndCalAreaAndSrcRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  int64_t id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_capture_2eproto;
+};
+// -------------------------------------------------------------------
+
 class ReadAllWithBinaryAndCalAreaRequest final :
     public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:capture.service.v1.ReadAllWithBinaryAndCalAreaRequest) */ {
  public:
@@ -837,7 +1287,7 @@ class ReadAllWithBinaryAndCalAreaRequest final :
                &_ReadAllWithBinaryAndCalAreaRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    8;
 
   friend void swap(ReadAllWithBinaryAndCalAreaRequest& a, ReadAllWithBinaryAndCalAreaRequest& b) {
     a.Swap(&b);
@@ -908,6 +1358,124 @@ class ReadAllWithBinaryAndCalAreaRequest final :
 };
 // -------------------------------------------------------------------
 
+class ReadAllWithBinaryAndCalAreaAndSrcRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:capture.service.v1.ReadAllWithBinaryAndCalAreaAndSrcRequest) */ {
+ public:
+  inline ReadAllWithBinaryAndCalAreaAndSrcRequest() : ReadAllWithBinaryAndCalAreaAndSrcRequest(nullptr) {}
+  explicit constexpr ReadAllWithBinaryAndCalAreaAndSrcRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ReadAllWithBinaryAndCalAreaAndSrcRequest(const ReadAllWithBinaryAndCalAreaAndSrcRequest& from);
+  ReadAllWithBinaryAndCalAreaAndSrcRequest(ReadAllWithBinaryAndCalAreaAndSrcRequest&& from) noexcept
+    : ReadAllWithBinaryAndCalAreaAndSrcRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline ReadAllWithBinaryAndCalAreaAndSrcRequest& operator=(const ReadAllWithBinaryAndCalAreaAndSrcRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ReadAllWithBinaryAndCalAreaAndSrcRequest& operator=(ReadAllWithBinaryAndCalAreaAndSrcRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ReadAllWithBinaryAndCalAreaAndSrcRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ReadAllWithBinaryAndCalAreaAndSrcRequest* internal_default_instance() {
+    return reinterpret_cast<const ReadAllWithBinaryAndCalAreaAndSrcRequest*>(
+               &_ReadAllWithBinaryAndCalAreaAndSrcRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  friend void swap(ReadAllWithBinaryAndCalAreaAndSrcRequest& a, ReadAllWithBinaryAndCalAreaAndSrcRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ReadAllWithBinaryAndCalAreaAndSrcRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ReadAllWithBinaryAndCalAreaAndSrcRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ReadAllWithBinaryAndCalAreaAndSrcRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ReadAllWithBinaryAndCalAreaAndSrcRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const ReadAllWithBinaryAndCalAreaAndSrcRequest& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(this, from);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const ReadAllWithBinaryAndCalAreaAndSrcRequest& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(this, from);
+  }
+  public:
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "capture.service.v1.ReadAllWithBinaryAndCalAreaAndSrcRequest";
+  }
+  protected:
+  explicit ReadAllWithBinaryAndCalAreaAndSrcRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:capture.service.v1.ReadAllWithBinaryAndCalAreaAndSrcRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_capture_2eproto;
+};
+// -------------------------------------------------------------------
+
 class ImageReply final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:capture.service.v1.ImageReply) */ {
  public:
@@ -956,7 +1524,7 @@ class ImageReply final :
                &_ImageReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    10;
 
   friend void swap(ImageReply& a, ImageReply& b) {
     a.Swap(&b);
@@ -1063,6 +1631,161 @@ class ImageReply final :
 };
 // -------------------------------------------------------------------
 
+class ImageWithSrcReply final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:capture.service.v1.ImageWithSrcReply) */ {
+ public:
+  inline ImageWithSrcReply() : ImageWithSrcReply(nullptr) {}
+  ~ImageWithSrcReply() override;
+  explicit constexpr ImageWithSrcReply(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ImageWithSrcReply(const ImageWithSrcReply& from);
+  ImageWithSrcReply(ImageWithSrcReply&& from) noexcept
+    : ImageWithSrcReply() {
+    *this = ::std::move(from);
+  }
+
+  inline ImageWithSrcReply& operator=(const ImageWithSrcReply& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ImageWithSrcReply& operator=(ImageWithSrcReply&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ImageWithSrcReply& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ImageWithSrcReply* internal_default_instance() {
+    return reinterpret_cast<const ImageWithSrcReply*>(
+               &_ImageWithSrcReply_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    11;
+
+  friend void swap(ImageWithSrcReply& a, ImageWithSrcReply& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ImageWithSrcReply* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ImageWithSrcReply* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ImageWithSrcReply* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ImageWithSrcReply>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ImageWithSrcReply& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const ImageWithSrcReply& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ImageWithSrcReply* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "capture.service.v1.ImageWithSrcReply";
+  }
+  protected:
+  explicit ImageWithSrcReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kImageSrcFieldNumber = 1,
+  };
+  // .capture.service.v1.ImageSrc image_src = 1;
+  bool has_image_src() const;
+  private:
+  bool _internal_has_image_src() const;
+  public:
+  void clear_image_src();
+  const ::capture::service::v1::ImageSrc& image_src() const;
+  PROTOBUF_NODISCARD ::capture::service::v1::ImageSrc* release_image_src();
+  ::capture::service::v1::ImageSrc* mutable_image_src();
+  void set_allocated_image_src(::capture::service::v1::ImageSrc* image_src);
+  private:
+  const ::capture::service::v1::ImageSrc& _internal_image_src() const;
+  ::capture::service::v1::ImageSrc* _internal_mutable_image_src();
+  public:
+  void unsafe_arena_set_allocated_image_src(
+      ::capture::service::v1::ImageSrc* image_src);
+  ::capture::service::v1::ImageSrc* unsafe_arena_release_image_src();
+
+  // @@protoc_insertion_point(class_scope:capture.service.v1.ImageWithSrcReply)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::capture::service::v1::ImageSrc* image_src_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_capture_2eproto;
+};
+// -------------------------------------------------------------------
+
 class ImagesReply final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:capture.service.v1.ImagesReply) */ {
  public:
@@ -1111,7 +1834,7 @@ class ImagesReply final :
                &_ImagesReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    12;
 
   friend void swap(ImagesReply& a, ImagesReply& b) {
     a.Swap(&b);
@@ -1218,6 +1941,161 @@ class ImagesReply final :
 };
 // -------------------------------------------------------------------
 
+class ImagesWithSrcReply final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:capture.service.v1.ImagesWithSrcReply) */ {
+ public:
+  inline ImagesWithSrcReply() : ImagesWithSrcReply(nullptr) {}
+  ~ImagesWithSrcReply() override;
+  explicit constexpr ImagesWithSrcReply(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ImagesWithSrcReply(const ImagesWithSrcReply& from);
+  ImagesWithSrcReply(ImagesWithSrcReply&& from) noexcept
+    : ImagesWithSrcReply() {
+    *this = ::std::move(from);
+  }
+
+  inline ImagesWithSrcReply& operator=(const ImagesWithSrcReply& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ImagesWithSrcReply& operator=(ImagesWithSrcReply&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ImagesWithSrcReply& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ImagesWithSrcReply* internal_default_instance() {
+    return reinterpret_cast<const ImagesWithSrcReply*>(
+               &_ImagesWithSrcReply_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    13;
+
+  friend void swap(ImagesWithSrcReply& a, ImagesWithSrcReply& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ImagesWithSrcReply* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ImagesWithSrcReply* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ImagesWithSrcReply* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ImagesWithSrcReply>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ImagesWithSrcReply& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const ImagesWithSrcReply& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ImagesWithSrcReply* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "capture.service.v1.ImagesWithSrcReply";
+  }
+  protected:
+  explicit ImagesWithSrcReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kImageSrcFieldNumber = 1,
+  };
+  // repeated .capture.service.v1.ImageSrc image_src = 1;
+  int image_src_size() const;
+  private:
+  int _internal_image_src_size() const;
+  public:
+  void clear_image_src();
+  ::capture::service::v1::ImageSrc* mutable_image_src(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::capture::service::v1::ImageSrc >*
+      mutable_image_src();
+  private:
+  const ::capture::service::v1::ImageSrc& _internal_image_src(int index) const;
+  ::capture::service::v1::ImageSrc* _internal_add_image_src();
+  public:
+  const ::capture::service::v1::ImageSrc& image_src(int index) const;
+  ::capture::service::v1::ImageSrc* add_image_src();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::capture::service::v1::ImageSrc >&
+      image_src() const;
+
+  // @@protoc_insertion_point(class_scope:capture.service.v1.ImagesWithSrcReply)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::capture::service::v1::ImageSrc > image_src_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_capture_2eproto;
+};
+// -------------------------------------------------------------------
+
 class ImageWithAreaReply final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:capture.service.v1.ImageWithAreaReply) */ {
  public:
@@ -1266,7 +2144,7 @@ class ImageWithAreaReply final :
                &_ImageWithAreaReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    14;
 
   friend void swap(ImageWithAreaReply& a, ImageWithAreaReply& b) {
     a.Swap(&b);
@@ -1395,6 +2273,183 @@ class ImageWithAreaReply final :
 };
 // -------------------------------------------------------------------
 
+class ImageWithAreaAndSrcReply final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:capture.service.v1.ImageWithAreaAndSrcReply) */ {
+ public:
+  inline ImageWithAreaAndSrcReply() : ImageWithAreaAndSrcReply(nullptr) {}
+  ~ImageWithAreaAndSrcReply() override;
+  explicit constexpr ImageWithAreaAndSrcReply(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ImageWithAreaAndSrcReply(const ImageWithAreaAndSrcReply& from);
+  ImageWithAreaAndSrcReply(ImageWithAreaAndSrcReply&& from) noexcept
+    : ImageWithAreaAndSrcReply() {
+    *this = ::std::move(from);
+  }
+
+  inline ImageWithAreaAndSrcReply& operator=(const ImageWithAreaAndSrcReply& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ImageWithAreaAndSrcReply& operator=(ImageWithAreaAndSrcReply&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ImageWithAreaAndSrcReply& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ImageWithAreaAndSrcReply* internal_default_instance() {
+    return reinterpret_cast<const ImageWithAreaAndSrcReply*>(
+               &_ImageWithAreaAndSrcReply_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    15;
+
+  friend void swap(ImageWithAreaAndSrcReply& a, ImageWithAreaAndSrcReply& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ImageWithAreaAndSrcReply* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ImageWithAreaAndSrcReply* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ImageWithAreaAndSrcReply* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ImageWithAreaAndSrcReply>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ImageWithAreaAndSrcReply& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const ImageWithAreaAndSrcReply& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ImageWithAreaAndSrcReply* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "capture.service.v1.ImageWithAreaAndSrcReply";
+  }
+  protected:
+  explicit ImageWithAreaAndSrcReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kImageSrcFieldNumber = 1,
+    kPixelsFieldNumber = 2,
+    kAreaFieldNumber = 3,
+  };
+  // .capture.service.v1.ImageSrc image_src = 1;
+  bool has_image_src() const;
+  private:
+  bool _internal_has_image_src() const;
+  public:
+  void clear_image_src();
+  const ::capture::service::v1::ImageSrc& image_src() const;
+  PROTOBUF_NODISCARD ::capture::service::v1::ImageSrc* release_image_src();
+  ::capture::service::v1::ImageSrc* mutable_image_src();
+  void set_allocated_image_src(::capture::service::v1::ImageSrc* image_src);
+  private:
+  const ::capture::service::v1::ImageSrc& _internal_image_src() const;
+  ::capture::service::v1::ImageSrc* _internal_mutable_image_src();
+  public:
+  void unsafe_arena_set_allocated_image_src(
+      ::capture::service::v1::ImageSrc* image_src);
+  ::capture::service::v1::ImageSrc* unsafe_arena_release_image_src();
+
+  // int64 pixels = 2;
+  void clear_pixels();
+  int64_t pixels() const;
+  void set_pixels(int64_t value);
+  private:
+  int64_t _internal_pixels() const;
+  void _internal_set_pixels(int64_t value);
+  public:
+
+  // double area = 3;
+  void clear_area();
+  double area() const;
+  void set_area(double value);
+  private:
+  double _internal_area() const;
+  void _internal_set_area(double value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:capture.service.v1.ImageWithAreaAndSrcReply)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::capture::service::v1::ImageSrc* image_src_;
+  int64_t pixels_;
+  double area_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_capture_2eproto;
+};
+// -------------------------------------------------------------------
+
 class ImagesWithAreaReply_Data final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:capture.service.v1.ImagesWithAreaReply.Data) */ {
  public:
@@ -1443,7 +2498,7 @@ class ImagesWithAreaReply_Data final :
                &_ImagesWithAreaReply_Data_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    16;
 
   friend void swap(ImagesWithAreaReply_Data& a, ImagesWithAreaReply_Data& b) {
     a.Swap(&b);
@@ -1620,7 +2675,7 @@ class ImagesWithAreaReply final :
                &_ImagesWithAreaReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    17;
 
   friend void swap(ImagesWithAreaReply& a, ImagesWithAreaReply& b) {
     a.Swap(&b);
@@ -1729,6 +2784,340 @@ class ImagesWithAreaReply final :
 };
 // -------------------------------------------------------------------
 
+class ImagesWithAreaAndSrcReply_Data final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:capture.service.v1.ImagesWithAreaAndSrcReply.Data) */ {
+ public:
+  inline ImagesWithAreaAndSrcReply_Data() : ImagesWithAreaAndSrcReply_Data(nullptr) {}
+  ~ImagesWithAreaAndSrcReply_Data() override;
+  explicit constexpr ImagesWithAreaAndSrcReply_Data(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ImagesWithAreaAndSrcReply_Data(const ImagesWithAreaAndSrcReply_Data& from);
+  ImagesWithAreaAndSrcReply_Data(ImagesWithAreaAndSrcReply_Data&& from) noexcept
+    : ImagesWithAreaAndSrcReply_Data() {
+    *this = ::std::move(from);
+  }
+
+  inline ImagesWithAreaAndSrcReply_Data& operator=(const ImagesWithAreaAndSrcReply_Data& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ImagesWithAreaAndSrcReply_Data& operator=(ImagesWithAreaAndSrcReply_Data&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ImagesWithAreaAndSrcReply_Data& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ImagesWithAreaAndSrcReply_Data* internal_default_instance() {
+    return reinterpret_cast<const ImagesWithAreaAndSrcReply_Data*>(
+               &_ImagesWithAreaAndSrcReply_Data_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    18;
+
+  friend void swap(ImagesWithAreaAndSrcReply_Data& a, ImagesWithAreaAndSrcReply_Data& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ImagesWithAreaAndSrcReply_Data* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ImagesWithAreaAndSrcReply_Data* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ImagesWithAreaAndSrcReply_Data* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ImagesWithAreaAndSrcReply_Data>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ImagesWithAreaAndSrcReply_Data& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const ImagesWithAreaAndSrcReply_Data& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ImagesWithAreaAndSrcReply_Data* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "capture.service.v1.ImagesWithAreaAndSrcReply.Data";
+  }
+  protected:
+  explicit ImagesWithAreaAndSrcReply_Data(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kImageSrcFieldNumber = 1,
+    kPixelsFieldNumber = 2,
+    kAreaFieldNumber = 3,
+  };
+  // .capture.service.v1.ImageSrc image_src = 1;
+  bool has_image_src() const;
+  private:
+  bool _internal_has_image_src() const;
+  public:
+  void clear_image_src();
+  const ::capture::service::v1::ImageSrc& image_src() const;
+  PROTOBUF_NODISCARD ::capture::service::v1::ImageSrc* release_image_src();
+  ::capture::service::v1::ImageSrc* mutable_image_src();
+  void set_allocated_image_src(::capture::service::v1::ImageSrc* image_src);
+  private:
+  const ::capture::service::v1::ImageSrc& _internal_image_src() const;
+  ::capture::service::v1::ImageSrc* _internal_mutable_image_src();
+  public:
+  void unsafe_arena_set_allocated_image_src(
+      ::capture::service::v1::ImageSrc* image_src);
+  ::capture::service::v1::ImageSrc* unsafe_arena_release_image_src();
+
+  // int64 pixels = 2;
+  void clear_pixels();
+  int64_t pixels() const;
+  void set_pixels(int64_t value);
+  private:
+  int64_t _internal_pixels() const;
+  void _internal_set_pixels(int64_t value);
+  public:
+
+  // double area = 3;
+  void clear_area();
+  double area() const;
+  void set_area(double value);
+  private:
+  double _internal_area() const;
+  void _internal_set_area(double value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:capture.service.v1.ImagesWithAreaAndSrcReply.Data)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::capture::service::v1::ImageSrc* image_src_;
+  int64_t pixels_;
+  double area_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_capture_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ImagesWithAreaAndSrcReply final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:capture.service.v1.ImagesWithAreaAndSrcReply) */ {
+ public:
+  inline ImagesWithAreaAndSrcReply() : ImagesWithAreaAndSrcReply(nullptr) {}
+  ~ImagesWithAreaAndSrcReply() override;
+  explicit constexpr ImagesWithAreaAndSrcReply(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ImagesWithAreaAndSrcReply(const ImagesWithAreaAndSrcReply& from);
+  ImagesWithAreaAndSrcReply(ImagesWithAreaAndSrcReply&& from) noexcept
+    : ImagesWithAreaAndSrcReply() {
+    *this = ::std::move(from);
+  }
+
+  inline ImagesWithAreaAndSrcReply& operator=(const ImagesWithAreaAndSrcReply& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ImagesWithAreaAndSrcReply& operator=(ImagesWithAreaAndSrcReply&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ImagesWithAreaAndSrcReply& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ImagesWithAreaAndSrcReply* internal_default_instance() {
+    return reinterpret_cast<const ImagesWithAreaAndSrcReply*>(
+               &_ImagesWithAreaAndSrcReply_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    19;
+
+  friend void swap(ImagesWithAreaAndSrcReply& a, ImagesWithAreaAndSrcReply& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ImagesWithAreaAndSrcReply* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ImagesWithAreaAndSrcReply* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ImagesWithAreaAndSrcReply* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ImagesWithAreaAndSrcReply>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ImagesWithAreaAndSrcReply& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const ImagesWithAreaAndSrcReply& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ImagesWithAreaAndSrcReply* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "capture.service.v1.ImagesWithAreaAndSrcReply";
+  }
+  protected:
+  explicit ImagesWithAreaAndSrcReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef ImagesWithAreaAndSrcReply_Data Data;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kDataFieldNumber = 1,
+  };
+  // repeated .capture.service.v1.ImagesWithAreaAndSrcReply.Data data = 1;
+  int data_size() const;
+  private:
+  int _internal_data_size() const;
+  public:
+  void clear_data();
+  ::capture::service::v1::ImagesWithAreaAndSrcReply_Data* mutable_data(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::capture::service::v1::ImagesWithAreaAndSrcReply_Data >*
+      mutable_data();
+  private:
+  const ::capture::service::v1::ImagesWithAreaAndSrcReply_Data& _internal_data(int index) const;
+  ::capture::service::v1::ImagesWithAreaAndSrcReply_Data* _internal_add_data();
+  public:
+  const ::capture::service::v1::ImagesWithAreaAndSrcReply_Data& data(int index) const;
+  ::capture::service::v1::ImagesWithAreaAndSrcReply_Data* add_data();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::capture::service::v1::ImagesWithAreaAndSrcReply_Data >&
+      data() const;
+
+  // @@protoc_insertion_point(class_scope:capture.service.v1.ImagesWithAreaAndSrcReply)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::capture::service::v1::ImagesWithAreaAndSrcReply_Data > data_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_capture_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Image final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:capture.service.v1.Image) */ {
  public:
@@ -1777,7 +3166,7 @@ class Image final :
                &_Image_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    20;
 
   friend void swap(Image& a, Image& b) {
     a.Swap(&b);
@@ -1878,6 +3267,173 @@ class Image final :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_capture_2eproto;
 };
+// -------------------------------------------------------------------
+
+class ImageSrc final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:capture.service.v1.ImageSrc) */ {
+ public:
+  inline ImageSrc() : ImageSrc(nullptr) {}
+  ~ImageSrc() override;
+  explicit constexpr ImageSrc(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ImageSrc(const ImageSrc& from);
+  ImageSrc(ImageSrc&& from) noexcept
+    : ImageSrc() {
+    *this = ::std::move(from);
+  }
+
+  inline ImageSrc& operator=(const ImageSrc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ImageSrc& operator=(ImageSrc&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ImageSrc& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ImageSrc* internal_default_instance() {
+    return reinterpret_cast<const ImageSrc*>(
+               &_ImageSrc_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    21;
+
+  friend void swap(ImageSrc& a, ImageSrc& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ImageSrc* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ImageSrc* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ImageSrc* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ImageSrc>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ImageSrc& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const ImageSrc& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ImageSrc* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "capture.service.v1.ImageSrc";
+  }
+  protected:
+  explicit ImageSrc(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kProcFieldNumber = 1,
+    kSrcFieldNumber = 2,
+  };
+  // bytes proc = 1;
+  void clear_proc();
+  const std::string& proc() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_proc(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_proc();
+  PROTOBUF_NODISCARD std::string* release_proc();
+  void set_allocated_proc(std::string* proc);
+  private:
+  const std::string& _internal_proc() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_proc(const std::string& value);
+  std::string* _internal_mutable_proc();
+  public:
+
+  // bytes src = 2;
+  void clear_src();
+  const std::string& src() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_src(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_src();
+  PROTOBUF_NODISCARD std::string* release_src();
+  void set_allocated_src(std::string* src);
+  private:
+  const std::string& _internal_src() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_src(const std::string& value);
+  std::string* _internal_mutable_src();
+  public:
+
+  // @@protoc_insertion_point(class_scope:capture.service.v1.ImageSrc)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr proc_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr src_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_capture_2eproto;
+};
 // ===================================================================
 
 
@@ -1939,7 +3495,35 @@ inline void ReadOneWithBinaryRequest::set_id(int64_t value) {
 
 // -------------------------------------------------------------------
 
+// ReadOneWithBinaryAndSrcRequest
+
+// int64 id = 1;
+inline void ReadOneWithBinaryAndSrcRequest::clear_id() {
+  id_ = int64_t{0};
+}
+inline int64_t ReadOneWithBinaryAndSrcRequest::_internal_id() const {
+  return id_;
+}
+inline int64_t ReadOneWithBinaryAndSrcRequest::id() const {
+  // @@protoc_insertion_point(field_get:capture.service.v1.ReadOneWithBinaryAndSrcRequest.id)
+  return _internal_id();
+}
+inline void ReadOneWithBinaryAndSrcRequest::_internal_set_id(int64_t value) {
+  
+  id_ = value;
+}
+inline void ReadOneWithBinaryAndSrcRequest::set_id(int64_t value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:capture.service.v1.ReadOneWithBinaryAndSrcRequest.id)
+}
+
+// -------------------------------------------------------------------
+
 // ReadAllWithBinaryRequest
+
+// -------------------------------------------------------------------
+
+// ReadAllWithBinaryAndSrcRequest
 
 // -------------------------------------------------------------------
 
@@ -1967,7 +3551,35 @@ inline void ReadOneWithBinaryAndCalAreaRequest::set_id(int64_t value) {
 
 // -------------------------------------------------------------------
 
+// ReadOneWithBinaryAndCalAreaAndSrcRequest
+
+// int64 id = 1;
+inline void ReadOneWithBinaryAndCalAreaAndSrcRequest::clear_id() {
+  id_ = int64_t{0};
+}
+inline int64_t ReadOneWithBinaryAndCalAreaAndSrcRequest::_internal_id() const {
+  return id_;
+}
+inline int64_t ReadOneWithBinaryAndCalAreaAndSrcRequest::id() const {
+  // @@protoc_insertion_point(field_get:capture.service.v1.ReadOneWithBinaryAndCalAreaAndSrcRequest.id)
+  return _internal_id();
+}
+inline void ReadOneWithBinaryAndCalAreaAndSrcRequest::_internal_set_id(int64_t value) {
+  
+  id_ = value;
+}
+inline void ReadOneWithBinaryAndCalAreaAndSrcRequest::set_id(int64_t value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:capture.service.v1.ReadOneWithBinaryAndCalAreaAndSrcRequest.id)
+}
+
+// -------------------------------------------------------------------
+
 // ReadAllWithBinaryAndCalAreaRequest
+
+// -------------------------------------------------------------------
+
+// ReadAllWithBinaryAndCalAreaAndSrcRequest
 
 // -------------------------------------------------------------------
 
@@ -2065,6 +3677,100 @@ inline void ImageReply::set_allocated_image(::capture::service::v1::Image* image
 
 // -------------------------------------------------------------------
 
+// ImageWithSrcReply
+
+// .capture.service.v1.ImageSrc image_src = 1;
+inline bool ImageWithSrcReply::_internal_has_image_src() const {
+  return this != internal_default_instance() && image_src_ != nullptr;
+}
+inline bool ImageWithSrcReply::has_image_src() const {
+  return _internal_has_image_src();
+}
+inline void ImageWithSrcReply::clear_image_src() {
+  if (GetArenaForAllocation() == nullptr && image_src_ != nullptr) {
+    delete image_src_;
+  }
+  image_src_ = nullptr;
+}
+inline const ::capture::service::v1::ImageSrc& ImageWithSrcReply::_internal_image_src() const {
+  const ::capture::service::v1::ImageSrc* p = image_src_;
+  return p != nullptr ? *p : reinterpret_cast<const ::capture::service::v1::ImageSrc&>(
+      ::capture::service::v1::_ImageSrc_default_instance_);
+}
+inline const ::capture::service::v1::ImageSrc& ImageWithSrcReply::image_src() const {
+  // @@protoc_insertion_point(field_get:capture.service.v1.ImageWithSrcReply.image_src)
+  return _internal_image_src();
+}
+inline void ImageWithSrcReply::unsafe_arena_set_allocated_image_src(
+    ::capture::service::v1::ImageSrc* image_src) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(image_src_);
+  }
+  image_src_ = image_src;
+  if (image_src) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:capture.service.v1.ImageWithSrcReply.image_src)
+}
+inline ::capture::service::v1::ImageSrc* ImageWithSrcReply::release_image_src() {
+  
+  ::capture::service::v1::ImageSrc* temp = image_src_;
+  image_src_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::capture::service::v1::ImageSrc* ImageWithSrcReply::unsafe_arena_release_image_src() {
+  // @@protoc_insertion_point(field_release:capture.service.v1.ImageWithSrcReply.image_src)
+  
+  ::capture::service::v1::ImageSrc* temp = image_src_;
+  image_src_ = nullptr;
+  return temp;
+}
+inline ::capture::service::v1::ImageSrc* ImageWithSrcReply::_internal_mutable_image_src() {
+  
+  if (image_src_ == nullptr) {
+    auto* p = CreateMaybeMessage<::capture::service::v1::ImageSrc>(GetArenaForAllocation());
+    image_src_ = p;
+  }
+  return image_src_;
+}
+inline ::capture::service::v1::ImageSrc* ImageWithSrcReply::mutable_image_src() {
+  ::capture::service::v1::ImageSrc* _msg = _internal_mutable_image_src();
+  // @@protoc_insertion_point(field_mutable:capture.service.v1.ImageWithSrcReply.image_src)
+  return _msg;
+}
+inline void ImageWithSrcReply::set_allocated_image_src(::capture::service::v1::ImageSrc* image_src) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete image_src_;
+  }
+  if (image_src) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::capture::service::v1::ImageSrc>::GetOwningArena(image_src);
+    if (message_arena != submessage_arena) {
+      image_src = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, image_src, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  image_src_ = image_src;
+  // @@protoc_insertion_point(field_set_allocated:capture.service.v1.ImageWithSrcReply.image_src)
+}
+
+// -------------------------------------------------------------------
+
 // ImagesReply
 
 // repeated .capture.service.v1.Image images = 1;
@@ -2105,6 +3811,50 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::capture::service::v1::
 ImagesReply::images() const {
   // @@protoc_insertion_point(field_list:capture.service.v1.ImagesReply.images)
   return images_;
+}
+
+// -------------------------------------------------------------------
+
+// ImagesWithSrcReply
+
+// repeated .capture.service.v1.ImageSrc image_src = 1;
+inline int ImagesWithSrcReply::_internal_image_src_size() const {
+  return image_src_.size();
+}
+inline int ImagesWithSrcReply::image_src_size() const {
+  return _internal_image_src_size();
+}
+inline void ImagesWithSrcReply::clear_image_src() {
+  image_src_.Clear();
+}
+inline ::capture::service::v1::ImageSrc* ImagesWithSrcReply::mutable_image_src(int index) {
+  // @@protoc_insertion_point(field_mutable:capture.service.v1.ImagesWithSrcReply.image_src)
+  return image_src_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::capture::service::v1::ImageSrc >*
+ImagesWithSrcReply::mutable_image_src() {
+  // @@protoc_insertion_point(field_mutable_list:capture.service.v1.ImagesWithSrcReply.image_src)
+  return &image_src_;
+}
+inline const ::capture::service::v1::ImageSrc& ImagesWithSrcReply::_internal_image_src(int index) const {
+  return image_src_.Get(index);
+}
+inline const ::capture::service::v1::ImageSrc& ImagesWithSrcReply::image_src(int index) const {
+  // @@protoc_insertion_point(field_get:capture.service.v1.ImagesWithSrcReply.image_src)
+  return _internal_image_src(index);
+}
+inline ::capture::service::v1::ImageSrc* ImagesWithSrcReply::_internal_add_image_src() {
+  return image_src_.Add();
+}
+inline ::capture::service::v1::ImageSrc* ImagesWithSrcReply::add_image_src() {
+  ::capture::service::v1::ImageSrc* _add = _internal_add_image_src();
+  // @@protoc_insertion_point(field_add:capture.service.v1.ImagesWithSrcReply.image_src)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::capture::service::v1::ImageSrc >&
+ImagesWithSrcReply::image_src() const {
+  // @@protoc_insertion_point(field_list:capture.service.v1.ImagesWithSrcReply.image_src)
+  return image_src_;
 }
 
 // -------------------------------------------------------------------
@@ -2239,6 +3989,140 @@ inline void ImageWithAreaReply::_internal_set_area(double value) {
 inline void ImageWithAreaReply::set_area(double value) {
   _internal_set_area(value);
   // @@protoc_insertion_point(field_set:capture.service.v1.ImageWithAreaReply.area)
+}
+
+// -------------------------------------------------------------------
+
+// ImageWithAreaAndSrcReply
+
+// .capture.service.v1.ImageSrc image_src = 1;
+inline bool ImageWithAreaAndSrcReply::_internal_has_image_src() const {
+  return this != internal_default_instance() && image_src_ != nullptr;
+}
+inline bool ImageWithAreaAndSrcReply::has_image_src() const {
+  return _internal_has_image_src();
+}
+inline void ImageWithAreaAndSrcReply::clear_image_src() {
+  if (GetArenaForAllocation() == nullptr && image_src_ != nullptr) {
+    delete image_src_;
+  }
+  image_src_ = nullptr;
+}
+inline const ::capture::service::v1::ImageSrc& ImageWithAreaAndSrcReply::_internal_image_src() const {
+  const ::capture::service::v1::ImageSrc* p = image_src_;
+  return p != nullptr ? *p : reinterpret_cast<const ::capture::service::v1::ImageSrc&>(
+      ::capture::service::v1::_ImageSrc_default_instance_);
+}
+inline const ::capture::service::v1::ImageSrc& ImageWithAreaAndSrcReply::image_src() const {
+  // @@protoc_insertion_point(field_get:capture.service.v1.ImageWithAreaAndSrcReply.image_src)
+  return _internal_image_src();
+}
+inline void ImageWithAreaAndSrcReply::unsafe_arena_set_allocated_image_src(
+    ::capture::service::v1::ImageSrc* image_src) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(image_src_);
+  }
+  image_src_ = image_src;
+  if (image_src) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:capture.service.v1.ImageWithAreaAndSrcReply.image_src)
+}
+inline ::capture::service::v1::ImageSrc* ImageWithAreaAndSrcReply::release_image_src() {
+  
+  ::capture::service::v1::ImageSrc* temp = image_src_;
+  image_src_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::capture::service::v1::ImageSrc* ImageWithAreaAndSrcReply::unsafe_arena_release_image_src() {
+  // @@protoc_insertion_point(field_release:capture.service.v1.ImageWithAreaAndSrcReply.image_src)
+  
+  ::capture::service::v1::ImageSrc* temp = image_src_;
+  image_src_ = nullptr;
+  return temp;
+}
+inline ::capture::service::v1::ImageSrc* ImageWithAreaAndSrcReply::_internal_mutable_image_src() {
+  
+  if (image_src_ == nullptr) {
+    auto* p = CreateMaybeMessage<::capture::service::v1::ImageSrc>(GetArenaForAllocation());
+    image_src_ = p;
+  }
+  return image_src_;
+}
+inline ::capture::service::v1::ImageSrc* ImageWithAreaAndSrcReply::mutable_image_src() {
+  ::capture::service::v1::ImageSrc* _msg = _internal_mutable_image_src();
+  // @@protoc_insertion_point(field_mutable:capture.service.v1.ImageWithAreaAndSrcReply.image_src)
+  return _msg;
+}
+inline void ImageWithAreaAndSrcReply::set_allocated_image_src(::capture::service::v1::ImageSrc* image_src) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete image_src_;
+  }
+  if (image_src) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::capture::service::v1::ImageSrc>::GetOwningArena(image_src);
+    if (message_arena != submessage_arena) {
+      image_src = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, image_src, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  image_src_ = image_src;
+  // @@protoc_insertion_point(field_set_allocated:capture.service.v1.ImageWithAreaAndSrcReply.image_src)
+}
+
+// int64 pixels = 2;
+inline void ImageWithAreaAndSrcReply::clear_pixels() {
+  pixels_ = int64_t{0};
+}
+inline int64_t ImageWithAreaAndSrcReply::_internal_pixels() const {
+  return pixels_;
+}
+inline int64_t ImageWithAreaAndSrcReply::pixels() const {
+  // @@protoc_insertion_point(field_get:capture.service.v1.ImageWithAreaAndSrcReply.pixels)
+  return _internal_pixels();
+}
+inline void ImageWithAreaAndSrcReply::_internal_set_pixels(int64_t value) {
+  
+  pixels_ = value;
+}
+inline void ImageWithAreaAndSrcReply::set_pixels(int64_t value) {
+  _internal_set_pixels(value);
+  // @@protoc_insertion_point(field_set:capture.service.v1.ImageWithAreaAndSrcReply.pixels)
+}
+
+// double area = 3;
+inline void ImageWithAreaAndSrcReply::clear_area() {
+  area_ = 0;
+}
+inline double ImageWithAreaAndSrcReply::_internal_area() const {
+  return area_;
+}
+inline double ImageWithAreaAndSrcReply::area() const {
+  // @@protoc_insertion_point(field_get:capture.service.v1.ImageWithAreaAndSrcReply.area)
+  return _internal_area();
+}
+inline void ImageWithAreaAndSrcReply::_internal_set_area(double value) {
+  
+  area_ = value;
+}
+inline void ImageWithAreaAndSrcReply::set_area(double value) {
+  _internal_set_area(value);
+  // @@protoc_insertion_point(field_set:capture.service.v1.ImageWithAreaAndSrcReply.area)
 }
 
 // -------------------------------------------------------------------
@@ -2421,6 +4305,184 @@ ImagesWithAreaReply::data() const {
 
 // -------------------------------------------------------------------
 
+// ImagesWithAreaAndSrcReply_Data
+
+// .capture.service.v1.ImageSrc image_src = 1;
+inline bool ImagesWithAreaAndSrcReply_Data::_internal_has_image_src() const {
+  return this != internal_default_instance() && image_src_ != nullptr;
+}
+inline bool ImagesWithAreaAndSrcReply_Data::has_image_src() const {
+  return _internal_has_image_src();
+}
+inline void ImagesWithAreaAndSrcReply_Data::clear_image_src() {
+  if (GetArenaForAllocation() == nullptr && image_src_ != nullptr) {
+    delete image_src_;
+  }
+  image_src_ = nullptr;
+}
+inline const ::capture::service::v1::ImageSrc& ImagesWithAreaAndSrcReply_Data::_internal_image_src() const {
+  const ::capture::service::v1::ImageSrc* p = image_src_;
+  return p != nullptr ? *p : reinterpret_cast<const ::capture::service::v1::ImageSrc&>(
+      ::capture::service::v1::_ImageSrc_default_instance_);
+}
+inline const ::capture::service::v1::ImageSrc& ImagesWithAreaAndSrcReply_Data::image_src() const {
+  // @@protoc_insertion_point(field_get:capture.service.v1.ImagesWithAreaAndSrcReply.Data.image_src)
+  return _internal_image_src();
+}
+inline void ImagesWithAreaAndSrcReply_Data::unsafe_arena_set_allocated_image_src(
+    ::capture::service::v1::ImageSrc* image_src) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(image_src_);
+  }
+  image_src_ = image_src;
+  if (image_src) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:capture.service.v1.ImagesWithAreaAndSrcReply.Data.image_src)
+}
+inline ::capture::service::v1::ImageSrc* ImagesWithAreaAndSrcReply_Data::release_image_src() {
+  
+  ::capture::service::v1::ImageSrc* temp = image_src_;
+  image_src_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::capture::service::v1::ImageSrc* ImagesWithAreaAndSrcReply_Data::unsafe_arena_release_image_src() {
+  // @@protoc_insertion_point(field_release:capture.service.v1.ImagesWithAreaAndSrcReply.Data.image_src)
+  
+  ::capture::service::v1::ImageSrc* temp = image_src_;
+  image_src_ = nullptr;
+  return temp;
+}
+inline ::capture::service::v1::ImageSrc* ImagesWithAreaAndSrcReply_Data::_internal_mutable_image_src() {
+  
+  if (image_src_ == nullptr) {
+    auto* p = CreateMaybeMessage<::capture::service::v1::ImageSrc>(GetArenaForAllocation());
+    image_src_ = p;
+  }
+  return image_src_;
+}
+inline ::capture::service::v1::ImageSrc* ImagesWithAreaAndSrcReply_Data::mutable_image_src() {
+  ::capture::service::v1::ImageSrc* _msg = _internal_mutable_image_src();
+  // @@protoc_insertion_point(field_mutable:capture.service.v1.ImagesWithAreaAndSrcReply.Data.image_src)
+  return _msg;
+}
+inline void ImagesWithAreaAndSrcReply_Data::set_allocated_image_src(::capture::service::v1::ImageSrc* image_src) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete image_src_;
+  }
+  if (image_src) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::capture::service::v1::ImageSrc>::GetOwningArena(image_src);
+    if (message_arena != submessage_arena) {
+      image_src = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, image_src, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  image_src_ = image_src;
+  // @@protoc_insertion_point(field_set_allocated:capture.service.v1.ImagesWithAreaAndSrcReply.Data.image_src)
+}
+
+// int64 pixels = 2;
+inline void ImagesWithAreaAndSrcReply_Data::clear_pixels() {
+  pixels_ = int64_t{0};
+}
+inline int64_t ImagesWithAreaAndSrcReply_Data::_internal_pixels() const {
+  return pixels_;
+}
+inline int64_t ImagesWithAreaAndSrcReply_Data::pixels() const {
+  // @@protoc_insertion_point(field_get:capture.service.v1.ImagesWithAreaAndSrcReply.Data.pixels)
+  return _internal_pixels();
+}
+inline void ImagesWithAreaAndSrcReply_Data::_internal_set_pixels(int64_t value) {
+  
+  pixels_ = value;
+}
+inline void ImagesWithAreaAndSrcReply_Data::set_pixels(int64_t value) {
+  _internal_set_pixels(value);
+  // @@protoc_insertion_point(field_set:capture.service.v1.ImagesWithAreaAndSrcReply.Data.pixels)
+}
+
+// double area = 3;
+inline void ImagesWithAreaAndSrcReply_Data::clear_area() {
+  area_ = 0;
+}
+inline double ImagesWithAreaAndSrcReply_Data::_internal_area() const {
+  return area_;
+}
+inline double ImagesWithAreaAndSrcReply_Data::area() const {
+  // @@protoc_insertion_point(field_get:capture.service.v1.ImagesWithAreaAndSrcReply.Data.area)
+  return _internal_area();
+}
+inline void ImagesWithAreaAndSrcReply_Data::_internal_set_area(double value) {
+  
+  area_ = value;
+}
+inline void ImagesWithAreaAndSrcReply_Data::set_area(double value) {
+  _internal_set_area(value);
+  // @@protoc_insertion_point(field_set:capture.service.v1.ImagesWithAreaAndSrcReply.Data.area)
+}
+
+// -------------------------------------------------------------------
+
+// ImagesWithAreaAndSrcReply
+
+// repeated .capture.service.v1.ImagesWithAreaAndSrcReply.Data data = 1;
+inline int ImagesWithAreaAndSrcReply::_internal_data_size() const {
+  return data_.size();
+}
+inline int ImagesWithAreaAndSrcReply::data_size() const {
+  return _internal_data_size();
+}
+inline void ImagesWithAreaAndSrcReply::clear_data() {
+  data_.Clear();
+}
+inline ::capture::service::v1::ImagesWithAreaAndSrcReply_Data* ImagesWithAreaAndSrcReply::mutable_data(int index) {
+  // @@protoc_insertion_point(field_mutable:capture.service.v1.ImagesWithAreaAndSrcReply.data)
+  return data_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::capture::service::v1::ImagesWithAreaAndSrcReply_Data >*
+ImagesWithAreaAndSrcReply::mutable_data() {
+  // @@protoc_insertion_point(field_mutable_list:capture.service.v1.ImagesWithAreaAndSrcReply.data)
+  return &data_;
+}
+inline const ::capture::service::v1::ImagesWithAreaAndSrcReply_Data& ImagesWithAreaAndSrcReply::_internal_data(int index) const {
+  return data_.Get(index);
+}
+inline const ::capture::service::v1::ImagesWithAreaAndSrcReply_Data& ImagesWithAreaAndSrcReply::data(int index) const {
+  // @@protoc_insertion_point(field_get:capture.service.v1.ImagesWithAreaAndSrcReply.data)
+  return _internal_data(index);
+}
+inline ::capture::service::v1::ImagesWithAreaAndSrcReply_Data* ImagesWithAreaAndSrcReply::_internal_add_data() {
+  return data_.Add();
+}
+inline ::capture::service::v1::ImagesWithAreaAndSrcReply_Data* ImagesWithAreaAndSrcReply::add_data() {
+  ::capture::service::v1::ImagesWithAreaAndSrcReply_Data* _add = _internal_add_data();
+  // @@protoc_insertion_point(field_add:capture.service.v1.ImagesWithAreaAndSrcReply.data)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::capture::service::v1::ImagesWithAreaAndSrcReply_Data >&
+ImagesWithAreaAndSrcReply::data() const {
+  // @@protoc_insertion_point(field_list:capture.service.v1.ImagesWithAreaAndSrcReply.data)
+  return data_;
+}
+
+// -------------------------------------------------------------------
+
 // Image
 
 // bytes data = 1;
@@ -2474,9 +4536,135 @@ inline void Image::set_allocated_data(std::string* data) {
   // @@protoc_insertion_point(field_set_allocated:capture.service.v1.Image.data)
 }
 
+// -------------------------------------------------------------------
+
+// ImageSrc
+
+// bytes proc = 1;
+inline void ImageSrc::clear_proc() {
+  proc_.ClearToEmpty();
+}
+inline const std::string& ImageSrc::proc() const {
+  // @@protoc_insertion_point(field_get:capture.service.v1.ImageSrc.proc)
+  return _internal_proc();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ImageSrc::set_proc(ArgT0&& arg0, ArgT... args) {
+ 
+ proc_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:capture.service.v1.ImageSrc.proc)
+}
+inline std::string* ImageSrc::mutable_proc() {
+  std::string* _s = _internal_mutable_proc();
+  // @@protoc_insertion_point(field_mutable:capture.service.v1.ImageSrc.proc)
+  return _s;
+}
+inline const std::string& ImageSrc::_internal_proc() const {
+  return proc_.Get();
+}
+inline void ImageSrc::_internal_set_proc(const std::string& value) {
+  
+  proc_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* ImageSrc::_internal_mutable_proc() {
+  
+  return proc_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* ImageSrc::release_proc() {
+  // @@protoc_insertion_point(field_release:capture.service.v1.ImageSrc.proc)
+  return proc_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void ImageSrc::set_allocated_proc(std::string* proc) {
+  if (proc != nullptr) {
+    
+  } else {
+    
+  }
+  proc_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), proc,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (proc_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    proc_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:capture.service.v1.ImageSrc.proc)
+}
+
+// bytes src = 2;
+inline void ImageSrc::clear_src() {
+  src_.ClearToEmpty();
+}
+inline const std::string& ImageSrc::src() const {
+  // @@protoc_insertion_point(field_get:capture.service.v1.ImageSrc.src)
+  return _internal_src();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ImageSrc::set_src(ArgT0&& arg0, ArgT... args) {
+ 
+ src_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:capture.service.v1.ImageSrc.src)
+}
+inline std::string* ImageSrc::mutable_src() {
+  std::string* _s = _internal_mutable_src();
+  // @@protoc_insertion_point(field_mutable:capture.service.v1.ImageSrc.src)
+  return _s;
+}
+inline const std::string& ImageSrc::_internal_src() const {
+  return src_.Get();
+}
+inline void ImageSrc::_internal_set_src(const std::string& value) {
+  
+  src_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* ImageSrc::_internal_mutable_src() {
+  
+  return src_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* ImageSrc::release_src() {
+  // @@protoc_insertion_point(field_release:capture.service.v1.ImageSrc.src)
+  return src_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void ImageSrc::set_allocated_src(std::string* src) {
+  if (src != nullptr) {
+    
+  } else {
+    
+  }
+  src_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), src,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (src_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    src_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:capture.service.v1.ImageSrc.src)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

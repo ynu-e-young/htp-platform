@@ -113,17 +113,31 @@ func Area(v float64) predicate.CaptureLog {
 	})
 }
 
-// ImageName applies equality check predicate on the "image_name" field. It's identical to ImageNameEQ.
-func ImageName(v string) predicate.CaptureLog {
+// SrcName applies equality check predicate on the "src_name" field. It's identical to SrcNameEQ.
+func SrcName(v string) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
-		s.Where(sql.EQ(s.C(FieldImageName), v))
+		s.Where(sql.EQ(s.C(FieldSrcName), v))
 	})
 }
 
-// OssURL applies equality check predicate on the "oss_url" field. It's identical to OssURLEQ.
-func OssURL(v string) predicate.CaptureLog {
+// ProcName applies equality check predicate on the "proc_name" field. It's identical to ProcNameEQ.
+func ProcName(v string) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
-		s.Where(sql.EQ(s.C(FieldOssURL), v))
+		s.Where(sql.EQ(s.C(FieldProcName), v))
+	})
+}
+
+// SrcOssURL applies equality check predicate on the "src_oss_url" field. It's identical to SrcOssURLEQ.
+func SrcOssURL(v string) predicate.CaptureLog {
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		s.Where(sql.EQ(s.C(FieldSrcOssURL), v))
+	})
+}
+
+// ProcOssURL applies equality check predicate on the "proc_oss_url" field. It's identical to ProcOssURLEQ.
+func ProcOssURL(v string) predicate.CaptureLog {
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		s.Where(sql.EQ(s.C(FieldProcOssURL), v))
 	})
 }
 
@@ -369,22 +383,22 @@ func AreaLTE(v float64) predicate.CaptureLog {
 	})
 }
 
-// ImageNameEQ applies the EQ predicate on the "image_name" field.
-func ImageNameEQ(v string) predicate.CaptureLog {
+// SrcNameEQ applies the EQ predicate on the "src_name" field.
+func SrcNameEQ(v string) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
-		s.Where(sql.EQ(s.C(FieldImageName), v))
+		s.Where(sql.EQ(s.C(FieldSrcName), v))
 	})
 }
 
-// ImageNameNEQ applies the NEQ predicate on the "image_name" field.
-func ImageNameNEQ(v string) predicate.CaptureLog {
+// SrcNameNEQ applies the NEQ predicate on the "src_name" field.
+func SrcNameNEQ(v string) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
-		s.Where(sql.NEQ(s.C(FieldImageName), v))
+		s.Where(sql.NEQ(s.C(FieldSrcName), v))
 	})
 }
 
-// ImageNameIn applies the In predicate on the "image_name" field.
-func ImageNameIn(vs ...string) predicate.CaptureLog {
+// SrcNameIn applies the In predicate on the "src_name" field.
+func SrcNameIn(vs ...string) predicate.CaptureLog {
 	v := make([]interface{}, len(vs))
 	for i := range v {
 		v[i] = vs[i]
@@ -396,12 +410,12 @@ func ImageNameIn(vs ...string) predicate.CaptureLog {
 			s.Where(sql.False())
 			return
 		}
-		s.Where(sql.In(s.C(FieldImageName), v...))
+		s.Where(sql.In(s.C(FieldSrcName), v...))
 	})
 }
 
-// ImageNameNotIn applies the NotIn predicate on the "image_name" field.
-func ImageNameNotIn(vs ...string) predicate.CaptureLog {
+// SrcNameNotIn applies the NotIn predicate on the "src_name" field.
+func SrcNameNotIn(vs ...string) predicate.CaptureLog {
 	v := make([]interface{}, len(vs))
 	for i := range v {
 		v[i] = vs[i]
@@ -413,89 +427,89 @@ func ImageNameNotIn(vs ...string) predicate.CaptureLog {
 			s.Where(sql.False())
 			return
 		}
-		s.Where(sql.NotIn(s.C(FieldImageName), v...))
+		s.Where(sql.NotIn(s.C(FieldSrcName), v...))
 	})
 }
 
-// ImageNameGT applies the GT predicate on the "image_name" field.
-func ImageNameGT(v string) predicate.CaptureLog {
+// SrcNameGT applies the GT predicate on the "src_name" field.
+func SrcNameGT(v string) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
-		s.Where(sql.GT(s.C(FieldImageName), v))
+		s.Where(sql.GT(s.C(FieldSrcName), v))
 	})
 }
 
-// ImageNameGTE applies the GTE predicate on the "image_name" field.
-func ImageNameGTE(v string) predicate.CaptureLog {
+// SrcNameGTE applies the GTE predicate on the "src_name" field.
+func SrcNameGTE(v string) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
-		s.Where(sql.GTE(s.C(FieldImageName), v))
+		s.Where(sql.GTE(s.C(FieldSrcName), v))
 	})
 }
 
-// ImageNameLT applies the LT predicate on the "image_name" field.
-func ImageNameLT(v string) predicate.CaptureLog {
+// SrcNameLT applies the LT predicate on the "src_name" field.
+func SrcNameLT(v string) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
-		s.Where(sql.LT(s.C(FieldImageName), v))
+		s.Where(sql.LT(s.C(FieldSrcName), v))
 	})
 }
 
-// ImageNameLTE applies the LTE predicate on the "image_name" field.
-func ImageNameLTE(v string) predicate.CaptureLog {
+// SrcNameLTE applies the LTE predicate on the "src_name" field.
+func SrcNameLTE(v string) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
-		s.Where(sql.LTE(s.C(FieldImageName), v))
+		s.Where(sql.LTE(s.C(FieldSrcName), v))
 	})
 }
 
-// ImageNameContains applies the Contains predicate on the "image_name" field.
-func ImageNameContains(v string) predicate.CaptureLog {
+// SrcNameContains applies the Contains predicate on the "src_name" field.
+func SrcNameContains(v string) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
-		s.Where(sql.Contains(s.C(FieldImageName), v))
+		s.Where(sql.Contains(s.C(FieldSrcName), v))
 	})
 }
 
-// ImageNameHasPrefix applies the HasPrefix predicate on the "image_name" field.
-func ImageNameHasPrefix(v string) predicate.CaptureLog {
+// SrcNameHasPrefix applies the HasPrefix predicate on the "src_name" field.
+func SrcNameHasPrefix(v string) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
-		s.Where(sql.HasPrefix(s.C(FieldImageName), v))
+		s.Where(sql.HasPrefix(s.C(FieldSrcName), v))
 	})
 }
 
-// ImageNameHasSuffix applies the HasSuffix predicate on the "image_name" field.
-func ImageNameHasSuffix(v string) predicate.CaptureLog {
+// SrcNameHasSuffix applies the HasSuffix predicate on the "src_name" field.
+func SrcNameHasSuffix(v string) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
-		s.Where(sql.HasSuffix(s.C(FieldImageName), v))
+		s.Where(sql.HasSuffix(s.C(FieldSrcName), v))
 	})
 }
 
-// ImageNameEqualFold applies the EqualFold predicate on the "image_name" field.
-func ImageNameEqualFold(v string) predicate.CaptureLog {
+// SrcNameEqualFold applies the EqualFold predicate on the "src_name" field.
+func SrcNameEqualFold(v string) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
-		s.Where(sql.EqualFold(s.C(FieldImageName), v))
+		s.Where(sql.EqualFold(s.C(FieldSrcName), v))
 	})
 }
 
-// ImageNameContainsFold applies the ContainsFold predicate on the "image_name" field.
-func ImageNameContainsFold(v string) predicate.CaptureLog {
+// SrcNameContainsFold applies the ContainsFold predicate on the "src_name" field.
+func SrcNameContainsFold(v string) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
-		s.Where(sql.ContainsFold(s.C(FieldImageName), v))
+		s.Where(sql.ContainsFold(s.C(FieldSrcName), v))
 	})
 }
 
-// OssURLEQ applies the EQ predicate on the "oss_url" field.
-func OssURLEQ(v string) predicate.CaptureLog {
+// ProcNameEQ applies the EQ predicate on the "proc_name" field.
+func ProcNameEQ(v string) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
-		s.Where(sql.EQ(s.C(FieldOssURL), v))
+		s.Where(sql.EQ(s.C(FieldProcName), v))
 	})
 }
 
-// OssURLNEQ applies the NEQ predicate on the "oss_url" field.
-func OssURLNEQ(v string) predicate.CaptureLog {
+// ProcNameNEQ applies the NEQ predicate on the "proc_name" field.
+func ProcNameNEQ(v string) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
-		s.Where(sql.NEQ(s.C(FieldOssURL), v))
+		s.Where(sql.NEQ(s.C(FieldProcName), v))
 	})
 }
 
-// OssURLIn applies the In predicate on the "oss_url" field.
-func OssURLIn(vs ...string) predicate.CaptureLog {
+// ProcNameIn applies the In predicate on the "proc_name" field.
+func ProcNameIn(vs ...string) predicate.CaptureLog {
 	v := make([]interface{}, len(vs))
 	for i := range v {
 		v[i] = vs[i]
@@ -507,12 +521,12 @@ func OssURLIn(vs ...string) predicate.CaptureLog {
 			s.Where(sql.False())
 			return
 		}
-		s.Where(sql.In(s.C(FieldOssURL), v...))
+		s.Where(sql.In(s.C(FieldProcName), v...))
 	})
 }
 
-// OssURLNotIn applies the NotIn predicate on the "oss_url" field.
-func OssURLNotIn(vs ...string) predicate.CaptureLog {
+// ProcNameNotIn applies the NotIn predicate on the "proc_name" field.
+func ProcNameNotIn(vs ...string) predicate.CaptureLog {
 	v := make([]interface{}, len(vs))
 	for i := range v {
 		v[i] = vs[i]
@@ -524,70 +538,292 @@ func OssURLNotIn(vs ...string) predicate.CaptureLog {
 			s.Where(sql.False())
 			return
 		}
-		s.Where(sql.NotIn(s.C(FieldOssURL), v...))
+		s.Where(sql.NotIn(s.C(FieldProcName), v...))
 	})
 }
 
-// OssURLGT applies the GT predicate on the "oss_url" field.
-func OssURLGT(v string) predicate.CaptureLog {
+// ProcNameGT applies the GT predicate on the "proc_name" field.
+func ProcNameGT(v string) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
-		s.Where(sql.GT(s.C(FieldOssURL), v))
+		s.Where(sql.GT(s.C(FieldProcName), v))
 	})
 }
 
-// OssURLGTE applies the GTE predicate on the "oss_url" field.
-func OssURLGTE(v string) predicate.CaptureLog {
+// ProcNameGTE applies the GTE predicate on the "proc_name" field.
+func ProcNameGTE(v string) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
-		s.Where(sql.GTE(s.C(FieldOssURL), v))
+		s.Where(sql.GTE(s.C(FieldProcName), v))
 	})
 }
 
-// OssURLLT applies the LT predicate on the "oss_url" field.
-func OssURLLT(v string) predicate.CaptureLog {
+// ProcNameLT applies the LT predicate on the "proc_name" field.
+func ProcNameLT(v string) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
-		s.Where(sql.LT(s.C(FieldOssURL), v))
+		s.Where(sql.LT(s.C(FieldProcName), v))
 	})
 }
 
-// OssURLLTE applies the LTE predicate on the "oss_url" field.
-func OssURLLTE(v string) predicate.CaptureLog {
+// ProcNameLTE applies the LTE predicate on the "proc_name" field.
+func ProcNameLTE(v string) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
-		s.Where(sql.LTE(s.C(FieldOssURL), v))
+		s.Where(sql.LTE(s.C(FieldProcName), v))
 	})
 }
 
-// OssURLContains applies the Contains predicate on the "oss_url" field.
-func OssURLContains(v string) predicate.CaptureLog {
+// ProcNameContains applies the Contains predicate on the "proc_name" field.
+func ProcNameContains(v string) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
-		s.Where(sql.Contains(s.C(FieldOssURL), v))
+		s.Where(sql.Contains(s.C(FieldProcName), v))
 	})
 }
 
-// OssURLHasPrefix applies the HasPrefix predicate on the "oss_url" field.
-func OssURLHasPrefix(v string) predicate.CaptureLog {
+// ProcNameHasPrefix applies the HasPrefix predicate on the "proc_name" field.
+func ProcNameHasPrefix(v string) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
-		s.Where(sql.HasPrefix(s.C(FieldOssURL), v))
+		s.Where(sql.HasPrefix(s.C(FieldProcName), v))
 	})
 }
 
-// OssURLHasSuffix applies the HasSuffix predicate on the "oss_url" field.
-func OssURLHasSuffix(v string) predicate.CaptureLog {
+// ProcNameHasSuffix applies the HasSuffix predicate on the "proc_name" field.
+func ProcNameHasSuffix(v string) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
-		s.Where(sql.HasSuffix(s.C(FieldOssURL), v))
+		s.Where(sql.HasSuffix(s.C(FieldProcName), v))
 	})
 }
 
-// OssURLEqualFold applies the EqualFold predicate on the "oss_url" field.
-func OssURLEqualFold(v string) predicate.CaptureLog {
+// ProcNameEqualFold applies the EqualFold predicate on the "proc_name" field.
+func ProcNameEqualFold(v string) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
-		s.Where(sql.EqualFold(s.C(FieldOssURL), v))
+		s.Where(sql.EqualFold(s.C(FieldProcName), v))
 	})
 }
 
-// OssURLContainsFold applies the ContainsFold predicate on the "oss_url" field.
-func OssURLContainsFold(v string) predicate.CaptureLog {
+// ProcNameContainsFold applies the ContainsFold predicate on the "proc_name" field.
+func ProcNameContainsFold(v string) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
-		s.Where(sql.ContainsFold(s.C(FieldOssURL), v))
+		s.Where(sql.ContainsFold(s.C(FieldProcName), v))
+	})
+}
+
+// SrcOssURLEQ applies the EQ predicate on the "src_oss_url" field.
+func SrcOssURLEQ(v string) predicate.CaptureLog {
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		s.Where(sql.EQ(s.C(FieldSrcOssURL), v))
+	})
+}
+
+// SrcOssURLNEQ applies the NEQ predicate on the "src_oss_url" field.
+func SrcOssURLNEQ(v string) predicate.CaptureLog {
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		s.Where(sql.NEQ(s.C(FieldSrcOssURL), v))
+	})
+}
+
+// SrcOssURLIn applies the In predicate on the "src_oss_url" field.
+func SrcOssURLIn(vs ...string) predicate.CaptureLog {
+	v := make([]interface{}, len(vs))
+	for i := range v {
+		v[i] = vs[i]
+	}
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		// if not arguments were provided, append the FALSE constants,
+		// since we can't apply "IN ()". This will make this predicate falsy.
+		if len(v) == 0 {
+			s.Where(sql.False())
+			return
+		}
+		s.Where(sql.In(s.C(FieldSrcOssURL), v...))
+	})
+}
+
+// SrcOssURLNotIn applies the NotIn predicate on the "src_oss_url" field.
+func SrcOssURLNotIn(vs ...string) predicate.CaptureLog {
+	v := make([]interface{}, len(vs))
+	for i := range v {
+		v[i] = vs[i]
+	}
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		// if not arguments were provided, append the FALSE constants,
+		// since we can't apply "IN ()". This will make this predicate falsy.
+		if len(v) == 0 {
+			s.Where(sql.False())
+			return
+		}
+		s.Where(sql.NotIn(s.C(FieldSrcOssURL), v...))
+	})
+}
+
+// SrcOssURLGT applies the GT predicate on the "src_oss_url" field.
+func SrcOssURLGT(v string) predicate.CaptureLog {
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		s.Where(sql.GT(s.C(FieldSrcOssURL), v))
+	})
+}
+
+// SrcOssURLGTE applies the GTE predicate on the "src_oss_url" field.
+func SrcOssURLGTE(v string) predicate.CaptureLog {
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		s.Where(sql.GTE(s.C(FieldSrcOssURL), v))
+	})
+}
+
+// SrcOssURLLT applies the LT predicate on the "src_oss_url" field.
+func SrcOssURLLT(v string) predicate.CaptureLog {
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		s.Where(sql.LT(s.C(FieldSrcOssURL), v))
+	})
+}
+
+// SrcOssURLLTE applies the LTE predicate on the "src_oss_url" field.
+func SrcOssURLLTE(v string) predicate.CaptureLog {
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		s.Where(sql.LTE(s.C(FieldSrcOssURL), v))
+	})
+}
+
+// SrcOssURLContains applies the Contains predicate on the "src_oss_url" field.
+func SrcOssURLContains(v string) predicate.CaptureLog {
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		s.Where(sql.Contains(s.C(FieldSrcOssURL), v))
+	})
+}
+
+// SrcOssURLHasPrefix applies the HasPrefix predicate on the "src_oss_url" field.
+func SrcOssURLHasPrefix(v string) predicate.CaptureLog {
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		s.Where(sql.HasPrefix(s.C(FieldSrcOssURL), v))
+	})
+}
+
+// SrcOssURLHasSuffix applies the HasSuffix predicate on the "src_oss_url" field.
+func SrcOssURLHasSuffix(v string) predicate.CaptureLog {
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		s.Where(sql.HasSuffix(s.C(FieldSrcOssURL), v))
+	})
+}
+
+// SrcOssURLEqualFold applies the EqualFold predicate on the "src_oss_url" field.
+func SrcOssURLEqualFold(v string) predicate.CaptureLog {
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		s.Where(sql.EqualFold(s.C(FieldSrcOssURL), v))
+	})
+}
+
+// SrcOssURLContainsFold applies the ContainsFold predicate on the "src_oss_url" field.
+func SrcOssURLContainsFold(v string) predicate.CaptureLog {
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		s.Where(sql.ContainsFold(s.C(FieldSrcOssURL), v))
+	})
+}
+
+// ProcOssURLEQ applies the EQ predicate on the "proc_oss_url" field.
+func ProcOssURLEQ(v string) predicate.CaptureLog {
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		s.Where(sql.EQ(s.C(FieldProcOssURL), v))
+	})
+}
+
+// ProcOssURLNEQ applies the NEQ predicate on the "proc_oss_url" field.
+func ProcOssURLNEQ(v string) predicate.CaptureLog {
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		s.Where(sql.NEQ(s.C(FieldProcOssURL), v))
+	})
+}
+
+// ProcOssURLIn applies the In predicate on the "proc_oss_url" field.
+func ProcOssURLIn(vs ...string) predicate.CaptureLog {
+	v := make([]interface{}, len(vs))
+	for i := range v {
+		v[i] = vs[i]
+	}
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		// if not arguments were provided, append the FALSE constants,
+		// since we can't apply "IN ()". This will make this predicate falsy.
+		if len(v) == 0 {
+			s.Where(sql.False())
+			return
+		}
+		s.Where(sql.In(s.C(FieldProcOssURL), v...))
+	})
+}
+
+// ProcOssURLNotIn applies the NotIn predicate on the "proc_oss_url" field.
+func ProcOssURLNotIn(vs ...string) predicate.CaptureLog {
+	v := make([]interface{}, len(vs))
+	for i := range v {
+		v[i] = vs[i]
+	}
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		// if not arguments were provided, append the FALSE constants,
+		// since we can't apply "IN ()". This will make this predicate falsy.
+		if len(v) == 0 {
+			s.Where(sql.False())
+			return
+		}
+		s.Where(sql.NotIn(s.C(FieldProcOssURL), v...))
+	})
+}
+
+// ProcOssURLGT applies the GT predicate on the "proc_oss_url" field.
+func ProcOssURLGT(v string) predicate.CaptureLog {
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		s.Where(sql.GT(s.C(FieldProcOssURL), v))
+	})
+}
+
+// ProcOssURLGTE applies the GTE predicate on the "proc_oss_url" field.
+func ProcOssURLGTE(v string) predicate.CaptureLog {
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		s.Where(sql.GTE(s.C(FieldProcOssURL), v))
+	})
+}
+
+// ProcOssURLLT applies the LT predicate on the "proc_oss_url" field.
+func ProcOssURLLT(v string) predicate.CaptureLog {
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		s.Where(sql.LT(s.C(FieldProcOssURL), v))
+	})
+}
+
+// ProcOssURLLTE applies the LTE predicate on the "proc_oss_url" field.
+func ProcOssURLLTE(v string) predicate.CaptureLog {
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		s.Where(sql.LTE(s.C(FieldProcOssURL), v))
+	})
+}
+
+// ProcOssURLContains applies the Contains predicate on the "proc_oss_url" field.
+func ProcOssURLContains(v string) predicate.CaptureLog {
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		s.Where(sql.Contains(s.C(FieldProcOssURL), v))
+	})
+}
+
+// ProcOssURLHasPrefix applies the HasPrefix predicate on the "proc_oss_url" field.
+func ProcOssURLHasPrefix(v string) predicate.CaptureLog {
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		s.Where(sql.HasPrefix(s.C(FieldProcOssURL), v))
+	})
+}
+
+// ProcOssURLHasSuffix applies the HasSuffix predicate on the "proc_oss_url" field.
+func ProcOssURLHasSuffix(v string) predicate.CaptureLog {
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		s.Where(sql.HasSuffix(s.C(FieldProcOssURL), v))
+	})
+}
+
+// ProcOssURLEqualFold applies the EqualFold predicate on the "proc_oss_url" field.
+func ProcOssURLEqualFold(v string) predicate.CaptureLog {
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		s.Where(sql.EqualFold(s.C(FieldProcOssURL), v))
+	})
+}
+
+// ProcOssURLContainsFold applies the ContainsFold predicate on the "proc_oss_url" field.
+func ProcOssURLContainsFold(v string) predicate.CaptureLog {
+	return predicate.CaptureLog(func(s *sql.Selector) {
+		s.Where(sql.ContainsFold(s.C(FieldProcOssURL), v))
 	})
 }
 

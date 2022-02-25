@@ -17,11 +17,11 @@ func init() {
 	capturelogFields := schema.CaptureLog{}.Fields()
 	_ = capturelogFields
 	// capturelogDescCreatedAt is the schema descriptor for created_at field.
-	capturelogDescCreatedAt := capturelogFields[6].Descriptor()
+	capturelogDescCreatedAt := capturelogFields[8].Descriptor()
 	// capturelog.DefaultCreatedAt holds the default value on creation for the created_at field.
 	capturelog.DefaultCreatedAt = capturelogDescCreatedAt.Default.(func() time.Time)
 	// capturelogDescUpdatedAt is the schema descriptor for updated_at field.
-	capturelogDescUpdatedAt := capturelogFields[7].Descriptor()
+	capturelogDescUpdatedAt := capturelogFields[9].Descriptor()
 	// capturelog.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	capturelog.DefaultUpdatedAt = capturelogDescUpdatedAt.Default.(func() time.Time)
 	cronjobFields := schema.CronJob{}.Fields()

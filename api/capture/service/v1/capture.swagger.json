@@ -17,22 +17,6 @@
   ],
   "paths": {},
   "definitions": {
-    "ImagesWithAreaReplyData": {
-      "type": "object",
-      "properties": {
-        "image": {
-          "$ref": "#/definitions/v1Image"
-        },
-        "pixels": {
-          "type": "string",
-          "format": "int64"
-        },
-        "area": {
-          "type": "number",
-          "format": "double"
-        }
-      }
-    },
     "protobufAny": {
       "type": "object",
       "properties": {
@@ -77,6 +61,35 @@
         }
       }
     },
+    "v1ImageSrc": {
+      "type": "object",
+      "properties": {
+        "proc": {
+          "type": "string",
+          "format": "byte"
+        },
+        "src": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "v1ImageWithAreaAndSrcReply": {
+      "type": "object",
+      "properties": {
+        "imageSrc": {
+          "$ref": "#/definitions/v1ImageSrc"
+        },
+        "pixels": {
+          "type": "string",
+          "format": "int64"
+        },
+        "area": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
     "v1ImageWithAreaReply": {
       "type": "object",
       "properties": {
@@ -93,6 +106,14 @@
         }
       }
     },
+    "v1ImageWithSrcReply": {
+      "type": "object",
+      "properties": {
+        "imageSrc": {
+          "$ref": "#/definitions/v1ImageSrc"
+        }
+      }
+    },
     "v1ImagesReply": {
       "type": "object",
       "properties": {
@@ -104,13 +125,67 @@
         }
       }
     },
+    "v1ImagesWithAreaAndSrcReply": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1ImagesWithAreaAndSrcReplyData"
+          }
+        }
+      }
+    },
+    "v1ImagesWithAreaAndSrcReplyData": {
+      "type": "object",
+      "properties": {
+        "imageSrc": {
+          "$ref": "#/definitions/v1ImageSrc"
+        },
+        "pixels": {
+          "type": "string",
+          "format": "int64"
+        },
+        "area": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
     "v1ImagesWithAreaReply": {
       "type": "object",
       "properties": {
         "data": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ImagesWithAreaReplyData"
+            "$ref": "#/definitions/v1ImagesWithAreaReplyData"
+          }
+        }
+      }
+    },
+    "v1ImagesWithAreaReplyData": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "$ref": "#/definitions/v1Image"
+        },
+        "pixels": {
+          "type": "string",
+          "format": "int64"
+        },
+        "area": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "v1ImagesWithSrcReply": {
+      "type": "object",
+      "properties": {
+        "imageSrc": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1ImageSrc"
           }
         }
       }

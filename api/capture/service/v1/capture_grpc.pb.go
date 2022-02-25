@@ -25,9 +25,13 @@ type CaptureClient interface {
 	ReadOne(ctx context.Context, in *ReadOneRequest, opts ...grpc.CallOption) (*ImageReply, error)
 	ReadAll(ctx context.Context, in *ReadAllRequest, opts ...grpc.CallOption) (*ImagesReply, error)
 	ReadOneWithBinary(ctx context.Context, in *ReadOneWithBinaryRequest, opts ...grpc.CallOption) (*ImageReply, error)
+	ReadOneWithBinaryAndSrc(ctx context.Context, in *ReadOneWithBinaryAndSrcRequest, opts ...grpc.CallOption) (*ImageWithSrcReply, error)
 	ReadAllWithBinary(ctx context.Context, in *ReadAllWithBinaryRequest, opts ...grpc.CallOption) (*ImagesReply, error)
+	ReadAllWithBinaryAndSrc(ctx context.Context, in *ReadAllWithBinaryAndSrcRequest, opts ...grpc.CallOption) (*ImagesWithSrcReply, error)
 	ReadOneWithBinaryAndCalArea(ctx context.Context, in *ReadOneWithBinaryAndCalAreaRequest, opts ...grpc.CallOption) (*ImageWithAreaReply, error)
+	ReadOneWithBinaryAndCalAreaAndSrc(ctx context.Context, in *ReadOneWithBinaryAndCalAreaAndSrcRequest, opts ...grpc.CallOption) (*ImageWithAreaAndSrcReply, error)
 	ReadAllWithBinaryAndCalArea(ctx context.Context, in *ReadAllWithBinaryAndCalAreaRequest, opts ...grpc.CallOption) (*ImagesWithAreaReply, error)
+	ReadAllWithBinaryAndCalAreaAndSrc(ctx context.Context, in *ReadAllWithBinaryAndCalAreaAndSrcRequest, opts ...grpc.CallOption) (*ImagesWithAreaAndSrcReply, error)
 }
 
 type captureClient struct {
@@ -65,9 +69,27 @@ func (c *captureClient) ReadOneWithBinary(ctx context.Context, in *ReadOneWithBi
 	return out, nil
 }
 
+func (c *captureClient) ReadOneWithBinaryAndSrc(ctx context.Context, in *ReadOneWithBinaryAndSrcRequest, opts ...grpc.CallOption) (*ImageWithSrcReply, error) {
+	out := new(ImageWithSrcReply)
+	err := c.cc.Invoke(ctx, "/capture.service.v1.Capture/ReadOneWithBinaryAndSrc", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *captureClient) ReadAllWithBinary(ctx context.Context, in *ReadAllWithBinaryRequest, opts ...grpc.CallOption) (*ImagesReply, error) {
 	out := new(ImagesReply)
 	err := c.cc.Invoke(ctx, "/capture.service.v1.Capture/ReadAllWithBinary", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *captureClient) ReadAllWithBinaryAndSrc(ctx context.Context, in *ReadAllWithBinaryAndSrcRequest, opts ...grpc.CallOption) (*ImagesWithSrcReply, error) {
+	out := new(ImagesWithSrcReply)
+	err := c.cc.Invoke(ctx, "/capture.service.v1.Capture/ReadAllWithBinaryAndSrc", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -83,9 +105,27 @@ func (c *captureClient) ReadOneWithBinaryAndCalArea(ctx context.Context, in *Rea
 	return out, nil
 }
 
+func (c *captureClient) ReadOneWithBinaryAndCalAreaAndSrc(ctx context.Context, in *ReadOneWithBinaryAndCalAreaAndSrcRequest, opts ...grpc.CallOption) (*ImageWithAreaAndSrcReply, error) {
+	out := new(ImageWithAreaAndSrcReply)
+	err := c.cc.Invoke(ctx, "/capture.service.v1.Capture/ReadOneWithBinaryAndCalAreaAndSrc", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *captureClient) ReadAllWithBinaryAndCalArea(ctx context.Context, in *ReadAllWithBinaryAndCalAreaRequest, opts ...grpc.CallOption) (*ImagesWithAreaReply, error) {
 	out := new(ImagesWithAreaReply)
 	err := c.cc.Invoke(ctx, "/capture.service.v1.Capture/ReadAllWithBinaryAndCalArea", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *captureClient) ReadAllWithBinaryAndCalAreaAndSrc(ctx context.Context, in *ReadAllWithBinaryAndCalAreaAndSrcRequest, opts ...grpc.CallOption) (*ImagesWithAreaAndSrcReply, error) {
+	out := new(ImagesWithAreaAndSrcReply)
+	err := c.cc.Invoke(ctx, "/capture.service.v1.Capture/ReadAllWithBinaryAndCalAreaAndSrc", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -99,9 +139,13 @@ type CaptureServer interface {
 	ReadOne(context.Context, *ReadOneRequest) (*ImageReply, error)
 	ReadAll(context.Context, *ReadAllRequest) (*ImagesReply, error)
 	ReadOneWithBinary(context.Context, *ReadOneWithBinaryRequest) (*ImageReply, error)
+	ReadOneWithBinaryAndSrc(context.Context, *ReadOneWithBinaryAndSrcRequest) (*ImageWithSrcReply, error)
 	ReadAllWithBinary(context.Context, *ReadAllWithBinaryRequest) (*ImagesReply, error)
+	ReadAllWithBinaryAndSrc(context.Context, *ReadAllWithBinaryAndSrcRequest) (*ImagesWithSrcReply, error)
 	ReadOneWithBinaryAndCalArea(context.Context, *ReadOneWithBinaryAndCalAreaRequest) (*ImageWithAreaReply, error)
+	ReadOneWithBinaryAndCalAreaAndSrc(context.Context, *ReadOneWithBinaryAndCalAreaAndSrcRequest) (*ImageWithAreaAndSrcReply, error)
 	ReadAllWithBinaryAndCalArea(context.Context, *ReadAllWithBinaryAndCalAreaRequest) (*ImagesWithAreaReply, error)
+	ReadAllWithBinaryAndCalAreaAndSrc(context.Context, *ReadAllWithBinaryAndCalAreaAndSrcRequest) (*ImagesWithAreaAndSrcReply, error)
 	mustEmbedUnimplementedCaptureServer()
 }
 
@@ -118,14 +162,26 @@ func (UnimplementedCaptureServer) ReadAll(context.Context, *ReadAllRequest) (*Im
 func (UnimplementedCaptureServer) ReadOneWithBinary(context.Context, *ReadOneWithBinaryRequest) (*ImageReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReadOneWithBinary not implemented")
 }
+func (UnimplementedCaptureServer) ReadOneWithBinaryAndSrc(context.Context, *ReadOneWithBinaryAndSrcRequest) (*ImageWithSrcReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReadOneWithBinaryAndSrc not implemented")
+}
 func (UnimplementedCaptureServer) ReadAllWithBinary(context.Context, *ReadAllWithBinaryRequest) (*ImagesReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReadAllWithBinary not implemented")
+}
+func (UnimplementedCaptureServer) ReadAllWithBinaryAndSrc(context.Context, *ReadAllWithBinaryAndSrcRequest) (*ImagesWithSrcReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReadAllWithBinaryAndSrc not implemented")
 }
 func (UnimplementedCaptureServer) ReadOneWithBinaryAndCalArea(context.Context, *ReadOneWithBinaryAndCalAreaRequest) (*ImageWithAreaReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReadOneWithBinaryAndCalArea not implemented")
 }
+func (UnimplementedCaptureServer) ReadOneWithBinaryAndCalAreaAndSrc(context.Context, *ReadOneWithBinaryAndCalAreaAndSrcRequest) (*ImageWithAreaAndSrcReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReadOneWithBinaryAndCalAreaAndSrc not implemented")
+}
 func (UnimplementedCaptureServer) ReadAllWithBinaryAndCalArea(context.Context, *ReadAllWithBinaryAndCalAreaRequest) (*ImagesWithAreaReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReadAllWithBinaryAndCalArea not implemented")
+}
+func (UnimplementedCaptureServer) ReadAllWithBinaryAndCalAreaAndSrc(context.Context, *ReadAllWithBinaryAndCalAreaAndSrcRequest) (*ImagesWithAreaAndSrcReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReadAllWithBinaryAndCalAreaAndSrc not implemented")
 }
 func (UnimplementedCaptureServer) mustEmbedUnimplementedCaptureServer() {}
 
@@ -194,6 +250,24 @@ func _Capture_ReadOneWithBinary_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Capture_ReadOneWithBinaryAndSrc_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReadOneWithBinaryAndSrcRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptureServer).ReadOneWithBinaryAndSrc(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/capture.service.v1.Capture/ReadOneWithBinaryAndSrc",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptureServer).ReadOneWithBinaryAndSrc(ctx, req.(*ReadOneWithBinaryAndSrcRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _Capture_ReadAllWithBinary_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ReadAllWithBinaryRequest)
 	if err := dec(in); err != nil {
@@ -208,6 +282,24 @@ func _Capture_ReadAllWithBinary_Handler(srv interface{}, ctx context.Context, de
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CaptureServer).ReadAllWithBinary(ctx, req.(*ReadAllWithBinaryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Capture_ReadAllWithBinaryAndSrc_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReadAllWithBinaryAndSrcRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptureServer).ReadAllWithBinaryAndSrc(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/capture.service.v1.Capture/ReadAllWithBinaryAndSrc",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptureServer).ReadAllWithBinaryAndSrc(ctx, req.(*ReadAllWithBinaryAndSrcRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -230,6 +322,24 @@ func _Capture_ReadOneWithBinaryAndCalArea_Handler(srv interface{}, ctx context.C
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Capture_ReadOneWithBinaryAndCalAreaAndSrc_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReadOneWithBinaryAndCalAreaAndSrcRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptureServer).ReadOneWithBinaryAndCalAreaAndSrc(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/capture.service.v1.Capture/ReadOneWithBinaryAndCalAreaAndSrc",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptureServer).ReadOneWithBinaryAndCalAreaAndSrc(ctx, req.(*ReadOneWithBinaryAndCalAreaAndSrcRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _Capture_ReadAllWithBinaryAndCalArea_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ReadAllWithBinaryAndCalAreaRequest)
 	if err := dec(in); err != nil {
@@ -244,6 +354,24 @@ func _Capture_ReadAllWithBinaryAndCalArea_Handler(srv interface{}, ctx context.C
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CaptureServer).ReadAllWithBinaryAndCalArea(ctx, req.(*ReadAllWithBinaryAndCalAreaRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Capture_ReadAllWithBinaryAndCalAreaAndSrc_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReadAllWithBinaryAndCalAreaAndSrcRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptureServer).ReadAllWithBinaryAndCalAreaAndSrc(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/capture.service.v1.Capture/ReadAllWithBinaryAndCalAreaAndSrc",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptureServer).ReadAllWithBinaryAndCalAreaAndSrc(ctx, req.(*ReadAllWithBinaryAndCalAreaAndSrcRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -268,16 +396,32 @@ var Capture_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Capture_ReadOneWithBinary_Handler,
 		},
 		{
+			MethodName: "ReadOneWithBinaryAndSrc",
+			Handler:    _Capture_ReadOneWithBinaryAndSrc_Handler,
+		},
+		{
 			MethodName: "ReadAllWithBinary",
 			Handler:    _Capture_ReadAllWithBinary_Handler,
+		},
+		{
+			MethodName: "ReadAllWithBinaryAndSrc",
+			Handler:    _Capture_ReadAllWithBinaryAndSrc_Handler,
 		},
 		{
 			MethodName: "ReadOneWithBinaryAndCalArea",
 			Handler:    _Capture_ReadOneWithBinaryAndCalArea_Handler,
 		},
 		{
+			MethodName: "ReadOneWithBinaryAndCalAreaAndSrc",
+			Handler:    _Capture_ReadOneWithBinaryAndCalAreaAndSrc_Handler,
+		},
+		{
 			MethodName: "ReadAllWithBinaryAndCalArea",
 			Handler:    _Capture_ReadAllWithBinaryAndCalArea_Handler,
+		},
+		{
+			MethodName: "ReadAllWithBinaryAndCalAreaAndSrc",
+			Handler:    _Capture_ReadAllWithBinaryAndCalAreaAndSrc_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

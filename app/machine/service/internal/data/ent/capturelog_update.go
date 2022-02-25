@@ -67,15 +67,27 @@ func (clu *CaptureLogUpdate) AddArea(f float64) *CaptureLogUpdate {
 	return clu
 }
 
-// SetImageName sets the "image_name" field.
-func (clu *CaptureLogUpdate) SetImageName(s string) *CaptureLogUpdate {
-	clu.mutation.SetImageName(s)
+// SetSrcName sets the "src_name" field.
+func (clu *CaptureLogUpdate) SetSrcName(s string) *CaptureLogUpdate {
+	clu.mutation.SetSrcName(s)
 	return clu
 }
 
-// SetOssURL sets the "oss_url" field.
-func (clu *CaptureLogUpdate) SetOssURL(s string) *CaptureLogUpdate {
-	clu.mutation.SetOssURL(s)
+// SetProcName sets the "proc_name" field.
+func (clu *CaptureLogUpdate) SetProcName(s string) *CaptureLogUpdate {
+	clu.mutation.SetProcName(s)
+	return clu
+}
+
+// SetSrcOssURL sets the "src_oss_url" field.
+func (clu *CaptureLogUpdate) SetSrcOssURL(s string) *CaptureLogUpdate {
+	clu.mutation.SetSrcOssURL(s)
+	return clu
+}
+
+// SetProcOssURL sets the "proc_oss_url" field.
+func (clu *CaptureLogUpdate) SetProcOssURL(s string) *CaptureLogUpdate {
+	clu.mutation.SetProcOssURL(s)
 	return clu
 }
 
@@ -226,18 +238,32 @@ func (clu *CaptureLogUpdate) sqlSave(ctx context.Context) (n int, err error) {
 			Column: capturelog.FieldArea,
 		})
 	}
-	if value, ok := clu.mutation.ImageName(); ok {
+	if value, ok := clu.mutation.SrcName(); ok {
 		_spec.Fields.Set = append(_spec.Fields.Set, &sqlgraph.FieldSpec{
 			Type:   field.TypeString,
 			Value:  value,
-			Column: capturelog.FieldImageName,
+			Column: capturelog.FieldSrcName,
 		})
 	}
-	if value, ok := clu.mutation.OssURL(); ok {
+	if value, ok := clu.mutation.ProcName(); ok {
 		_spec.Fields.Set = append(_spec.Fields.Set, &sqlgraph.FieldSpec{
 			Type:   field.TypeString,
 			Value:  value,
-			Column: capturelog.FieldOssURL,
+			Column: capturelog.FieldProcName,
+		})
+	}
+	if value, ok := clu.mutation.SrcOssURL(); ok {
+		_spec.Fields.Set = append(_spec.Fields.Set, &sqlgraph.FieldSpec{
+			Type:   field.TypeString,
+			Value:  value,
+			Column: capturelog.FieldSrcOssURL,
+		})
+	}
+	if value, ok := clu.mutation.ProcOssURL(); ok {
+		_spec.Fields.Set = append(_spec.Fields.Set, &sqlgraph.FieldSpec{
+			Type:   field.TypeString,
+			Value:  value,
+			Column: capturelog.FieldProcOssURL,
 		})
 	}
 	if value, ok := clu.mutation.CreatedAt(); ok {
@@ -312,15 +338,27 @@ func (cluo *CaptureLogUpdateOne) AddArea(f float64) *CaptureLogUpdateOne {
 	return cluo
 }
 
-// SetImageName sets the "image_name" field.
-func (cluo *CaptureLogUpdateOne) SetImageName(s string) *CaptureLogUpdateOne {
-	cluo.mutation.SetImageName(s)
+// SetSrcName sets the "src_name" field.
+func (cluo *CaptureLogUpdateOne) SetSrcName(s string) *CaptureLogUpdateOne {
+	cluo.mutation.SetSrcName(s)
 	return cluo
 }
 
-// SetOssURL sets the "oss_url" field.
-func (cluo *CaptureLogUpdateOne) SetOssURL(s string) *CaptureLogUpdateOne {
-	cluo.mutation.SetOssURL(s)
+// SetProcName sets the "proc_name" field.
+func (cluo *CaptureLogUpdateOne) SetProcName(s string) *CaptureLogUpdateOne {
+	cluo.mutation.SetProcName(s)
+	return cluo
+}
+
+// SetSrcOssURL sets the "src_oss_url" field.
+func (cluo *CaptureLogUpdateOne) SetSrcOssURL(s string) *CaptureLogUpdateOne {
+	cluo.mutation.SetSrcOssURL(s)
+	return cluo
+}
+
+// SetProcOssURL sets the "proc_oss_url" field.
+func (cluo *CaptureLogUpdateOne) SetProcOssURL(s string) *CaptureLogUpdateOne {
+	cluo.mutation.SetProcOssURL(s)
 	return cluo
 }
 
@@ -495,18 +533,32 @@ func (cluo *CaptureLogUpdateOne) sqlSave(ctx context.Context) (_node *CaptureLog
 			Column: capturelog.FieldArea,
 		})
 	}
-	if value, ok := cluo.mutation.ImageName(); ok {
+	if value, ok := cluo.mutation.SrcName(); ok {
 		_spec.Fields.Set = append(_spec.Fields.Set, &sqlgraph.FieldSpec{
 			Type:   field.TypeString,
 			Value:  value,
-			Column: capturelog.FieldImageName,
+			Column: capturelog.FieldSrcName,
 		})
 	}
-	if value, ok := cluo.mutation.OssURL(); ok {
+	if value, ok := cluo.mutation.ProcName(); ok {
 		_spec.Fields.Set = append(_spec.Fields.Set, &sqlgraph.FieldSpec{
 			Type:   field.TypeString,
 			Value:  value,
-			Column: capturelog.FieldOssURL,
+			Column: capturelog.FieldProcName,
+		})
+	}
+	if value, ok := cluo.mutation.SrcOssURL(); ok {
+		_spec.Fields.Set = append(_spec.Fields.Set, &sqlgraph.FieldSpec{
+			Type:   field.TypeString,
+			Value:  value,
+			Column: capturelog.FieldSrcOssURL,
+		})
+	}
+	if value, ok := cluo.mutation.ProcOssURL(); ok {
+		_spec.Fields.Set = append(_spec.Fields.Set, &sqlgraph.FieldSpec{
+			Type:   field.TypeString,
+			Value:  value,
+			Column: capturelog.FieldProcOssURL,
 		})
 	}
 	if value, ok := cluo.mutation.CreatedAt(); ok {

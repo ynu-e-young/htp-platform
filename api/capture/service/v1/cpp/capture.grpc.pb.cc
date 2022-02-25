@@ -27,9 +27,13 @@ static const char* Capture_method_names[] = {
   "/capture.service.v1.Capture/ReadOne",
   "/capture.service.v1.Capture/ReadAll",
   "/capture.service.v1.Capture/ReadOneWithBinary",
+  "/capture.service.v1.Capture/ReadOneWithBinaryAndSrc",
   "/capture.service.v1.Capture/ReadAllWithBinary",
+  "/capture.service.v1.Capture/ReadAllWithBinaryAndSrc",
   "/capture.service.v1.Capture/ReadOneWithBinaryAndCalArea",
+  "/capture.service.v1.Capture/ReadOneWithBinaryAndCalAreaAndSrc",
   "/capture.service.v1.Capture/ReadAllWithBinaryAndCalArea",
+  "/capture.service.v1.Capture/ReadAllWithBinaryAndCalAreaAndSrc",
 };
 
 std::unique_ptr< Capture::Stub> Capture::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -42,9 +46,13 @@ Capture::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, c
   : channel_(channel), rpcmethod_ReadOne_(Capture_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_ReadAll_(Capture_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_ReadOneWithBinary_(Capture_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_ReadAllWithBinary_(Capture_method_names[3], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_ReadOneWithBinaryAndCalArea_(Capture_method_names[4], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_ReadAllWithBinaryAndCalArea_(Capture_method_names[5], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_ReadOneWithBinaryAndSrc_(Capture_method_names[3], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_ReadAllWithBinary_(Capture_method_names[4], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_ReadAllWithBinaryAndSrc_(Capture_method_names[5], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_ReadOneWithBinaryAndCalArea_(Capture_method_names[6], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_ReadOneWithBinaryAndCalAreaAndSrc_(Capture_method_names[7], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_ReadAllWithBinaryAndCalArea_(Capture_method_names[8], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_ReadAllWithBinaryAndCalAreaAndSrc_(Capture_method_names[9], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status Capture::Stub::ReadOne(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneRequest& request, ::capture::service::v1::ImageReply* response) {
@@ -116,6 +124,29 @@ void Capture::Stub::async::ReadOneWithBinary(::grpc::ClientContext* context, con
   return result;
 }
 
+::grpc::Status Capture::Stub::ReadOneWithBinaryAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest& request, ::capture::service::v1::ImageWithSrcReply* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::capture::service::v1::ReadOneWithBinaryAndSrcRequest, ::capture::service::v1::ImageWithSrcReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_ReadOneWithBinaryAndSrc_, context, request, response);
+}
+
+void Capture::Stub::async::ReadOneWithBinaryAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest* request, ::capture::service::v1::ImageWithSrcReply* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::capture::service::v1::ReadOneWithBinaryAndSrcRequest, ::capture::service::v1::ImageWithSrcReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ReadOneWithBinaryAndSrc_, context, request, response, std::move(f));
+}
+
+void Capture::Stub::async::ReadOneWithBinaryAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest* request, ::capture::service::v1::ImageWithSrcReply* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ReadOneWithBinaryAndSrc_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImageWithSrcReply>* Capture::Stub::PrepareAsyncReadOneWithBinaryAndSrcRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::capture::service::v1::ImageWithSrcReply, ::capture::service::v1::ReadOneWithBinaryAndSrcRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_ReadOneWithBinaryAndSrc_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImageWithSrcReply>* Capture::Stub::AsyncReadOneWithBinaryAndSrcRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncReadOneWithBinaryAndSrcRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
 ::grpc::Status Capture::Stub::ReadAllWithBinary(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryRequest& request, ::capture::service::v1::ImagesReply* response) {
   return ::grpc::internal::BlockingUnaryCall< ::capture::service::v1::ReadAllWithBinaryRequest, ::capture::service::v1::ImagesReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_ReadAllWithBinary_, context, request, response);
 }
@@ -135,6 +166,29 @@ void Capture::Stub::async::ReadAllWithBinary(::grpc::ClientContext* context, con
 ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesReply>* Capture::Stub::AsyncReadAllWithBinaryRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncReadAllWithBinaryRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status Capture::Stub::ReadAllWithBinaryAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest& request, ::capture::service::v1::ImagesWithSrcReply* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::capture::service::v1::ReadAllWithBinaryAndSrcRequest, ::capture::service::v1::ImagesWithSrcReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_ReadAllWithBinaryAndSrc_, context, request, response);
+}
+
+void Capture::Stub::async::ReadAllWithBinaryAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest* request, ::capture::service::v1::ImagesWithSrcReply* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::capture::service::v1::ReadAllWithBinaryAndSrcRequest, ::capture::service::v1::ImagesWithSrcReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ReadAllWithBinaryAndSrc_, context, request, response, std::move(f));
+}
+
+void Capture::Stub::async::ReadAllWithBinaryAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest* request, ::capture::service::v1::ImagesWithSrcReply* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ReadAllWithBinaryAndSrc_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesWithSrcReply>* Capture::Stub::PrepareAsyncReadAllWithBinaryAndSrcRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::capture::service::v1::ImagesWithSrcReply, ::capture::service::v1::ReadAllWithBinaryAndSrcRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_ReadAllWithBinaryAndSrc_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesWithSrcReply>* Capture::Stub::AsyncReadAllWithBinaryAndSrcRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncReadAllWithBinaryAndSrcRaw(context, request, cq);
   result->StartCall();
   return result;
 }
@@ -162,6 +216,29 @@ void Capture::Stub::async::ReadOneWithBinaryAndCalArea(::grpc::ClientContext* co
   return result;
 }
 
+::grpc::Status Capture::Stub::ReadOneWithBinaryAndCalAreaAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest& request, ::capture::service::v1::ImageWithAreaAndSrcReply* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest, ::capture::service::v1::ImageWithAreaAndSrcReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_ReadOneWithBinaryAndCalAreaAndSrc_, context, request, response);
+}
+
+void Capture::Stub::async::ReadOneWithBinaryAndCalAreaAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest* request, ::capture::service::v1::ImageWithAreaAndSrcReply* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest, ::capture::service::v1::ImageWithAreaAndSrcReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ReadOneWithBinaryAndCalAreaAndSrc_, context, request, response, std::move(f));
+}
+
+void Capture::Stub::async::ReadOneWithBinaryAndCalAreaAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest* request, ::capture::service::v1::ImageWithAreaAndSrcReply* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ReadOneWithBinaryAndCalAreaAndSrc_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImageWithAreaAndSrcReply>* Capture::Stub::PrepareAsyncReadOneWithBinaryAndCalAreaAndSrcRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::capture::service::v1::ImageWithAreaAndSrcReply, ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_ReadOneWithBinaryAndCalAreaAndSrc_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImageWithAreaAndSrcReply>* Capture::Stub::AsyncReadOneWithBinaryAndCalAreaAndSrcRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncReadOneWithBinaryAndCalAreaAndSrcRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
 ::grpc::Status Capture::Stub::ReadAllWithBinaryAndCalArea(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest& request, ::capture::service::v1::ImagesWithAreaReply* response) {
   return ::grpc::internal::BlockingUnaryCall< ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest, ::capture::service::v1::ImagesWithAreaReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_ReadAllWithBinaryAndCalArea_, context, request, response);
 }
@@ -181,6 +258,29 @@ void Capture::Stub::async::ReadAllWithBinaryAndCalArea(::grpc::ClientContext* co
 ::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesWithAreaReply>* Capture::Stub::AsyncReadAllWithBinaryAndCalAreaRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncReadAllWithBinaryAndCalAreaRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status Capture::Stub::ReadAllWithBinaryAndCalAreaAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest& request, ::capture::service::v1::ImagesWithAreaAndSrcReply* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest, ::capture::service::v1::ImagesWithAreaAndSrcReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_ReadAllWithBinaryAndCalAreaAndSrc_, context, request, response);
+}
+
+void Capture::Stub::async::ReadAllWithBinaryAndCalAreaAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest* request, ::capture::service::v1::ImagesWithAreaAndSrcReply* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest, ::capture::service::v1::ImagesWithAreaAndSrcReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ReadAllWithBinaryAndCalAreaAndSrc_, context, request, response, std::move(f));
+}
+
+void Capture::Stub::async::ReadAllWithBinaryAndCalAreaAndSrc(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest* request, ::capture::service::v1::ImagesWithAreaAndSrcReply* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ReadAllWithBinaryAndCalAreaAndSrc_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesWithAreaAndSrcReply>* Capture::Stub::PrepareAsyncReadAllWithBinaryAndCalAreaAndSrcRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::capture::service::v1::ImagesWithAreaAndSrcReply, ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_ReadAllWithBinaryAndCalAreaAndSrc_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::capture::service::v1::ImagesWithAreaAndSrcReply>* Capture::Stub::AsyncReadAllWithBinaryAndCalAreaAndSrcRaw(::grpc::ClientContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncReadAllWithBinaryAndCalAreaAndSrcRaw(context, request, cq);
   result->StartCall();
   return result;
 }
@@ -219,6 +319,16 @@ Capture::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Capture_method_names[3],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Capture::Service, ::capture::service::v1::ReadOneWithBinaryAndSrcRequest, ::capture::service::v1::ImageWithSrcReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](Capture::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest* req,
+             ::capture::service::v1::ImageWithSrcReply* resp) {
+               return service->ReadOneWithBinaryAndSrc(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Capture_method_names[4],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Capture::Service, ::capture::service::v1::ReadAllWithBinaryRequest, ::capture::service::v1::ImagesReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](Capture::Service* service,
              ::grpc::ServerContext* ctx,
@@ -227,7 +337,17 @@ Capture::Service::Service() {
                return service->ReadAllWithBinary(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Capture_method_names[4],
+      Capture_method_names[5],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Capture::Service, ::capture::service::v1::ReadAllWithBinaryAndSrcRequest, ::capture::service::v1::ImagesWithSrcReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](Capture::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest* req,
+             ::capture::service::v1::ImagesWithSrcReply* resp) {
+               return service->ReadAllWithBinaryAndSrc(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Capture_method_names[6],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Capture::Service, ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest, ::capture::service::v1::ImageWithAreaReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](Capture::Service* service,
@@ -237,7 +357,17 @@ Capture::Service::Service() {
                return service->ReadOneWithBinaryAndCalArea(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Capture_method_names[5],
+      Capture_method_names[7],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Capture::Service, ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest, ::capture::service::v1::ImageWithAreaAndSrcReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](Capture::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest* req,
+             ::capture::service::v1::ImageWithAreaAndSrcReply* resp) {
+               return service->ReadOneWithBinaryAndCalAreaAndSrc(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Capture_method_names[8],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Capture::Service, ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest, ::capture::service::v1::ImagesWithAreaReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](Capture::Service* service,
@@ -245,6 +375,16 @@ Capture::Service::Service() {
              const ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest* req,
              ::capture::service::v1::ImagesWithAreaReply* resp) {
                return service->ReadAllWithBinaryAndCalArea(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Capture_method_names[9],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Capture::Service, ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest, ::capture::service::v1::ImagesWithAreaAndSrcReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](Capture::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest* req,
+             ::capture::service::v1::ImagesWithAreaAndSrcReply* resp) {
+               return service->ReadAllWithBinaryAndCalAreaAndSrc(ctx, req, resp);
              }, this)));
 }
 
@@ -272,7 +412,21 @@ Capture::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
+::grpc::Status Capture::Service::ReadOneWithBinaryAndSrc(::grpc::ServerContext* context, const ::capture::service::v1::ReadOneWithBinaryAndSrcRequest* request, ::capture::service::v1::ImageWithSrcReply* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
 ::grpc::Status Capture::Service::ReadAllWithBinary(::grpc::ServerContext* context, const ::capture::service::v1::ReadAllWithBinaryRequest* request, ::capture::service::v1::ImagesReply* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Capture::Service::ReadAllWithBinaryAndSrc(::grpc::ServerContext* context, const ::capture::service::v1::ReadAllWithBinaryAndSrcRequest* request, ::capture::service::v1::ImagesWithSrcReply* response) {
   (void) context;
   (void) request;
   (void) response;
@@ -286,7 +440,21 @@ Capture::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
+::grpc::Status Capture::Service::ReadOneWithBinaryAndCalAreaAndSrc(::grpc::ServerContext* context, const ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest* request, ::capture::service::v1::ImageWithAreaAndSrcReply* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
 ::grpc::Status Capture::Service::ReadAllWithBinaryAndCalArea(::grpc::ServerContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest* request, ::capture::service::v1::ImagesWithAreaReply* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Capture::Service::ReadAllWithBinaryAndCalAreaAndSrc(::grpc::ServerContext* context, const ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest* request, ::capture::service::v1::ImagesWithAreaAndSrcReply* response) {
   (void) context;
   (void) request;
   (void) response;

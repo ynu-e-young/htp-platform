@@ -38,15 +38,27 @@ func (clc *CaptureLogCreate) SetArea(f float64) *CaptureLogCreate {
 	return clc
 }
 
-// SetImageName sets the "image_name" field.
-func (clc *CaptureLogCreate) SetImageName(s string) *CaptureLogCreate {
-	clc.mutation.SetImageName(s)
+// SetSrcName sets the "src_name" field.
+func (clc *CaptureLogCreate) SetSrcName(s string) *CaptureLogCreate {
+	clc.mutation.SetSrcName(s)
 	return clc
 }
 
-// SetOssURL sets the "oss_url" field.
-func (clc *CaptureLogCreate) SetOssURL(s string) *CaptureLogCreate {
-	clc.mutation.SetOssURL(s)
+// SetProcName sets the "proc_name" field.
+func (clc *CaptureLogCreate) SetProcName(s string) *CaptureLogCreate {
+	clc.mutation.SetProcName(s)
+	return clc
+}
+
+// SetSrcOssURL sets the "src_oss_url" field.
+func (clc *CaptureLogCreate) SetSrcOssURL(s string) *CaptureLogCreate {
+	clc.mutation.SetSrcOssURL(s)
+	return clc
+}
+
+// SetProcOssURL sets the "proc_oss_url" field.
+func (clc *CaptureLogCreate) SetProcOssURL(s string) *CaptureLogCreate {
+	clc.mutation.SetProcOssURL(s)
 	return clc
 }
 
@@ -176,11 +188,17 @@ func (clc *CaptureLogCreate) check() error {
 	if _, ok := clc.mutation.Area(); !ok {
 		return &ValidationError{Name: "area", err: errors.New(`ent: missing required field "CaptureLog.area"`)}
 	}
-	if _, ok := clc.mutation.ImageName(); !ok {
-		return &ValidationError{Name: "image_name", err: errors.New(`ent: missing required field "CaptureLog.image_name"`)}
+	if _, ok := clc.mutation.SrcName(); !ok {
+		return &ValidationError{Name: "src_name", err: errors.New(`ent: missing required field "CaptureLog.src_name"`)}
 	}
-	if _, ok := clc.mutation.OssURL(); !ok {
-		return &ValidationError{Name: "oss_url", err: errors.New(`ent: missing required field "CaptureLog.oss_url"`)}
+	if _, ok := clc.mutation.ProcName(); !ok {
+		return &ValidationError{Name: "proc_name", err: errors.New(`ent: missing required field "CaptureLog.proc_name"`)}
+	}
+	if _, ok := clc.mutation.SrcOssURL(); !ok {
+		return &ValidationError{Name: "src_oss_url", err: errors.New(`ent: missing required field "CaptureLog.src_oss_url"`)}
+	}
+	if _, ok := clc.mutation.ProcOssURL(); !ok {
+		return &ValidationError{Name: "proc_oss_url", err: errors.New(`ent: missing required field "CaptureLog.proc_oss_url"`)}
 	}
 	if _, ok := clc.mutation.CreatedAt(); !ok {
 		return &ValidationError{Name: "created_at", err: errors.New(`ent: missing required field "CaptureLog.created_at"`)}
@@ -245,21 +263,37 @@ func (clc *CaptureLogCreate) createSpec() (*CaptureLog, *sqlgraph.CreateSpec) {
 		})
 		_node.Area = value
 	}
-	if value, ok := clc.mutation.ImageName(); ok {
+	if value, ok := clc.mutation.SrcName(); ok {
 		_spec.Fields = append(_spec.Fields, &sqlgraph.FieldSpec{
 			Type:   field.TypeString,
 			Value:  value,
-			Column: capturelog.FieldImageName,
+			Column: capturelog.FieldSrcName,
 		})
-		_node.ImageName = value
+		_node.SrcName = value
 	}
-	if value, ok := clc.mutation.OssURL(); ok {
+	if value, ok := clc.mutation.ProcName(); ok {
 		_spec.Fields = append(_spec.Fields, &sqlgraph.FieldSpec{
 			Type:   field.TypeString,
 			Value:  value,
-			Column: capturelog.FieldOssURL,
+			Column: capturelog.FieldProcName,
 		})
-		_node.OssURL = value
+		_node.ProcName = value
+	}
+	if value, ok := clc.mutation.SrcOssURL(); ok {
+		_spec.Fields = append(_spec.Fields, &sqlgraph.FieldSpec{
+			Type:   field.TypeString,
+			Value:  value,
+			Column: capturelog.FieldSrcOssURL,
+		})
+		_node.SrcOssURL = value
+	}
+	if value, ok := clc.mutation.ProcOssURL(); ok {
+		_spec.Fields = append(_spec.Fields, &sqlgraph.FieldSpec{
+			Type:   field.TypeString,
+			Value:  value,
+			Column: capturelog.FieldProcOssURL,
+		})
+		_node.ProcOssURL = value
 	}
 	if value, ok := clc.mutation.CreatedAt(); ok {
 		_spec.Fields = append(_spec.Fields, &sqlgraph.FieldSpec{

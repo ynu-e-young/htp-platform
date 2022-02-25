@@ -62,6 +62,18 @@ func (r *captureRepo) ReadOneWithBinary(ctx context.Context, device int64) (*biz
 	}, nil
 }
 
+func (r *captureRepo) ReadOneWithBinaryAndSrc(ctx context.Context, device int64) (*biz.CaptureSrc, error) {
+	reply, err := r.data.cc.ReadOneWithBinaryAndSrc(ctx, &captureV1.ReadOneWithBinaryAndSrcRequest{Id: device})
+	if err != nil {
+		return nil, captureV1.ErrorReadDeviceError("read device %d failed, err: %v", device, err)
+	}
+
+	return &biz.CaptureSrc{
+		Proc: reply.GetImageSrc().GetProc(),
+		Src:  reply.GetImageSrc().GetSrc(),
+	}, nil
+}
+
 func (r *captureRepo) ReadAllWithBinary(ctx context.Context) ([]*biz.Capture, error) {
 	reply, err := r.data.cc.ReadAllWithBinary(ctx, &captureV1.ReadAllWithBinaryRequest{})
 	if err != nil {
@@ -77,6 +89,22 @@ func (r *captureRepo) ReadAllWithBinary(ctx context.Context) ([]*biz.Capture, er
 	return rets, nil
 }
 
+func (r *captureRepo) ReadAllWithBinaryAndSrc(ctx context.Context) ([]*biz.CaptureSrc, error) {
+	reply, err := r.data.cc.ReadAllWithBinaryAndSrc(ctx, &captureV1.ReadAllWithBinaryAndSrcRequest{})
+	if err != nil {
+		return nil, captureV1.ErrorReadDeviceError("read all devices failed, err: %v", err)
+	}
+
+	var rets []*biz.CaptureSrc
+	for _, imageSrc := range reply.GetImageSrc() {
+		rets = append(rets, &biz.CaptureSrc{
+			Proc: imageSrc.GetProc(),
+			Src:  imageSrc.GetSrc(),
+		})
+	}
+	return rets, nil
+}
+
 func (r *captureRepo) ReadOneWithBinaryAndCalArea(ctx context.Context, device int64) (*biz.Capture, error) {
 	reply, err := r.data.cc.ReadOneWithBinaryAndCalArea(ctx, &captureV1.ReadOneWithBinaryAndCalAreaRequest{Id: device})
 	if err != nil {
@@ -87,6 +115,20 @@ func (r *captureRepo) ReadOneWithBinaryAndCalArea(ctx context.Context, device in
 		Data:   reply.Image.Data,
 		Pixels: reply.Pixels,
 		Area:   reply.Area,
+	}, nil
+}
+
+func (r *captureRepo) ReadOneWithBinaryAndCalAreaAndSrc(ctx context.Context, device int64) (*biz.CaptureSrc, error) {
+	reply, err := r.data.cc.ReadOneWithBinaryAndCalAreaAndSrc(ctx, &captureV1.ReadOneWithBinaryAndCalAreaAndSrcRequest{Id: device})
+	if err != nil {
+		return nil, captureV1.ErrorReadDeviceError("read device %d failed, err: %v", device, err)
+	}
+
+	return &biz.CaptureSrc{
+		Proc:   reply.GetImageSrc().GetProc(),
+		Src:    reply.GetImageSrc().GetSrc(),
+		Pixels: reply.GetPixels(),
+		Area:   reply.GetArea(),
 	}, nil
 }
 
@@ -107,6 +149,25 @@ func (r *captureRepo) ReadAllWithBinaryAndCalArea(ctx context.Context) ([]*biz.C
 	return rets, nil
 }
 
+func (r *captureRepo) ReadAllWithBinaryAndCalAreaAndSrc(ctx context.Context) ([]*biz.CaptureSrc, error) {
+	reply, err := r.data.cc.ReadAllWithBinaryAndCalAreaAndSrc(ctx, &captureV1.ReadAllWithBinaryAndCalAreaAndSrcRequest{})
+	if err != nil {
+		return nil, captureV1.ErrorReadDeviceError("read all devices failed, err: %v", err)
+	}
+
+	var rets []*biz.CaptureSrc
+	for _, data := range reply.GetData() {
+		rets = append(rets, &biz.CaptureSrc{
+			Proc:   data.GetImageSrc().GetProc(),
+			Src:    data.GetImageSrc().GetSrc(),
+			Pixels: data.GetPixels(),
+			Area:   data.GetArea(),
+		})
+	}
+
+	return rets, nil
+}
+
 func (r *captureRepo) FindLogsByMachineId(ctx context.Context, machineId int64) ([]*biz.CaptureLog, error) {
 	targets, err := r.data.db.CaptureLog.
 		Query().Where(capturelog.MachineIDEQ(machineId)).
@@ -123,12 +184,14 @@ func (r *captureRepo) FindLogsByMachineId(ctx context.Context, machineId int64) 
 	var logs []*biz.CaptureLog
 	for _, target := range targets {
 		logs = append(logs, &biz.CaptureLog{
-			Id:        target.ID,
-			MachineId: target.MachineID,
-			Pixels:    target.Pixels,
-			Area:      target.Area,
-			ImageName: target.ImageName,
-			OssUrl:    target.OssURL,
+			Id:         target.ID,
+			MachineId:  target.MachineID,
+			Pixels:     target.Pixels,
+			Area:       target.Area,
+			SrcName:    target.SrcName,
+			ProcName:   target.ProcName,
+			SrcOssUrl:  target.SrcOssURL,
+			ProcOssUrl: target.ProcOssURL,
 		})
 	}
 
@@ -141,8 +204,10 @@ func (r *captureRepo) CreateLog(ctx context.Context, captureLog *biz.CaptureLog)
 		SetMachineID(captureLog.MachineId).
 		SetPixels(captureLog.Pixels).
 		SetArea(captureLog.Area).
-		SetImageName(captureLog.ImageName).
-		SetOssURL(captureLog.OssUrl).
+		SetSrcName(captureLog.SrcName).
+		SetProcName(captureLog.ProcName).
+		SetSrcOssURL(captureLog.SrcOssUrl).
+		SetProcOssURL(captureLog.ProcOssUrl).
 		Save(ctx)
 	if err != nil {
 		r.log.Errorf("unknown err: %v", err)
@@ -150,12 +215,14 @@ func (r *captureRepo) CreateLog(ctx context.Context, captureLog *biz.CaptureLog)
 	}
 
 	return &biz.CaptureLog{
-		Id:        po.ID,
-		MachineId: po.MachineID,
-		Pixels:    po.Pixels,
-		Area:      po.Area,
-		ImageName: po.ImageName,
-		OssUrl:    po.OssURL,
+		Id:         po.ID,
+		MachineId:  po.MachineID,
+		Pixels:     po.Pixels,
+		Area:       po.Area,
+		SrcName:    po.SrcName,
+		ProcName:   po.ProcName,
+		SrcOssUrl:  po.SrcOssURL,
+		ProcOssUrl: po.ProcOssURL,
 	}, nil
 }
 
@@ -170,11 +237,13 @@ func (r *captureRepo) GetLog(ctx context.Context, id int64) (*biz.CaptureLog, er
 	}
 
 	return &biz.CaptureLog{
-		Id:        po.ID,
-		MachineId: po.MachineID,
-		Pixels:    po.Pixels,
-		Area:      po.Area,
-		ImageName: po.ImageName,
-		OssUrl:    po.OssURL,
+		Id:         po.ID,
+		MachineId:  po.MachineID,
+		Pixels:     po.Pixels,
+		Area:       po.Area,
+		SrcName:    po.SrcName,
+		ProcName:   po.ProcName,
+		SrcOssUrl:  po.SrcOssURL,
+		ProcOssUrl: po.ProcOssURL,
 	}, nil
 }
