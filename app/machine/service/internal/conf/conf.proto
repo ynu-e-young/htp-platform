@@ -34,8 +34,15 @@ message Data {
   message Images {
     string dir = 1;
   }
+  message Oss {
+    string endpoint = 1;
+    string accessKeyID = 2;
+    string accessKeySecret = 3;
+    string bucket = 4;
+  }
   Database database = 1;
-  Images images = 2;
+  Oss oss = 2;
+  Images images = 3;
 }
 
 message Registry {

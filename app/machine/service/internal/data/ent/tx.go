@@ -12,6 +12,8 @@ import (
 // Tx is a transactional client that is created by calling Client.Tx().
 type Tx struct {
 	config
+	// CaptureLog is the client for interacting with the CaptureLog builders.
+	CaptureLog *CaptureLogClient
 	// CronJob is the client for interacting with the CronJob builders.
 	CronJob *CronJobClient
 	// Machine is the client for interacting with the Machine builders.
@@ -151,6 +153,7 @@ func (tx *Tx) Client() *Client {
 }
 
 func (tx *Tx) init() {
+	tx.CaptureLog = NewCaptureLogClient(tx.config)
 	tx.CronJob = NewCronJobClient(tx.config)
 	tx.Machine = NewMachineClient(tx.config)
 }
@@ -162,7 +165,7 @@ func (tx *Tx) init() {
 // of them in order to commit or rollback the transaction.
 //
 // If a closed transaction is embedded in one of the generated entities, and the entity
-// applies a query, for example: CronJob.QueryXXX(), the query will be executed
+// applies a query, for example: CaptureLog.QueryXXX(), the query will be executed
 // through the driver which created this transaction.
 //
 // Note that txDriver is not goroutine safe.

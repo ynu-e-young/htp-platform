@@ -8,6 +8,19 @@ import (
 	"htp-platform/app/machine/service/internal/data/ent"
 )
 
+// The CaptureLogFunc type is an adapter to allow the use of ordinary
+// function as CaptureLog mutator.
+type CaptureLogFunc func(context.Context, *ent.CaptureLogMutation) (ent.Value, error)
+
+// Mutate calls f(ctx, m).
+func (f CaptureLogFunc) Mutate(ctx context.Context, m ent.Mutation) (ent.Value, error) {
+	mv, ok := m.(*ent.CaptureLogMutation)
+	if !ok {
+		return nil, fmt.Errorf("unexpected mutation type %T. expect *ent.CaptureLogMutation", m)
+	}
+	return f(ctx, mv)
+}
+
 // The CronJobFunc type is an adapter to allow the use of ordinary
 // function as CronJob mutator.
 type CronJobFunc func(context.Context, *ent.CronJobMutation) (ent.Value, error)

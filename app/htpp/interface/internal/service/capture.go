@@ -53,7 +53,7 @@ func (s *InterfaceService) ReadAll(ctx context.Context, _ *interfaceV1.ReadAllRe
 }
 
 func (s *InterfaceService) ReadOneWithBinary(ctx context.Context, in *interfaceV1.ReadOneWithBinaryRequest) (*interfaceV1.ImageReply, error) {
-	capture, err := s.cu.ReadOne(ctx, in.GetId())
+	capture, err := s.cu.ReadOneWithBinary(ctx, in.GetId())
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +69,7 @@ func (s *InterfaceService) ReadOneWithBinary(ctx context.Context, in *interfaceV
 }
 
 func (s *InterfaceService) ReadAllWithBinary(ctx context.Context, _ *interfaceV1.ReadAllWithBinaryRequest) (*interfaceV1.ImagesReply, error) {
-	captures, err := s.cu.ReadAll(ctx)
+	captures, err := s.cu.ReadAllWithBinary(ctx)
 	if err != nil {
 		return nil, err
 	}
@@ -91,7 +91,7 @@ func (s *InterfaceService) ReadAllWithBinary(ctx context.Context, _ *interfaceV1
 }
 
 func (s *InterfaceService) ReadOneWithBinaryAndCalArea(ctx context.Context, in *interfaceV1.ReadOneWithBinaryAndCalAreaRequest) (*interfaceV1.ImageWithAreaReply, error) {
-	capture, err := s.cu.ReadOne(ctx, in.GetId())
+	capture, err := s.cu.ReadOneWithBinaryAndCalArea(ctx, in.GetId())
 	if err != nil {
 		return nil, err
 	}
@@ -110,7 +110,7 @@ func (s *InterfaceService) ReadOneWithBinaryAndCalArea(ctx context.Context, in *
 }
 
 func (s *InterfaceService) ReadAllWithBinaryAndCalArea(ctx context.Context, _ *interfaceV1.ReadAllWithBinaryAndCalAreaRequest) (*interfaceV1.ImagesWithAreaReply, error) {
-	captures, err := s.cu.ReadAll(ctx)
+	captures, err := s.cu.ReadAllWithBinaryAndCalArea(ctx)
 	if err != nil {
 		return nil, err
 	}

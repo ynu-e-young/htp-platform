@@ -8,6 +8,23 @@ import (
 )
 
 var (
+	// CaptureLogsColumns holds the columns for the "capture_logs" table.
+	CaptureLogsColumns = []*schema.Column{
+		{Name: "id", Type: field.TypeInt64, Increment: true},
+		{Name: "machine_id", Type: field.TypeInt64},
+		{Name: "pixels", Type: field.TypeInt64},
+		{Name: "area", Type: field.TypeFloat64},
+		{Name: "image_name", Type: field.TypeString},
+		{Name: "oss_url", Type: field.TypeString},
+		{Name: "created_at", Type: field.TypeTime, SchemaType: map[string]string{"mysql": "datetime"}},
+		{Name: "updated_at", Type: field.TypeTime, SchemaType: map[string]string{"mysql": "datetime"}},
+	}
+	// CaptureLogsTable holds the schema information for the "capture_logs" table.
+	CaptureLogsTable = &schema.Table{
+		Name:       "capture_logs",
+		Columns:    CaptureLogsColumns,
+		PrimaryKey: []*schema.Column{CaptureLogsColumns[0]},
+	}
 	// CronJobsColumns holds the columns for the "cron_jobs" table.
 	CronJobsColumns = []*schema.Column{
 		{Name: "id", Type: field.TypeInt64, Increment: true},
@@ -40,6 +57,7 @@ var (
 	}
 	// Tables holds all the tables in the schema.
 	Tables = []*schema.Table{
+		CaptureLogsTable,
 		CronJobsTable,
 		MachinesTable,
 	}

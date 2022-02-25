@@ -52,7 +52,7 @@ func (uc *CaptureUsecase) ReadAll(ctx context.Context) ([]*Capture, error) {
 }
 
 func (uc *CaptureUsecase) ReadOneWithBinary(ctx context.Context, device int64) (*Capture, error) {
-	capture, err := uc.repo.ReadOne(ctx, device)
+	capture, err := uc.repo.ReadOneWithBinary(ctx, device)
 	if err != nil {
 		return nil, err
 	}
@@ -61,7 +61,7 @@ func (uc *CaptureUsecase) ReadOneWithBinary(ctx context.Context, device int64) (
 }
 
 func (uc *CaptureUsecase) ReadAllWithBinary(ctx context.Context) ([]*Capture, error) {
-	captures, err := uc.repo.ReadAll(ctx)
+	captures, err := uc.repo.ReadAllWithBinary(ctx)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +70,7 @@ func (uc *CaptureUsecase) ReadAllWithBinary(ctx context.Context) ([]*Capture, er
 }
 
 func (uc *CaptureUsecase) ReadOneWithBinaryAndCalArea(ctx context.Context, device int64) (*Capture, error) {
-	capture, err := uc.repo.ReadOne(ctx, device)
+	capture, err := uc.repo.ReadOneWithBinaryAndCalArea(ctx, device)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +79,7 @@ func (uc *CaptureUsecase) ReadOneWithBinaryAndCalArea(ctx context.Context, devic
 }
 
 func (uc *CaptureUsecase) ReadAllWithBinaryAndCalArea(ctx context.Context) ([]*Capture, error) {
-	captures, err := uc.repo.ReadAll(ctx)
+	captures, err := uc.repo.ReadAllWithBinaryAndCalArea(ctx)
 	if err != nil {
 		return nil, err
 	}

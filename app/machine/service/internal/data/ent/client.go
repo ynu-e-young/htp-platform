@@ -9,6 +9,7 @@ import (
 
 	"htp-platform/app/machine/service/internal/data/ent/migrate"
 
+	"htp-platform/app/machine/service/internal/data/ent/capturelog"
 	"htp-platform/app/machine/service/internal/data/ent/cronjob"
 	"htp-platform/app/machine/service/internal/data/ent/machine"
 
@@ -21,6 +22,8 @@ type Client struct {
 	config
 	// Schema is the client for creating, migrating and dropping schema.
 	Schema *migrate.Schema
+	// CaptureLog is the client for interacting with the CaptureLog builders.
+	CaptureLog *CaptureLogClient
 	// CronJob is the client for interacting with the CronJob builders.
 	CronJob *CronJobClient
 	// Machine is the client for interacting with the Machine builders.
@@ -38,6 +41,7 @@ func NewClient(opts ...Option) *Client {
 
 func (c *Client) init() {
 	c.Schema = migrate.NewSchema(c.driver)
+	c.CaptureLog = NewCaptureLogClient(c.config)
 	c.CronJob = NewCronJobClient(c.config)
 	c.Machine = NewMachineClient(c.config)
 }
@@ -71,10 +75,11 @@ func (c *Client) Tx(ctx context.Context) (*Tx, error) {
 	cfg := c.config
 	cfg.driver = tx
 	return &Tx{
-		ctx:     ctx,
-		config:  cfg,
-		CronJob: NewCronJobClient(cfg),
-		Machine: NewMachineClient(cfg),
+		ctx:        ctx,
+		config:     cfg,
+		CaptureLog: NewCaptureLogClient(cfg),
+		CronJob:    NewCronJobClient(cfg),
+		Machine:    NewMachineClient(cfg),
 	}, nil
 }
 
@@ -92,17 +97,18 @@ func (c *Client) BeginTx(ctx context.Context, opts *sql.TxOptions) (*Tx, error) 
 	cfg := c.config
 	cfg.driver = &txDriver{tx: tx, drv: c.driver}
 	return &Tx{
-		ctx:     ctx,
-		config:  cfg,
-		CronJob: NewCronJobClient(cfg),
-		Machine: NewMachineClient(cfg),
+		ctx:        ctx,
+		config:     cfg,
+		CaptureLog: NewCaptureLogClient(cfg),
+		CronJob:    NewCronJobClient(cfg),
+		Machine:    NewMachineClient(cfg),
 	}, nil
 }
 
 // Debug returns a new debug-client. It's used to get verbose logging on specific operations.
 //
 //	client.Debug().
-//		CronJob.
+//		CaptureLog.
 //		Query().
 //		Count(ctx)
 //
@@ -125,8 +131,99 @@ func (c *Client) Close() error {
 // Use adds the mutation hooks to all the entity clients.
 // In order to add hooks to a specific client, call: `client.Node.Use(...)`.
 func (c *Client) Use(hooks ...Hook) {
+	c.CaptureLog.Use(hooks...)
 	c.CronJob.Use(hooks...)
 	c.Machine.Use(hooks...)
+}
+
+// CaptureLogClient is a client for the CaptureLog schema.
+type CaptureLogClient struct {
+	config
+}
+
+// NewCaptureLogClient returns a client for the CaptureLog from the given config.
+func NewCaptureLogClient(c config) *CaptureLogClient {
+	return &CaptureLogClient{config: c}
+}
+
+// Use adds a list of mutation hooks to the hooks stack.
+// A call to `Use(f, g, h)` equals to `capturelog.Hooks(f(g(h())))`.
+func (c *CaptureLogClient) Use(hooks ...Hook) {
+	c.hooks.CaptureLog = append(c.hooks.CaptureLog, hooks...)
+}
+
+// Create returns a create builder for CaptureLog.
+func (c *CaptureLogClient) Create() *CaptureLogCreate {
+	mutation := newCaptureLogMutation(c.config, OpCreate)
+	return &CaptureLogCreate{config: c.config, hooks: c.Hooks(), mutation: mutation}
+}
+
+// CreateBulk returns a builder for creating a bulk of CaptureLog entities.
+func (c *CaptureLogClient) CreateBulk(builders ...*CaptureLogCreate) *CaptureLogCreateBulk {
+	return &CaptureLogCreateBulk{config: c.config, builders: builders}
+}
+
+// Update returns an update builder for CaptureLog.
+func (c *CaptureLogClient) Update() *CaptureLogUpdate {
+	mutation := newCaptureLogMutation(c.config, OpUpdate)
+	return &CaptureLogUpdate{config: c.config, hooks: c.Hooks(), mutation: mutation}
+}
+
+// UpdateOne returns an update builder for the given entity.
+func (c *CaptureLogClient) UpdateOne(cl *CaptureLog) *CaptureLogUpdateOne {
+	mutation := newCaptureLogMutation(c.config, OpUpdateOne, withCaptureLog(cl))
+	return &CaptureLogUpdateOne{config: c.config, hooks: c.Hooks(), mutation: mutation}
+}
+
+// UpdateOneID returns an update builder for the given id.
+func (c *CaptureLogClient) UpdateOneID(id int64) *CaptureLogUpdateOne {
+	mutation := newCaptureLogMutation(c.config, OpUpdateOne, withCaptureLogID(id))
+	return &CaptureLogUpdateOne{config: c.config, hooks: c.Hooks(), mutation: mutation}
+}
+
+// Delete returns a delete builder for CaptureLog.
+func (c *CaptureLogClient) Delete() *CaptureLogDelete {
+	mutation := newCaptureLogMutation(c.config, OpDelete)
+	return &CaptureLogDelete{config: c.config, hooks: c.Hooks(), mutation: mutation}
+}
+
+// DeleteOne returns a delete builder for the given entity.
+func (c *CaptureLogClient) DeleteOne(cl *CaptureLog) *CaptureLogDeleteOne {
+	return c.DeleteOneID(cl.ID)
+}
+
+// DeleteOneID returns a delete builder for the given id.
+func (c *CaptureLogClient) DeleteOneID(id int64) *CaptureLogDeleteOne {
+	builder := c.Delete().Where(capturelog.ID(id))
+	builder.mutation.id = &id
+	builder.mutation.op = OpDeleteOne
+	return &CaptureLogDeleteOne{builder}
+}
+
+// Query returns a query builder for CaptureLog.
+func (c *CaptureLogClient) Query() *CaptureLogQuery {
+	return &CaptureLogQuery{
+		config: c.config,
+	}
+}
+
+// Get returns a CaptureLog entity by its id.
+func (c *CaptureLogClient) Get(ctx context.Context, id int64) (*CaptureLog, error) {
+	return c.Query().Where(capturelog.ID(id)).Only(ctx)
+}
+
+// GetX is like Get, but panics if an error occurs.
+func (c *CaptureLogClient) GetX(ctx context.Context, id int64) *CaptureLog {
+	obj, err := c.Get(ctx, id)
+	if err != nil {
+		panic(err)
+	}
+	return obj
+}
+
+// Hooks returns the client hooks.
+func (c *CaptureLogClient) Hooks() []Hook {
+	return c.hooks.CaptureLog
 }
 
 // CronJobClient is a client for the CronJob schema.

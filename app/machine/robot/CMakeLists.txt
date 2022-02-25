@@ -114,4 +114,4 @@ elseif (CMAKE_BUILD_TYPE STREQUAL Release)
 endif ()
 
 add_executable(${PROJECT_NAME} ${ProjectSRC})
-target_link_libraries(${PROJECT_NAME} jsoncpp Threads::Threads gRPC::grpc++)
+target_link_libraries(${PROJECT_NAME} libjsoncpp.a Threads::Threads gRPC::grpc++)

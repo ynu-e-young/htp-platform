@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"htp-platform/app/machine/service/internal/biz"
+	"htp-platform/app/machine/service/internal/data/ent/capturelog"
 	"htp-platform/app/machine/service/internal/data/ent/cronjob"
 	"htp-platform/app/machine/service/internal/data/ent/machine"
 	"htp-platform/app/machine/service/internal/data/ent/predicate"
@@ -25,9 +26,753 @@ const (
 	OpUpdateOne = ent.OpUpdateOne
 
 	// Node types.
-	TypeCronJob = "CronJob"
-	TypeMachine = "Machine"
+	TypeCaptureLog = "CaptureLog"
+	TypeCronJob    = "CronJob"
+	TypeMachine    = "Machine"
 )
+
+// CaptureLogMutation represents an operation that mutates the CaptureLog nodes in the graph.
+type CaptureLogMutation struct {
+	config
+	op            Op
+	typ           string
+	id            *int64
+	machine_id    *int64
+	addmachine_id *int64
+	pixels        *int64
+	addpixels     *int64
+	area          *float64
+	addarea       *float64
+	image_name    *string
+	oss_url       *string
+	created_at    *time.Time
+	updated_at    *time.Time
+	clearedFields map[string]struct{}
+	done          bool
+	oldValue      func(context.Context) (*CaptureLog, error)
+	predicates    []predicate.CaptureLog
+}
+
+var _ ent.Mutation = (*CaptureLogMutation)(nil)
+
+// capturelogOption allows management of the mutation configuration using functional options.
+type capturelogOption func(*CaptureLogMutation)
+
+// newCaptureLogMutation creates new mutation for the CaptureLog entity.
+func newCaptureLogMutation(c config, op Op, opts ...capturelogOption) *CaptureLogMutation {
+	m := &CaptureLogMutation{
+		config:        c,
+		op:            op,
+		typ:           TypeCaptureLog,
+		clearedFields: make(map[string]struct{}),
+	}
+	for _, opt := range opts {
+		opt(m)
+	}
+	return m
+}
+
+// withCaptureLogID sets the ID field of the mutation.
+func withCaptureLogID(id int64) capturelogOption {
+	return func(m *CaptureLogMutation) {
+		var (
+			err   error
+			once  sync.Once
+			value *CaptureLog
+		)
+		m.oldValue = func(ctx context.Context) (*CaptureLog, error) {
+			once.Do(func() {
+				if m.done {
+					err = errors.New("querying old values post mutation is not allowed")
+				} else {
+					value, err = m.Client().CaptureLog.Get(ctx, id)
+				}
+			})
+			return value, err
+		}
+		m.id = &id
+	}
+}
+
+// withCaptureLog sets the old CaptureLog of the mutation.
+func withCaptureLog(node *CaptureLog) capturelogOption {
+	return func(m *CaptureLogMutation) {
+		m.oldValue = func(context.Context) (*CaptureLog, error) {
+			return node, nil
+		}
+		m.id = &node.ID
+	}
+}
+
+// Client returns a new `ent.Client` from the mutation. If the mutation was
+// executed in a transaction (ent.Tx), a transactional client is returned.
+func (m CaptureLogMutation) Client() *Client {
+	client := &Client{config: m.config}
+	client.init()
+	return client
+}
+
+// Tx returns an `ent.Tx` for mutations that were executed in transactions;
+// it returns an error otherwise.
+func (m CaptureLogMutation) Tx() (*Tx, error) {
+	if _, ok := m.driver.(*txDriver); !ok {
+		return nil, errors.New("ent: mutation is not running in a transaction")
+	}
+	tx := &Tx{config: m.config}
+	tx.init()
+	return tx, nil
+}
+
+// SetID sets the value of the id field. Note that this
+// operation is only accepted on creation of CaptureLog entities.
+func (m *CaptureLogMutation) SetID(id int64) {
+	m.id = &id
+}
+
+// ID returns the ID value in the mutation. Note that the ID is only available
+// if it was provided to the builder or after it was returned from the database.
+func (m *CaptureLogMutation) ID() (id int64, exists bool) {
+	if m.id == nil {
+		return
+	}
+	return *m.id, true
+}
+
+// IDs queries the database and returns the entity ids that match the mutation's predicate.
+// That means, if the mutation is applied within a transaction with an isolation level such
+// as sql.LevelSerializable, the returned ids match the ids of the rows that will be updated
+// or updated by the mutation.
+func (m *CaptureLogMutation) IDs(ctx context.Context) ([]int64, error) {
+	switch {
+	case m.op.Is(OpUpdateOne | OpDeleteOne):
+		id, exists := m.ID()
+		if exists {
+			return []int64{id}, nil
+		}
+		fallthrough
+	case m.op.Is(OpUpdate | OpDelete):
+		return m.Client().CaptureLog.Query().Where(m.predicates...).IDs(ctx)
+	default:
+		return nil, fmt.Errorf("IDs is not allowed on %s operations", m.op)
+	}
+}
+
+// SetMachineID sets the "machine_id" field.
+func (m *CaptureLogMutation) SetMachineID(i int64) {
+	m.machine_id = &i
+	m.addmachine_id = nil
+}
+
+// MachineID returns the value of the "machine_id" field in the mutation.
+func (m *CaptureLogMutation) MachineID() (r int64, exists bool) {
+	v := m.machine_id
+	if v == nil {
+		return
+	}
+	return *v, true
+}
+
+// OldMachineID returns the old "machine_id" field's value of the CaptureLog entity.
+// If the CaptureLog object wasn't provided to the builder, the object is fetched from the database.
+// An error is returned if the mutation operation is not UpdateOne, or the database query fails.
+func (m *CaptureLogMutation) OldMachineID(ctx context.Context) (v int64, err error) {
+	if !m.op.Is(OpUpdateOne) {
+		return v, errors.New("OldMachineID is only allowed on UpdateOne operations")
+	}
+	if m.id == nil || m.oldValue == nil {
+		return v, errors.New("OldMachineID requires an ID field in the mutation")
+	}
+	oldValue, err := m.oldValue(ctx)
+	if err != nil {
+		return v, fmt.Errorf("querying old value for OldMachineID: %w", err)
+	}
+	return oldValue.MachineID, nil
+}
+
+// AddMachineID adds i to the "machine_id" field.
+func (m *CaptureLogMutation) AddMachineID(i int64) {
+	if m.addmachine_id != nil {
+		*m.addmachine_id += i
+	} else {
+		m.addmachine_id = &i
+	}
+}
+
+// AddedMachineID returns the value that was added to the "machine_id" field in this mutation.
+func (m *CaptureLogMutation) AddedMachineID() (r int64, exists bool) {
+	v := m.addmachine_id
+	if v == nil {
+		return
+	}
+	return *v, true
+}
+
+// ResetMachineID resets all changes to the "machine_id" field.
+func (m *CaptureLogMutation) ResetMachineID() {
+	m.machine_id = nil
+	m.addmachine_id = nil
+}
+
+// SetPixels sets the "pixels" field.
+func (m *CaptureLogMutation) SetPixels(i int64) {
+	m.pixels = &i
+	m.addpixels = nil
+}
+
+// Pixels returns the value of the "pixels" field in the mutation.
+func (m *CaptureLogMutation) Pixels() (r int64, exists bool) {
+	v := m.pixels
+	if v == nil {
+		return
+	}
+	return *v, true
+}
+
+// OldPixels returns the old "pixels" field's value of the CaptureLog entity.
+// If the CaptureLog object wasn't provided to the builder, the object is fetched from the database.
+// An error is returned if the mutation operation is not UpdateOne, or the database query fails.
+func (m *CaptureLogMutation) OldPixels(ctx context.Context) (v int64, err error) {
+	if !m.op.Is(OpUpdateOne) {
+		return v, errors.New("OldPixels is only allowed on UpdateOne operations")
+	}
+	if m.id == nil || m.oldValue == nil {
+		return v, errors.New("OldPixels requires an ID field in the mutation")
+	}
+	oldValue, err := m.oldValue(ctx)
+	if err != nil {
+		return v, fmt.Errorf("querying old value for OldPixels: %w", err)
+	}
+	return oldValue.Pixels, nil
+}
+
+// AddPixels adds i to the "pixels" field.
+func (m *CaptureLogMutation) AddPixels(i int64) {
+	if m.addpixels != nil {
+		*m.addpixels += i
+	} else {
+		m.addpixels = &i
+	}
+}
+
+// AddedPixels returns the value that was added to the "pixels" field in this mutation.
+func (m *CaptureLogMutation) AddedPixels() (r int64, exists bool) {
+	v := m.addpixels
+	if v == nil {
+		return
+	}
+	return *v, true
+}
+
+// ResetPixels resets all changes to the "pixels" field.
+func (m *CaptureLogMutation) ResetPixels() {
+	m.pixels = nil
+	m.addpixels = nil
+}
+
+// SetArea sets the "area" field.
+func (m *CaptureLogMutation) SetArea(f float64) {
+	m.area = &f
+	m.addarea = nil
+}
+
+// Area returns the value of the "area" field in the mutation.
+func (m *CaptureLogMutation) Area() (r float64, exists bool) {
+	v := m.area
+	if v == nil {
+		return
+	}
+	return *v, true
+}
+
+// OldArea returns the old "area" field's value of the CaptureLog entity.
+// If the CaptureLog object wasn't provided to the builder, the object is fetched from the database.
+// An error is returned if the mutation operation is not UpdateOne, or the database query fails.
+func (m *CaptureLogMutation) OldArea(ctx context.Context) (v float64, err error) {
+	if !m.op.Is(OpUpdateOne) {
+		return v, errors.New("OldArea is only allowed on UpdateOne operations")
+	}
+	if m.id == nil || m.oldValue == nil {
+		return v, errors.New("OldArea requires an ID field in the mutation")
+	}
+	oldValue, err := m.oldValue(ctx)
+	if err != nil {
+		return v, fmt.Errorf("querying old value for OldArea: %w", err)
+	}
+	return oldValue.Area, nil
+}
+
+// AddArea adds f to the "area" field.
+func (m *CaptureLogMutation) AddArea(f float64) {
+	if m.addarea != nil {
+		*m.addarea += f
+	} else {
+		m.addarea = &f
+	}
+}
+
+// AddedArea returns the value that was added to the "area" field in this mutation.
+func (m *CaptureLogMutation) AddedArea() (r float64, exists bool) {
+	v := m.addarea
+	if v == nil {
+		return
+	}
+	return *v, true
+}
+
+// ResetArea resets all changes to the "area" field.
+func (m *CaptureLogMutation) ResetArea() {
+	m.area = nil
+	m.addarea = nil
+}
+
+// SetImageName sets the "image_name" field.
+func (m *CaptureLogMutation) SetImageName(s string) {
+	m.image_name = &s
+}
+
+// ImageName returns the value of the "image_name" field in the mutation.
+func (m *CaptureLogMutation) ImageName() (r string, exists bool) {
+	v := m.image_name
+	if v == nil {
+		return
+	}
+	return *v, true
+}
+
+// OldImageName returns the old "image_name" field's value of the CaptureLog entity.
+// If the CaptureLog object wasn't provided to the builder, the object is fetched from the database.
+// An error is returned if the mutation operation is not UpdateOne, or the database query fails.
+func (m *CaptureLogMutation) OldImageName(ctx context.Context) (v string, err error) {
+	if !m.op.Is(OpUpdateOne) {
+		return v, errors.New("OldImageName is only allowed on UpdateOne operations")
+	}
+	if m.id == nil || m.oldValue == nil {
+		return v, errors.New("OldImageName requires an ID field in the mutation")
+	}
+	oldValue, err := m.oldValue(ctx)
+	if err != nil {
+		return v, fmt.Errorf("querying old value for OldImageName: %w", err)
+	}
+	return oldValue.ImageName, nil
+}
+
+// ResetImageName resets all changes to the "image_name" field.
+func (m *CaptureLogMutation) ResetImageName() {
+	m.image_name = nil
+}
+
+// SetOssURL sets the "oss_url" field.
+func (m *CaptureLogMutation) SetOssURL(s string) {
+	m.oss_url = &s
+}
+
+// OssURL returns the value of the "oss_url" field in the mutation.
+func (m *CaptureLogMutation) OssURL() (r string, exists bool) {
+	v := m.oss_url
+	if v == nil {
+		return
+	}
+	return *v, true
+}
+
+// OldOssURL returns the old "oss_url" field's value of the CaptureLog entity.
+// If the CaptureLog object wasn't provided to the builder, the object is fetched from the database.
+// An error is returned if the mutation operation is not UpdateOne, or the database query fails.
+func (m *CaptureLogMutation) OldOssURL(ctx context.Context) (v string, err error) {
+	if !m.op.Is(OpUpdateOne) {
+		return v, errors.New("OldOssURL is only allowed on UpdateOne operations")
+	}
+	if m.id == nil || m.oldValue == nil {
+		return v, errors.New("OldOssURL requires an ID field in the mutation")
+	}
+	oldValue, err := m.oldValue(ctx)
+	if err != nil {
+		return v, fmt.Errorf("querying old value for OldOssURL: %w", err)
+	}
+	return oldValue.OssURL, nil
+}
+
+// ResetOssURL resets all changes to the "oss_url" field.
+func (m *CaptureLogMutation) ResetOssURL() {
+	m.oss_url = nil
+}
+
+// SetCreatedAt sets the "created_at" field.
+func (m *CaptureLogMutation) SetCreatedAt(t time.Time) {
+	m.created_at = &t
+}
+
+// CreatedAt returns the value of the "created_at" field in the mutation.
+func (m *CaptureLogMutation) CreatedAt() (r time.Time, exists bool) {
+	v := m.created_at
+	if v == nil {
+		return
+	}
+	return *v, true
+}
+
+// OldCreatedAt returns the old "created_at" field's value of the CaptureLog entity.
+// If the CaptureLog object wasn't provided to the builder, the object is fetched from the database.
+// An error is returned if the mutation operation is not UpdateOne, or the database query fails.
+func (m *CaptureLogMutation) OldCreatedAt(ctx context.Context) (v time.Time, err error) {
+	if !m.op.Is(OpUpdateOne) {
+		return v, errors.New("OldCreatedAt is only allowed on UpdateOne operations")
+	}
+	if m.id == nil || m.oldValue == nil {
+		return v, errors.New("OldCreatedAt requires an ID field in the mutation")
+	}
+	oldValue, err := m.oldValue(ctx)
+	if err != nil {
+		return v, fmt.Errorf("querying old value for OldCreatedAt: %w", err)
+	}
+	return oldValue.CreatedAt, nil
+}
+
+// ResetCreatedAt resets all changes to the "created_at" field.
+func (m *CaptureLogMutation) ResetCreatedAt() {
+	m.created_at = nil
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (m *CaptureLogMutation) SetUpdatedAt(t time.Time) {
+	m.updated_at = &t
+}
+
+// UpdatedAt returns the value of the "updated_at" field in the mutation.
+func (m *CaptureLogMutation) UpdatedAt() (r time.Time, exists bool) {
+	v := m.updated_at
+	if v == nil {
+		return
+	}
+	return *v, true
+}
+
+// OldUpdatedAt returns the old "updated_at" field's value of the CaptureLog entity.
+// If the CaptureLog object wasn't provided to the builder, the object is fetched from the database.
+// An error is returned if the mutation operation is not UpdateOne, or the database query fails.
+func (m *CaptureLogMutation) OldUpdatedAt(ctx context.Context) (v time.Time, err error) {
+	if !m.op.Is(OpUpdateOne) {
+		return v, errors.New("OldUpdatedAt is only allowed on UpdateOne operations")
+	}
+	if m.id == nil || m.oldValue == nil {
+		return v, errors.New("OldUpdatedAt requires an ID field in the mutation")
+	}
+	oldValue, err := m.oldValue(ctx)
+	if err != nil {
+		return v, fmt.Errorf("querying old value for OldUpdatedAt: %w", err)
+	}
+	return oldValue.UpdatedAt, nil
+}
+
+// ResetUpdatedAt resets all changes to the "updated_at" field.
+func (m *CaptureLogMutation) ResetUpdatedAt() {
+	m.updated_at = nil
+}
+
+// Where appends a list predicates to the CaptureLogMutation builder.
+func (m *CaptureLogMutation) Where(ps ...predicate.CaptureLog) {
+	m.predicates = append(m.predicates, ps...)
+}
+
+// Op returns the operation name.
+func (m *CaptureLogMutation) Op() Op {
+	return m.op
+}
+
+// Type returns the node type of this mutation (CaptureLog).
+func (m *CaptureLogMutation) Type() string {
+	return m.typ
+}
+
+// Fields returns all fields that were changed during this mutation. Note that in
+// order to get all numeric fields that were incremented/decremented, call
+// AddedFields().
+func (m *CaptureLogMutation) Fields() []string {
+	fields := make([]string, 0, 7)
+	if m.machine_id != nil {
+		fields = append(fields, capturelog.FieldMachineID)
+	}
+	if m.pixels != nil {
+		fields = append(fields, capturelog.FieldPixels)
+	}
+	if m.area != nil {
+		fields = append(fields, capturelog.FieldArea)
+	}
+	if m.image_name != nil {
+		fields = append(fields, capturelog.FieldImageName)
+	}
+	if m.oss_url != nil {
+		fields = append(fields, capturelog.FieldOssURL)
+	}
+	if m.created_at != nil {
+		fields = append(fields, capturelog.FieldCreatedAt)
+	}
+	if m.updated_at != nil {
+		fields = append(fields, capturelog.FieldUpdatedAt)
+	}
+	return fields
+}
+
+// Field returns the value of a field with the given name. The second boolean
+// return value indicates that this field was not set, or was not defined in the
+// schema.
+func (m *CaptureLogMutation) Field(name string) (ent.Value, bool) {
+	switch name {
+	case capturelog.FieldMachineID:
+		return m.MachineID()
+	case capturelog.FieldPixels:
+		return m.Pixels()
+	case capturelog.FieldArea:
+		return m.Area()
+	case capturelog.FieldImageName:
+		return m.ImageName()
+	case capturelog.FieldOssURL:
+		return m.OssURL()
+	case capturelog.FieldCreatedAt:
+		return m.CreatedAt()
+	case capturelog.FieldUpdatedAt:
+		return m.UpdatedAt()
+	}
+	return nil, false
+}
+
+// OldField returns the old value of the field from the database. An error is
+// returned if the mutation operation is not UpdateOne, or the query to the
+// database failed.
+func (m *CaptureLogMutation) OldField(ctx context.Context, name string) (ent.Value, error) {
+	switch name {
+	case capturelog.FieldMachineID:
+		return m.OldMachineID(ctx)
+	case capturelog.FieldPixels:
+		return m.OldPixels(ctx)
+	case capturelog.FieldArea:
+		return m.OldArea(ctx)
+	case capturelog.FieldImageName:
+		return m.OldImageName(ctx)
+	case capturelog.FieldOssURL:
+		return m.OldOssURL(ctx)
+	case capturelog.FieldCreatedAt:
+		return m.OldCreatedAt(ctx)
+	case capturelog.FieldUpdatedAt:
+		return m.OldUpdatedAt(ctx)
+	}
+	return nil, fmt.Errorf("unknown CaptureLog field %s", name)
+}
+
+// SetField sets the value of a field with the given name. It returns an error if
+// the field is not defined in the schema, or if the type mismatched the field
+// type.
+func (m *CaptureLogMutation) SetField(name string, value ent.Value) error {
+	switch name {
+	case capturelog.FieldMachineID:
+		v, ok := value.(int64)
+		if !ok {
+			return fmt.Errorf("unexpected type %T for field %s", value, name)
+		}
+		m.SetMachineID(v)
+		return nil
+	case capturelog.FieldPixels:
+		v, ok := value.(int64)
+		if !ok {
+			return fmt.Errorf("unexpected type %T for field %s", value, name)
+		}
+		m.SetPixels(v)
+		return nil
+	case capturelog.FieldArea:
+		v, ok := value.(float64)
+		if !ok {
+			return fmt.Errorf("unexpected type %T for field %s", value, name)
+		}
+		m.SetArea(v)
+		return nil
+	case capturelog.FieldImageName:
+		v, ok := value.(string)
+		if !ok {
+			return fmt.Errorf("unexpected type %T for field %s", value, name)
+		}
+		m.SetImageName(v)
+		return nil
+	case capturelog.FieldOssURL:
+		v, ok := value.(string)
+		if !ok {
+			return fmt.Errorf("unexpected type %T for field %s", value, name)
+		}
+		m.SetOssURL(v)
+		return nil
+	case capturelog.FieldCreatedAt:
+		v, ok := value.(time.Time)
+		if !ok {
+			return fmt.Errorf("unexpected type %T for field %s", value, name)
+		}
+		m.SetCreatedAt(v)
+		return nil
+	case capturelog.FieldUpdatedAt:
+		v, ok := value.(time.Time)
+		if !ok {
+			return fmt.Errorf("unexpected type %T for field %s", value, name)
+		}
+		m.SetUpdatedAt(v)
+		return nil
+	}
+	return fmt.Errorf("unknown CaptureLog field %s", name)
+}
+
+// AddedFields returns all numeric fields that were incremented/decremented during
+// this mutation.
+func (m *CaptureLogMutation) AddedFields() []string {
+	var fields []string
+	if m.addmachine_id != nil {
+		fields = append(fields, capturelog.FieldMachineID)
+	}
+	if m.addpixels != nil {
+		fields = append(fields, capturelog.FieldPixels)
+	}
+	if m.addarea != nil {
+		fields = append(fields, capturelog.FieldArea)
+	}
+	return fields
+}
+
+// AddedField returns the numeric value that was incremented/decremented on a field
+// with the given name. The second boolean return value indicates that this field
+// was not set, or was not defined in the schema.
+func (m *CaptureLogMutation) AddedField(name string) (ent.Value, bool) {
+	switch name {
+	case capturelog.FieldMachineID:
+		return m.AddedMachineID()
+	case capturelog.FieldPixels:
+		return m.AddedPixels()
+	case capturelog.FieldArea:
+		return m.AddedArea()
+	}
+	return nil, false
+}
+
+// AddField adds the value to the field with the given name. It returns an error if
+// the field is not defined in the schema, or if the type mismatched the field
+// type.
+func (m *CaptureLogMutation) AddField(name string, value ent.Value) error {
+	switch name {
+	case capturelog.FieldMachineID:
+		v, ok := value.(int64)
+		if !ok {
+			return fmt.Errorf("unexpected type %T for field %s", value, name)
+		}
+		m.AddMachineID(v)
+		return nil
+	case capturelog.FieldPixels:
+		v, ok := value.(int64)
+		if !ok {
+			return fmt.Errorf("unexpected type %T for field %s", value, name)
+		}
+		m.AddPixels(v)
+		return nil
+	case capturelog.FieldArea:
+		v, ok := value.(float64)
+		if !ok {
+			return fmt.Errorf("unexpected type %T for field %s", value, name)
+		}
+		m.AddArea(v)
+		return nil
+	}
+	return fmt.Errorf("unknown CaptureLog numeric field %s", name)
+}
+
+// ClearedFields returns all nullable fields that were cleared during this
+// mutation.
+func (m *CaptureLogMutation) ClearedFields() []string {
+	return nil
+}
+
+// FieldCleared returns a boolean indicating if a field with the given name was
+// cleared in this mutation.
+func (m *CaptureLogMutation) FieldCleared(name string) bool {
+	_, ok := m.clearedFields[name]
+	return ok
+}
+
+// ClearField clears the value of the field with the given name. It returns an
+// error if the field is not defined in the schema.
+func (m *CaptureLogMutation) ClearField(name string) error {
+	return fmt.Errorf("unknown CaptureLog nullable field %s", name)
+}
+
+// ResetField resets all changes in the mutation for the field with the given name.
+// It returns an error if the field is not defined in the schema.
+func (m *CaptureLogMutation) ResetField(name string) error {
+	switch name {
+	case capturelog.FieldMachineID:
+		m.ResetMachineID()
+		return nil
+	case capturelog.FieldPixels:
+		m.ResetPixels()
+		return nil
+	case capturelog.FieldArea:
+		m.ResetArea()
+		return nil
+	case capturelog.FieldImageName:
+		m.ResetImageName()
+		return nil
+	case capturelog.FieldOssURL:
+		m.ResetOssURL()
+		return nil
+	case capturelog.FieldCreatedAt:
+		m.ResetCreatedAt()
+		return nil
+	case capturelog.FieldUpdatedAt:
+		m.ResetUpdatedAt()
+		return nil
+	}
+	return fmt.Errorf("unknown CaptureLog field %s", name)
+}
+
+// AddedEdges returns all edge names that were set/added in this mutation.
+func (m *CaptureLogMutation) AddedEdges() []string {
+	edges := make([]string, 0, 0)
+	return edges
+}
+
+// AddedIDs returns all IDs (to other nodes) that were added for the given edge
+// name in this mutation.
+func (m *CaptureLogMutation) AddedIDs(name string) []ent.Value {
+	return nil
+}
+
+// RemovedEdges returns all edge names that were removed in this mutation.
+func (m *CaptureLogMutation) RemovedEdges() []string {
+	edges := make([]string, 0, 0)
+	return edges
+}
+
+// RemovedIDs returns all IDs (to other nodes) that were removed for the edge with
+// the given name in this mutation.
+func (m *CaptureLogMutation) RemovedIDs(name string) []ent.Value {
+	return nil
+}
+
+// ClearedEdges returns all edge names that were cleared in this mutation.
+func (m *CaptureLogMutation) ClearedEdges() []string {
+	edges := make([]string, 0, 0)
+	return edges
+}
+
+// EdgeCleared returns a boolean which indicates if the edge with the given name
+// was cleared in this mutation.
+func (m *CaptureLogMutation) EdgeCleared(name string) bool {
+	return false
+}
+
+// ClearEdge clears the value of the edge with the given name. It returns an error
+// if that edge is not defined in the schema.
+func (m *CaptureLogMutation) ClearEdge(name string) error {
+	return fmt.Errorf("unknown CaptureLog unique edge %s", name)
+}
+
+// ResetEdge resets all changes to the edge with the given name in this mutation.
+// It returns an error if the edge is not defined in the schema.
+func (m *CaptureLogMutation) ResetEdge(name string) error {
+	return fmt.Errorf("unknown CaptureLog edge %s", name)
+}
 
 // CronJobMutation represents an operation that mutates the CronJob nodes in the graph.
 type CronJobMutation struct {

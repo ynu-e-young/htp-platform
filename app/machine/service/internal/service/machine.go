@@ -79,24 +79,42 @@ func (s *MachineService) Get(ctx context.Context, in *machineV1.GetRequest) (*ma
 	}}, nil
 }
 
-func (s *MachineService) saveImage(data []byte) error {
-	if err := os.WriteFile(s.dcf.Images.Dir+"/"+time.Now().String()+".jpg", data, 0644); err != nil {
+func (s *MachineService) saveImage(fileName string, data []byte) error {
+	if err := os.WriteFile(fileName, data, 0644); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (s *MachineService) ReadAllWithBinaryAndCalArea(ctx context.Context) {
-	captures, err := s.cu.ReadAll(ctx)
+func (s *MachineService) ReadAllWithBinaryAndCalArea(ctx context.Context, machineIdStr string) {
+	captures, err := s.cu.ReadAllWithBinaryAndCalArea(ctx)
 	if err != nil {
 		s.log.Error(err)
 		return
 	}
 
 	for _, capture := range captures {
-		if err = s.saveImage(capture.Data); err != nil {
+		fileName := s.dcf.Images.Dir + "/" + time.Now().String() + ".jpg"
+		machineId, err := strconv.ParseInt(machineIdStr, 10, 64)
+		if err != nil {
 			s.log.Error(err)
 		}
+
+		if _, err := s.cu.CreateLog(ctx, &biz.CaptureLog{
+			MachineId: machineId,
+			Pixels:    capture.Pixels,
+			Area:      capture.Area,
+			ImageName: fileName,
+			OssUrl:    "",
+		}); err != nil {
+			s.log.Error(err)
+		}
+
+		if err = s.saveImage(fileName, capture.Data); err != nil {
+			s.log.Error(err)
+		}
+
+		//go s.OssUpload(fileName, capture.Data)
 	}
 }
 
@@ -215,7 +233,7 @@ func (s *MachineService) MoveDone(ctx context.Context, in *machineV1.MoveDoneReq
 	//}
 
 	if in.GetCheck() {
-		go s.ReadAllWithBinaryAndCalArea(ctx)
+		s.ReadAllWithBinaryAndCalArea(ctx, in.GetUuid())
 	}
 
 	ret.Status = true
