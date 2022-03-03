@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.20)
 
+# setting vcpkg toolchain file
+set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+        CACHE STRING "")
+
 project(htp-platform.machine.robot
         LANGUAGES CXX
         HOMEPAGE_URL "https://github.com/hominsu/System")
@@ -32,10 +36,6 @@ elseif (CMAKE_SYSTEM_NAME MATCHES "Linux")
     message(STATUS "Load link directories from /usr/local/lib")
     message(STATUS "Load include directories from /usr/local/include")
 elseif (CMAKE_SYSTEM_NAME MATCHES "Windows")
-    # setting vcpkg toolchain file
-    set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake
-            CACHE STRING "Vcpkg toolchain file")
-
     if (MSVC)   # if msvc
         # because opencv is use libcmt, so don't use dll
         # use the static C/CXX library for all build types; if Debug, set MultiThreadedDebug(MTd), else, set MultiThreaded(MT)

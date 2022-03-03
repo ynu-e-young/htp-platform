@@ -1,7 +1,9 @@
 .idea
+.vscode
 **/cert
 **/bin
 *.rdb
 *.log
 **/consul/data
 cmake-build-*/
+build/
