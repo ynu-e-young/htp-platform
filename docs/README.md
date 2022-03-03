@@ -40,3 +40,25 @@
 
 ## Details
 
+```mermaid
+flowchart LR
+	interface("interface service") <-.-> machine("machine service")
+	interface <-.-> user("user service")
+	interface <-.images.-> capture("capture service")
+	machine("machine service") <-.images.-> capture
+	machine("machine service") <-.-> robot("robot")
+	
+	subgraph Data Base
+	machinedb[("machine db")]
+	userdb[("user db")]
+	end
+	
+	subgraph OSS
+	ali-oss(("ali-oss"))
+	end
+	
+	user <-.user info.-> userdb
+	machine <-.machine info and log.-> machinedb
+	machine -.images.-> ali-oss
+	
+```
