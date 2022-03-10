@@ -4,8 +4,8 @@
 
 #include "robot_server.h"
 
-#include "../service/robot_impl.h"
-#include "../utils/get_cred.h"
+#include "robot/internal/service/robot_impl.h"
+#include "robot/internal/utils/get_cred.h"
 
 #include <fstream>
 

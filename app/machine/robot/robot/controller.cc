@@ -4,8 +4,8 @@
 
 #include "controller.h"
 
-#include "internal/conf/config.h"
-#include "internal/data/grpc/move_done_client.h"
+#include "robot/internal/conf/config.h"
+#include "robot/internal/data/grpc/move_done_client.h"
 
 #include <iostream>
 #include <string>

@@ -2,14 +2,14 @@
 // Created by HominSu on 2021/5/6.
 //
 
+#include "motor_serial_comm.h"
+
 #include <cstring>
 
 #include <iostream>
 #include <thread>
 #include <vector>
 #include <array>
-
-#include "motor_serial_comm.h"
 
 MotorSerialComm::MotorSerialComm() = default;
 

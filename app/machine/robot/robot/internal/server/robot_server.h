@@ -2,10 +2,10 @@
 // Created by Homin Su on 2022/2/19.
 //
 
-#ifndef HTP_PLATFORM_MACHINE_ROBOT_INTERNAL_SERVER_ROBOT_SERVER_H_
-#define HTP_PLATFORM_MACHINE_ROBOT_INTERNAL_SERVER_ROBOT_SERVER_H_
+#ifndef HTP_PLATFORM_MACHINE_ROBOT_ROBOT_INTERNAL_SERVER_ROBOT_SERVER_H_
+#define HTP_PLATFORM_MACHINE_ROBOT_ROBOT_INTERNAL_SERVER_ROBOT_SERVER_H_
 
-#include "../utils/x_thread.h"
+#include "robot/internal/utils/x_thread.h"
 
 #include <grpc++/grpc++.h>
 #include <queue>
@@ -28,4 +28,4 @@ class RobotServer : public XThread {
   void Stop() override;
 };
 
-#endif //HTP_PLATFORM_MACHINE_ROBOT_INTERNAL_SERVER_ROBOT_SERVER_H_
+#endif //HTP_PLATFORM_MACHINE_ROBOT_ROBOT_INTERNAL_SERVER_ROBOT_SERVER_H_

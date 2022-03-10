@@ -2,10 +2,10 @@
 // Created by Homin Su on 2022/2/19.
 //
 
-#ifndef HTP_PLATFORM_MACHINE_ROBOT_APP_MACHINE_ROBOT_CAL_LEN_H_
-#define HTP_PLATFORM_MACHINE_ROBOT_APP_MACHINE_ROBOT_CAL_LEN_H_
+#ifndef HTP_PLATFORM_MACHINE_ROBOT_ROBOT_CAL_LEN_H_
+#define HTP_PLATFORM_MACHINE_ROBOT_ROBOT_CAL_LEN_H_
 
-#include "internal/data/motor/get_config/get_setting.h"
+#include "robot/internal/data/motor/get_config/get_setting.h"
 
 #define ARMD2R 0.01745329251994329576923690768489
 #define MAX_DEM_SIZE 8
@@ -39,4 +39,4 @@ class CalLen {
 
 };
 
-#endif //HTP_PLATFORM_MACHINE_ROBOT_APP_MACHINE_ROBOT_CAL_LEN_H_
+#endif //HTP_PLATFORM_MACHINE_ROBOT_ROBOT_CAL_LEN_H_

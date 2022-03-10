@@ -2,14 +2,14 @@
 // Created by HominSu on 2021/5/8.
 //
 
-#ifndef HTP_PLATFORM_MACHINE_ROBOT_APP_MACHINE_ROBOT_CONTROLLER_H_
-#define HTP_PLATFORM_MACHINE_ROBOT_APP_MACHINE_ROBOT_CONTROLLER_H_
+#ifndef HTP_PLATFORM_MACHINE_ROBOT_ROBOT_CONTROLLER_H_
+#define HTP_PLATFORM_MACHINE_ROBOT_ROBOT_CONTROLLER_H_
 
-#include "cal_len.h"
-#include "internal/data/motor/motor.h"
-#include "internal/utils/x_thread.h"
-#include "internal/service/robot_impl.h"
-#include "internal/service/move_done_req.h"
+#include "robot/cal_len.h"
+#include "robot/internal/data/motor/motor.h"
+#include "robot/internal/utils/x_thread.h"
+#include "robot/internal/service/robot_impl.h"
+#include "robot/internal/service/move_done_req.h"
 
 #include <bitset>
 #include <array>
@@ -109,4 +109,4 @@ class Controller : public XThread {
 
 };
 
-#endif //HTP_PLATFORM_MACHINE_ROBOT_APP_MACHINE_ROBOT_CONTROLLER_H_
+#endif //HTP_PLATFORM_MACHINE_ROBOT_ROBOT_CONTROLLER_H_

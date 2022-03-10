@@ -1,8 +1,10 @@
 cmake_minimum_required(VERSION 3.20)
 
-# setting vcpkg toolchain file
-set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
-        CACHE STRING "")
+if (CMAKE_SYSTEM_NAME MATCHES "Windows")
+    # setting vcpkg toolchain file
+    set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+            CACHE STRING "")
+endif()
 
 project(htp-platform.machine.robot
         LANGUAGES CXX
@@ -89,18 +91,21 @@ endif ()
 
 
 # ============================== add executable and link libraries ==============================
+include_directories(${PROJECT_SOURCE_DIR})
+include_directories(${PROJECT_SOURCE_DIR}/../../../)
 file(GLOB ProjectSRC
         "../../../api/machine/service/v1/cpp/*.cc"
         "../../../api/machine/robot/v1/cpp/*.cc"
-        "internal/data/motor/motor_config/*.cc"
-        "internal/data/motor/get_config/*.cc"
-        "internal/data/motor/serial/*.cc"
-        "internal/data/motor/*.cc"
-        "internal/data/grpc/*.cc"
-        "internal/service/*.cc"
-        "internal/server/*.cc"
-        "internal/utils/*.cc"
-        "internal/conf/*.cc"
+        "robot/internal/data/motor/motor_config/*.cc"
+        "robot/internal/data/motor/get_config/*.cc"
+        "robot/internal/data/motor/serial/*.cc"
+        "robot/internal/data/motor/*.cc"
+        "robot/internal/data/grpc/*.cc"
+        "robot/internal/service/*.cc"
+        "robot/internal/server/*.cc"
+        "robot/internal/utils/*.cc"
+        "robot/internal/conf/*.cc"
+        "robot/*.cc"
         "*.cc")
 
 if (CMAKE_BUILD_TYPE STREQUAL Debug)

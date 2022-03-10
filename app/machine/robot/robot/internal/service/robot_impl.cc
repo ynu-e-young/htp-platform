@@ -4,8 +4,8 @@
 
 #include "robot_impl.h"
 
-#include "../conf/config.h"
-#include "../../controller.h"
+#include "robot/internal/conf/config.h"
+#include "robot/controller.h"
 
 ::grpc::Status RobotImpl::AppendCoordinate(::grpc::ServerContext *_context,
                                            const ::machine::robot::v1::CoordinateRequest *_req,

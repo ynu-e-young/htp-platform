@@ -2,8 +2,8 @@
 // Created by Homin Su on 2021/9/10.
 //
 
-#ifndef SYSTEM_CONFIG_CONFIG_H_
-#define SYSTEM_CONFIG_CONFIG_H_
+#ifndef HTP_PLATFORM_MACHINE_ROBOT_ROBOT_INTERNAL_CONF_CONFIG_H_
+#define HTP_PLATFORM_MACHINE_ROBOT_ROBOT_INTERNAL_CONF_CONFIG_H_
 
 #include <memory>
 
@@ -33,4 +33,4 @@ class Config {
   [[nodiscard]] const std::unique_ptr<Basic::Setting> &BasicSetting() const;
 };
 
-#endif //SYSTEM_CONFIG_CONFIG_H_
+#endif //HTP_PLATFORM_MACHINE_ROBOT_ROBOT_INTERNAL_CONF_CONFIG_H_

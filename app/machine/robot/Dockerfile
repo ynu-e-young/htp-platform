@@ -3,7 +3,8 @@ FROM hominsu/grpc-alpine:alpine3.15-build as builder
 # app dir
 ARG APP_RELATIVE_PATH
 # install: git(makefile use git to describe the version)
-RUN apk --no-cache add git
+RUN apk --no-cache add bash findutils git build-base cmake \
+    openssl-dev openssl-libs-static nlohmann-json jsoncpp-dev jsoncpp-static
 # build app
 COPY . /src
 WORKDIR /src

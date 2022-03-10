@@ -2,10 +2,10 @@
 // Created by Homin Su on 2022/2/19.
 //
 
-#ifndef HTP_PLATFORM_MACHINE_ROBOT_APP_MACHINE_ROBOT_INTERNAL_SERVICE_ROBOT_IMPL_H_
-#define HTP_PLATFORM_MACHINE_ROBOT_APP_MACHINE_ROBOT_INTERNAL_SERVICE_ROBOT_IMPL_H_
+#ifndef HTP_PLATFORM_MACHINE_ROBOT_ROBOT_INTERNAL_SERVICE_ROBOT_IMPL_H_
+#define HTP_PLATFORM_MACHINE_ROBOT_ROBOT_INTERNAL_SERVICE_ROBOT_IMPL_H_
 
-#include "../../../../../api/machine/robot/v1/cpp/robot.grpc.pb.h"
+#include "api/machine/robot/v1/cpp/robot.grpc.pb.h"
 
 #include <grpc++/grpc++.h>
 #include <queue>
@@ -33,4 +33,4 @@ class RobotImpl final : public machine::robot::v1::Robot::Service {
                                 ::machine::robot::v1::MotorInfoReply *_reply) override;
 };
 
-#endif //HTP_PLATFORM_MACHINE_ROBOT_APP_MACHINE_ROBOT_INTERNAL_SERVICE_ROBOT_IMPL_H_
+#endif //HTP_PLATFORM_MACHINE_ROBOT_ROBOT_INTERNAL_SERVICE_ROBOT_IMPL_H_

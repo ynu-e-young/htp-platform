@@ -2,8 +2,8 @@
 // Created by HominSu on 2021/5/13.
 //
 
-#ifndef SYSTEM_UTILS_X_THREAD_H_
-#define SYSTEM_UTILS_X_THREAD_H_
+#ifndef HTP_PLATFORM_MACHINE_ROBOT_ROBOT_INTERNAL_UTILS_X_THREAD_H_
+#define HTP_PLATFORM_MACHINE_ROBOT_ROBOT_INTERNAL_UTILS_X_THREAD_H_
 
 #include <thread>
 #include <shared_mutex>
@@ -36,4 +36,4 @@ class XThread {
 
 };
 
-#endif //SYSTEM_UTILS_X_THREAD_H_
+#endif //HTP_PLATFORM_MACHINE_ROBOT_ROBOT_INTERNAL_UTILS_X_THREAD_H_

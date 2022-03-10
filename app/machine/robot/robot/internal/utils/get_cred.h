@@ -2,8 +2,8 @@
 // Created by Homin Su on 2021/9/10.
 //
 
-#ifndef SYSTEM_UTILS_GET_CRED_H_
-#define SYSTEM_UTILS_GET_CRED_H_
+#ifndef HTP_PLATFORM_MACHINE_ROBOT_ROBOT_INTERNAL_UTILS_GET_CRED_H_
+#define HTP_PLATFORM_MACHINE_ROBOT_ROBOT_INTERNAL_UTILS_GET_CRED_H_
 
 #include <grpc++/grpc++.h>
 
@@ -14,4 +14,4 @@ class GetCred {
   static std::shared_ptr<grpc::ChannelCredentials> GetClientCred();
 };
 
-#endif //SYSTEM_UTILS_GET_CRED_H_
+#endif //HTP_PLATFORM_MACHINE_ROBOT_ROBOT_INTERNAL_UTILS_GET_CRED_H_

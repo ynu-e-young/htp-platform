@@ -15,9 +15,9 @@
  * @details main函数完成的工作有：初始化 Controller、Curl 两个线程，将 Curl中获取的坐标传到 Controller 中
  */
 
-#include "controller.h"
-#include "internal/conf/config.h"
-#include "internal/server/robot_server.h"
+#include "robot/controller.h"
+#include "robot/internal/conf/config.h"
+#include "robot/internal/server/robot_server.h"
 
 #include <iostream>
 #include <csignal>
