@@ -1,7 +1,0 @@
-{
-  "uuid": "10",
-  "server_rpc_address": "192.168.1.110",
-  "server_rpc_port": "9000",
-  "local_rpc_address": "0.0.0.0",
-  "local_rpc_port": "9000"
-}

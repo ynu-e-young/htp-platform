@@ -24,17 +24,17 @@ void RobotServer::Stop() {
  * @brief 线程主函数，启动 rpc 服务，然后阻塞等待退出
  */
 void RobotServer::Main() {
-  RobotImpl service(controller_ptr_);
+  RobotImpl service(controller_ptr_, bootstrap_);
   grpc::ServerBuilder builder;
 
-  builder.AddListeningPort(local_address_, grpc::InsecureServerCredentials());
+  builder.AddListeningPort(bootstrap_->local().grpc().addr(), grpc::InsecureServerCredentials());
   builder.RegisterService(&service);
 
   std::unique_ptr<grpc::Server> server(builder.BuildAndStart());
   server_ = std::move(server);
 
 #if DEBUG
-  std::cout << "Server listening on " << local_address_ << std::endl;
+  std::cout << "Server listening on " << bootstrap_->local().grpc().addr() << std::endl;
 #endif
 
   server_->Wait();

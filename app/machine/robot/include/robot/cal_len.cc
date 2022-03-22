@@ -138,25 +138,19 @@ void CalLen::MatrixVectMult(double l[4][4], double r[3], double result[3]) {
  * @details 获取末端与绳的各个连接点在物体坐标系上的坐标
  * @return 返回值为 true
  */
-bool CalLen::OnInit() {
-  GetPlatInfo plat_info;
-  plat_info.LoadJsonInfo();
+bool CalLen::OnInit(const ::std::shared_ptr<config::PlatInfo>& _plat_info) {
+  int32_t ltmp = _plat_info->ltmp();
 
-  m_dem_size_ = 0;
+  for (int i = 0; i < ltmp; i++) {
+    m_ancher_[i][0] = _plat_info->ancher(i).items(0);
+    m_ancher_[i][1] = _plat_info->ancher(i).items(1);
+    m_ancher_[i][2] = _plat_info->ancher(i).items(2);
 
-  long ltmp = plat_info.ltmp_;
+    m_plate_[i][0] = _plat_info->plate(i).items(0);
+    m_plate_[i][1] = _plat_info->plate(i).items(0);
+    m_plate_[i][2] = _plat_info->plate(i).items(0);
 
-  for (long i = 0; i < ltmp; i++) {
-
-    m_ancher_[i][0] = plat_info.m_ancher_[i][0];
-    m_ancher_[i][1] = plat_info.m_ancher_[i][1];
-    m_ancher_[i][2] = plat_info.m_ancher_[i][2];
-
-    m_plate_[i][0] = plat_info.m_plate_[i][0];
-    m_plate_[i][1] = plat_info.m_plate_[i][1];
-    m_plate_[i][2] = plat_info.m_plate_[i][2];
-
-    m_dem_size_ = ltmp;  //
+    m_dem_size_ = ltmp;
   }
   return true;
 }
@@ -184,7 +178,7 @@ long CalLen::OnPos(const double xyz[3], const double ges[3], double *retv, long 
   gps[1][3] = xyz[1];
   gps[2][3] = xyz[2];
 
-  for (long i = 0; i < m_dem_size_; i++) {
+  for (int i = 0; i < m_dem_size_; i++) {
     double v[3]; // 物体坐标系上的点
     // v是末端坐标系上的一个点
     v[0] = m_plate_[i][0];

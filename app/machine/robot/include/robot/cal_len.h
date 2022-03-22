@@ -5,7 +5,7 @@
 #ifndef HTP_PLATFORM_MACHINE_ROBOT_ROBOT_CAL_LEN_H_
 #define HTP_PLATFORM_MACHINE_ROBOT_ROBOT_CAL_LEN_H_
 
-#include "robot/internal/data/motor/get_config/get_setting.h"
+#include "conf/conf.pb.h"
 
 #define ARMD2R 0.01745329251994329576923690768489
 #define MAX_DEM_SIZE 8
@@ -18,14 +18,14 @@ class CalLen {
  public:
   explicit CalLen();
   // path指定文件路径，读取文件中包含的绳索和末端相关信息
-  bool OnInit();
+  bool OnInit(const ::std::shared_ptr<config::PlatInfo>& _plat_info);
   long OnPos(const double xyz[3], const double ges[3], double *retv, long &retnum);
 
  public:
   double m_max_pull_ang_; ///< 最大拉动角度
   double m_ancher_[MAX_DEM_SIZE][3]{};  ///< 长度相关信息
   double m_plate_[MAX_DEM_SIZE][3]{}; ///< 末端执行器相关信息
-  long m_dem_size_; ///< 最大轴数
+  int32_t m_dem_size_; ///< 最大轴数
 
  protected:
   // 记录与x、y、z轴的夹角，可用于描述转动自由度

@@ -5,7 +5,7 @@ GOPATH:=$(shell go env GOPATH)
 VERSION=$(shell git describe --tags --always)
 
 APP_RELATIVE_PATH=$(shell a=`basename $$PWD` && cd .. && b=`basename $$PWD` && echo $$b/$$a)
-INTERNAL_PROTO_FILES=$(shell find internal -name *.proto)
+INTERNAL_PROTO_FILES=$(shell find "include" -name *.proto)
 API_PROTO_FILES=$(shell cd ../../../api/$(APP_RELATIVE_PATH) && find . -name *.proto)
 CPP_API_PROTO_FILES=$(shell cd ../../../api/$(APP_RELATIVE_PATH) && find . -name *.proto | grep -v error)
 
@@ -69,7 +69,7 @@ swagger:
 proto:
 	protoc --proto_path=. \
            --proto_path=../../../third_party \
-           --go_out=paths=source_relative:. \
+           --cpp_out=. \
            $(INTERNAL_PROTO_FILES)
 
 .PHONY: generate
@@ -129,7 +129,7 @@ wire:
 api: grpc http swagger errors
 
 .PHONY: conf
-# generate proto
+# generate conf
 conf: proto
 
 .PHONY: all

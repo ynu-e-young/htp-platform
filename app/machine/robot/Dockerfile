@@ -4,11 +4,11 @@ FROM hominsu/grpc-alpine:alpine3.15-build as builder
 ARG APP_RELATIVE_PATH
 # install: git(makefile use git to describe the version)
 RUN apk --no-cache add bash findutils git build-base cmake \
-    openssl-dev openssl-libs-static nlohmann-json jsoncpp-dev jsoncpp-static
+    openssl-dev openssl-libs-static
 # build app
 COPY . /src
 WORKDIR /src
-RUN make grpc-cpp
+RUN make grpc-cpp && cd /src/app/machine/robot && make conf
 WORKDIR /src/app/${APP_RELATIVE_PATH}
 RUN make build
 

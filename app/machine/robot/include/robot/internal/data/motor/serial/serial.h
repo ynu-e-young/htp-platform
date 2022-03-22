@@ -24,24 +24,24 @@ class Serial {
   int serial_port_{}; ///< 串口编号
 
   std::string port_number_ = "/dev/ttyS4"; ///< 串口名称
-  int baud_rate_ = 115200; ///< 串口波特率
-  int data_bits_ = 8; ///< 数据位
-  int stop_bits_ = 1; ///< 停止位
-  int parity_ = 0;    ///< 校验位
+  int32_t baud_rate_ = 115200; ///< 串口波特率
+  int32_t data_bits_ = 8; ///< 数据位
+  int32_t stop_bits_ = 1; ///< 停止位
+  int32_t parity_ = 0;    ///< 校验位
   bool flow_control_ = false; ///< 流控制
   bool clocal_ = true;  ///< 本地连接
 
  public:
   explicit Serial(std::string _port_number,
-                  int _baud_rate,
-                  int _data_bits,
-                  int _stop_bits,
-                  int _parity,
+                  int32_t _baud_rate,
+                  int32_t _data_bits,
+                  int32_t _stop_bits,
+                  int32_t _parity,
                   bool _flow_control,
                   bool _clocal);
   ~Serial();
 
-  void ShowTermios();
+  void ShowTermios() const;
   void SerialOpen();
   void SerialInitial();
   void CloseSerialPort();
