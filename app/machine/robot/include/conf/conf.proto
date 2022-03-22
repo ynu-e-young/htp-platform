@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package config;
+
+import "google/protobuf/duration.proto";
+
+message Bootstrap {
+  Server server = 1;
+  Local local = 2;
+  Serial serial = 3;
+  string uuid = 4;
+}
+
+message Server {
+  message GRPC {
+    string network = 1;
+    string addr = 2;
+    google.protobuf.Duration timeout = 3;
+  }
+  GRPC grpc = 1;
+}
+
+message Local {
+  message GRPC {
+    string network = 1;
+    string addr = 2;
+    google.protobuf.Duration timeout = 3;
+  }
+  GRPC grpc = 1;
+}
+
+message Serial {
+  string serial_port = 1;
+  int32 baud_rate = 2;
+  int32 data_bits = 3;
+  int32 stop_bits = 4;
+  int32 parity = 5;
+  bool flow_control = 6;
+  bool clocal = 7;
+}
+
+message PlatInfo {
+  message InternalArray {
+    repeated double items = 1;
+  }
+  int32 ltmp = 1;
+  repeated InternalArray ancher = 2;
+  repeated InternalArray plate = 3;
+}

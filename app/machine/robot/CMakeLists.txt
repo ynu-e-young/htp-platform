@@ -1,13 +1,7 @@
-cmake_minimum_required(VERSION 3.20)
-
-if (CMAKE_SYSTEM_NAME MATCHES "Windows")
-    # setting vcpkg toolchain file
-    set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
-            CACHE STRING "")
-endif()
+cmake_minimum_required(VERSION 3.10)
 
 project(htp-platform.machine.robot
-        LANGUAGES CXX
+        LANGUAGES C CXX
         HOMEPAGE_URL "https://github.com/hominsu/System")
 
 # setting definitions
@@ -28,8 +22,8 @@ if (CMAKE_SYSTEM_NAME MATCHES "Darwin")
     include_directories(/opt/homebrew/include)
     message(STATUS "Load link directories from /opt/homebrew/lib")
     message(STATUS "Load include directories from /opt/homebrew/include")
-    set(OPENSSL_ROOT_DIR /opt/homebrew/Cellar/openssl@1.1/1.1.1m)
-    set(OPENSSL_INCLUDE_DIR /opt/homebrew/Cellar/openssl@1.1/1.1.1m/include)
+    set(OPENSSL_ROOT_DIR /opt/homebrew/Cellar/openssl@1.1/1.1.1n)
+    set(OPENSSL_INCLUDE_DIR /opt/homebrew/Cellar/openssl@1.1/1.1.1n/include)
     #    set(OPENSSL_ROOT_DIR /opt/homebrew/Cellar/openssl@3/3.0.0_1)
     #    set(OPENSSL_INCLUDE_DIR /opt/homebrew/Cellar/openssl@3/3.0.0_1/include)
 elseif (CMAKE_SYSTEM_NAME MATCHES "Linux")
@@ -37,20 +31,6 @@ elseif (CMAKE_SYSTEM_NAME MATCHES "Linux")
     include_directories(/usr/local/include)
     message(STATUS "Load link directories from /usr/local/lib")
     message(STATUS "Load include directories from /usr/local/include")
-elseif (CMAKE_SYSTEM_NAME MATCHES "Windows")
-    if (MSVC)   # if msvc
-        # because opencv is use libcmt, so don't use dll
-        # use the static C/CXX library for all build types; if Debug, set MultiThreadedDebug(MTd), else, set MultiThreaded(MT)
-        set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
-        # setting charset
-        add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
-        add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
-    elseif (MINGW)  # if mingw
-        # setting vcpkg
-        if (DEFINED ENV{VCPKG_DEFAULT_TRIPLET} AND NOT DEFINED VCPKG_TARGET_TRIPLET)
-            set(VCPKG_TARGET_TRIPLET "$ENV{VCPKG_DEFAULT_TRIPLET}" CACHE STRING "")
-        endif ()
-    endif ()
 else ()
     message(FATAL_ERROR "Platform ${CMAKE_SYSTEM} is not support for this project")
 endif ()
@@ -92,20 +72,20 @@ endif ()
 
 # ============================== add executable and link libraries ==============================
 include_directories(${PROJECT_SOURCE_DIR})
+include_directories(${PROJECT_SOURCE_DIR}/include)
 include_directories(${PROJECT_SOURCE_DIR}/../../../)
 file(GLOB ProjectSRC
         "../../../api/machine/service/v1/cpp/*.cc"
         "../../../api/machine/robot/v1/cpp/*.cc"
-        "robot/internal/data/motor/motor_config/*.cc"
-        "robot/internal/data/motor/get_config/*.cc"
-        "robot/internal/data/motor/serial/*.cc"
-        "robot/internal/data/motor/*.cc"
-        "robot/internal/data/grpc/*.cc"
-        "robot/internal/service/*.cc"
-        "robot/internal/server/*.cc"
-        "robot/internal/utils/*.cc"
-        "robot/internal/conf/*.cc"
-        "robot/*.cc"
+        "include/robot/internal/data/motor/motor_config/*.cc"
+        "include/robot/internal/data/motor/serial/*.cc"
+        "include/robot/internal/data/motor/*.cc"
+        "include/robot/internal/data/grpc/*.cc"
+        "include/robot/internal/service/*.cc"
+        "include/robot/internal/server/*.cc"
+        "include/robot/internal/utils/*.cc"
+        "include/robot/*.cc"
+        "include/conf/*.cc"
         "*.cc")
 
 if (CMAKE_BUILD_TYPE STREQUAL Debug)
@@ -119,4 +99,4 @@ elseif (CMAKE_BUILD_TYPE STREQUAL Release)
 endif ()
 
 add_executable(${PROJECT_NAME} ${ProjectSRC})
-target_link_libraries(${PROJECT_NAME} libjsoncpp.a Threads::Threads gRPC::grpc++)
+target_link_libraries(${PROJECT_NAME} Threads::Threads protobuf gRPC::grpc++)

@@ -14,9 +14,9 @@ Motor::~Motor() = default;
  * @brief 初始化数据传输串口
  * @details 该函数初始化一个传输串口，用于与控制器的交互，若无法初始化，会抛出异常
  */
-void Motor::MotorSerialInit() {
+void Motor::MotorSerialInit(const ::std::shared_ptr<config::Bootstrap>& _bootstrap) {
   try {
-    this->motor_port_.InitialCommander();
+    this->motor_port_.InitialCommander(_bootstrap);
   } catch (std::runtime_error &runtime_error) {
     throw runtime_error;
   } catch (std::exception &e) {

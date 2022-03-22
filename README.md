@@ -2,7 +2,7 @@
 
 <!-- PROJECT SHIELDS -->
 <p align="center">
-<a href="https://github.com/hominsu/htp-platform/graphs/contributors"><img src="https://img.shields.io/github/contributors/hominsu/XFileCrypt.svg?style=for-the-badge" alt="Contributors"></a>
+<a href="https://github.com/hominsu/htp-platform/graphs/contributors"><img src="https://img.shields.io/github/contributors/hominsu/htp-platform.svg?style=for-the-badge" alt="Contributors"></a>
 <a href="https://github.com/hominsu/htp-platform/network/members"><img src="https://img.shields.io/github/forks/hominsu/htp-platform.svg?style=for-the-badge" alt="Forks"></a>
 <a href="https://github.com/hominsu/htp-platform/stargazers"><img src="https://img.shields.io/github/stars/hominsu/htp-platform.svg?style=for-the-badge" alt="Stargazers"></a>
 <a href="https://github.com/hominsu/htp-platform/issues"><img src="https://img.shields.io/github/issues/hominsu/htp-platform.svg?style=for-the-badge" alt="Issues"></a>
@@ -33,6 +33,8 @@
     <a href="https://github.com/hominsu/htp-platform/issues">Request Feature</a>
   </p>
 </div>
+
+![Alt](https://repobeats.axiom.co/api/embed/ec7c189a9cfaf672656dad3011758fcb8a7afdb8.svg "Repobeats analytics image")
 
 ## Description
 

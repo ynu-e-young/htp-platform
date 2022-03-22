@@ -125,7 +125,7 @@ wire:
 api: grpc http swagger errors
 
 .PHONY: conf
-# generate proto
+# generate conf
 conf: proto
 
 .PHONY: all

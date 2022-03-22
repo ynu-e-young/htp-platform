@@ -25,19 +25,15 @@ MotorSerialComm::~MotorSerialComm() {
  * @brief 初始化一个传输串口
  * @details 通过实例化一个 GetSerialInfo 对象，从 JSON 文件中获取相关的串口通信预设，并初始化串口
  */
-void MotorSerialComm::InitialCommander() {
-  // 从Json文件获取串口设置
-  GetSerialInfo get_serial_info;
-  get_serial_info.LoadJsonInfo();
-
+void MotorSerialComm::InitialCommander(const ::std::shared_ptr<config::Bootstrap>& _bootstrap) {
   // 通过读取到的信息来初始化串口
-  this->serial_ = new Serial(get_serial_info.serial_port_,
-                             get_serial_info.baud_rate_,
-                             get_serial_info.data_bits_,
-                             get_serial_info.stop_bits_,
-                             get_serial_info.parity_,
-                             get_serial_info.flow_control_,
-                             get_serial_info.clocal_);
+  this->serial_ = new Serial(_bootstrap->serial().serial_port(),
+                             _bootstrap->serial().baud_rate(),
+                             _bootstrap->serial().data_bits(),
+                             _bootstrap->serial().stop_bits(),
+                             _bootstrap->serial().parity(),
+                             _bootstrap->serial().flow_control(),
+                             _bootstrap->serial().clocal());
 
   // 打开并初始化串口
   try {
@@ -101,7 +97,7 @@ void MotorSerialComm::WriteInstrFirst(unsigned char _equ_addr, unsigned short _r
 
   // 生成这条指令的CRC码
   Crc16 = Crc16Convert(temp_data, sizeof(temp_data));
-  for (unsigned char &i : temp_data) {
+  for (unsigned char &i: temp_data) {
     write_data.push_back(i);
   }
 
@@ -136,7 +132,7 @@ void MotorSerialComm::WriteReadSignal(unsigned char _equ_addr, unsigned short _r
 
   // 生成这条指令的CRC码
   Crc16 = Crc16Convert(temp_data, sizeof(temp_data));
-  for (unsigned char &i : temp_data) {
+  for (unsigned char &i: temp_data) {
     write_data.push_back(i);
   }
 

@@ -5,16 +5,18 @@
 #ifndef HTP_PLATFORM_MACHINE_ROBOT_ROBOT_CONTROLLER_H_
 #define HTP_PLATFORM_MACHINE_ROBOT_ROBOT_CONTROLLER_H_
 
-#include "robot/cal_len.h"
-#include "robot/internal/data/motor/motor.h"
-#include "robot/internal/utils/x_thread.h"
-#include "robot/internal/service/robot_impl.h"
-#include "robot/internal/service/move_done_req.h"
+#include "cal_len.h"
+#include "conf/conf.pb.h"
+#include "internal/data/motor/motor.h"
+#include "internal/utils/x_thread.h"
+#include "internal/service/robot_impl.h"
+#include "internal/service/move_done_req.h"
 
 #include <bitset>
 #include <array>
 #include <queue>
 #include <shared_mutex>
+#include <utility>
 
 const int kOffset = -510000;
 const int kMotorStatus = 1;
@@ -45,6 +47,9 @@ class Controller : public XThread {
 
   mutable std::shared_mutex mutex_;
 
+  ::std::shared_ptr<config::Bootstrap> bootstrap_;
+  ::std::shared_ptr<config::PlatInfo> plat_info_;
+
  public:
   ~Controller();
 
@@ -59,10 +64,14 @@ class Controller : public XThread {
 
  private:
   Controller();
-  inline static bool Send(const MoveDoneRequestBody &_req);
+  bool Send(const MoveDoneRequestBody &_req);
 
  public:
   void InitialSystem();
+  void SetConfig(::std::shared_ptr<config::Bootstrap> _bootstrap, ::std::shared_ptr<config::PlatInfo> _plat_info) {
+    bootstrap_ = std::move(_bootstrap);
+    plat_info_ = std::move(_plat_info);
+  }
 
  private:
   void Main() override;
@@ -71,7 +80,7 @@ class Controller : public XThread {
   void SetZero();
   void MotorZRN();
 
-  inline static int CalMotorPulse(double _len, double _zero);
+  static int CalMotorPulse(double _len, double _zero);
   void Move(double _m_xyz[], double _m_ges[]);
   void GetMotorAllStatus(unsigned char _addr);
   void GetMotorStatusReg(unsigned char _addr);
@@ -82,10 +91,10 @@ class Controller : public XThread {
   bool MoveDone();
 
   template<typename _num>
-  inline _num Abs(_num x) { return x < 0 ? -x : x; }
+  _num Abs(_num x) { return x < 0 ? -x : x; }
 
   template<typename _data>
-  inline _data GetShiftData(_data _high, _data _low) {
+  _data GetShiftData(_data _high, _data _low) {
     return (_high << 16) + _low;
   }
 

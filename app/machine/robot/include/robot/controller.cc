@@ -4,13 +4,13 @@
 
 #include "controller.h"
 
-#include "robot/internal/conf/config.h"
-#include "robot/internal/data/grpc/move_done_client.h"
+#include "internal/data/grpc/move_done_client.h"
 
 #include <iostream>
 #include <string>
 #include <thread>
 #include <chrono>
+#include <utility>
 
 Controller::Controller() = default;
 
@@ -144,7 +144,7 @@ void Controller::InitialSystem() {
   // 初始化串口
   do {
     try {
-      motors_.MotorSerialInit();
+      motors_.MotorSerialInit(bootstrap_);
       break;
     } catch (std::runtime_error &runtime_error) {
       std::cout << runtime_error.what() << std::endl;
@@ -165,7 +165,7 @@ void Controller::InitialSystem() {
   motors_.MotorSystemInitialization(0x06);
 
   // 初始化坐标结算
-  cal_len_.OnInit();
+  cal_len_.OnInit(plat_info_);
 
   // 设置零位参考
   SetZero();
@@ -423,8 +423,7 @@ void Controller::UpdateMotorRealPos() {
  * @return bool 是否发送成功
  */
 bool Controller::Send(const MoveDoneRequestBody &_req) {
-  auto server_address =
-      (Config::Get()->BasicSetting()->server_rpc_address() + ":" + Config::Get()->BasicSetting()->server_rpc_port());
+  auto server_address = bootstrap_->server().grpc().addr();
   MoveDoneClient client(server_address);
 
   auto status = client.MoveDone(_req);
@@ -433,18 +432,6 @@ bool Controller::Send(const MoveDoneRequestBody &_req) {
 #endif
   return status;
 }
-
-/*
-
-void Controller::Camera() {
-  motion_coord_.push(std::array<double, 6>{0, 0, 0, 30, 30, 0});
-  motion_coord_.push(std::array<double, 6>{0, 0, 0, 30, -30, 0});
-  motion_coord_.push(std::array<double, 6>{0, 0, 0, 0, -30, 0});
-  motion_coord_.push(std::array<double, 6>{0, 0, 0, -30, -30, 0});
-  motion_coord_.push(std::array<double, 6>{0, 0, 0, -30, 30, 0});
-  motion_coord_.push(std::array<double, 6>{0, 0, 0, 0, 30, 0});
-}
-*/
 
 /**
  * @brief 线程函数
@@ -484,7 +471,7 @@ void Controller::Main() {
           motion.at(4),
           false,
           motion.at(5),
-          Config::Get()->BasicSetting()->uuid()
+          bootstrap_->uuid(),
       });
     } else if (!check_coord_empty()) {  // 检查队列
       auto check = check_coord_pop();
@@ -513,7 +500,7 @@ void Controller::Main() {
           motion.at(4),
           true,
           motion.at(5),
-          Config::Get()->BasicSetting()->uuid(),
+          bootstrap_->uuid(),
           check.check_name_
       });
     } else {

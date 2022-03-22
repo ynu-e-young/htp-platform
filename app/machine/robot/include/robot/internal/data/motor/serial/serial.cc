@@ -18,7 +18,7 @@
 /**
  * @brief 显示打开的串口信息
  */
-void Serial::ShowTermios() {
+void Serial::ShowTermios() const {
   std::cout << "input mode flags: " << this->Opt.c_iflag << std::endl
             << "output mode flags: " << this->Opt.c_oflag << std::endl
             << "control mode flags: " << this->Opt.c_cflag << std::endl
@@ -273,10 +273,10 @@ void Serial::SerialOpen() {
  * @param _clocal 本机连接
  */
 Serial::Serial(std::string _port_number,
-               int _baud_rate,
-               int _data_bits,
-               int _stop_bits,
-               int _parity,
+               int32_t _baud_rate,
+               int32_t _data_bits,
+               int32_t _stop_bits,
+               int32_t _parity,
                bool _flow_control,
                bool _clocal) {
   // 初始化串口参数

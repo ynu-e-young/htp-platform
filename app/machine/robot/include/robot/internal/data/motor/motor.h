@@ -36,7 +36,7 @@ class Motor {
   ~Motor();
 
  public:
-  void MotorSerialInit();
+  void MotorSerialInit(const ::std::shared_ptr<config::Bootstrap>& _bootstrap);
   void MotorClose();
 
   // 一系列初始化函数

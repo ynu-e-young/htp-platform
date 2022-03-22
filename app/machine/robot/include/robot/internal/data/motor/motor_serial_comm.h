@@ -5,8 +5,8 @@
 #ifndef HTP_PLATFORM_MACHINE_ROBOT_ROBOT_INTERNAL_DATA_MOTOR_MOTOR_SERIAL_COMM_H_
 #define HTP_PLATFORM_MACHINE_ROBOT_ROBOT_INTERNAL_DATA_MOTOR_MOTOR_SERIAL_COMM_H_
 
+#include "conf/conf.pb.h"
 #include "serial/serial.h"
-#include "get_config/get_setting.h"
 
 ///< 这是一个常量数组，是用在 CRC 计算里的，是 CRC 计算算法的一部分
 const unsigned short KCrcTables[] = {
@@ -31,7 +31,7 @@ class MotorSerialComm {
   ~MotorSerialComm();
 
  public:
-  void InitialCommander();
+  void InitialCommander(const ::std::shared_ptr<config::Bootstrap>& _bootstrap);
   void CloseCommander();
 
   // 计算CRC校验码

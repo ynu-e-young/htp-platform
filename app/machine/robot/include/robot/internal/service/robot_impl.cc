@@ -4,14 +4,14 @@
 
 #include "robot_impl.h"
 
-#include "robot/internal/conf/config.h"
+#include "conf/conf.pb.h"
 #include "robot/controller.h"
 
 ::grpc::Status RobotImpl::AppendCoordinate(::grpc::ServerContext *_context,
                                            const ::machine::robot::v1::CoordinateRequest *_req,
                                            ::machine::robot::v1::CoordinateReply *_reply) {
   // 确认 uuid 相同
-  if (Config::Get()->BasicSetting()->uuid() == _req->uuid()) {
+  if (bootstrap_->uuid() == _req->uuid()) {
     // 将坐标转存
     auto coord = std::array<double, 6>{
         _req->x(),

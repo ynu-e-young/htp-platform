@@ -15,8 +15,9 @@
  * @details main函数完成的工作有：初始化 Controller、Curl 两个线程，将 Curl中获取的坐标传到 Controller 中
  */
 
+#include "conf/config.h"
+#include "conf/conf.pb.h"
 #include "robot/controller.h"
-#include "robot/internal/conf/config.h"
 #include "robot/internal/server/robot_server.h"
 
 #include <iostream>
@@ -39,21 +40,27 @@ int main(int _argc, char *_argv[]) {
   signal(SIGQUIT, OnSignal);
   signal(SIGTERM, OnSignal);
 
+  auto bootstrap = ::std::make_shared<config::Bootstrap>();
+  auto plat_info = ::std::make_shared<config::PlatInfo>();
+
+  Config conf;
+
+  conf.Load("/data/conf/config.json");
+  conf.Scan(bootstrap.get());
+  conf.Load("/data/conf/robot.json");
+  conf.Scan(plat_info.get());
+
+  Controller::Get()->SetConfig(bootstrap, plat_info);
   // 启动控制器
   Controller::Get()->Start();
 
-  // 获取 rpc 地址
-  auto local_address =
-      Config::Get()->BasicSetting()->local_rpc_address() + ":" + Config::Get()->BasicSetting()->local_rpc_port();
-
   // 实例化 rpc 服务
-  RobotServer server(local_address, Controller::Get());
+  RobotServer server(Controller::Get(), bootstrap);
 
   // 启动 rpc 服务
   server.Start();
 
   Controller::Get()->ThreadSleep(std::chrono::milliseconds(100));
-
 
   while (true) {
     // 退出
@@ -72,7 +79,7 @@ int main(int _argc, char *_argv[]) {
     }
     std::cout << "========================" << std::endl << std::endl;
 
-    std::this_thread::sleep_for(std::chrono::seconds (1));
+    std::this_thread::sleep_for(std::chrono::seconds(1));
   }
 
   server.Stop();

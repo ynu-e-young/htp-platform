@@ -1,0 +1,22 @@
+{
+  "server": {
+    "grpc": {
+      "addr": "192.168.1.110:9090"
+    }
+  },
+  "local": {
+    "grpc": {
+      "addr": "0.0.0.0:9000"
+    }
+  },
+  "serial": {
+    "serial_port": "/dev/cu.usbserial-AB0JHQVJ",
+    "baud_rate": 115200,
+    "data_bits": 8,
+    "stop_bits": 1,
+    "parity": 0,
+    "flow_control": false,
+    "clocal": true
+  },
+  "uuid": "10"
+}
