@@ -401,7 +401,8 @@ struct MoveReplyDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT MoveReplyDefaultTypeInternal _MoveReply_default_instance_;
 constexpr ZeroRequest::ZeroRequest(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : machine_id_(int64_t{0}){}
+  : empty_(nullptr)
+  , machine_id_(int64_t{0}){}
 struct ZeroRequestDefaultTypeInternal {
   constexpr ZeroRequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -843,6 +844,7 @@ const uint32_t TableStruct_interface_2eproto::offsets[] PROTOBUF_SECTION_VARIABL
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::ZeroRequest, empty_),
   PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::ZeroRequest, machine_id_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::htpp::interface::v1::ZeroReply, _internal_metadata_),
@@ -995,20 +997,20 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 208, -1, -1, sizeof(::htpp::interface::v1::MoveRequest)},
   { 223, -1, -1, sizeof(::htpp::interface::v1::MoveReply)},
   { 230, -1, -1, sizeof(::htpp::interface::v1::ZeroRequest)},
-  { 237, -1, -1, sizeof(::htpp::interface::v1::ZeroReply)},
-  { 244, -1, -1, sizeof(::htpp::interface::v1::GetMotorStatusRequest)},
-  { 251, -1, -1, sizeof(::htpp::interface::v1::GetMotorStatusReply)},
-  { 258, -1, -1, sizeof(::htpp::interface::v1::MotorInfo)},
-  { 267, -1, -1, sizeof(::htpp::interface::v1::MotorStatus)},
-  { 279, -1, -1, sizeof(::htpp::interface::v1::CreateCronJobRequest)},
-  { 286, -1, -1, sizeof(::htpp::interface::v1::DeleteCronJobRequest)},
-  { 293, -1, -1, sizeof(::htpp::interface::v1::DeleteCronJobReply)},
-  { 300, -1, -1, sizeof(::htpp::interface::v1::ListCronJobRequest)},
-  { 307, -1, -1, sizeof(::htpp::interface::v1::CronJobReply)},
-  { 314, -1, -1, sizeof(::htpp::interface::v1::CronJobsReply)},
-  { 321, -1, -1, sizeof(::htpp::interface::v1::CronJob)},
-  { 332, -1, -1, sizeof(::htpp::interface::v1::CheckCoordinate)},
-  { 340, -1, -1, sizeof(::htpp::interface::v1::Coordinate)},
+  { 238, -1, -1, sizeof(::htpp::interface::v1::ZeroReply)},
+  { 245, -1, -1, sizeof(::htpp::interface::v1::GetMotorStatusRequest)},
+  { 252, -1, -1, sizeof(::htpp::interface::v1::GetMotorStatusReply)},
+  { 259, -1, -1, sizeof(::htpp::interface::v1::MotorInfo)},
+  { 268, -1, -1, sizeof(::htpp::interface::v1::MotorStatus)},
+  { 280, -1, -1, sizeof(::htpp::interface::v1::CreateCronJobRequest)},
+  { 287, -1, -1, sizeof(::htpp::interface::v1::DeleteCronJobRequest)},
+  { 294, -1, -1, sizeof(::htpp::interface::v1::DeleteCronJobReply)},
+  { 301, -1, -1, sizeof(::htpp::interface::v1::ListCronJobRequest)},
+  { 308, -1, -1, sizeof(::htpp::interface::v1::CronJobReply)},
+  { 315, -1, -1, sizeof(::htpp::interface::v1::CronJobsReply)},
+  { 322, -1, -1, sizeof(::htpp::interface::v1::CronJob)},
+  { 333, -1, -1, sizeof(::htpp::interface::v1::CheckCoordinate)},
+  { 341, -1, -1, sizeof(::htpp::interface::v1::Coordinate)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1060,157 +1062,159 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_interface_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\017interface.proto\022\021htpp.interface.v1\032\034go"
-  "ogle/api/annotations.proto\032.protoc-gen-o"
-  "penapiv2/options/annotations.proto\"k\n\014Lo"
-  "ginRequest\0222\n\004user\030\001 \001(\0132$.htpp.interfac"
-  "e.v1.LoginRequest.User\032\'\n\004User\022\r\n\005email\030"
-  "\001 \001(\t\022\020\n\010password\030\002 \001(\t\"\203\001\n\017RegisterRequ"
-  "est\0225\n\004user\030\001 \001(\0132\'.htpp.interface.v1.Re"
-  "gisterRequest.User\0329\n\004User\022\020\n\010username\030\001"
-  " \001(\t\022\r\n\005email\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\"#\n"
-  "\025GetCurrentUserRequest\022\n\n\002id\030\001 \001(\003\"\223\001\n\021U"
-  "pdateUserRequest\0227\n\004user\030\001 \001(\0132).htpp.in"
-  "terface.v1.UpdateUserRequest.User\032E\n\004Use"
-  "r\022\n\n\002id\030\001 \001(\003\022\r\n\005email\030\002 \001(\t\022\020\n\010username"
-  "\030\004 \001(\t\022\020\n\010password\030\005 \001(\t\"\200\001\n\tUserReply\022/"
-  "\n\004user\030\001 \001(\0132!.htpp.interface.v1.UserRep"
-  "ly.User\032B\n\004User\022\n\n\002id\030\001 \001(\003\022\r\n\005email\030\002 \001"
-  "(\t\022\r\n\005token\030\003 \001(\t\022\020\n\010username\030\004 \001(\t\"\034\n\016R"
-  "eadOneRequest\022\n\n\002id\030\001 \001(\003\"\020\n\016ReadAllRequ"
-  "est\"&\n\030ReadOneWithBinaryRequest\022\n\n\002id\030\001 "
-  "\001(\003\"\032\n\030ReadAllWithBinaryRequest\"0\n\"ReadO"
-  "neWithBinaryAndCalAreaRequest\022\n\n\002id\030\001 \001("
-  "\003\"$\n\"ReadAllWithBinaryAndCalAreaRequest\""
-  "5\n\nImageReply\022\'\n\005image\030\001 \001(\0132\030.htpp.inte"
-  "rface.v1.Image\"7\n\013ImagesReply\022(\n\006images\030"
-  "\001 \003(\0132\030.htpp.interface.v1.Image\"[\n\022Image"
-  "WithAreaReply\022\'\n\005image\030\001 \001(\0132\030.htpp.inte"
-  "rface.v1.Image\022\016\n\006pixels\030\002 \001(\003\022\014\n\004area\030\003"
-  " \001(\001\"\237\001\n\023ImagesWithAreaReply\0229\n\004data\030\001 \003"
-  "(\0132+.htpp.interface.v1.ImagesWithAreaRep"
-  "ly.Data\032M\n\004Data\022\'\n\005image\030\001 \001(\0132\030.htpp.in"
-  "terface.v1.Image\022\016\n\006pixels\030\002 \001(\003\022\014\n\004area"
-  "\030\003 \001(\001\"\025\n\005Image\022\014\n\004data\030\001 \001(\014\"0\n\035GetCurr"
-  "entUserMachinesRequest\022\017\n\007user_id\030\001 \001(\003\""
-  "K\n\026RegisterMachineRequest\0221\n\007machine\030\001 \001"
-  "(\0132 .htpp.interface.v1.MachineStruct\"I\n\024"
-  "UpdateMachineRequest\0221\n\007machine\030\001 \001(\0132 ."
-  "htpp.interface.v1.MachineStruct\"\'\n\021GetMa"
-  "chineRequest\022\022\n\nmachine_id\030\001 \001(\003\"A\n\014Mach"
-  "ineReply\0221\n\007machine\030\001 \001(\0132 .htpp.interfa"
-  "ce.v1.MachineStruct\"C\n\rMachinesReply\0222\n\010"
-  "machines\030\001 \003(\0132 .htpp.interface.v1.Machi"
-  "neStruct\"E\n\rMachineStruct\022\022\n\nmachine_id\030"
-  "\001 \001(\003\022\017\n\007user_id\030\002 \001(\003\022\017\n\007address\030\003 \001(\t\""
-  "\214\001\n\013MoveRequest\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n"
-  "\001z\030\003 \001(\001\022\n\n\002rx\030\004 \001(\001\022\n\n\002ry\030\005 \001(\001\022\r\n\005chec"
-  "k\030\006 \001(\010\022\r\n\005delay\030\007 \001(\001\022\022\n\nmachine_id\030\010 \001"
-  "(\003\022\022\n\ncheck_name\030\t \001(\t\"\033\n\tMoveReply\022\016\n\006s"
-  "tatus\030\001 \001(\010\"!\n\013ZeroRequest\022\022\n\nmachine_id"
-  "\030\001 \001(\003\"\033\n\tZeroReply\022\016\n\006status\030\001 \001(\010\"+\n\025G"
-  "etMotorStatusRequest\022\022\n\nmachine_id\030\001 \001(\003"
-  "\"G\n\023GetMotorStatusReply\0220\n\nmotor_info\030\001 "
-  "\003(\0132\034.htpp.interface.v1.MotorInfo\"i\n\tMot"
-  "orInfo\0224\n\014motor_status\030\001 \001(\0132\036.htpp.inte"
-  "rface.v1.MotorStatus\022\021\n\tinstr_pos\030\002 \001(\003\022"
-  "\023\n\013current_pos\030\003 \001(\003\"\221\001\n\013MotorStatus\022\r\n\005"
-  "fault\030\001 \001(\010\022\020\n\010enabling\030\002 \001(\010\022\017\n\007running"
-  "\030\003 \001(\010\022\036\n\026instruction_completion\030\004 \001(\010\022\027"
-  "\n\017path_completion\030\005 \001(\010\022\027\n\017zero_completi"
-  "on\030\006 \001(\010\"D\n\024CreateCronJobRequest\022,\n\010cron"
-  "_job\030\001 \001(\0132\032.htpp.interface.v1.CronJob\"\""
-  "\n\024DeleteCronJobRequest\022\n\n\002id\030\001 \001(\003\"!\n\022De"
-  "leteCronJobReply\022\013\n\003num\030\001 \001(\003\"\'\n\022ListCro"
-  "nJobRequest\022\021\n\tmachineId\030\001 \001(\003\"<\n\014CronJo"
-  "bReply\022,\n\010cron_job\030\001 \001(\0132\032.htpp.interfac"
-  "e.v1.CronJob\">\n\rCronJobsReply\022-\n\tcron_jo"
-  "bs\030\001 \003(\0132\032.htpp.interface.v1.CronJob\"\220\001\n"
-  "\007CronJob\022\n\n\002id\030\001 \001(\003\022\021\n\tmachineId\030\002 \001(\003\022"
-  "\022\n\ncheck_name\030\003 \001(\t\022\023\n\013cron_string\030\004 \001(\t"
-  "\022=\n\021check_coordinates\030\005 \003(\0132\".htpp.inter"
-  "face.v1.CheckCoordinate\"J\n\017CheckCoordina"
-  "te\022\013\n\003seq\030\001 \001(\003\022*\n\003crd\030\002 \001(\0132\035.htpp.inte"
-  "rface.v1.Coordinate\"\213\001\n\nCoordinate\022\t\n\001x\030"
-  "\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\022\n\n\002rx\030\004 \001(\001\022"
-  "\n\n\002ry\030\005 \001(\001\022\r\n\005check\030\006 \001(\010\022\r\n\005delay\030\007 \001("
-  "\001\022\022\n\nmachine_id\030\010 \001(\003\022\022\n\ncheck_name\030\t \001("
-  "\t2\217\023\n\tInterface\022b\n\005Login\022\037.htpp.interfac"
-  "e.v1.LoginRequest\032\034.htpp.interface.v1.Us"
-  "erReply\"\032\202\323\344\223\002\024\"\017/v1/users/login:\001*\022b\n\010R"
-  "egister\022\".htpp.interface.v1.RegisterRequ"
-  "est\032\034.htpp.interface.v1.UserReply\"\024\202\323\344\223\002"
-  "\016\"\t/v1/users:\001*\022o\n\016GetCurrentUser\022(.htpp"
-  ".interface.v1.GetCurrentUserRequest\032\034.ht"
-  "pp.interface.v1.UserReply\"\025\202\323\344\223\002\017\022\r/v1/u"
-  "ser/{id}\022e\n\nUpdateUser\022$.htpp.interface."
-  "v1.UpdateUserRequest\032\034.htpp.interface.v1"
-  ".UserReply\"\023\202\323\344\223\002\r\032\010/v1/user:\001*\022e\n\007ReadO"
-  "ne\022!.htpp.interface.v1.ReadOneRequest\032\035."
-  "htpp.interface.v1.ImageReply\"\030\202\323\344\223\002\022\022\020/v"
-  "1/capture/{id}\022a\n\007ReadAll\022!.htpp.interfa"
-  "ce.v1.ReadAllRequest\032\036.htpp.interface.v1"
-  ".ImagesReply\"\023\202\323\344\223\002\r\022\013/v1/capture\022\200\001\n\021Re"
-  "adOneWithBinary\022+.htpp.interface.v1.Read"
-  "OneWithBinaryRequest\032\035.htpp.interface.v1"
-  ".ImageReply\"\037\202\323\344\223\002\031\022\027/v1/capture/{id}/bi"
-  "nary\022|\n\021ReadAllWithBinary\022+.htpp.interfa"
-  "ce.v1.ReadAllWithBinaryRequest\032\036.htpp.in"
-  "terface.v1.ImagesReply\"\032\202\323\344\223\002\024\022\022/v1/capt"
-  "ure/binary\022\241\001\n\033ReadOneWithBinaryAndCalAr"
-  "ea\0225.htpp.interface.v1.ReadOneWithBinary"
-  "AndCalAreaRequest\032%.htpp.interface.v1.Im"
-  "ageWithAreaReply\"$\202\323\344\223\002\036\022\034/v1/capture/{i"
-  "d}/binary/area\022\235\001\n\033ReadAllWithBinaryAndC"
-  "alArea\0225.htpp.interface.v1.ReadAllWithBi"
-  "naryAndCalAreaRequest\032&.htpp.interface.v"
-  "1.ImagesWithAreaReply\"\037\202\323\344\223\002\031\022\027/v1/captu"
-  "re/binary/area\022v\n\017RegisterMachine\022).htpp"
-  ".interface.v1.RegisterMachineRequest\032\037.h"
-  "tpp.interface.v1.MachineReply\"\027\202\323\344\223\002\021\"\014/"
-  "v1/machines:\001*\022q\n\rUpdateMachine\022\'.htpp.i"
-  "nterface.v1.UpdateMachineRequest\032\037.htpp."
-  "interface.v1.MachineReply\"\026\202\323\344\223\002\020\032\013/v1/m"
-  "achine:\001*\022v\n\nGetMachine\022$.htpp.interface"
-  ".v1.GetMachineRequest\032\037.htpp.interface.v"
-  "1.MachineReply\"!\202\323\344\223\002\033\022\031/v1/machines/{ma"
-  "chine_id}\022\213\001\n\026GetCurrentUserMachines\0220.h"
-  "tpp.interface.v1.GetCurrentUserMachinesR"
-  "equest\032 .htpp.interface.v1.MachinesReply"
-  "\"\035\202\323\344\223\002\027\022\025/v1/machine/{user_id}\022o\n\004Move\022"
-  "\036.htpp.interface.v1.MoveRequest\032\034.htpp.i"
-  "nterface.v1.MoveReply\")\202\323\344\223\002#\"\036/v1/machi"
-  "nes/{machine_id}/move:\001*\022x\n\004Zero\022\036.htpp."
-  "interface.v1.ZeroRequest\032\034.htpp.interfac"
-  "e.v1.ZeroReply\"2\202\323\344\223\002,\"\036/v1/machines/{ma"
-  "chine_id}/zero:\nmachine_id\022\214\001\n\016GetMotorS"
-  "tatus\022(.htpp.interface.v1.GetMotorStatus"
-  "Request\032&.htpp.interface.v1.GetMotorStat"
-  "usReply\"(\202\323\344\223\002\"\022 /v1/machines/{machine_i"
-  "d}/status\022r\n\rCreateCronJob\022\'.htpp.interf"
-  "ace.v1.CreateCronJobRequest\032\037.htpp.inter"
-  "face.v1.CronJobReply\"\027\202\323\344\223\002\021\"\014/v1/cronJo"
-  "bs:\001*\022z\n\rDeleteCronJob\022\'.htpp.interface."
-  "v1.DeleteCronJobRequest\032%.htpp.interface"
-  ".v1.DeleteCronJobReply\"\031\202\323\344\223\002\023*\021/v1/cron"
-  "Jobs/{id}\022x\n\013ListCronJob\022%.htpp.interfac"
-  "e.v1.ListCronJobRequest\032 .htpp.interface"
-  ".v1.CronJobsReply\" \202\323\344\223\002\032\022\030/v1/cronJobs/"
-  "{machineId}B\264\001Z\030api/htpp/interface/v1;v1"
-  "\222A\226\001\022m\n\032htp-platform Interface API\"J\n\014ht"
-  "p-platform\022\'https://github.com/hominsu/h"
-  "tp-platform\032\0211774069959@qq.com2\0031.0*\001\0022\020"
-  "application/json:\020application/jsonb\006prot"
-  "o3"
+  "\n\017interface.proto\022\021htpp.interface.v1\032\033go"
+  "ogle/protobuf/empty.proto\032\034google/api/an"
+  "notations.proto\032.protoc-gen-openapiv2/op"
+  "tions/annotations.proto\"k\n\014LoginRequest\022"
+  "2\n\004user\030\001 \001(\0132$.htpp.interface.v1.LoginR"
+  "equest.User\032\'\n\004User\022\r\n\005email\030\001 \001(\t\022\020\n\010pa"
+  "ssword\030\002 \001(\t\"\203\001\n\017RegisterRequest\0225\n\004user"
+  "\030\001 \001(\0132\'.htpp.interface.v1.RegisterReque"
+  "st.User\0329\n\004User\022\020\n\010username\030\001 \001(\t\022\r\n\005ema"
+  "il\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\"#\n\025GetCurrent"
+  "UserRequest\022\n\n\002id\030\001 \001(\003\"\223\001\n\021UpdateUserRe"
+  "quest\0227\n\004user\030\001 \001(\0132).htpp.interface.v1."
+  "UpdateUserRequest.User\032E\n\004User\022\n\n\002id\030\001 \001"
+  "(\003\022\r\n\005email\030\002 \001(\t\022\020\n\010username\030\004 \001(\t\022\020\n\010p"
+  "assword\030\005 \001(\t\"\200\001\n\tUserReply\022/\n\004user\030\001 \001("
+  "\0132!.htpp.interface.v1.UserReply.User\032B\n\004"
+  "User\022\n\n\002id\030\001 \001(\003\022\r\n\005email\030\002 \001(\t\022\r\n\005token"
+  "\030\003 \001(\t\022\020\n\010username\030\004 \001(\t\"\034\n\016ReadOneReque"
+  "st\022\n\n\002id\030\001 \001(\003\"\020\n\016ReadAllRequest\"&\n\030Read"
+  "OneWithBinaryRequest\022\n\n\002id\030\001 \001(\003\"\032\n\030Read"
+  "AllWithBinaryRequest\"0\n\"ReadOneWithBinar"
+  "yAndCalAreaRequest\022\n\n\002id\030\001 \001(\003\"$\n\"ReadAl"
+  "lWithBinaryAndCalAreaRequest\"5\n\nImageRep"
+  "ly\022\'\n\005image\030\001 \001(\0132\030.htpp.interface.v1.Im"
+  "age\"7\n\013ImagesReply\022(\n\006images\030\001 \003(\0132\030.htp"
+  "p.interface.v1.Image\"[\n\022ImageWithAreaRep"
+  "ly\022\'\n\005image\030\001 \001(\0132\030.htpp.interface.v1.Im"
+  "age\022\016\n\006pixels\030\002 \001(\003\022\014\n\004area\030\003 \001(\001\"\237\001\n\023Im"
+  "agesWithAreaReply\0229\n\004data\030\001 \003(\0132+.htpp.i"
+  "nterface.v1.ImagesWithAreaReply.Data\032M\n\004"
+  "Data\022\'\n\005image\030\001 \001(\0132\030.htpp.interface.v1."
+  "Image\022\016\n\006pixels\030\002 \001(\003\022\014\n\004area\030\003 \001(\001\"\025\n\005I"
+  "mage\022\014\n\004data\030\001 \001(\014\"0\n\035GetCurrentUserMach"
+  "inesRequest\022\017\n\007user_id\030\001 \001(\003\"K\n\026Register"
+  "MachineRequest\0221\n\007machine\030\001 \001(\0132 .htpp.i"
+  "nterface.v1.MachineStruct\"I\n\024UpdateMachi"
+  "neRequest\0221\n\007machine\030\001 \001(\0132 .htpp.interf"
+  "ace.v1.MachineStruct\"\'\n\021GetMachineReques"
+  "t\022\022\n\nmachine_id\030\001 \001(\003\"A\n\014MachineReply\0221\n"
+  "\007machine\030\001 \001(\0132 .htpp.interface.v1.Machi"
+  "neStruct\"C\n\rMachinesReply\0222\n\010machines\030\001 "
+  "\003(\0132 .htpp.interface.v1.MachineStruct\"E\n"
+  "\rMachineStruct\022\022\n\nmachine_id\030\001 \001(\003\022\017\n\007us"
+  "er_id\030\002 \001(\003\022\017\n\007address\030\003 \001(\t\"\214\001\n\013MoveReq"
+  "uest\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\022\n\n"
+  "\002rx\030\004 \001(\001\022\n\n\002ry\030\005 \001(\001\022\r\n\005check\030\006 \001(\010\022\r\n\005"
+  "delay\030\007 \001(\001\022\022\n\nmachine_id\030\010 \001(\003\022\022\n\ncheck"
+  "_name\030\t \001(\t\"\033\n\tMoveReply\022\016\n\006status\030\001 \001(\010"
+  "\"H\n\013ZeroRequest\022%\n\005empty\030\001 \001(\0132\026.google."
+  "protobuf.Empty\022\022\n\nmachine_id\030\002 \001(\003\"\033\n\tZe"
+  "roReply\022\016\n\006status\030\001 \001(\010\"+\n\025GetMotorStatu"
+  "sRequest\022\022\n\nmachine_id\030\001 \001(\003\"G\n\023GetMotor"
+  "StatusReply\0220\n\nmotor_info\030\001 \003(\0132\034.htpp.i"
+  "nterface.v1.MotorInfo\"i\n\tMotorInfo\0224\n\014mo"
+  "tor_status\030\001 \001(\0132\036.htpp.interface.v1.Mot"
+  "orStatus\022\021\n\tinstr_pos\030\002 \001(\003\022\023\n\013current_p"
+  "os\030\003 \001(\003\"\221\001\n\013MotorStatus\022\r\n\005fault\030\001 \001(\010\022"
+  "\020\n\010enabling\030\002 \001(\010\022\017\n\007running\030\003 \001(\010\022\036\n\026in"
+  "struction_completion\030\004 \001(\010\022\027\n\017path_compl"
+  "etion\030\005 \001(\010\022\027\n\017zero_completion\030\006 \001(\010\"D\n\024"
+  "CreateCronJobRequest\022,\n\010cron_job\030\001 \001(\0132\032"
+  ".htpp.interface.v1.CronJob\"\"\n\024DeleteCron"
+  "JobRequest\022\n\n\002id\030\001 \001(\003\"!\n\022DeleteCronJobR"
+  "eply\022\013\n\003num\030\001 \001(\003\"\'\n\022ListCronJobRequest\022"
+  "\021\n\tmachineId\030\001 \001(\003\"<\n\014CronJobReply\022,\n\010cr"
+  "on_job\030\001 \001(\0132\032.htpp.interface.v1.CronJob"
+  "\">\n\rCronJobsReply\022-\n\tcron_jobs\030\001 \003(\0132\032.h"
+  "tpp.interface.v1.CronJob\"\220\001\n\007CronJob\022\n\n\002"
+  "id\030\001 \001(\003\022\021\n\tmachineId\030\002 \001(\003\022\022\n\ncheck_nam"
+  "e\030\003 \001(\t\022\023\n\013cron_string\030\004 \001(\t\022=\n\021check_co"
+  "ordinates\030\005 \003(\0132\".htpp.interface.v1.Chec"
+  "kCoordinate\"J\n\017CheckCoordinate\022\013\n\003seq\030\001 "
+  "\001(\003\022*\n\003crd\030\002 \001(\0132\035.htpp.interface.v1.Coo"
+  "rdinate\"\213\001\n\nCoordinate\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002"
+  " \001(\001\022\t\n\001z\030\003 \001(\001\022\n\n\002rx\030\004 \001(\001\022\n\n\002ry\030\005 \001(\001\022"
+  "\r\n\005check\030\006 \001(\010\022\r\n\005delay\030\007 \001(\001\022\022\n\nmachine"
+  "_id\030\010 \001(\003\022\022\n\ncheck_name\030\t \001(\t2\206\023\n\tInterf"
+  "ace\022b\n\005Login\022\037.htpp.interface.v1.LoginRe"
+  "quest\032\034.htpp.interface.v1.UserReply\"\032\202\323\344"
+  "\223\002\024\"\017/v1/users/login:\001*\022b\n\010Register\022\".ht"
+  "pp.interface.v1.RegisterRequest\032\034.htpp.i"
+  "nterface.v1.UserReply\"\024\202\323\344\223\002\016\"\t/v1/users"
+  ":\001*\022o\n\016GetCurrentUser\022(.htpp.interface.v"
+  "1.GetCurrentUserRequest\032\034.htpp.interface"
+  ".v1.UserReply\"\025\202\323\344\223\002\017\022\r/v1/user/{id}\022e\n\n"
+  "UpdateUser\022$.htpp.interface.v1.UpdateUse"
+  "rRequest\032\034.htpp.interface.v1.UserReply\"\023"
+  "\202\323\344\223\002\r\032\010/v1/user:\001*\022e\n\007ReadOne\022!.htpp.in"
+  "terface.v1.ReadOneRequest\032\035.htpp.interfa"
+  "ce.v1.ImageReply\"\030\202\323\344\223\002\022\022\020/v1/capture/{i"
+  "d}\022a\n\007ReadAll\022!.htpp.interface.v1.ReadAl"
+  "lRequest\032\036.htpp.interface.v1.ImagesReply"
+  "\"\023\202\323\344\223\002\r\022\013/v1/capture\022\200\001\n\021ReadOneWithBin"
+  "ary\022+.htpp.interface.v1.ReadOneWithBinar"
+  "yRequest\032\035.htpp.interface.v1.ImageReply\""
+  "\037\202\323\344\223\002\031\022\027/v1/capture/{id}/binary\022|\n\021Read"
+  "AllWithBinary\022+.htpp.interface.v1.ReadAl"
+  "lWithBinaryRequest\032\036.htpp.interface.v1.I"
+  "magesReply\"\032\202\323\344\223\002\024\022\022/v1/capture/binary\022\241"
+  "\001\n\033ReadOneWithBinaryAndCalArea\0225.htpp.in"
+  "terface.v1.ReadOneWithBinaryAndCalAreaRe"
+  "quest\032%.htpp.interface.v1.ImageWithAreaR"
+  "eply\"$\202\323\344\223\002\036\022\034/v1/capture/{id}/binary/ar"
+  "ea\022\235\001\n\033ReadAllWithBinaryAndCalArea\0225.htp"
+  "p.interface.v1.ReadAllWithBinaryAndCalAr"
+  "eaRequest\032&.htpp.interface.v1.ImagesWith"
+  "AreaReply\"\037\202\323\344\223\002\031\022\027/v1/capture/binary/ar"
+  "ea\022v\n\017RegisterMachine\022).htpp.interface.v"
+  "1.RegisterMachineRequest\032\037.htpp.interfac"
+  "e.v1.MachineReply\"\027\202\323\344\223\002\021\"\014/v1/machines:"
+  "\001*\022q\n\rUpdateMachine\022\'.htpp.interface.v1."
+  "UpdateMachineRequest\032\037.htpp.interface.v1"
+  ".MachineReply\"\026\202\323\344\223\002\020\032\013/v1/machine:\001*\022v\n"
+  "\nGetMachine\022$.htpp.interface.v1.GetMachi"
+  "neRequest\032\037.htpp.interface.v1.MachineRep"
+  "ly\"!\202\323\344\223\002\033\022\031/v1/machines/{machine_id}\022\213\001"
+  "\n\026GetCurrentUserMachines\0220.htpp.interfac"
+  "e.v1.GetCurrentUserMachinesRequest\032 .htp"
+  "p.interface.v1.MachinesReply\"\035\202\323\344\223\002\027\022\025/v"
+  "1/machine/{user_id}\022o\n\004Move\022\036.htpp.inter"
+  "face.v1.MoveRequest\032\034.htpp.interface.v1."
+  "MoveReply\")\202\323\344\223\002#\"\036/v1/machines/{machine"
+  "_id}/move:\001*\022o\n\004Zero\022\036.htpp.interface.v1"
+  ".ZeroRequest\032\034.htpp.interface.v1.ZeroRep"
+  "ly\")\202\323\344\223\002#\"\036/v1/machines/{machine_id}/ze"
+  "ro:\001*\022\214\001\n\016GetMotorStatus\022(.htpp.interfac"
+  "e.v1.GetMotorStatusRequest\032&.htpp.interf"
+  "ace.v1.GetMotorStatusReply\"(\202\323\344\223\002\"\022 /v1/"
+  "machines/{machine_id}/status\022r\n\rCreateCr"
+  "onJob\022\'.htpp.interface.v1.CreateCronJobR"
+  "equest\032\037.htpp.interface.v1.CronJobReply\""
+  "\027\202\323\344\223\002\021\"\014/v1/cronJobs:\001*\022z\n\rDeleteCronJo"
+  "b\022\'.htpp.interface.v1.DeleteCronJobReque"
+  "st\032%.htpp.interface.v1.DeleteCronJobRepl"
+  "y\"\031\202\323\344\223\002\023*\021/v1/cronJobs/{id}\022x\n\013ListCron"
+  "Job\022%.htpp.interface.v1.ListCronJobReque"
+  "st\032 .htpp.interface.v1.CronJobsReply\" \202\323"
+  "\344\223\002\032\022\030/v1/cronJobs/{machineId}B\264\001Z\030api/h"
+  "tpp/interface/v1;v1\222A\226\001\022m\n\032htp-platform "
+  "Interface API\"J\n\014htp-platform\022\'https://g"
+  "ithub.com/hominsu/htp-platform\032\02117740699"
+  "59@qq.com2\0031.0*\001\0022\020application/json:\020app"
+  "lication/jsonb\006proto3"
   ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_interface_2eproto_deps[2] = {
+static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_interface_2eproto_deps[3] = {
   &::descriptor_table_google_2fapi_2fannotations_2eproto,
+  &::descriptor_table_google_2fprotobuf_2fempty_2eproto,
   &::descriptor_table_protoc_2dgen_2dopenapiv2_2foptions_2fannotations_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_interface_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_interface_2eproto = {
-  false, false, 5642, descriptor_table_protodef_interface_2eproto, "interface.proto", 
-  &descriptor_table_interface_2eproto_once, descriptor_table_interface_2eproto_deps, 2, 45,
+  false, false, 5701, descriptor_table_protodef_interface_2eproto, "interface.proto", 
+  &descriptor_table_interface_2eproto_once, descriptor_table_interface_2eproto_deps, 3, 45,
   schemas, file_default_instances, TableStruct_interface_2eproto::offsets,
   file_level_metadata_interface_2eproto, file_level_enum_descriptors_interface_2eproto, file_level_service_descriptors_interface_2eproto,
 };
@@ -7371,8 +7375,19 @@ void MoveReply::InternalSwap(MoveReply* other) {
 
 class ZeroRequest::_Internal {
  public:
+  static const ::PROTOBUF_NAMESPACE_ID::Empty& empty(const ZeroRequest* msg);
 };
 
+const ::PROTOBUF_NAMESPACE_ID::Empty&
+ZeroRequest::_Internal::empty(const ZeroRequest* msg) {
+  return *msg->empty_;
+}
+void ZeroRequest::clear_empty() {
+  if (GetArenaForAllocation() == nullptr && empty_ != nullptr) {
+    delete empty_;
+  }
+  empty_ = nullptr;
+}
 ZeroRequest::ZeroRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
@@ -7385,12 +7400,20 @@ ZeroRequest::ZeroRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 ZeroRequest::ZeroRequest(const ZeroRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_empty()) {
+    empty_ = new ::PROTOBUF_NAMESPACE_ID::Empty(*from.empty_);
+  } else {
+    empty_ = nullptr;
+  }
   machine_id_ = from.machine_id_;
   // @@protoc_insertion_point(copy_constructor:htpp.interface.v1.ZeroRequest)
 }
 
 inline void ZeroRequest::SharedCtor() {
-machine_id_ = int64_t{0};
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&empty_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&machine_id_) -
+    reinterpret_cast<char*>(&empty_)) + sizeof(machine_id_));
 }
 
 ZeroRequest::~ZeroRequest() {
@@ -7402,6 +7425,7 @@ ZeroRequest::~ZeroRequest() {
 
 inline void ZeroRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete empty_;
 }
 
 void ZeroRequest::ArenaDtor(void* object) {
@@ -7420,6 +7444,10 @@ void ZeroRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  if (GetArenaForAllocation() == nullptr && empty_ != nullptr) {
+    delete empty_;
+  }
+  empty_ = nullptr;
   machine_id_ = int64_t{0};
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -7430,9 +7458,17 @@ const char* ZeroRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // int64 machine_id = 1;
+      // .google.protobuf.Empty empty = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_empty(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int64 machine_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           machine_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
@@ -7467,10 +7503,18 @@ uint8_t* ZeroRequest::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int64 machine_id = 1;
+  // .google.protobuf.Empty empty = 1;
+  if (this->_internal_has_empty()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::empty(this), target, stream);
+  }
+
+  // int64 machine_id = 2;
   if (this->_internal_machine_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_machine_id(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_machine_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -7489,7 +7533,14 @@ size_t ZeroRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // int64 machine_id = 1;
+  // .google.protobuf.Empty empty = 1;
+  if (this->_internal_has_empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *empty_);
+  }
+
+  // int64 machine_id = 2;
   if (this->_internal_machine_id() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_machine_id());
   }
@@ -7516,6 +7567,9 @@ void ZeroRequest::MergeFrom(const ZeroRequest& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (from._internal_has_empty()) {
+    _internal_mutable_empty()->::PROTOBUF_NAMESPACE_ID::Empty::MergeFrom(from._internal_empty());
+  }
   if (from._internal_machine_id() != 0) {
     _internal_set_machine_id(from._internal_machine_id());
   }
@@ -7536,7 +7590,12 @@ bool ZeroRequest::IsInitialized() const {
 void ZeroRequest::InternalSwap(ZeroRequest* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(machine_id_, other->machine_id_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ZeroRequest, machine_id_)
+      + sizeof(ZeroRequest::machine_id_)
+      - PROTOBUF_FIELD_OFFSET(ZeroRequest, empty_)>(
+          reinterpret_cast<char*>(&empty_),
+          reinterpret_cast<char*>(&other->empty_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ZeroRequest::GetMetadata() const {

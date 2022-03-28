@@ -373,10 +373,7 @@ func _Interface_Move0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Contex
 func _Interface_Zero0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
 	return func(ctx http.Context) error {
 		var in ZeroRequest
-		if err := ctx.Bind(&in.MachineId); err != nil {
-			return err
-		}
-		if err := ctx.BindQuery(&in); err != nil {
+		if err := ctx.Bind(&in); err != nil {
 			return err
 		}
 		if err := ctx.BindVars(&in); err != nil {
@@ -764,7 +761,7 @@ func (c *InterfaceHTTPClientImpl) Zero(ctx context.Context, in *ZeroRequest, opt
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/Zero"))
 	opts = append(opts, http.PathTemplate(pattern))
-	err := c.cc.Invoke(ctx, "POST", path, in.MachineId, &out, opts...)
+	err := c.cc.Invoke(ctx, "POST", path, in, &out, opts...)
 	if err != nil {
 		return nil, err
 	}

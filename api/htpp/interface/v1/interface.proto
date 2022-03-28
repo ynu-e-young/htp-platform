@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package htpp.interface.v1;
 
+import "google/protobuf/empty.proto";
 import "google/api/annotations.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
@@ -124,7 +125,7 @@ service Interface {
   rpc Zero (ZeroRequest) returns (ZeroReply) {
     option (google.api.http) = {
       post: "/v1/machines/{machine_id}/zero",
-      body: "machine_id",
+      body: "*",
     };
   }
 
@@ -296,7 +297,8 @@ message MoveReply {
 }
 
 message ZeroRequest {
-  int64 machine_id = 1;
+  google.protobuf.Empty empty = 1;
+  int64 machine_id = 2;
 }
 
 message ZeroReply {

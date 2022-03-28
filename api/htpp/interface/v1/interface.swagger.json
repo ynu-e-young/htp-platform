@@ -535,8 +535,12 @@
             "in": "body",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "int64"
+              "type": "object",
+              "properties": {
+                "empty": {
+                  "properties": {}
+                }
+              }
             }
           }
         ],

@@ -32,6 +32,7 @@
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/unknown_field_set.h>
+#include <google/protobuf/empty.pb.h>
 #include "google/api/annotations.pb.h"
 #include "protoc-gen-openapiv2/options/annotations.pb.h"
 // @@protoc_insertion_point(includes)
@@ -5118,9 +5119,28 @@ class ZeroRequest final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kMachineIdFieldNumber = 1,
+    kEmptyFieldNumber = 1,
+    kMachineIdFieldNumber = 2,
   };
-  // int64 machine_id = 1;
+  // .google.protobuf.Empty empty = 1;
+  bool has_empty() const;
+  private:
+  bool _internal_has_empty() const;
+  public:
+  void clear_empty();
+  const ::PROTOBUF_NAMESPACE_ID::Empty& empty() const;
+  PROTOBUF_NODISCARD ::PROTOBUF_NAMESPACE_ID::Empty* release_empty();
+  ::PROTOBUF_NAMESPACE_ID::Empty* mutable_empty();
+  void set_allocated_empty(::PROTOBUF_NAMESPACE_ID::Empty* empty);
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Empty& _internal_empty() const;
+  ::PROTOBUF_NAMESPACE_ID::Empty* _internal_mutable_empty();
+  public:
+  void unsafe_arena_set_allocated_empty(
+      ::PROTOBUF_NAMESPACE_ID::Empty* empty);
+  ::PROTOBUF_NAMESPACE_ID::Empty* unsafe_arena_release_empty();
+
+  // int64 machine_id = 2;
   void clear_machine_id();
   int64_t machine_id() const;
   void set_machine_id(int64_t value);
@@ -5136,6 +5156,7 @@ class ZeroRequest final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::Empty* empty_;
   int64_t machine_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_interface_2eproto;
@@ -9807,7 +9828,93 @@ inline void MoveReply::set_status(bool value) {
 
 // ZeroRequest
 
-// int64 machine_id = 1;
+// .google.protobuf.Empty empty = 1;
+inline bool ZeroRequest::_internal_has_empty() const {
+  return this != internal_default_instance() && empty_ != nullptr;
+}
+inline bool ZeroRequest::has_empty() const {
+  return _internal_has_empty();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Empty& ZeroRequest::_internal_empty() const {
+  const ::PROTOBUF_NAMESPACE_ID::Empty* p = empty_;
+  return p != nullptr ? *p : reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Empty&>(
+      ::PROTOBUF_NAMESPACE_ID::_Empty_default_instance_);
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Empty& ZeroRequest::empty() const {
+  // @@protoc_insertion_point(field_get:htpp.interface.v1.ZeroRequest.empty)
+  return _internal_empty();
+}
+inline void ZeroRequest::unsafe_arena_set_allocated_empty(
+    ::PROTOBUF_NAMESPACE_ID::Empty* empty) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(empty_);
+  }
+  empty_ = empty;
+  if (empty) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:htpp.interface.v1.ZeroRequest.empty)
+}
+inline ::PROTOBUF_NAMESPACE_ID::Empty* ZeroRequest::release_empty() {
+  
+  ::PROTOBUF_NAMESPACE_ID::Empty* temp = empty_;
+  empty_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Empty* ZeroRequest::unsafe_arena_release_empty() {
+  // @@protoc_insertion_point(field_release:htpp.interface.v1.ZeroRequest.empty)
+  
+  ::PROTOBUF_NAMESPACE_ID::Empty* temp = empty_;
+  empty_ = nullptr;
+  return temp;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Empty* ZeroRequest::_internal_mutable_empty() {
+  
+  if (empty_ == nullptr) {
+    auto* p = CreateMaybeMessage<::PROTOBUF_NAMESPACE_ID::Empty>(GetArenaForAllocation());
+    empty_ = p;
+  }
+  return empty_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Empty* ZeroRequest::mutable_empty() {
+  ::PROTOBUF_NAMESPACE_ID::Empty* _msg = _internal_mutable_empty();
+  // @@protoc_insertion_point(field_mutable:htpp.interface.v1.ZeroRequest.empty)
+  return _msg;
+}
+inline void ZeroRequest::set_allocated_empty(::PROTOBUF_NAMESPACE_ID::Empty* empty) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(empty_);
+  }
+  if (empty) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
+            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(empty));
+    if (message_arena != submessage_arena) {
+      empty = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, empty, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  empty_ = empty;
+  // @@protoc_insertion_point(field_set_allocated:htpp.interface.v1.ZeroRequest.empty)
+}
+
+// int64 machine_id = 2;
 inline void ZeroRequest::clear_machine_id() {
   machine_id_ = int64_t{0};
 }
