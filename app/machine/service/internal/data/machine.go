@@ -3,6 +3,7 @@ package data
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/google/uuid"
 	machineV1 "htp-platform/api/machine/service/v1"
 	"htp-platform/app/machine/service/internal/biz"
 	"htp-platform/app/machine/service/internal/data/ent"
@@ -40,7 +41,7 @@ func (r *machineRepo) FindByUserId(ctx context.Context, userId int64) ([]*biz.Ma
 	var machines []*biz.Machine
 	for _, target := range targets {
 		machines = append(machines, &biz.Machine{
-			MachineId: target.ID,
+			MachineId: target.ID.String(),
 			UserId:    target.UserID,
 			Address:   target.Address,
 		})
@@ -50,8 +51,14 @@ func (r *machineRepo) FindByUserId(ctx context.Context, userId int64) ([]*biz.Ma
 }
 
 func (r *machineRepo) Create(ctx context.Context, machine *biz.Machine) (*biz.Machine, error) {
+	u, err := uuid.NewRandom()
+	if err != nil {
+		return nil, machineV1.ErrorUuidGenerateFailed("create machine uuid failed, err: %v", err)
+	}
+
 	po, err := r.data.db.Machine.
 		Create().
+		SetID(u).
 		SetUserID(machine.UserId).
 		SetAddress(machine.Address).
 		Save(ctx)
@@ -64,15 +71,20 @@ func (r *machineRepo) Create(ctx context.Context, machine *biz.Machine) (*biz.Ma
 	}
 
 	return &biz.Machine{
-		MachineId: po.ID,
+		MachineId: po.ID.String(),
 		UserId:    po.UserID,
 		Address:   po.Address,
 	}, nil
 }
 
 func (r *machineRepo) Update(ctx context.Context, machine *biz.Machine) (*biz.Machine, error) {
+	u, err := uuid.Parse(machine.MachineId)
+	if err != nil {
+		return nil, machineV1.ErrorUuidParseFailed("update machine conflict, err: %v", err)
+	}
+
 	po, err := r.data.db.Machine.
-		UpdateOneID(machine.MachineId).
+		UpdateOneID(u).
 		SetUserID(machine.UserId).
 		SetAddress(machine.Address).
 		Save(ctx)
@@ -85,14 +97,19 @@ func (r *machineRepo) Update(ctx context.Context, machine *biz.Machine) (*biz.Ma
 	}
 
 	return &biz.Machine{
-		MachineId: po.ID,
+		MachineId: po.ID.String(),
 		UserId:    po.UserID,
 		Address:   po.Address,
 	}, nil
 }
 
-func (r *machineRepo) Get(ctx context.Context, machineId int64) (*biz.Machine, error) {
-	po, err := r.data.db.Machine.Get(ctx, machineId)
+func (r *machineRepo) Get(ctx context.Context, machineId string) (*biz.Machine, error) {
+	u, err := uuid.Parse(machineId)
+	if err != nil {
+		return nil, machineV1.ErrorUuidParseFailed("update machine conflict, err: %v", err)
+	}
+
+	po, err := r.data.db.Machine.Get(ctx, u)
 	if err != nil && ent.IsNotFound(err) {
 		return nil, machineV1.ErrorNotFoundError("find id: %s not found, err: %v", machineId, err)
 	}
@@ -102,7 +119,7 @@ func (r *machineRepo) Get(ctx context.Context, machineId int64) (*biz.Machine, e
 	}
 
 	return &biz.Machine{
-		MachineId: po.ID,
+		MachineId: po.ID.String(),
 		UserId:    po.UserID,
 		Address:   po.Address,
 	}, nil

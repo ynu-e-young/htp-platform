@@ -3,6 +3,7 @@ package data
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/google/uuid"
 	captureV1 "htp-platform/api/capture/service/v1"
 	machineV1 "htp-platform/api/machine/service/v1"
 	"htp-platform/app/machine/service/internal/biz"
@@ -168,9 +169,14 @@ func (r *captureRepo) ReadAllWithBinaryAndCalAreaAndSrc(ctx context.Context) ([]
 	return rets, nil
 }
 
-func (r *captureRepo) FindLogsByMachineId(ctx context.Context, machineId int64) ([]*biz.CaptureLog, error) {
+func (r *captureRepo) FindLogsByMachineId(ctx context.Context, machineId string) ([]*biz.CaptureLog, error) {
+	u, err := uuid.Parse(machineId)
+	if err != nil {
+		return nil, machineV1.ErrorUuidParseFailed("update machine conflict, err: %v", err)
+	}
+
 	targets, err := r.data.db.CaptureLog.
-		Query().Where(capturelog.MachineIDEQ(machineId)).
+		Query().Where(capturelog.MachineIDEQ(u)).
 		All(ctx)
 
 	if err != nil && ent.IsNotFound(err) {
@@ -185,7 +191,7 @@ func (r *captureRepo) FindLogsByMachineId(ctx context.Context, machineId int64) 
 	for _, target := range targets {
 		logs = append(logs, &biz.CaptureLog{
 			Id:         target.ID,
-			MachineId:  target.MachineID,
+			MachineId:  target.MachineID.String(),
 			Pixels:     target.Pixels,
 			Area:       target.Area,
 			SrcName:    target.SrcName,
@@ -199,9 +205,14 @@ func (r *captureRepo) FindLogsByMachineId(ctx context.Context, machineId int64) 
 }
 
 func (r *captureRepo) CreateLog(ctx context.Context, captureLog *biz.CaptureLog) (*biz.CaptureLog, error) {
+	u, err := uuid.Parse(captureLog.MachineId)
+	if err != nil {
+		return nil, machineV1.ErrorUuidParseFailed("update machine conflict, err: %v", err)
+	}
+
 	po, err := r.data.db.CaptureLog.
 		Create().
-		SetMachineID(captureLog.MachineId).
+		SetMachineID(u).
 		SetPixels(captureLog.Pixels).
 		SetArea(captureLog.Area).
 		SetSrcName(captureLog.SrcName).
@@ -216,7 +227,7 @@ func (r *captureRepo) CreateLog(ctx context.Context, captureLog *biz.CaptureLog)
 
 	return &biz.CaptureLog{
 		Id:         po.ID,
-		MachineId:  po.MachineID,
+		MachineId:  po.MachineID.String(),
 		Pixels:     po.Pixels,
 		Area:       po.Area,
 		SrcName:    po.SrcName,
@@ -238,7 +249,7 @@ func (r *captureRepo) GetLog(ctx context.Context, id int64) (*biz.CaptureLog, er
 
 	return &biz.CaptureLog{
 		Id:         po.ID,
-		MachineId:  po.MachineID,
+		MachineId:  po.MachineID.String(),
 		Pixels:     po.Pixels,
 		Area:       po.Area,
 		SrcName:    po.SrcName,

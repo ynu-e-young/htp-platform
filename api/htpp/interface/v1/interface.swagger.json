@@ -268,8 +268,7 @@
             "name": "machineId",
             "in": "path",
             "required": true,
-            "type": "string",
-            "format": "int64"
+            "type": "string"
           }
         ],
         "tags": [
@@ -394,8 +393,7 @@
             "name": "machineId",
             "in": "path",
             "required": true,
-            "type": "string",
-            "format": "int64"
+            "type": "string"
           }
         ],
         "tags": [
@@ -425,8 +423,7 @@
             "name": "machineId",
             "in": "path",
             "required": true,
-            "type": "string",
-            "format": "int64"
+            "type": "string"
           },
           {
             "name": "body",
@@ -496,8 +493,7 @@
             "name": "machineId",
             "in": "path",
             "required": true,
-            "type": "string",
-            "format": "int64"
+            "type": "string"
           }
         ],
         "tags": [
@@ -527,8 +523,7 @@
             "name": "machineId",
             "in": "path",
             "required": true,
-            "type": "string",
-            "format": "int64"
+            "type": "string"
           },
           {
             "name": "body",
@@ -764,8 +759,7 @@
           "format": "double"
         },
         "machineId": {
-          "type": "string",
-          "format": "int64"
+          "type": "string"
         },
         "checkName": {
           "type": "string"
@@ -788,8 +782,7 @@
           "format": "int64"
         },
         "machineId": {
-          "type": "string",
-          "format": "int64"
+          "type": "string"
         },
         "checkName": {
           "type": "string"
@@ -931,8 +924,7 @@
       "type": "object",
       "properties": {
         "machineId": {
-          "type": "string",
-          "format": "int64"
+          "type": "string"
         },
         "userId": {
           "type": "string",

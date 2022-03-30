@@ -751,13 +751,18 @@ class GetRequest final :
   enum : int {
     kMachineIdFieldNumber = 1,
   };
-  // int64 machine_id = 1;
+  // string machine_id = 1;
   void clear_machine_id();
-  int64_t machine_id() const;
-  void set_machine_id(int64_t value);
+  const std::string& machine_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_machine_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_machine_id();
+  PROTOBUF_NODISCARD std::string* release_machine_id();
+  void set_allocated_machine_id(std::string* machine_id);
   private:
-  int64_t _internal_machine_id() const;
-  void _internal_set_machine_id(int64_t value);
+  const std::string& _internal_machine_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_machine_id(const std::string& value);
+  std::string* _internal_mutable_machine_id();
   public:
 
   // @@protoc_insertion_point(class_scope:machine.service.v1.GetRequest)
@@ -767,7 +772,7 @@ class GetRequest final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  int64_t machine_id_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr machine_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_machine_2eproto;
 };
@@ -895,6 +900,7 @@ class MoveRequest final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kMachineIdFieldNumber = 8,
     kCheckNameFieldNumber = 9,
     kXFieldNumber = 1,
     kYFieldNumber = 2,
@@ -902,9 +908,22 @@ class MoveRequest final :
     kRxFieldNumber = 4,
     kRyFieldNumber = 5,
     kDelayFieldNumber = 7,
-    kMachineIdFieldNumber = 8,
     kCheckFieldNumber = 6,
   };
+  // string machine_id = 8;
+  void clear_machine_id();
+  const std::string& machine_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_machine_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_machine_id();
+  PROTOBUF_NODISCARD std::string* release_machine_id();
+  void set_allocated_machine_id(std::string* machine_id);
+  private:
+  const std::string& _internal_machine_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_machine_id(const std::string& value);
+  std::string* _internal_mutable_machine_id();
+  public:
+
   // string check_name = 9;
   void clear_check_name();
   const std::string& check_name() const;
@@ -973,15 +992,6 @@ class MoveRequest final :
   void _internal_set_delay(double value);
   public:
 
-  // int64 machine_id = 8;
-  void clear_machine_id();
-  int64_t machine_id() const;
-  void set_machine_id(int64_t value);
-  private:
-  int64_t _internal_machine_id() const;
-  void _internal_set_machine_id(int64_t value);
-  public:
-
   // bool check = 6;
   void clear_check();
   bool check() const;
@@ -998,6 +1008,7 @@ class MoveRequest final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr machine_id_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr check_name_;
   double x_;
   double y_;
@@ -1005,7 +1016,6 @@ class MoveRequest final :
   double rx_;
   double ry_;
   double delay_;
-  int64_t machine_id_;
   bool check_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_machine_2eproto;
@@ -1590,10 +1600,24 @@ class MachineStruct final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kAddressFieldNumber = 3,
     kMachineIdFieldNumber = 1,
+    kAddressFieldNumber = 3,
     kUserIdFieldNumber = 2,
   };
+  // string machine_id = 1;
+  void clear_machine_id();
+  const std::string& machine_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_machine_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_machine_id();
+  PROTOBUF_NODISCARD std::string* release_machine_id();
+  void set_allocated_machine_id(std::string* machine_id);
+  private:
+  const std::string& _internal_machine_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_machine_id(const std::string& value);
+  std::string* _internal_mutable_machine_id();
+  public:
+
   // string address = 3;
   void clear_address();
   const std::string& address() const;
@@ -1606,15 +1630,6 @@ class MachineStruct final :
   const std::string& _internal_address() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_address(const std::string& value);
   std::string* _internal_mutable_address();
-  public:
-
-  // int64 machine_id = 1;
-  void clear_machine_id();
-  int64_t machine_id() const;
-  void set_machine_id(int64_t value);
-  private:
-  int64_t _internal_machine_id() const;
-  void _internal_set_machine_id(int64_t value);
   public:
 
   // int64 user_id = 2;
@@ -1633,8 +1648,8 @@ class MachineStruct final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr machine_id_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr address_;
-  int64_t machine_id_;
   int64_t user_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_machine_2eproto;
@@ -1765,13 +1780,18 @@ class ZeroRequest final :
   enum : int {
     kMachineIdFieldNumber = 1,
   };
-  // int64 machine_id = 1;
+  // string machine_id = 1;
   void clear_machine_id();
-  int64_t machine_id() const;
-  void set_machine_id(int64_t value);
+  const std::string& machine_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_machine_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_machine_id();
+  PROTOBUF_NODISCARD std::string* release_machine_id();
+  void set_allocated_machine_id(std::string* machine_id);
   private:
-  int64_t _internal_machine_id() const;
-  void _internal_set_machine_id(int64_t value);
+  const std::string& _internal_machine_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_machine_id(const std::string& value);
+  std::string* _internal_mutable_machine_id();
   public:
 
   // @@protoc_insertion_point(class_scope:machine.service.v1.ZeroRequest)
@@ -1781,7 +1801,7 @@ class ZeroRequest final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  int64_t machine_id_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr machine_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_machine_2eproto;
 };
@@ -2057,13 +2077,18 @@ class GetMotorStatusRequest final :
   enum : int {
     kMachineIdFieldNumber = 1,
   };
-  // int64 machine_id = 1;
+  // string machine_id = 1;
   void clear_machine_id();
-  int64_t machine_id() const;
-  void set_machine_id(int64_t value);
+  const std::string& machine_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_machine_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_machine_id();
+  PROTOBUF_NODISCARD std::string* release_machine_id();
+  void set_allocated_machine_id(std::string* machine_id);
   private:
-  int64_t _internal_machine_id() const;
-  void _internal_set_machine_id(int64_t value);
+  const std::string& _internal_machine_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_machine_id(const std::string& value);
+  std::string* _internal_mutable_machine_id();
   public:
 
   // @@protoc_insertion_point(class_scope:machine.service.v1.GetMotorStatusRequest)
@@ -2073,7 +2098,7 @@ class GetMotorStatusRequest final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  int64_t machine_id_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr machine_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_machine_2eproto;
 };
@@ -3573,13 +3598,18 @@ class ListCronJobRequest final :
   enum : int {
     kMachineIdFieldNumber = 1,
   };
-  // int64 machineId = 1;
-  void clear_machineid();
-  int64_t machineid() const;
-  void set_machineid(int64_t value);
+  // string machine_id = 1;
+  void clear_machine_id();
+  const std::string& machine_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_machine_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_machine_id();
+  PROTOBUF_NODISCARD std::string* release_machine_id();
+  void set_allocated_machine_id(std::string* machine_id);
   private:
-  int64_t _internal_machineid() const;
-  void _internal_set_machineid(int64_t value);
+  const std::string& _internal_machine_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_machine_id(const std::string& value);
+  std::string* _internal_mutable_machine_id();
   public:
 
   // @@protoc_insertion_point(class_scope:machine.service.v1.ListCronJobRequest)
@@ -3589,7 +3619,7 @@ class ListCronJobRequest final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  int64_t machineid_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr machine_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_machine_2eproto;
 };
@@ -4028,10 +4058,10 @@ class CronJob final :
 
   enum : int {
     kCheckCoordinatesFieldNumber = 5,
+    kMachineIdFieldNumber = 2,
     kCheckNameFieldNumber = 3,
     kCronStringFieldNumber = 4,
     kIdFieldNumber = 1,
-    kMachineIdFieldNumber = 2,
   };
   // repeated .machine.service.v1.CheckCoordinate check_coordinates = 5;
   int check_coordinates_size() const;
@@ -4050,6 +4080,20 @@ class CronJob final :
   ::machine::service::v1::CheckCoordinate* add_check_coordinates();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::machine::service::v1::CheckCoordinate >&
       check_coordinates() const;
+
+  // string machine_id = 2;
+  void clear_machine_id();
+  const std::string& machine_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_machine_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_machine_id();
+  PROTOBUF_NODISCARD std::string* release_machine_id();
+  void set_allocated_machine_id(std::string* machine_id);
+  private:
+  const std::string& _internal_machine_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_machine_id(const std::string& value);
+  std::string* _internal_mutable_machine_id();
+  public:
 
   // string check_name = 3;
   void clear_check_name();
@@ -4088,15 +4132,6 @@ class CronJob final :
   void _internal_set_id(int64_t value);
   public:
 
-  // int64 machineId = 2;
-  void clear_machineid();
-  int64_t machineid() const;
-  void set_machineid(int64_t value);
-  private:
-  int64_t _internal_machineid() const;
-  void _internal_set_machineid(int64_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:machine.service.v1.CronJob)
  private:
   class _Internal;
@@ -4105,10 +4140,10 @@ class CronJob final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::machine::service::v1::CheckCoordinate > check_coordinates_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr machine_id_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr check_name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr cron_string_;
   int64_t id_;
-  int64_t machineid_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_machine_2eproto;
 };
@@ -4402,6 +4437,7 @@ class Coordinate final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kMachineIdFieldNumber = 8,
     kCheckNameFieldNumber = 9,
     kXFieldNumber = 1,
     kYFieldNumber = 2,
@@ -4409,9 +4445,22 @@ class Coordinate final :
     kRxFieldNumber = 4,
     kRyFieldNumber = 5,
     kDelayFieldNumber = 7,
-    kMachineIdFieldNumber = 8,
     kCheckFieldNumber = 6,
   };
+  // string machine_id = 8;
+  void clear_machine_id();
+  const std::string& machine_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_machine_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_machine_id();
+  PROTOBUF_NODISCARD std::string* release_machine_id();
+  void set_allocated_machine_id(std::string* machine_id);
+  private:
+  const std::string& _internal_machine_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_machine_id(const std::string& value);
+  std::string* _internal_mutable_machine_id();
+  public:
+
   // string check_name = 9;
   void clear_check_name();
   const std::string& check_name() const;
@@ -4480,15 +4529,6 @@ class Coordinate final :
   void _internal_set_delay(double value);
   public:
 
-  // int64 machine_id = 8;
-  void clear_machine_id();
-  int64_t machine_id() const;
-  void set_machine_id(int64_t value);
-  private:
-  int64_t _internal_machine_id() const;
-  void _internal_set_machine_id(int64_t value);
-  public:
-
   // bool check = 6;
   void clear_check();
   bool check() const;
@@ -4505,6 +4545,7 @@ class Coordinate final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr machine_id_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr check_name_;
   double x_;
   double y_;
@@ -4512,7 +4553,6 @@ class Coordinate final :
   double rx_;
   double ry_;
   double delay_;
-  int64_t machine_id_;
   bool check_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_machine_2eproto;
@@ -4740,24 +4780,55 @@ inline void UpdateRequest::set_allocated_machine(::machine::service::v1::Machine
 
 // GetRequest
 
-// int64 machine_id = 1;
+// string machine_id = 1;
 inline void GetRequest::clear_machine_id() {
-  machine_id_ = int64_t{0};
+  machine_id_.ClearToEmpty();
 }
-inline int64_t GetRequest::_internal_machine_id() const {
-  return machine_id_;
-}
-inline int64_t GetRequest::machine_id() const {
+inline const std::string& GetRequest::machine_id() const {
   // @@protoc_insertion_point(field_get:machine.service.v1.GetRequest.machine_id)
   return _internal_machine_id();
 }
-inline void GetRequest::_internal_set_machine_id(int64_t value) {
-  
-  machine_id_ = value;
-}
-inline void GetRequest::set_machine_id(int64_t value) {
-  _internal_set_machine_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void GetRequest::set_machine_id(ArgT0&& arg0, ArgT... args) {
+ 
+ machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:machine.service.v1.GetRequest.machine_id)
+}
+inline std::string* GetRequest::mutable_machine_id() {
+  std::string* _s = _internal_mutable_machine_id();
+  // @@protoc_insertion_point(field_mutable:machine.service.v1.GetRequest.machine_id)
+  return _s;
+}
+inline const std::string& GetRequest::_internal_machine_id() const {
+  return machine_id_.Get();
+}
+inline void GetRequest::_internal_set_machine_id(const std::string& value) {
+  
+  machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* GetRequest::_internal_mutable_machine_id() {
+  
+  return machine_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* GetRequest::release_machine_id() {
+  // @@protoc_insertion_point(field_release:machine.service.v1.GetRequest.machine_id)
+  return machine_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void GetRequest::set_allocated_machine_id(std::string* machine_id) {
+  if (machine_id != nullptr) {
+    
+  } else {
+    
+  }
+  machine_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), machine_id,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (machine_id_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    machine_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:machine.service.v1.GetRequest.machine_id)
 }
 
 // -------------------------------------------------------------------
@@ -4904,24 +4975,55 @@ inline void MoveRequest::set_delay(double value) {
   // @@protoc_insertion_point(field_set:machine.service.v1.MoveRequest.delay)
 }
 
-// int64 machine_id = 8;
+// string machine_id = 8;
 inline void MoveRequest::clear_machine_id() {
-  machine_id_ = int64_t{0};
+  machine_id_.ClearToEmpty();
 }
-inline int64_t MoveRequest::_internal_machine_id() const {
-  return machine_id_;
-}
-inline int64_t MoveRequest::machine_id() const {
+inline const std::string& MoveRequest::machine_id() const {
   // @@protoc_insertion_point(field_get:machine.service.v1.MoveRequest.machine_id)
   return _internal_machine_id();
 }
-inline void MoveRequest::_internal_set_machine_id(int64_t value) {
-  
-  machine_id_ = value;
-}
-inline void MoveRequest::set_machine_id(int64_t value) {
-  _internal_set_machine_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void MoveRequest::set_machine_id(ArgT0&& arg0, ArgT... args) {
+ 
+ machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:machine.service.v1.MoveRequest.machine_id)
+}
+inline std::string* MoveRequest::mutable_machine_id() {
+  std::string* _s = _internal_mutable_machine_id();
+  // @@protoc_insertion_point(field_mutable:machine.service.v1.MoveRequest.machine_id)
+  return _s;
+}
+inline const std::string& MoveRequest::_internal_machine_id() const {
+  return machine_id_.Get();
+}
+inline void MoveRequest::_internal_set_machine_id(const std::string& value) {
+  
+  machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* MoveRequest::_internal_mutable_machine_id() {
+  
+  return machine_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* MoveRequest::release_machine_id() {
+  // @@protoc_insertion_point(field_release:machine.service.v1.MoveRequest.machine_id)
+  return machine_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void MoveRequest::set_allocated_machine_id(std::string* machine_id) {
+  if (machine_id != nullptr) {
+    
+  } else {
+    
+  }
+  machine_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), machine_id,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (machine_id_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    machine_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:machine.service.v1.MoveRequest.machine_id)
 }
 
 // string check_name = 9;
@@ -5141,24 +5243,55 @@ MachinesReply::machines() const {
 
 // MachineStruct
 
-// int64 machine_id = 1;
+// string machine_id = 1;
 inline void MachineStruct::clear_machine_id() {
-  machine_id_ = int64_t{0};
+  machine_id_.ClearToEmpty();
 }
-inline int64_t MachineStruct::_internal_machine_id() const {
-  return machine_id_;
-}
-inline int64_t MachineStruct::machine_id() const {
+inline const std::string& MachineStruct::machine_id() const {
   // @@protoc_insertion_point(field_get:machine.service.v1.MachineStruct.machine_id)
   return _internal_machine_id();
 }
-inline void MachineStruct::_internal_set_machine_id(int64_t value) {
-  
-  machine_id_ = value;
-}
-inline void MachineStruct::set_machine_id(int64_t value) {
-  _internal_set_machine_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void MachineStruct::set_machine_id(ArgT0&& arg0, ArgT... args) {
+ 
+ machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:machine.service.v1.MachineStruct.machine_id)
+}
+inline std::string* MachineStruct::mutable_machine_id() {
+  std::string* _s = _internal_mutable_machine_id();
+  // @@protoc_insertion_point(field_mutable:machine.service.v1.MachineStruct.machine_id)
+  return _s;
+}
+inline const std::string& MachineStruct::_internal_machine_id() const {
+  return machine_id_.Get();
+}
+inline void MachineStruct::_internal_set_machine_id(const std::string& value) {
+  
+  machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* MachineStruct::_internal_mutable_machine_id() {
+  
+  return machine_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* MachineStruct::release_machine_id() {
+  // @@protoc_insertion_point(field_release:machine.service.v1.MachineStruct.machine_id)
+  return machine_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void MachineStruct::set_allocated_machine_id(std::string* machine_id) {
+  if (machine_id != nullptr) {
+    
+  } else {
+    
+  }
+  machine_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), machine_id,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (machine_id_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    machine_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:machine.service.v1.MachineStruct.machine_id)
 }
 
 // int64 user_id = 2;
@@ -5236,24 +5369,55 @@ inline void MachineStruct::set_allocated_address(std::string* address) {
 
 // ZeroRequest
 
-// int64 machine_id = 1;
+// string machine_id = 1;
 inline void ZeroRequest::clear_machine_id() {
-  machine_id_ = int64_t{0};
+  machine_id_.ClearToEmpty();
 }
-inline int64_t ZeroRequest::_internal_machine_id() const {
-  return machine_id_;
-}
-inline int64_t ZeroRequest::machine_id() const {
+inline const std::string& ZeroRequest::machine_id() const {
   // @@protoc_insertion_point(field_get:machine.service.v1.ZeroRequest.machine_id)
   return _internal_machine_id();
 }
-inline void ZeroRequest::_internal_set_machine_id(int64_t value) {
-  
-  machine_id_ = value;
-}
-inline void ZeroRequest::set_machine_id(int64_t value) {
-  _internal_set_machine_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ZeroRequest::set_machine_id(ArgT0&& arg0, ArgT... args) {
+ 
+ machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:machine.service.v1.ZeroRequest.machine_id)
+}
+inline std::string* ZeroRequest::mutable_machine_id() {
+  std::string* _s = _internal_mutable_machine_id();
+  // @@protoc_insertion_point(field_mutable:machine.service.v1.ZeroRequest.machine_id)
+  return _s;
+}
+inline const std::string& ZeroRequest::_internal_machine_id() const {
+  return machine_id_.Get();
+}
+inline void ZeroRequest::_internal_set_machine_id(const std::string& value) {
+  
+  machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* ZeroRequest::_internal_mutable_machine_id() {
+  
+  return machine_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* ZeroRequest::release_machine_id() {
+  // @@protoc_insertion_point(field_release:machine.service.v1.ZeroRequest.machine_id)
+  return machine_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void ZeroRequest::set_allocated_machine_id(std::string* machine_id) {
+  if (machine_id != nullptr) {
+    
+  } else {
+    
+  }
+  machine_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), machine_id,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (machine_id_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    machine_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:machine.service.v1.ZeroRequest.machine_id)
 }
 
 // -------------------------------------------------------------------
@@ -5284,24 +5448,55 @@ inline void ZeroReply::set_status(bool value) {
 
 // GetMotorStatusRequest
 
-// int64 machine_id = 1;
+// string machine_id = 1;
 inline void GetMotorStatusRequest::clear_machine_id() {
-  machine_id_ = int64_t{0};
+  machine_id_.ClearToEmpty();
 }
-inline int64_t GetMotorStatusRequest::_internal_machine_id() const {
-  return machine_id_;
-}
-inline int64_t GetMotorStatusRequest::machine_id() const {
+inline const std::string& GetMotorStatusRequest::machine_id() const {
   // @@protoc_insertion_point(field_get:machine.service.v1.GetMotorStatusRequest.machine_id)
   return _internal_machine_id();
 }
-inline void GetMotorStatusRequest::_internal_set_machine_id(int64_t value) {
-  
-  machine_id_ = value;
-}
-inline void GetMotorStatusRequest::set_machine_id(int64_t value) {
-  _internal_set_machine_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void GetMotorStatusRequest::set_machine_id(ArgT0&& arg0, ArgT... args) {
+ 
+ machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:machine.service.v1.GetMotorStatusRequest.machine_id)
+}
+inline std::string* GetMotorStatusRequest::mutable_machine_id() {
+  std::string* _s = _internal_mutable_machine_id();
+  // @@protoc_insertion_point(field_mutable:machine.service.v1.GetMotorStatusRequest.machine_id)
+  return _s;
+}
+inline const std::string& GetMotorStatusRequest::_internal_machine_id() const {
+  return machine_id_.Get();
+}
+inline void GetMotorStatusRequest::_internal_set_machine_id(const std::string& value) {
+  
+  machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* GetMotorStatusRequest::_internal_mutable_machine_id() {
+  
+  return machine_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* GetMotorStatusRequest::release_machine_id() {
+  // @@protoc_insertion_point(field_release:machine.service.v1.GetMotorStatusRequest.machine_id)
+  return machine_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void GetMotorStatusRequest::set_allocated_machine_id(std::string* machine_id) {
+  if (machine_id != nullptr) {
+    
+  } else {
+    
+  }
+  machine_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), machine_id,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (machine_id_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    machine_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:machine.service.v1.GetMotorStatusRequest.machine_id)
 }
 
 // -------------------------------------------------------------------
@@ -6022,24 +6217,55 @@ inline void DeleteCronJobReply::set_num(int64_t value) {
 
 // ListCronJobRequest
 
-// int64 machineId = 1;
-inline void ListCronJobRequest::clear_machineid() {
-  machineid_ = int64_t{0};
+// string machine_id = 1;
+inline void ListCronJobRequest::clear_machine_id() {
+  machine_id_.ClearToEmpty();
 }
-inline int64_t ListCronJobRequest::_internal_machineid() const {
-  return machineid_;
+inline const std::string& ListCronJobRequest::machine_id() const {
+  // @@protoc_insertion_point(field_get:machine.service.v1.ListCronJobRequest.machine_id)
+  return _internal_machine_id();
 }
-inline int64_t ListCronJobRequest::machineid() const {
-  // @@protoc_insertion_point(field_get:machine.service.v1.ListCronJobRequest.machineId)
-  return _internal_machineid();
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ListCronJobRequest::set_machine_id(ArgT0&& arg0, ArgT... args) {
+ 
+ machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:machine.service.v1.ListCronJobRequest.machine_id)
 }
-inline void ListCronJobRequest::_internal_set_machineid(int64_t value) {
+inline std::string* ListCronJobRequest::mutable_machine_id() {
+  std::string* _s = _internal_mutable_machine_id();
+  // @@protoc_insertion_point(field_mutable:machine.service.v1.ListCronJobRequest.machine_id)
+  return _s;
+}
+inline const std::string& ListCronJobRequest::_internal_machine_id() const {
+  return machine_id_.Get();
+}
+inline void ListCronJobRequest::_internal_set_machine_id(const std::string& value) {
   
-  machineid_ = value;
+  machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
-inline void ListCronJobRequest::set_machineid(int64_t value) {
-  _internal_set_machineid(value);
-  // @@protoc_insertion_point(field_set:machine.service.v1.ListCronJobRequest.machineId)
+inline std::string* ListCronJobRequest::_internal_mutable_machine_id() {
+  
+  return machine_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* ListCronJobRequest::release_machine_id() {
+  // @@protoc_insertion_point(field_release:machine.service.v1.ListCronJobRequest.machine_id)
+  return machine_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void ListCronJobRequest::set_allocated_machine_id(std::string* machine_id) {
+  if (machine_id != nullptr) {
+    
+  } else {
+    
+  }
+  machine_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), machine_id,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (machine_id_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    machine_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:machine.service.v1.ListCronJobRequest.machine_id)
 }
 
 // -------------------------------------------------------------------
@@ -6204,24 +6430,55 @@ inline void CronJob::set_id(int64_t value) {
   // @@protoc_insertion_point(field_set:machine.service.v1.CronJob.id)
 }
 
-// int64 machineId = 2;
-inline void CronJob::clear_machineid() {
-  machineid_ = int64_t{0};
+// string machine_id = 2;
+inline void CronJob::clear_machine_id() {
+  machine_id_.ClearToEmpty();
 }
-inline int64_t CronJob::_internal_machineid() const {
-  return machineid_;
+inline const std::string& CronJob::machine_id() const {
+  // @@protoc_insertion_point(field_get:machine.service.v1.CronJob.machine_id)
+  return _internal_machine_id();
 }
-inline int64_t CronJob::machineid() const {
-  // @@protoc_insertion_point(field_get:machine.service.v1.CronJob.machineId)
-  return _internal_machineid();
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CronJob::set_machine_id(ArgT0&& arg0, ArgT... args) {
+ 
+ machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:machine.service.v1.CronJob.machine_id)
 }
-inline void CronJob::_internal_set_machineid(int64_t value) {
+inline std::string* CronJob::mutable_machine_id() {
+  std::string* _s = _internal_mutable_machine_id();
+  // @@protoc_insertion_point(field_mutable:machine.service.v1.CronJob.machine_id)
+  return _s;
+}
+inline const std::string& CronJob::_internal_machine_id() const {
+  return machine_id_.Get();
+}
+inline void CronJob::_internal_set_machine_id(const std::string& value) {
   
-  machineid_ = value;
+  machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
-inline void CronJob::set_machineid(int64_t value) {
-  _internal_set_machineid(value);
-  // @@protoc_insertion_point(field_set:machine.service.v1.CronJob.machineId)
+inline std::string* CronJob::_internal_mutable_machine_id() {
+  
+  return machine_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* CronJob::release_machine_id() {
+  // @@protoc_insertion_point(field_release:machine.service.v1.CronJob.machine_id)
+  return machine_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void CronJob::set_allocated_machine_id(std::string* machine_id) {
+  if (machine_id != nullptr) {
+    
+  } else {
+    
+  }
+  machine_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), machine_id,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (machine_id_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    machine_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:machine.service.v1.CronJob.machine_id)
 }
 
 // string check_name = 3;
@@ -6624,24 +6881,55 @@ inline void Coordinate::set_delay(double value) {
   // @@protoc_insertion_point(field_set:machine.service.v1.Coordinate.delay)
 }
 
-// int64 machine_id = 8;
+// string machine_id = 8;
 inline void Coordinate::clear_machine_id() {
-  machine_id_ = int64_t{0};
+  machine_id_.ClearToEmpty();
 }
-inline int64_t Coordinate::_internal_machine_id() const {
-  return machine_id_;
-}
-inline int64_t Coordinate::machine_id() const {
+inline const std::string& Coordinate::machine_id() const {
   // @@protoc_insertion_point(field_get:machine.service.v1.Coordinate.machine_id)
   return _internal_machine_id();
 }
-inline void Coordinate::_internal_set_machine_id(int64_t value) {
-  
-  machine_id_ = value;
-}
-inline void Coordinate::set_machine_id(int64_t value) {
-  _internal_set_machine_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Coordinate::set_machine_id(ArgT0&& arg0, ArgT... args) {
+ 
+ machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:machine.service.v1.Coordinate.machine_id)
+}
+inline std::string* Coordinate::mutable_machine_id() {
+  std::string* _s = _internal_mutable_machine_id();
+  // @@protoc_insertion_point(field_mutable:machine.service.v1.Coordinate.machine_id)
+  return _s;
+}
+inline const std::string& Coordinate::_internal_machine_id() const {
+  return machine_id_.Get();
+}
+inline void Coordinate::_internal_set_machine_id(const std::string& value) {
+  
+  machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* Coordinate::_internal_mutable_machine_id() {
+  
+  return machine_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* Coordinate::release_machine_id() {
+  // @@protoc_insertion_point(field_release:machine.service.v1.Coordinate.machine_id)
+  return machine_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void Coordinate::set_allocated_machine_id(std::string* machine_id) {
+  if (machine_id != nullptr) {
+    
+  } else {
+    
+  }
+  machine_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), machine_id,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (machine_id_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    machine_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:machine.service.v1.Coordinate.machine_id)
 }
 
 // string check_name = 9;

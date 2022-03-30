@@ -33,7 +33,7 @@ message CoordinateReply {
 
 // 回零请求
 message ZeroRequest {
-  bool zero = 1;
+  string uuid = 8;
 }
 
 // 收到回零的响应
@@ -60,7 +60,7 @@ message MotorInfo {
 
 // 请求电机运行信息
 message MotorInfoRequest {
-  bool status = 1;
+  string uuid = 8;
 }
 
 // 响应电机运行信息

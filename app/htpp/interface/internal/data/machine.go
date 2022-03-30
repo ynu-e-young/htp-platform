@@ -82,7 +82,7 @@ func (r *machineRepo) Update(ctx context.Context, machine *biz.Machine) (*biz.Ma
 	}, nil
 }
 
-func (r *machineRepo) Get(ctx context.Context, machineId int64) (*biz.Machine, error) {
+func (r *machineRepo) Get(ctx context.Context, machineId string) (*biz.Machine, error) {
 	reply, err := r.data.mc.Get(ctx, &machineV1.GetRequest{
 		MachineId: machineId,
 	})
@@ -118,7 +118,7 @@ func (r *machineRepo) Move(ctx context.Context, coordinate *biz.Coordinate) (boo
 	return reply.GetStatus(), nil
 }
 
-func (r *machineRepo) Zero(ctx context.Context, machineId int64) (bool, error) {
+func (r *machineRepo) Zero(ctx context.Context, machineId string) (bool, error) {
 	reply, err := r.data.mc.Zero(ctx, &machineV1.ZeroRequest{MachineId: machineId})
 	if err != nil {
 		return false, err
@@ -127,7 +127,7 @@ func (r *machineRepo) Zero(ctx context.Context, machineId int64) (bool, error) {
 	return reply.GetStatus(), nil
 }
 
-func (r *machineRepo) GetMotorStatus(ctx context.Context, machineId int64) ([]*biz.MotorInfo, error) {
+func (r *machineRepo) GetMotorStatus(ctx context.Context, machineId string) ([]*biz.MotorInfo, error) {
 	reply, err := r.data.mc.GetMotorStatus(ctx, &machineV1.GetMotorStatusRequest{MachineId: machineId})
 	if err != nil {
 		return nil, err

@@ -61,7 +61,7 @@ func RegisterInterfaceHTTPServer(s *http.Server, srv InterfaceHTTPServer) {
 	r.GET("/v1/machines/{machine_id}/status", _Interface_GetMotorStatus0_HTTP_Handler(srv))
 	r.POST("/v1/cronJobs", _Interface_CreateCronJob0_HTTP_Handler(srv))
 	r.DELETE("/v1/cronJobs/{id}", _Interface_DeleteCronJob0_HTTP_Handler(srv))
-	r.GET("/v1/cronJobs/{machineId}", _Interface_ListCronJob0_HTTP_Handler(srv))
+	r.GET("/v1/cronJobs/{machine_id}", _Interface_ListCronJob0_HTTP_Handler(srv))
 }
 
 func _Interface_Login0_HTTP_Handler(srv InterfaceHTTPServer) func(ctx http.Context) error {
@@ -588,7 +588,7 @@ func (c *InterfaceHTTPClientImpl) GetMotorStatus(ctx context.Context, in *GetMot
 
 func (c *InterfaceHTTPClientImpl) ListCronJob(ctx context.Context, in *ListCronJobRequest, opts ...http.CallOption) (*CronJobsReply, error) {
 	var out CronJobsReply
-	pattern := "/v1/cronJobs/{machineId}"
+	pattern := "/v1/cronJobs/{machine_id}"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation("/htpp.interface.v1.Interface/ListCronJob"))
 	opts = append(opts, http.PathTemplate(pattern))

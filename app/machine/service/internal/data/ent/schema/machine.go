@@ -4,6 +4,7 @@ import (
 	"entgo.io/ent"
 	"entgo.io/ent/dialect"
 	"entgo.io/ent/schema/field"
+	"github.com/google/uuid"
 	"time"
 )
 
@@ -15,7 +16,7 @@ type Machine struct {
 // Fields of the Machine.
 func (Machine) Fields() []ent.Field {
 	return []ent.Field{
-		field.Int64("id"),
+		field.UUID("id", uuid.UUID{}),
 		field.Int64("user_id"),
 		field.String("address").Unique(),
 		field.Time("created_at").

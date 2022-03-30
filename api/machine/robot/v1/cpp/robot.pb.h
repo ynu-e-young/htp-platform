@@ -611,15 +611,20 @@ class ZeroRequest final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kZeroFieldNumber = 1,
+    kUuidFieldNumber = 8,
   };
-  // bool zero = 1;
-  void clear_zero();
-  bool zero() const;
-  void set_zero(bool value);
+  // string uuid = 8;
+  void clear_uuid();
+  const std::string& uuid() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_uuid(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_uuid();
+  PROTOBUF_NODISCARD std::string* release_uuid();
+  void set_allocated_uuid(std::string* uuid);
   private:
-  bool _internal_zero() const;
-  void _internal_set_zero(bool value);
+  const std::string& _internal_uuid() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_uuid(const std::string& value);
+  std::string* _internal_mutable_uuid();
   public:
 
   // @@protoc_insertion_point(class_scope:machine.robot.v1.ZeroRequest)
@@ -629,7 +634,7 @@ class ZeroRequest final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  bool zero_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr uuid_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_robot_2eproto;
 };
@@ -1281,15 +1286,20 @@ class MotorInfoRequest final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kStatusFieldNumber = 1,
+    kUuidFieldNumber = 8,
   };
-  // bool status = 1;
-  void clear_status();
-  bool status() const;
-  void set_status(bool value);
+  // string uuid = 8;
+  void clear_uuid();
+  const std::string& uuid() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_uuid(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_uuid();
+  PROTOBUF_NODISCARD std::string* release_uuid();
+  void set_allocated_uuid(std::string* uuid);
   private:
-  bool _internal_status() const;
-  void _internal_set_status(bool value);
+  const std::string& _internal_uuid() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_uuid(const std::string& value);
+  std::string* _internal_mutable_uuid();
   public:
 
   // @@protoc_insertion_point(class_scope:machine.robot.v1.MotorInfoRequest)
@@ -1299,7 +1309,7 @@ class MotorInfoRequest final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  bool status_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr uuid_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_robot_2eproto;
 };
@@ -1739,24 +1749,55 @@ inline void CoordinateReply::set_status(bool value) {
 
 // ZeroRequest
 
-// bool zero = 1;
-inline void ZeroRequest::clear_zero() {
-  zero_ = false;
+// string uuid = 8;
+inline void ZeroRequest::clear_uuid() {
+  uuid_.ClearToEmpty();
 }
-inline bool ZeroRequest::_internal_zero() const {
-  return zero_;
+inline const std::string& ZeroRequest::uuid() const {
+  // @@protoc_insertion_point(field_get:machine.robot.v1.ZeroRequest.uuid)
+  return _internal_uuid();
 }
-inline bool ZeroRequest::zero() const {
-  // @@protoc_insertion_point(field_get:machine.robot.v1.ZeroRequest.zero)
-  return _internal_zero();
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ZeroRequest::set_uuid(ArgT0&& arg0, ArgT... args) {
+ 
+ uuid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:machine.robot.v1.ZeroRequest.uuid)
 }
-inline void ZeroRequest::_internal_set_zero(bool value) {
+inline std::string* ZeroRequest::mutable_uuid() {
+  std::string* _s = _internal_mutable_uuid();
+  // @@protoc_insertion_point(field_mutable:machine.robot.v1.ZeroRequest.uuid)
+  return _s;
+}
+inline const std::string& ZeroRequest::_internal_uuid() const {
+  return uuid_.Get();
+}
+inline void ZeroRequest::_internal_set_uuid(const std::string& value) {
   
-  zero_ = value;
+  uuid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
-inline void ZeroRequest::set_zero(bool value) {
-  _internal_set_zero(value);
-  // @@protoc_insertion_point(field_set:machine.robot.v1.ZeroRequest.zero)
+inline std::string* ZeroRequest::_internal_mutable_uuid() {
+  
+  return uuid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* ZeroRequest::release_uuid() {
+  // @@protoc_insertion_point(field_release:machine.robot.v1.ZeroRequest.uuid)
+  return uuid_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void ZeroRequest::set_allocated_uuid(std::string* uuid) {
+  if (uuid != nullptr) {
+    
+  } else {
+    
+  }
+  uuid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), uuid,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (uuid_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    uuid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:machine.robot.v1.ZeroRequest.uuid)
 }
 
 // -------------------------------------------------------------------
@@ -2045,24 +2086,55 @@ inline void MotorInfo::set_current_pos(int64_t value) {
 
 // MotorInfoRequest
 
-// bool status = 1;
-inline void MotorInfoRequest::clear_status() {
-  status_ = false;
+// string uuid = 8;
+inline void MotorInfoRequest::clear_uuid() {
+  uuid_.ClearToEmpty();
 }
-inline bool MotorInfoRequest::_internal_status() const {
-  return status_;
+inline const std::string& MotorInfoRequest::uuid() const {
+  // @@protoc_insertion_point(field_get:machine.robot.v1.MotorInfoRequest.uuid)
+  return _internal_uuid();
 }
-inline bool MotorInfoRequest::status() const {
-  // @@protoc_insertion_point(field_get:machine.robot.v1.MotorInfoRequest.status)
-  return _internal_status();
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void MotorInfoRequest::set_uuid(ArgT0&& arg0, ArgT... args) {
+ 
+ uuid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:machine.robot.v1.MotorInfoRequest.uuid)
 }
-inline void MotorInfoRequest::_internal_set_status(bool value) {
+inline std::string* MotorInfoRequest::mutable_uuid() {
+  std::string* _s = _internal_mutable_uuid();
+  // @@protoc_insertion_point(field_mutable:machine.robot.v1.MotorInfoRequest.uuid)
+  return _s;
+}
+inline const std::string& MotorInfoRequest::_internal_uuid() const {
+  return uuid_.Get();
+}
+inline void MotorInfoRequest::_internal_set_uuid(const std::string& value) {
   
-  status_ = value;
+  uuid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
-inline void MotorInfoRequest::set_status(bool value) {
-  _internal_set_status(value);
-  // @@protoc_insertion_point(field_set:machine.robot.v1.MotorInfoRequest.status)
+inline std::string* MotorInfoRequest::_internal_mutable_uuid() {
+  
+  return uuid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* MotorInfoRequest::release_uuid() {
+  // @@protoc_insertion_point(field_release:machine.robot.v1.MotorInfoRequest.uuid)
+  return uuid_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void MotorInfoRequest::set_allocated_uuid(std::string* uuid) {
+  if (uuid != nullptr) {
+    
+  } else {
+    
+  }
+  uuid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), uuid,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (uuid_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    uuid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:machine.robot.v1.MotorInfoRequest.uuid)
 }
 
 // -------------------------------------------------------------------

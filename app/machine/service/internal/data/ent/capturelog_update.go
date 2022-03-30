@@ -13,6 +13,7 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
+	"github.com/google/uuid"
 )
 
 // CaptureLogUpdate is the builder for updating CaptureLog entities.
@@ -29,15 +30,8 @@ func (clu *CaptureLogUpdate) Where(ps ...predicate.CaptureLog) *CaptureLogUpdate
 }
 
 // SetMachineID sets the "machine_id" field.
-func (clu *CaptureLogUpdate) SetMachineID(i int64) *CaptureLogUpdate {
-	clu.mutation.ResetMachineID()
-	clu.mutation.SetMachineID(i)
-	return clu
-}
-
-// AddMachineID adds i to the "machine_id" field.
-func (clu *CaptureLogUpdate) AddMachineID(i int64) *CaptureLogUpdate {
-	clu.mutation.AddMachineID(i)
+func (clu *CaptureLogUpdate) SetMachineID(u uuid.UUID) *CaptureLogUpdate {
+	clu.mutation.SetMachineID(u)
 	return clu
 }
 
@@ -198,14 +192,7 @@ func (clu *CaptureLogUpdate) sqlSave(ctx context.Context) (n int, err error) {
 	}
 	if value, ok := clu.mutation.MachineID(); ok {
 		_spec.Fields.Set = append(_spec.Fields.Set, &sqlgraph.FieldSpec{
-			Type:   field.TypeInt64,
-			Value:  value,
-			Column: capturelog.FieldMachineID,
-		})
-	}
-	if value, ok := clu.mutation.AddedMachineID(); ok {
-		_spec.Fields.Add = append(_spec.Fields.Add, &sqlgraph.FieldSpec{
-			Type:   field.TypeInt64,
+			Type:   field.TypeUUID,
 			Value:  value,
 			Column: capturelog.FieldMachineID,
 		})
@@ -300,15 +287,8 @@ type CaptureLogUpdateOne struct {
 }
 
 // SetMachineID sets the "machine_id" field.
-func (cluo *CaptureLogUpdateOne) SetMachineID(i int64) *CaptureLogUpdateOne {
-	cluo.mutation.ResetMachineID()
-	cluo.mutation.SetMachineID(i)
-	return cluo
-}
-
-// AddMachineID adds i to the "machine_id" field.
-func (cluo *CaptureLogUpdateOne) AddMachineID(i int64) *CaptureLogUpdateOne {
-	cluo.mutation.AddMachineID(i)
+func (cluo *CaptureLogUpdateOne) SetMachineID(u uuid.UUID) *CaptureLogUpdateOne {
+	cluo.mutation.SetMachineID(u)
 	return cluo
 }
 
@@ -493,14 +473,7 @@ func (cluo *CaptureLogUpdateOne) sqlSave(ctx context.Context) (_node *CaptureLog
 	}
 	if value, ok := cluo.mutation.MachineID(); ok {
 		_spec.Fields.Set = append(_spec.Fields.Set, &sqlgraph.FieldSpec{
-			Type:   field.TypeInt64,
-			Value:  value,
-			Column: capturelog.FieldMachineID,
-		})
-	}
-	if value, ok := cluo.mutation.AddedMachineID(); ok {
-		_spec.Fields.Add = append(_spec.Fields.Add, &sqlgraph.FieldSpec{
-			Type:   field.TypeInt64,
+			Type:   field.TypeUUID,
 			Value:  value,
 			Column: capturelog.FieldMachineID,
 		})

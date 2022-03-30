@@ -53,7 +53,7 @@ struct CoordinateReplyDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CoordinateReplyDefaultTypeInternal _CoordinateReply_default_instance_;
 constexpr ZeroRequest::ZeroRequest(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : zero_(false){}
+  : uuid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
 struct ZeroRequestDefaultTypeInternal {
   constexpr ZeroRequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -108,7 +108,7 @@ struct MotorInfoDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT MotorInfoDefaultTypeInternal _MotorInfo_default_instance_;
 constexpr MotorInfoRequest::MotorInfoRequest(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : status_(false){}
+  : uuid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
 struct MotorInfoRequestDefaultTypeInternal {
   constexpr MotorInfoRequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -166,7 +166,7 @@ const uint32_t TableStruct_robot_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::ZeroRequest, zero_),
+  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::ZeroRequest, uuid_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::machine::robot::v1::ZeroReply, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -201,7 +201,7 @@ const uint32_t TableStruct_robot_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorInfoRequest, status_),
+  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorInfoRequest, uuid_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorInfoReply, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -238,7 +238,7 @@ const char descriptor_table_protodef_robot_2eproto[] PROTOBUF_SECTION_VARIABLE(p
   "\030\003 \001(\001\022\n\n\002rx\030\004 \001(\001\022\n\n\002ry\030\005 \001(\001\022\r\n\005check\030"
   "\006 \001(\010\022\r\n\005delay\030\007 \001(\001\022\014\n\004uuid\030\010 \001(\t\022\022\n\nch"
   "eck_name\030\t \001(\t\"!\n\017CoordinateReply\022\016\n\006sta"
-  "tus\030\001 \001(\010\"\033\n\013ZeroRequest\022\014\n\004zero\030\001 \001(\010\"\033"
+  "tus\030\001 \001(\010\"\033\n\013ZeroRequest\022\014\n\004uuid\030\010 \001(\t\"\033"
   "\n\tZeroReply\022\016\n\006status\030\001 \001(\010\"\221\001\n\013MotorSta"
   "tus\022\r\n\005fault\030\001 \001(\010\022\020\n\010enabling\030\002 \001(\010\022\017\n\007"
   "running\030\003 \001(\010\022\036\n\026instruction_completion\030"
@@ -246,21 +246,21 @@ const char descriptor_table_protodef_robot_2eproto[] PROTOBUF_SECTION_VARIABLE(p
   "ompletion\030\006 \001(\010\"h\n\tMotorInfo\0223\n\014motor_st"
   "atus\030\001 \001(\0132\035.machine.robot.v1.MotorStatu"
   "s\022\021\n\tinstr_pos\030\002 \001(\003\022\023\n\013current_pos\030\003 \001("
-  "\003\"\"\n\020MotorInfoRequest\022\016\n\006status\030\001 \001(\010\"A\n"
-  "\016MotorInfoReply\022/\n\nmotor_info\030\001 \003(\0132\033.ma"
-  "chine.robot.v1.MotorInfo2\205\002\n\005Robot\022\\\n\020Ap"
-  "pendCoordinate\022#.machine.robot.v1.Coordi"
-  "nateRequest\032!.machine.robot.v1.Coordinat"
-  "eReply\"\000\022D\n\004Zero\022\035.machine.robot.v1.Zero"
-  "Request\032\033.machine.robot.v1.ZeroReply\"\000\022X"
-  "\n\016GetMotorStatus\022\".machine.robot.v1.Moto"
-  "rInfoRequest\032 .machine.robot.v1.MotorInf"
-  "oReply\"\000B\031Z\027api/machine/robot/v1;v1b\006pro"
-  "to3"
+  "\003\" \n\020MotorInfoRequest\022\014\n\004uuid\030\010 \001(\t\"A\n\016M"
+  "otorInfoReply\022/\n\nmotor_info\030\001 \003(\0132\033.mach"
+  "ine.robot.v1.MotorInfo2\205\002\n\005Robot\022\\\n\020Appe"
+  "ndCoordinate\022#.machine.robot.v1.Coordina"
+  "teRequest\032!.machine.robot.v1.CoordinateR"
+  "eply\"\000\022D\n\004Zero\022\035.machine.robot.v1.ZeroRe"
+  "quest\032\033.machine.robot.v1.ZeroReply\"\000\022X\n\016"
+  "GetMotorStatus\022\".machine.robot.v1.MotorI"
+  "nfoRequest\032 .machine.robot.v1.MotorInfoR"
+  "eply\"\000B\031Z\027api/machine/robot/v1;v1b\006proto"
+  "3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_robot_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_robot_2eproto = {
-  false, false, 923, descriptor_table_protodef_robot_2eproto, "robot.proto", 
+  false, false, 921, descriptor_table_protodef_robot_2eproto, "robot.proto", 
   &descriptor_table_robot_2eproto_once, nullptr, 0, 8,
   schemas, file_default_instances, TableStruct_robot_2eproto::offsets,
   file_level_metadata_robot_2eproto, file_level_enum_descriptors_robot_2eproto, file_level_service_descriptors_robot_2eproto,
@@ -965,12 +965,22 @@ ZeroRequest::ZeroRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 ZeroRequest::ZeroRequest(const ZeroRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  zero_ = from.zero_;
+  uuid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    uuid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_uuid().empty()) {
+    uuid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_uuid(), 
+      GetArenaForAllocation());
+  }
   // @@protoc_insertion_point(copy_constructor:machine.robot.v1.ZeroRequest)
 }
 
 inline void ZeroRequest::SharedCtor() {
-zero_ = false;
+uuid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  uuid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 ZeroRequest::~ZeroRequest() {
@@ -982,6 +992,7 @@ ZeroRequest::~ZeroRequest() {
 
 inline void ZeroRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  uuid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void ZeroRequest::ArenaDtor(void* object) {
@@ -1000,7 +1011,7 @@ void ZeroRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  zero_ = false;
+  uuid_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1010,10 +1021,12 @@ const char* ZeroRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // bool zero = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          zero_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+      // string uuid = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
+          auto str = _internal_mutable_uuid();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "machine.robot.v1.ZeroRequest.uuid"));
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1047,10 +1060,14 @@ uint8_t* ZeroRequest::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bool zero = 1;
-  if (this->_internal_zero() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_zero(), target);
+  // string uuid = 8;
+  if (!this->_internal_uuid().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_uuid().data(), static_cast<int>(this->_internal_uuid().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "machine.robot.v1.ZeroRequest.uuid");
+    target = stream->WriteStringMaybeAliased(
+        8, this->_internal_uuid(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1069,9 +1086,11 @@ size_t ZeroRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // bool zero = 1;
-  if (this->_internal_zero() != 0) {
-    total_size += 1 + 1;
+  // string uuid = 8;
+  if (!this->_internal_uuid().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_uuid());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -1096,8 +1115,8 @@ void ZeroRequest::MergeFrom(const ZeroRequest& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_zero() != 0) {
-    _internal_set_zero(from._internal_zero());
+  if (!from._internal_uuid().empty()) {
+    _internal_set_uuid(from._internal_uuid());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -1115,8 +1134,14 @@ bool ZeroRequest::IsInitialized() const {
 
 void ZeroRequest::InternalSwap(ZeroRequest* other) {
   using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(zero_, other->zero_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &uuid_, lhs_arena,
+      &other->uuid_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ZeroRequest::GetMetadata() const {
@@ -1874,12 +1899,22 @@ MotorInfoRequest::MotorInfoRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 MotorInfoRequest::MotorInfoRequest(const MotorInfoRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  status_ = from.status_;
+  uuid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    uuid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_uuid().empty()) {
+    uuid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_uuid(), 
+      GetArenaForAllocation());
+  }
   // @@protoc_insertion_point(copy_constructor:machine.robot.v1.MotorInfoRequest)
 }
 
 inline void MotorInfoRequest::SharedCtor() {
-status_ = false;
+uuid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  uuid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 MotorInfoRequest::~MotorInfoRequest() {
@@ -1891,6 +1926,7 @@ MotorInfoRequest::~MotorInfoRequest() {
 
 inline void MotorInfoRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  uuid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void MotorInfoRequest::ArenaDtor(void* object) {
@@ -1909,7 +1945,7 @@ void MotorInfoRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  status_ = false;
+  uuid_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1919,10 +1955,12 @@ const char* MotorInfoRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // bool status = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          status_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+      // string uuid = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
+          auto str = _internal_mutable_uuid();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "machine.robot.v1.MotorInfoRequest.uuid"));
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1956,10 +1994,14 @@ uint8_t* MotorInfoRequest::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bool status = 1;
-  if (this->_internal_status() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_status(), target);
+  // string uuid = 8;
+  if (!this->_internal_uuid().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_uuid().data(), static_cast<int>(this->_internal_uuid().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "machine.robot.v1.MotorInfoRequest.uuid");
+    target = stream->WriteStringMaybeAliased(
+        8, this->_internal_uuid(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1978,9 +2020,11 @@ size_t MotorInfoRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // bool status = 1;
-  if (this->_internal_status() != 0) {
-    total_size += 1 + 1;
+  // string uuid = 8;
+  if (!this->_internal_uuid().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_uuid());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -2005,8 +2049,8 @@ void MotorInfoRequest::MergeFrom(const MotorInfoRequest& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_status() != 0) {
-    _internal_set_status(from._internal_status());
+  if (!from._internal_uuid().empty()) {
+    _internal_set_uuid(from._internal_uuid());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -2024,8 +2068,14 @@ bool MotorInfoRequest::IsInitialized() const {
 
 void MotorInfoRequest::InternalSwap(MotorInfoRequest* other) {
   using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(status_, other->status_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &uuid_, lhs_arena,
+      &other->uuid_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata MotorInfoRequest::GetMetadata() const {

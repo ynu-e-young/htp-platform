@@ -8,7 +8,7 @@ import (
 type CronJob struct {
 	CheckCoordinates []*CheckCoordinate
 	CheckName        string
-	MachineId        int64
+	MachineId        string
 	CronString       string
 	ID               int64
 }
@@ -21,7 +21,7 @@ type CheckCoordinate struct {
 type CronJobRepo interface {
 	Create(ctx context.Context, cj *CronJob) (*CronJob, error)
 	Delete(ctx context.Context, id int64) (int64, error)
-	List(ctx context.Context, machineId int64) ([]*CronJob, error)
+	List(ctx context.Context, machineId string) ([]*CronJob, error)
 }
 
 type CronJobUsecase struct {
@@ -45,6 +45,6 @@ func (cju *CronJobUsecase) Delete(ctx context.Context, id int64) (int64, error) 
 	return cju.repo.Delete(ctx, id)
 }
 
-func (cju *CronJobUsecase) List(ctx context.Context, machineId int64) ([]*CronJob, error) {
+func (cju *CronJobUsecase) List(ctx context.Context, machineId string) ([]*CronJob, error) {
 	return cju.repo.List(ctx, machineId)
 }

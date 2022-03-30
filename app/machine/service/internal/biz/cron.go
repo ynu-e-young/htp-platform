@@ -8,7 +8,7 @@ import (
 type Cron struct {
 	CheckCoordinates []*CheckCoordinate
 	CheckName        string
-	MachineId        int64
+	MachineId        string
 	CronString       string
 	ID               int64
 }
@@ -26,15 +26,15 @@ type Coordinate struct {
 	Ry        float64 `json:"ry,omitempty"`
 	Check     bool    `json:"check,omitempty"`
 	Delay     float64 `json:"delay,omitempty"`
-	MachineId int64   `json:"machine_id,omitempty"`
+	MachineId string  `json:"machine_id,omitempty"`
 	CheckName string  `json:"check_name,omitempty"`
 }
 
 type CronRepo interface {
 	AddCronJob(ctx context.Context, c *Cron, jobFunc func()) error
-	DelCronJob(ctx context.Context, machineId int64, checkName string) error
+	DelCronJob(ctx context.Context, machineId, checkName string) error
 
-	FindByMachineId(ctx context.Context, machineId int64) ([]*Cron, error)
+	FindByMachineId(ctx context.Context, machineId string) ([]*Cron, error)
 	Create(ctx context.Context, cr *Cron) (*Cron, error)
 	Update(ctx context.Context, cr *Cron) (*Cron, error)
 	Delete(ctx context.Context, id int64) error
@@ -58,11 +58,11 @@ func (uc *CronUsecase) AddCronJob(ctx context.Context, c *Cron, jobFunc func()) 
 	return uc.repo.AddCronJob(ctx, c, jobFunc)
 }
 
-func (uc *CronUsecase) DelCronJob(ctx context.Context, machineId int64, checkName string) error {
+func (uc *CronUsecase) DelCronJob(ctx context.Context, machineId, checkName string) error {
 	return uc.repo.DelCronJob(ctx, machineId, checkName)
 }
 
-func (uc *CronUsecase) FindByMachineId(ctx context.Context, machineId int64) ([]*Cron, error) {
+func (uc *CronUsecase) FindByMachineId(ctx context.Context, machineId string) ([]*Cron, error) {
 	return uc.repo.FindByMachineId(ctx, machineId)
 }
 

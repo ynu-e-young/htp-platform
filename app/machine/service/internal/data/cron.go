@@ -3,12 +3,12 @@ package data
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/google/uuid"
 	"github.com/robfig/cron/v3"
 	machineV1 "htp-platform/api/machine/service/v1"
 	"htp-platform/app/machine/service/internal/biz"
 	"htp-platform/app/machine/service/internal/data/ent"
 	"htp-platform/app/machine/service/internal/data/ent/cronjob"
-	"strconv"
 )
 
 var _ biz.CronRepo = (*cronRepo)(nil)
@@ -26,11 +26,10 @@ func NewCronRepo(data *Data, logger log.Logger) biz.CronRepo {
 }
 
 func (r *cronRepo) AddCronJob(ctx context.Context, c *biz.Cron, jobFunc func()) error {
-	machineIdStr := strconv.FormatInt(c.MachineId, 10)
 	checkName := c.CheckName
 
-	if _, ok := r.data.cr[machineIdStr+":"+checkName]; ok {
-		return machineV1.ErrorCronConflict("cron job already exist, machine id: %s, check name: %s", machineIdStr, checkName)
+	if _, ok := r.data.cr[c.MachineId+":"+checkName]; ok {
+		return machineV1.ErrorCronConflict("cron job already exist, machine id: %s, check name: %s", c.MachineId, checkName)
 	} else {
 		cr := cron.New()
 
@@ -39,31 +38,34 @@ func (r *cronRepo) AddCronJob(ctx context.Context, c *biz.Cron, jobFunc func()) 
 			return machineV1.ErrorCronSetupFailed("set up cron job failed, cron string: %s", c.CronString)
 		}
 
-		r.data.cr[machineIdStr+":"+checkName] = cr
+		r.data.cr[c.MachineId+":"+checkName] = cr
 		cr.Start()
 	}
 
 	return nil
 }
 
-func (r *cronRepo) DelCronJob(ctx context.Context, machineId int64, checkName string) error {
-	machineIdStr := strconv.FormatInt(machineId, 10)
-
-	if _, ok := r.data.cr[machineIdStr+":"+checkName]; ok {
+func (r *cronRepo) DelCronJob(ctx context.Context, machineId, checkName string) error {
+	if _, ok := r.data.cr[machineId+":"+checkName]; ok {
 		// 停止定时任务然后删除
-		r.data.cr[machineIdStr+":"+checkName].Stop()
-		delete(r.data.cr, machineIdStr+":"+checkName)
+		r.data.cr[machineId+":"+checkName].Stop()
+		delete(r.data.cr, machineId+":"+checkName)
 	} else {
-		return machineV1.ErrorNotFoundError("cron job not found, machine id: %s, check name: %s", machineIdStr, checkName)
+		return machineV1.ErrorNotFoundError("cron job not found, machine id: %s, check name: %s", machineId, checkName)
 	}
 
 	return nil
 }
 
-func (r *cronRepo) FindByMachineId(ctx context.Context, machineId int64) ([]*biz.Cron, error) {
+func (r *cronRepo) FindByMachineId(ctx context.Context, machineId string) ([]*biz.Cron, error) {
+	u, err := uuid.Parse(machineId)
+	if err != nil {
+		return nil, machineV1.ErrorUuidParseFailed("update machine conflict, err: %v", err)
+	}
+
 	targets, err := r.data.db.CronJob.
 		Query().
-		Where(cronjob.MachineIDEQ(machineId)).
+		Where(cronjob.MachineIDEQ(u)).
 		All(ctx)
 
 	if err != nil && ent.IsNotFound(err) {
@@ -79,7 +81,7 @@ func (r *cronRepo) FindByMachineId(ctx context.Context, machineId int64) ([]*biz
 		bcs = append(bcs, &biz.Cron{
 			CheckCoordinates: target.Coordinates,
 			CheckName:        target.CheckName,
-			MachineId:        target.MachineID,
+			MachineId:        target.MachineID.String(),
 			CronString:       target.CronString,
 			ID:               target.ID,
 		})
@@ -89,14 +91,18 @@ func (r *cronRepo) FindByMachineId(ctx context.Context, machineId int64) ([]*biz
 }
 
 func (r *cronRepo) Create(ctx context.Context, cr *biz.Cron) (*biz.Cron, error) {
+	u, err := uuid.Parse(cr.MachineId)
+	if err != nil {
+		return nil, machineV1.ErrorUuidParseFailed("update machine conflict, err: %v", err)
+	}
+
 	if po, err := r.data.db.CronJob.
 		Query().
-		Where(cronjob.And(cronjob.MachineIDEQ(cr.MachineId), cronjob.CheckNameEQ(cr.CheckName))).
-		All(ctx);
-		len(po) == 0 || (err != nil && ent.IsNotFound(err)) {
-		po, err := r.data.db.CronJob.
+		Where(cronjob.And(cronjob.MachineIDEQ(u), cronjob.CheckNameEQ(cr.CheckName))).
+		All(ctx); len(po) == 0 || (err != nil && ent.IsNotFound(err)) {
+		poi, err := r.data.db.CronJob.
 			Create().
-			SetMachineID(cr.MachineId).
+			SetMachineID(u).
 			SetCheckName(cr.CheckName).
 			SetCronString(cr.CronString).
 			SetCoordinates(cr.CheckCoordinates).
@@ -110,11 +116,11 @@ func (r *cronRepo) Create(ctx context.Context, cr *biz.Cron) (*biz.Cron, error) 
 		}
 
 		return &biz.Cron{
-			CheckCoordinates: po.Coordinates,
-			CheckName:        po.CheckName,
-			MachineId:        po.MachineID,
-			CronString:       po.CronString,
-			ID:               po.ID,
+			CheckCoordinates: poi.Coordinates,
+			CheckName:        poi.CheckName,
+			MachineId:        poi.MachineID.String(),
+			CronString:       poi.CronString,
+			ID:               poi.ID,
 		}, nil
 	} else {
 		return nil, machineV1.ErrorCreateFailed("check name: %s already exist", cr.CheckName)
@@ -122,9 +128,14 @@ func (r *cronRepo) Create(ctx context.Context, cr *biz.Cron) (*biz.Cron, error) 
 }
 
 func (r *cronRepo) Update(ctx context.Context, cr *biz.Cron) (*biz.Cron, error) {
+	u, err := uuid.Parse(cr.MachineId)
+	if err != nil {
+		return nil, machineV1.ErrorUuidParseFailed("update machine conflict, err: %v", err)
+	}
+
 	po, err := r.data.db.CronJob.
 		UpdateOneID(cr.ID).
-		SetMachineID(cr.MachineId).
+		SetMachineID(u).
 		SetCheckName(cr.CheckName).
 		SetCronString(cr.CronString).
 		SetCoordinates(cr.CheckCoordinates).
@@ -140,7 +151,7 @@ func (r *cronRepo) Update(ctx context.Context, cr *biz.Cron) (*biz.Cron, error) 
 	return &biz.Cron{
 		CheckCoordinates: po.Coordinates,
 		CheckName:        po.CheckName,
-		MachineId:        po.MachineID,
+		MachineId:        po.MachineID.String(),
 		CronString:       po.CronString,
 		ID:               po.ID,
 	}, nil
@@ -171,7 +182,7 @@ func (r *cronRepo) Get(ctx context.Context, id int64) (*biz.Cron, error) {
 	return &biz.Cron{
 		CheckCoordinates: po.Coordinates,
 		CheckName:        po.CheckName,
-		MachineId:        po.MachineID,
+		MachineId:        po.MachineID.String(),
 		CronString:       po.CronString,
 		ID:               po.ID,
 	}, nil

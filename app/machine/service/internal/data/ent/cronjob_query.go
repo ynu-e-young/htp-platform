@@ -253,7 +253,7 @@ func (cjq *CronJobQuery) Clone() *CronJobQuery {
 // Example:
 //
 //	var v []struct {
-//		MachineID int64 `json:"machine_id,omitempty"`
+//		MachineID uuid.UUID `json:"machine_id,omitempty"`
 //		Count int `json:"count,omitempty"`
 //	}
 //
@@ -280,7 +280,7 @@ func (cjq *CronJobQuery) GroupBy(field string, fields ...string) *CronJobGroupBy
 // Example:
 //
 //	var v []struct {
-//		MachineID int64 `json:"machine_id,omitempty"`
+//		MachineID uuid.UUID `json:"machine_id,omitempty"`
 //	}
 //
 //	client.CronJob.Query().

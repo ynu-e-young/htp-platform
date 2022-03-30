@@ -91,7 +91,7 @@ func (r *cronJobRepo) Delete(ctx context.Context, id int64) (int64, error) {
 	return reply.GetNum(), nil
 }
 
-func (r *cronJobRepo) List(ctx context.Context, machineId int64) ([]*biz.CronJob, error) {
+func (r *cronJobRepo) List(ctx context.Context, machineId string) ([]*biz.CronJob, error) {
 	reply, err := r.data.mc.ListCronJob(ctx, &machineV1.ListCronJobRequest{MachineId: machineId})
 	if err != nil {
 		return nil, err

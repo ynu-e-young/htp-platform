@@ -20,7 +20,7 @@ type CaptureSrc struct {
 
 type CaptureLog struct {
 	Id         int64
-	MachineId  int64
+	MachineId  string
 	Pixels     int64
 	Area       float64
 	SrcName    string
@@ -45,7 +45,7 @@ type CaptureRepo interface {
 	ReadAllWithBinaryAndCalArea(ctx context.Context) ([]*Capture, error)
 	ReadAllWithBinaryAndCalAreaAndSrc(ctx context.Context) ([]*CaptureSrc, error)
 
-	FindLogsByMachineId(ctx context.Context, machineId int64) ([]*CaptureLog, error)
+	FindLogsByMachineId(ctx context.Context, machineId string) ([]*CaptureLog, error)
 	CreateLog(ctx context.Context, captureLog *CaptureLog) (*CaptureLog, error)
 	GetLog(ctx context.Context, id int64) (*CaptureLog, error)
 }
@@ -103,7 +103,7 @@ func (uc *CaptureUsecase) ReadAllWithBinaryAndCalAreaAndSrc(ctx context.Context)
 	return uc.repo.ReadAllWithBinaryAndCalAreaAndSrc(ctx)
 }
 
-func (uc *CaptureUsecase) FindLogsByMachineId(ctx context.Context, machineId int64) ([]*CaptureLog, error) {
+func (uc *CaptureUsecase) FindLogsByMachineId(ctx context.Context, machineId string) ([]*CaptureLog, error) {
 	return uc.repo.FindLogsByMachineId(ctx, machineId)
 }
 

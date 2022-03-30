@@ -8,7 +8,6 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
-	"strconv"
 	"time"
 )
 
@@ -87,7 +86,7 @@ func (s *MachineService) saveImage(fileName string, data []byte) error {
 	return nil
 }
 
-func (s *MachineService) ReadAllWithBinaryAndCalAreaAndSrc(ctx context.Context, machineIdStr string) {
+func (s *MachineService) ReadAllWithBinaryAndCalAreaAndSrc(ctx context.Context, machineId string) {
 	captures, err := s.cu.ReadAllWithBinaryAndCalAreaAndSrc(ctx)
 	if err != nil {
 		s.log.Error(err)
@@ -95,15 +94,15 @@ func (s *MachineService) ReadAllWithBinaryAndCalAreaAndSrc(ctx context.Context, 
 	}
 
 	for _, capture := range captures {
-		machineId, err := strconv.ParseInt(machineIdStr, 10, 64)
 		if err != nil {
 			s.log.Error(err)
 		}
 
-		timeStr := time.Now().String()
-		localPath := filepath.Join(s.dcf.Images.Dir, timeStr)
+		t := time.Now()
+		ts := t.Format(time.RFC3339)
+		localPath := filepath.Join(s.dcf.Images.Dir, machineId, ts)
 		if _, err := os.Stat(localPath); os.IsNotExist(err) {
-			if err := os.Mkdir(localPath, 0777); err != nil {
+			if err := os.MkdirAll(localPath, 0777); err != nil {
 				s.log.Error(err)
 				return
 			}
@@ -124,12 +123,20 @@ func (s *MachineService) ReadAllWithBinaryAndCalAreaAndSrc(ctx context.Context, 
 			return
 		}
 
-		cloudSrcRelativePath := filepath.Join(timeStr, "src.jpg")
-		cloudProcRelativePath := filepath.Join(timeStr, "proc.jpg")
-		go s.OssUpload(cloudSrcRelativePath, capture.Src)
-		go s.OssUpload(cloudProcRelativePath, capture.Proc)
+		var srcOssUrl = ""
+		var procOssUrl = ""
 
-		ossBasePath := "https://" + s.dcf.Oss.Bucket + "." + s.dcf.Oss.Endpoint
+		if s.dcf.Oss.Bucket != "" && s.dcf.Oss.Endpoint != "" {
+			cloudSrcRelativePath := filepath.Join(machineId, ts, "src.jpg")
+			cloudProcRelativePath := filepath.Join(machineId, ts, "proc.jpg")
+
+			go s.OssUpload(cloudSrcRelativePath, capture.Src)
+			go s.OssUpload(cloudProcRelativePath, capture.Proc)
+
+			ossBasePath := "https://" + s.dcf.Oss.Bucket + "." + s.dcf.Oss.Endpoint
+			srcOssUrl = ossBasePath + "/" + cloudSrcRelativePath
+			procOssUrl = ossBasePath + "/" + cloudProcRelativePath
+		}
 
 		if _, err := s.cu.CreateLog(ctx, &biz.CaptureLog{
 			MachineId:  machineId,
@@ -137,8 +144,8 @@ func (s *MachineService) ReadAllWithBinaryAndCalAreaAndSrc(ctx context.Context, 
 			Area:       capture.Area,
 			SrcName:    localSrcPath,
 			ProcName:   localProcPath,
-			SrcOssUrl:  ossBasePath + "/" + cloudSrcRelativePath,
-			ProcOssUrl: ossBasePath + "/" + cloudSrcRelativePath,
+			SrcOssUrl:  srcOssUrl,
+			ProcOssUrl: procOssUrl,
 		}); err != nil {
 			s.log.Error(err)
 			return
@@ -166,7 +173,7 @@ func (s *MachineService) Move(ctx context.Context, in *machineV1.MoveRequest) (*
 		Ry:        in.GetRy(),
 		Check:     in.GetCheck(),
 		Delay:     in.GetDelay(),
-		Uuid:      strconv.FormatInt(in.GetMachineId(), 10),
+		Uuid:      in.GetMachineId(),
 		CheckName: in.GetCheckName(),
 	})
 	if err != nil {
@@ -188,7 +195,7 @@ func (s *MachineService) Zero(ctx context.Context, in *machineV1.ZeroRequest) (*
 	}
 	defer cleanup()
 
-	reply, err := rCli.Zero(ctx, &robotV1.ZeroRequest{Zero: true})
+	reply, err := rCli.Zero(ctx, &robotV1.ZeroRequest{Uuid: in.GetMachineId()})
 	if err != nil {
 		return nil, err
 	}
@@ -208,7 +215,7 @@ func (s *MachineService) GetMotorStatus(ctx context.Context, in *machineV1.GetMo
 	}
 	defer cleanup()
 
-	reply, err := rCli.GetMotorStatus(ctx, &robotV1.MotorInfoRequest{Status: true})
+	reply, err := rCli.GetMotorStatus(ctx, &robotV1.MotorInfoRequest{Uuid: in.GetMachineId()})
 	if err != nil {
 		return nil, err
 	}
@@ -268,7 +275,7 @@ func (s *MachineService) MoveDone(ctx context.Context, in *machineV1.MoveDoneReq
 	return ret, nil
 }
 
-func (s *MachineService) jobFunc(machineId int64, checkName string, coordinates []*biz.CheckCoordinate) func() {
+func (s *MachineService) jobFunc(machineId, checkName string, coordinates []*biz.CheckCoordinate) func() {
 	return func() {
 		// 将坐标 Slice 以结构体中的 Seq 进行降序排序
 		sort.Slice(coordinates, func(i, j int) bool {
@@ -304,7 +311,7 @@ func (s *MachineService) jobFunc(machineId int64, checkName string, coordinates 
 				Ry:        coordinate.Crd.Ry,
 				Check:     coordinate.Crd.Check,
 				Delay:     coordinate.Crd.Delay,
-				Uuid:      strconv.FormatInt(coordinate.Crd.MachineId, 10),
+				Uuid:      coordinate.Crd.MachineId,
 				CheckName: coordinate.Crd.CheckName,
 			})
 			if err != nil {

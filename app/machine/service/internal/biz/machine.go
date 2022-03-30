@@ -6,7 +6,7 @@ import (
 )
 
 type Machine struct {
-	MachineId int64
+	MachineId string
 	UserId    int64
 	Address   string
 }
@@ -15,7 +15,7 @@ type MachineRepo interface {
 	FindByUserId(ctx context.Context, userId int64) ([]*Machine, error)
 	Create(ctx context.Context, machine *Machine) (*Machine, error)
 	Update(ctx context.Context, machine *Machine) (*Machine, error)
-	Get(ctx context.Context, machineId int64) (*Machine, error)
+	Get(ctx context.Context, machineId string) (*Machine, error)
 }
 
 type MachineUsecase struct {
@@ -43,6 +43,6 @@ func (mu *MachineUsecase) Update(ctx context.Context, machine *Machine) (*Machin
 	return mu.repo.Update(ctx, machine)
 }
 
-func (mu *MachineUsecase) Get(ctx context.Context, machineId int64) (*Machine, error) {
+func (mu *MachineUsecase) Get(ctx context.Context, machineId string) (*Machine, error) {
 	return mu.repo.Get(ctx, machineId)
 }

@@ -14,6 +14,7 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
+	"github.com/google/uuid"
 )
 
 // CronJobUpdate is the builder for updating CronJob entities.
@@ -30,15 +31,8 @@ func (cju *CronJobUpdate) Where(ps ...predicate.CronJob) *CronJobUpdate {
 }
 
 // SetMachineID sets the "machine_id" field.
-func (cju *CronJobUpdate) SetMachineID(i int64) *CronJobUpdate {
-	cju.mutation.ResetMachineID()
-	cju.mutation.SetMachineID(i)
-	return cju
-}
-
-// AddMachineID adds i to the "machine_id" field.
-func (cju *CronJobUpdate) AddMachineID(i int64) *CronJobUpdate {
-	cju.mutation.AddMachineID(i)
+func (cju *CronJobUpdate) SetMachineID(u uuid.UUID) *CronJobUpdate {
+	cju.mutation.SetMachineID(u)
 	return cju
 }
 
@@ -173,14 +167,7 @@ func (cju *CronJobUpdate) sqlSave(ctx context.Context) (n int, err error) {
 	}
 	if value, ok := cju.mutation.MachineID(); ok {
 		_spec.Fields.Set = append(_spec.Fields.Set, &sqlgraph.FieldSpec{
-			Type:   field.TypeInt64,
-			Value:  value,
-			Column: cronjob.FieldMachineID,
-		})
-	}
-	if value, ok := cju.mutation.AddedMachineID(); ok {
-		_spec.Fields.Add = append(_spec.Fields.Add, &sqlgraph.FieldSpec{
-			Type:   field.TypeInt64,
+			Type:   field.TypeUUID,
 			Value:  value,
 			Column: cronjob.FieldMachineID,
 		})
@@ -246,15 +233,8 @@ type CronJobUpdateOne struct {
 }
 
 // SetMachineID sets the "machine_id" field.
-func (cjuo *CronJobUpdateOne) SetMachineID(i int64) *CronJobUpdateOne {
-	cjuo.mutation.ResetMachineID()
-	cjuo.mutation.SetMachineID(i)
-	return cjuo
-}
-
-// AddMachineID adds i to the "machine_id" field.
-func (cjuo *CronJobUpdateOne) AddMachineID(i int64) *CronJobUpdateOne {
-	cjuo.mutation.AddMachineID(i)
+func (cjuo *CronJobUpdateOne) SetMachineID(u uuid.UUID) *CronJobUpdateOne {
+	cjuo.mutation.SetMachineID(u)
 	return cjuo
 }
 
@@ -413,14 +393,7 @@ func (cjuo *CronJobUpdateOne) sqlSave(ctx context.Context) (_node *CronJob, err 
 	}
 	if value, ok := cjuo.mutation.MachineID(); ok {
 		_spec.Fields.Set = append(_spec.Fields.Set, &sqlgraph.FieldSpec{
-			Type:   field.TypeInt64,
-			Value:  value,
-			Column: cronjob.FieldMachineID,
-		})
-	}
-	if value, ok := cjuo.mutation.AddedMachineID(); ok {
-		_spec.Fields.Add = append(_spec.Fields.Add, &sqlgraph.FieldSpec{
-			Type:   field.TypeInt64,
+			Type:   field.TypeUUID,
 			Value:  value,
 			Column: cronjob.FieldMachineID,
 		})
