@@ -57,7 +57,7 @@ struct UpdateRequestDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT UpdateRequestDefaultTypeInternal _UpdateRequest_default_instance_;
 constexpr GetRequest::GetRequest(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : machine_id_(int64_t{0}){}
+  : machine_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
 struct GetRequestDefaultTypeInternal {
   constexpr GetRequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -69,14 +69,14 @@ struct GetRequestDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT GetRequestDefaultTypeInternal _GetRequest_default_instance_;
 constexpr MoveRequest::MoveRequest(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : check_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  : machine_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , check_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , x_(0)
   , y_(0)
   , z_(0)
   , rx_(0)
   , ry_(0)
   , delay_(0)
-  , machine_id_(int64_t{0})
   , check_(false){}
 struct MoveRequestDefaultTypeInternal {
   constexpr MoveRequestDefaultTypeInternal()
@@ -125,8 +125,8 @@ struct MachinesReplyDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT MachinesReplyDefaultTypeInternal _MachinesReply_default_instance_;
 constexpr MachineStruct::MachineStruct(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : address_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , machine_id_(int64_t{0})
+  : machine_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , address_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , user_id_(int64_t{0}){}
 struct MachineStructDefaultTypeInternal {
   constexpr MachineStructDefaultTypeInternal()
@@ -139,7 +139,7 @@ struct MachineStructDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT MachineStructDefaultTypeInternal _MachineStruct_default_instance_;
 constexpr ZeroRequest::ZeroRequest(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : machine_id_(int64_t{0}){}
+  : machine_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
 struct ZeroRequestDefaultTypeInternal {
   constexpr ZeroRequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -163,7 +163,7 @@ struct ZeroReplyDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ZeroReplyDefaultTypeInternal _ZeroReply_default_instance_;
 constexpr GetMotorStatusRequest::GetMotorStatusRequest(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : machine_id_(int64_t{0}){}
+  : machine_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
 struct GetMotorStatusRequestDefaultTypeInternal {
   constexpr GetMotorStatusRequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -286,7 +286,7 @@ struct DeleteCronJobReplyDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DeleteCronJobReplyDefaultTypeInternal _DeleteCronJobReply_default_instance_;
 constexpr ListCronJobRequest::ListCronJobRequest(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : machineid_(int64_t{0}){}
+  : machine_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
 struct ListCronJobRequestDefaultTypeInternal {
   constexpr ListCronJobRequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -323,10 +323,10 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CronJobsReplyDefaultTypeInterna
 constexpr CronJob::CronJob(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : check_coordinates_()
+  , machine_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , check_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , cron_string_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , id_(int64_t{0})
-  , machineid_(int64_t{0}){}
+  , id_(int64_t{0}){}
 struct CronJobDefaultTypeInternal {
   constexpr CronJobDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -351,14 +351,14 @@ struct CheckCoordinateDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CheckCoordinateDefaultTypeInternal _CheckCoordinate_default_instance_;
 constexpr Coordinate::Coordinate(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : check_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  : machine_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , check_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , x_(0)
   , y_(0)
   , z_(0)
   , rx_(0)
   , ry_(0)
   , delay_(0)
-  , machine_id_(int64_t{0})
   , check_(false){}
 struct CoordinateDefaultTypeInternal {
   constexpr CoordinateDefaultTypeInternal()
@@ -548,7 +548,7 @@ const uint32_t TableStruct_machine_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::machine::service::v1::ListCronJobRequest, machineid_),
+  PROTOBUF_FIELD_OFFSET(::machine::service::v1::ListCronJobRequest, machine_id_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::machine::service::v1::CronJobReply, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -570,7 +570,7 @@ const uint32_t TableStruct_machine_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::machine::service::v1::CronJob, id_),
-  PROTOBUF_FIELD_OFFSET(::machine::service::v1::CronJob, machineid_),
+  PROTOBUF_FIELD_OFFSET(::machine::service::v1::CronJob, machine_id_),
   PROTOBUF_FIELD_OFFSET(::machine::service::v1::CronJob, check_name_),
   PROTOBUF_FIELD_OFFSET(::machine::service::v1::CronJob, cron_string_),
   PROTOBUF_FIELD_OFFSET(::machine::service::v1::CronJob, check_coordinates_),
@@ -663,19 +663,19 @@ const char descriptor_table_protodef_machine_2eproto[] PROTOBUF_SECTION_VARIABLE
   "service.v1.MachineStruct\"C\n\rUpdateReques"
   "t\0222\n\007machine\030\001 \001(\0132!.machine.service.v1."
   "MachineStruct\" \n\nGetRequest\022\022\n\nmachine_i"
-  "d\030\001 \001(\003\"\214\001\n\013MoveRequest\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030"
+  "d\030\001 \001(\t\"\214\001\n\013MoveRequest\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030"
   "\002 \001(\001\022\t\n\001z\030\003 \001(\001\022\n\n\002rx\030\004 \001(\001\022\n\n\002ry\030\005 \001(\001"
   "\022\r\n\005check\030\006 \001(\010\022\r\n\005delay\030\007 \001(\001\022\022\n\nmachin"
-  "e_id\030\010 \001(\003\022\022\n\ncheck_name\030\t \001(\t\"\033\n\tMoveRe"
+  "e_id\030\010 \001(\t\022\022\n\ncheck_name\030\t \001(\t\"\033\n\tMoveRe"
   "ply\022\016\n\006status\030\001 \001(\010\"B\n\014MachineReply\0222\n\007m"
   "achine\030\001 \001(\0132!.machine.service.v1.Machin"
   "eStruct\"D\n\rMachinesReply\0223\n\010machines\030\001 \003"
   "(\0132!.machine.service.v1.MachineStruct\"E\n"
-  "\rMachineStruct\022\022\n\nmachine_id\030\001 \001(\003\022\017\n\007us"
+  "\rMachineStruct\022\022\n\nmachine_id\030\001 \001(\t\022\017\n\007us"
   "er_id\030\002 \001(\003\022\017\n\007address\030\003 \001(\t\"!\n\013ZeroRequ"
-  "est\022\022\n\nmachine_id\030\001 \001(\003\"\033\n\tZeroReply\022\016\n\006"
+  "est\022\022\n\nmachine_id\030\001 \001(\t\"\033\n\tZeroReply\022\016\n\006"
   "status\030\001 \001(\010\"+\n\025GetMotorStatusRequest\022\022\n"
-  "\nmachine_id\030\001 \001(\003\"H\n\023GetMotorStatusReply"
+  "\nmachine_id\030\001 \001(\t\"H\n\023GetMotorStatusReply"
   "\0221\n\nmotor_info\030\001 \003(\0132\035.machine.service.v"
   "1.MotorInfo\"j\n\tMotorInfo\0225\n\014motor_status"
   "\030\001 \001(\0132\037.machine.service.v1.MotorStatus\022"
@@ -691,50 +691,50 @@ const char descriptor_table_protodef_machine_2eproto[] PROTOBUF_SECTION_VARIABLE
   "\010\"E\n\024CreateCronJobRequest\022-\n\010cron_job\030\001 "
   "\001(\0132\033.machine.service.v1.CronJob\"\"\n\024Dele"
   "teCronJobRequest\022\n\n\002id\030\001 \001(\003\"!\n\022DeleteCr"
-  "onJobReply\022\013\n\003num\030\001 \001(\003\"\'\n\022ListCronJobRe"
-  "quest\022\021\n\tmachineId\030\001 \001(\003\"=\n\014CronJobReply"
-  "\022-\n\010cron_job\030\001 \001(\0132\033.machine.service.v1."
-  "CronJob\"\?\n\rCronJobsReply\022.\n\tcron_jobs\030\001 "
-  "\003(\0132\033.machine.service.v1.CronJob\"\221\001\n\007Cro"
-  "nJob\022\n\n\002id\030\001 \001(\003\022\021\n\tmachineId\030\002 \001(\003\022\022\n\nc"
-  "heck_name\030\003 \001(\t\022\023\n\013cron_string\030\004 \001(\t\022>\n\021"
-  "check_coordinates\030\005 \003(\0132#.machine.servic"
-  "e.v1.CheckCoordinate\"K\n\017CheckCoordinate\022"
-  "\013\n\003seq\030\001 \001(\003\022+\n\003crd\030\002 \001(\0132\036.machine.serv"
-  "ice.v1.Coordinate\"\213\001\n\nCoordinate\022\t\n\001x\030\001 "
-  "\001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\022\n\n\002rx\030\004 \001(\001\022\n\n"
-  "\002ry\030\005 \001(\001\022\r\n\005check\030\006 \001(\010\022\r\n\005delay\030\007 \001(\001\022"
-  "\022\n\nmachine_id\030\010 \001(\003\022\022\n\ncheck_name\030\t \001(\t2"
-  "\306\007\n\007Machine\022\\\n\014FindByUserId\022\'.machine.se"
-  "rvice.v1.FindByUserIdRequest\032!.machine.s"
-  "ervice.v1.MachinesReply\"\000\022O\n\006Create\022!.ma"
-  "chine.service.v1.CreateRequest\032 .machine"
-  ".service.v1.MachineReply\"\000\022O\n\006Update\022!.m"
-  "achine.service.v1.UpdateRequest\032 .machin"
-  "e.service.v1.MachineReply\"\000\022I\n\003Get\022\036.mac"
-  "hine.service.v1.GetRequest\032 .machine.ser"
-  "vice.v1.MachineReply\"\000\022H\n\004Move\022\037.machine"
-  ".service.v1.MoveRequest\032\035.machine.servic"
-  "e.v1.MoveReply\"\000\022H\n\004Zero\022\037.machine.servi"
-  "ce.v1.ZeroRequest\032\035.machine.service.v1.Z"
-  "eroReply\"\000\022f\n\016GetMotorStatus\022).machine.s"
-  "ervice.v1.GetMotorStatusRequest\032\'.machin"
-  "e.service.v1.GetMotorStatusReply\"\000\022T\n\010Mo"
-  "veDone\022#.machine.service.v1.MoveDoneRequ"
-  "est\032!.machine.service.v1.MoveDoneReply\"\000"
-  "\022]\n\rCreateCronJob\022(.machine.service.v1.C"
-  "reateCronJobRequest\032 .machine.service.v1"
-  ".CronJobReply\"\000\022c\n\rDeleteCronJob\022(.machi"
-  "ne.service.v1.DeleteCronJobRequest\032&.mac"
-  "hine.service.v1.DeleteCronJobReply\"\000\022Z\n\013"
-  "ListCronJob\022&.machine.service.v1.ListCro"
-  "nJobRequest\032!.machine.service.v1.CronJob"
-  "sReply\"\000B\033Z\031api/machine/service/v1;v1b\006p"
-  "roto3"
+  "onJobReply\022\013\n\003num\030\001 \001(\003\"(\n\022ListCronJobRe"
+  "quest\022\022\n\nmachine_id\030\001 \001(\t\"=\n\014CronJobRepl"
+  "y\022-\n\010cron_job\030\001 \001(\0132\033.machine.service.v1"
+  ".CronJob\"\?\n\rCronJobsReply\022.\n\tcron_jobs\030\001"
+  " \003(\0132\033.machine.service.v1.CronJob\"\222\001\n\007Cr"
+  "onJob\022\n\n\002id\030\001 \001(\003\022\022\n\nmachine_id\030\002 \001(\t\022\022\n"
+  "\ncheck_name\030\003 \001(\t\022\023\n\013cron_string\030\004 \001(\t\022>"
+  "\n\021check_coordinates\030\005 \003(\0132#.machine.serv"
+  "ice.v1.CheckCoordinate\"K\n\017CheckCoordinat"
+  "e\022\013\n\003seq\030\001 \001(\003\022+\n\003crd\030\002 \001(\0132\036.machine.se"
+  "rvice.v1.Coordinate\"\213\001\n\nCoordinate\022\t\n\001x\030"
+  "\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\022\n\n\002rx\030\004 \001(\001\022"
+  "\n\n\002ry\030\005 \001(\001\022\r\n\005check\030\006 \001(\010\022\r\n\005delay\030\007 \001("
+  "\001\022\022\n\nmachine_id\030\010 \001(\t\022\022\n\ncheck_name\030\t \001("
+  "\t2\306\007\n\007Machine\022\\\n\014FindByUserId\022\'.machine."
+  "service.v1.FindByUserIdRequest\032!.machine"
+  ".service.v1.MachinesReply\"\000\022O\n\006Create\022!."
+  "machine.service.v1.CreateRequest\032 .machi"
+  "ne.service.v1.MachineReply\"\000\022O\n\006Update\022!"
+  ".machine.service.v1.UpdateRequest\032 .mach"
+  "ine.service.v1.MachineReply\"\000\022I\n\003Get\022\036.m"
+  "achine.service.v1.GetRequest\032 .machine.s"
+  "ervice.v1.MachineReply\"\000\022H\n\004Move\022\037.machi"
+  "ne.service.v1.MoveRequest\032\035.machine.serv"
+  "ice.v1.MoveReply\"\000\022H\n\004Zero\022\037.machine.ser"
+  "vice.v1.ZeroRequest\032\035.machine.service.v1"
+  ".ZeroReply\"\000\022f\n\016GetMotorStatus\022).machine"
+  ".service.v1.GetMotorStatusRequest\032\'.mach"
+  "ine.service.v1.GetMotorStatusReply\"\000\022T\n\010"
+  "MoveDone\022#.machine.service.v1.MoveDoneRe"
+  "quest\032!.machine.service.v1.MoveDoneReply"
+  "\"\000\022]\n\rCreateCronJob\022(.machine.service.v1"
+  ".CreateCronJobRequest\032 .machine.service."
+  "v1.CronJobReply\"\000\022c\n\rDeleteCronJob\022(.mac"
+  "hine.service.v1.DeleteCronJobRequest\032&.m"
+  "achine.service.v1.DeleteCronJobReply\"\000\022Z"
+  "\n\013ListCronJob\022&.machine.service.v1.ListC"
+  "ronJobRequest\032!.machine.service.v1.CronJ"
+  "obsReply\"\000B\033Z\031api/machine/service/v1;v1b"
+  "\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_machine_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_machine_2eproto = {
-  false, false, 2925, descriptor_table_protodef_machine_2eproto, "machine.proto", 
+  false, false, 2927, descriptor_table_protodef_machine_2eproto, "machine.proto", 
   &descriptor_table_machine_2eproto_once, nullptr, 0, 26,
   schemas, file_default_instances, TableStruct_machine_2eproto::offsets,
   file_level_metadata_machine_2eproto, file_level_enum_descriptors_machine_2eproto, file_level_service_descriptors_machine_2eproto,
@@ -1335,12 +1335,22 @@ GetRequest::GetRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 GetRequest::GetRequest(const GetRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  machine_id_ = from.machine_id_;
+  machine_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    machine_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_machine_id().empty()) {
+    machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_machine_id(), 
+      GetArenaForAllocation());
+  }
   // @@protoc_insertion_point(copy_constructor:machine.service.v1.GetRequest)
 }
 
 inline void GetRequest::SharedCtor() {
-machine_id_ = int64_t{0};
+machine_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  machine_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 GetRequest::~GetRequest() {
@@ -1352,6 +1362,7 @@ GetRequest::~GetRequest() {
 
 inline void GetRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  machine_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void GetRequest::ArenaDtor(void* object) {
@@ -1370,7 +1381,7 @@ void GetRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  machine_id_ = int64_t{0};
+  machine_id_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1380,10 +1391,12 @@ const char* GetRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // int64 machine_id = 1;
+      // string machine_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          machine_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_machine_id();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "machine.service.v1.GetRequest.machine_id"));
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1417,10 +1430,14 @@ uint8_t* GetRequest::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int64 machine_id = 1;
-  if (this->_internal_machine_id() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_machine_id(), target);
+  // string machine_id = 1;
+  if (!this->_internal_machine_id().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_machine_id().data(), static_cast<int>(this->_internal_machine_id().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "machine.service.v1.GetRequest.machine_id");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_machine_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1439,9 +1456,11 @@ size_t GetRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // int64 machine_id = 1;
-  if (this->_internal_machine_id() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_machine_id());
+  // string machine_id = 1;
+  if (!this->_internal_machine_id().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_machine_id());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -1466,7 +1485,7 @@ void GetRequest::MergeFrom(const GetRequest& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_machine_id() != 0) {
+  if (!from._internal_machine_id().empty()) {
     _internal_set_machine_id(from._internal_machine_id());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -1485,8 +1504,14 @@ bool GetRequest::IsInitialized() const {
 
 void GetRequest::InternalSwap(GetRequest* other) {
   using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(machine_id_, other->machine_id_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &machine_id_, lhs_arena,
+      &other->machine_id_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata GetRequest::GetMetadata() const {
@@ -1513,6 +1538,14 @@ MoveRequest::MoveRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 MoveRequest::MoveRequest(const MoveRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  machine_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    machine_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_machine_id().empty()) {
+    machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_machine_id(), 
+      GetArenaForAllocation());
+  }
   check_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     check_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
@@ -1528,6 +1561,10 @@ MoveRequest::MoveRequest(const MoveRequest& from)
 }
 
 inline void MoveRequest::SharedCtor() {
+machine_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  machine_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 check_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   check_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
@@ -1547,6 +1584,7 @@ MoveRequest::~MoveRequest() {
 
 inline void MoveRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  machine_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   check_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
@@ -1566,6 +1604,7 @@ void MoveRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  machine_id_.ClearToEmpty();
   check_name_.ClearToEmpty();
   ::memset(&x_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&check_) -
@@ -1635,10 +1674,12 @@ const char* MoveRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
         } else
           goto handle_unusual;
         continue;
-      // int64 machine_id = 8;
+      // string machine_id = 8;
       case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
-          machine_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
+          auto str = _internal_mutable_machine_id();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "machine.service.v1.MoveRequest.machine_id"));
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1748,10 +1789,14 @@ uint8_t* MoveRequest::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(7, this->_internal_delay(), target);
   }
 
-  // int64 machine_id = 8;
-  if (this->_internal_machine_id() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(8, this->_internal_machine_id(), target);
+  // string machine_id = 8;
+  if (!this->_internal_machine_id().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_machine_id().data(), static_cast<int>(this->_internal_machine_id().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "machine.service.v1.MoveRequest.machine_id");
+    target = stream->WriteStringMaybeAliased(
+        8, this->_internal_machine_id(), target);
   }
 
   // string check_name = 9;
@@ -1779,6 +1824,13 @@ size_t MoveRequest::ByteSizeLong() const {
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // string machine_id = 8;
+  if (!this->_internal_machine_id().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_machine_id());
+  }
 
   // string check_name = 9;
   if (!this->_internal_check_name().empty()) {
@@ -1841,11 +1893,6 @@ size_t MoveRequest::ByteSizeLong() const {
     total_size += 1 + 8;
   }
 
-  // int64 machine_id = 8;
-  if (this->_internal_machine_id() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_machine_id());
-  }
-
   // bool check = 6;
   if (this->_internal_check() != 0) {
     total_size += 1 + 1;
@@ -1873,6 +1920,9 @@ void MoveRequest::MergeFrom(const MoveRequest& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (!from._internal_machine_id().empty()) {
+    _internal_set_machine_id(from._internal_machine_id());
+  }
   if (!from._internal_check_name().empty()) {
     _internal_set_check_name(from._internal_check_name());
   }
@@ -1918,9 +1968,6 @@ void MoveRequest::MergeFrom(const MoveRequest& from) {
   if (raw_delay != 0) {
     _internal_set_delay(from._internal_delay());
   }
-  if (from._internal_machine_id() != 0) {
-    _internal_set_machine_id(from._internal_machine_id());
-  }
   if (from._internal_check() != 0) {
     _internal_set_check(from._internal_check());
   }
@@ -1943,6 +1990,11 @@ void MoveRequest::InternalSwap(MoveRequest* other) {
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &machine_id_, lhs_arena,
+      &other->machine_id_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       &check_name_, lhs_arena,
@@ -2538,6 +2590,14 @@ MachineStruct::MachineStruct(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 MachineStruct::MachineStruct(const MachineStruct& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  machine_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    machine_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_machine_id().empty()) {
+    machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_machine_id(), 
+      GetArenaForAllocation());
+  }
   address_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     address_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
@@ -2546,21 +2606,20 @@ MachineStruct::MachineStruct(const MachineStruct& from)
     address_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_address(), 
       GetArenaForAllocation());
   }
-  ::memcpy(&machine_id_, &from.machine_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&user_id_) -
-    reinterpret_cast<char*>(&machine_id_)) + sizeof(user_id_));
+  user_id_ = from.user_id_;
   // @@protoc_insertion_point(copy_constructor:machine.service.v1.MachineStruct)
 }
 
 inline void MachineStruct::SharedCtor() {
+machine_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  machine_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 address_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   address_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&machine_id_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&user_id_) -
-    reinterpret_cast<char*>(&machine_id_)) + sizeof(user_id_));
+user_id_ = int64_t{0};
 }
 
 MachineStruct::~MachineStruct() {
@@ -2572,6 +2631,7 @@ MachineStruct::~MachineStruct() {
 
 inline void MachineStruct::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  machine_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   address_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
@@ -2591,10 +2651,9 @@ void MachineStruct::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  machine_id_.ClearToEmpty();
   address_.ClearToEmpty();
-  ::memset(&machine_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&user_id_) -
-      reinterpret_cast<char*>(&machine_id_)) + sizeof(user_id_));
+  user_id_ = int64_t{0};
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2604,10 +2663,12 @@ const char* MachineStruct::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // int64 machine_id = 1;
+      // string machine_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          machine_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_machine_id();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "machine.service.v1.MachineStruct.machine_id"));
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2659,10 +2720,14 @@ uint8_t* MachineStruct::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int64 machine_id = 1;
-  if (this->_internal_machine_id() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_machine_id(), target);
+  // string machine_id = 1;
+  if (!this->_internal_machine_id().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_machine_id().data(), static_cast<int>(this->_internal_machine_id().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "machine.service.v1.MachineStruct.machine_id");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_machine_id(), target);
   }
 
   // int64 user_id = 2;
@@ -2697,16 +2762,18 @@ size_t MachineStruct::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  // string machine_id = 1;
+  if (!this->_internal_machine_id().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_machine_id());
+  }
+
   // string address = 3;
   if (!this->_internal_address().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_address());
-  }
-
-  // int64 machine_id = 1;
-  if (this->_internal_machine_id() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_machine_id());
   }
 
   // int64 user_id = 2;
@@ -2736,11 +2803,11 @@ void MachineStruct::MergeFrom(const MachineStruct& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (!from._internal_machine_id().empty()) {
+    _internal_set_machine_id(from._internal_machine_id());
+  }
   if (!from._internal_address().empty()) {
     _internal_set_address(from._internal_address());
-  }
-  if (from._internal_machine_id() != 0) {
-    _internal_set_machine_id(from._internal_machine_id());
   }
   if (from._internal_user_id() != 0) {
     _internal_set_user_id(from._internal_user_id());
@@ -2766,15 +2833,15 @@ void MachineStruct::InternalSwap(MachineStruct* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &machine_id_, lhs_arena,
+      &other->machine_id_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       &address_, lhs_arena,
       &other->address_, rhs_arena
   );
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(MachineStruct, user_id_)
-      + sizeof(MachineStruct::user_id_)
-      - PROTOBUF_FIELD_OFFSET(MachineStruct, machine_id_)>(
-          reinterpret_cast<char*>(&machine_id_),
-          reinterpret_cast<char*>(&other->machine_id_));
+  swap(user_id_, other->user_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata MachineStruct::GetMetadata() const {
@@ -2801,12 +2868,22 @@ ZeroRequest::ZeroRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 ZeroRequest::ZeroRequest(const ZeroRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  machine_id_ = from.machine_id_;
+  machine_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    machine_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_machine_id().empty()) {
+    machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_machine_id(), 
+      GetArenaForAllocation());
+  }
   // @@protoc_insertion_point(copy_constructor:machine.service.v1.ZeroRequest)
 }
 
 inline void ZeroRequest::SharedCtor() {
-machine_id_ = int64_t{0};
+machine_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  machine_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 ZeroRequest::~ZeroRequest() {
@@ -2818,6 +2895,7 @@ ZeroRequest::~ZeroRequest() {
 
 inline void ZeroRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  machine_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void ZeroRequest::ArenaDtor(void* object) {
@@ -2836,7 +2914,7 @@ void ZeroRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  machine_id_ = int64_t{0};
+  machine_id_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2846,10 +2924,12 @@ const char* ZeroRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // int64 machine_id = 1;
+      // string machine_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          machine_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_machine_id();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "machine.service.v1.ZeroRequest.machine_id"));
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2883,10 +2963,14 @@ uint8_t* ZeroRequest::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int64 machine_id = 1;
-  if (this->_internal_machine_id() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_machine_id(), target);
+  // string machine_id = 1;
+  if (!this->_internal_machine_id().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_machine_id().data(), static_cast<int>(this->_internal_machine_id().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "machine.service.v1.ZeroRequest.machine_id");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_machine_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2905,9 +2989,11 @@ size_t ZeroRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // int64 machine_id = 1;
-  if (this->_internal_machine_id() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_machine_id());
+  // string machine_id = 1;
+  if (!this->_internal_machine_id().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_machine_id());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -2932,7 +3018,7 @@ void ZeroRequest::MergeFrom(const ZeroRequest& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_machine_id() != 0) {
+  if (!from._internal_machine_id().empty()) {
     _internal_set_machine_id(from._internal_machine_id());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -2951,8 +3037,14 @@ bool ZeroRequest::IsInitialized() const {
 
 void ZeroRequest::InternalSwap(ZeroRequest* other) {
   using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(machine_id_, other->machine_id_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &machine_id_, lhs_arena,
+      &other->machine_id_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ZeroRequest::GetMetadata() const {
@@ -3157,12 +3249,22 @@ GetMotorStatusRequest::GetMotorStatusRequest(::PROTOBUF_NAMESPACE_ID::Arena* are
 GetMotorStatusRequest::GetMotorStatusRequest(const GetMotorStatusRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  machine_id_ = from.machine_id_;
+  machine_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    machine_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_machine_id().empty()) {
+    machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_machine_id(), 
+      GetArenaForAllocation());
+  }
   // @@protoc_insertion_point(copy_constructor:machine.service.v1.GetMotorStatusRequest)
 }
 
 inline void GetMotorStatusRequest::SharedCtor() {
-machine_id_ = int64_t{0};
+machine_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  machine_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 GetMotorStatusRequest::~GetMotorStatusRequest() {
@@ -3174,6 +3276,7 @@ GetMotorStatusRequest::~GetMotorStatusRequest() {
 
 inline void GetMotorStatusRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  machine_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void GetMotorStatusRequest::ArenaDtor(void* object) {
@@ -3192,7 +3295,7 @@ void GetMotorStatusRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  machine_id_ = int64_t{0};
+  machine_id_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -3202,10 +3305,12 @@ const char* GetMotorStatusRequest::_InternalParse(const char* ptr, ::PROTOBUF_NA
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // int64 machine_id = 1;
+      // string machine_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          machine_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_machine_id();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "machine.service.v1.GetMotorStatusRequest.machine_id"));
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3239,10 +3344,14 @@ uint8_t* GetMotorStatusRequest::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int64 machine_id = 1;
-  if (this->_internal_machine_id() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_machine_id(), target);
+  // string machine_id = 1;
+  if (!this->_internal_machine_id().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_machine_id().data(), static_cast<int>(this->_internal_machine_id().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "machine.service.v1.GetMotorStatusRequest.machine_id");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_machine_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3261,9 +3370,11 @@ size_t GetMotorStatusRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // int64 machine_id = 1;
-  if (this->_internal_machine_id() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_machine_id());
+  // string machine_id = 1;
+  if (!this->_internal_machine_id().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_machine_id());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -3288,7 +3399,7 @@ void GetMotorStatusRequest::MergeFrom(const GetMotorStatusRequest& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_machine_id() != 0) {
+  if (!from._internal_machine_id().empty()) {
     _internal_set_machine_id(from._internal_machine_id());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -3307,8 +3418,14 @@ bool GetMotorStatusRequest::IsInitialized() const {
 
 void GetMotorStatusRequest::InternalSwap(GetMotorStatusRequest* other) {
   using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(machine_id_, other->machine_id_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &machine_id_, lhs_arena,
+      &other->machine_id_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata GetMotorStatusRequest::GetMetadata() const {
@@ -5296,12 +5413,22 @@ ListCronJobRequest::ListCronJobRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 ListCronJobRequest::ListCronJobRequest(const ListCronJobRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  machineid_ = from.machineid_;
+  machine_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    machine_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_machine_id().empty()) {
+    machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_machine_id(), 
+      GetArenaForAllocation());
+  }
   // @@protoc_insertion_point(copy_constructor:machine.service.v1.ListCronJobRequest)
 }
 
 inline void ListCronJobRequest::SharedCtor() {
-machineid_ = int64_t{0};
+machine_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  machine_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 ListCronJobRequest::~ListCronJobRequest() {
@@ -5313,6 +5440,7 @@ ListCronJobRequest::~ListCronJobRequest() {
 
 inline void ListCronJobRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  machine_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void ListCronJobRequest::ArenaDtor(void* object) {
@@ -5331,7 +5459,7 @@ void ListCronJobRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  machineid_ = int64_t{0};
+  machine_id_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -5341,10 +5469,12 @@ const char* ListCronJobRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // int64 machineId = 1;
+      // string machine_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          machineid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_machine_id();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "machine.service.v1.ListCronJobRequest.machine_id"));
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -5378,10 +5508,14 @@ uint8_t* ListCronJobRequest::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int64 machineId = 1;
-  if (this->_internal_machineid() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_machineid(), target);
+  // string machine_id = 1;
+  if (!this->_internal_machine_id().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_machine_id().data(), static_cast<int>(this->_internal_machine_id().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "machine.service.v1.ListCronJobRequest.machine_id");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_machine_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -5400,9 +5534,11 @@ size_t ListCronJobRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // int64 machineId = 1;
-  if (this->_internal_machineid() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_machineid());
+  // string machine_id = 1;
+  if (!this->_internal_machine_id().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_machine_id());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -5427,8 +5563,8 @@ void ListCronJobRequest::MergeFrom(const ListCronJobRequest& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_machineid() != 0) {
-    _internal_set_machineid(from._internal_machineid());
+  if (!from._internal_machine_id().empty()) {
+    _internal_set_machine_id(from._internal_machine_id());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -5446,8 +5582,14 @@ bool ListCronJobRequest::IsInitialized() const {
 
 void ListCronJobRequest::InternalSwap(ListCronJobRequest* other) {
   using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(machineid_, other->machineid_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &machine_id_, lhs_arena,
+      &other->machine_id_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ListCronJobRequest::GetMetadata() const {
@@ -5856,6 +5998,14 @@ CronJob::CronJob(const CronJob& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       check_coordinates_(from.check_coordinates_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  machine_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    machine_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_machine_id().empty()) {
+    machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_machine_id(), 
+      GetArenaForAllocation());
+  }
   check_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     check_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
@@ -5872,13 +6022,15 @@ CronJob::CronJob(const CronJob& from)
     cron_string_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_cron_string(), 
       GetArenaForAllocation());
   }
-  ::memcpy(&id_, &from.id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&machineid_) -
-    reinterpret_cast<char*>(&id_)) + sizeof(machineid_));
+  id_ = from.id_;
   // @@protoc_insertion_point(copy_constructor:machine.service.v1.CronJob)
 }
 
 inline void CronJob::SharedCtor() {
+machine_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  machine_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 check_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   check_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
@@ -5887,10 +6039,7 @@ cron_string_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   cron_string_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&id_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&machineid_) -
-    reinterpret_cast<char*>(&id_)) + sizeof(machineid_));
+id_ = int64_t{0};
 }
 
 CronJob::~CronJob() {
@@ -5902,6 +6051,7 @@ CronJob::~CronJob() {
 
 inline void CronJob::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  machine_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   check_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   cron_string_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
@@ -5923,11 +6073,10 @@ void CronJob::Clear() {
   (void) cached_has_bits;
 
   check_coordinates_.Clear();
+  machine_id_.ClearToEmpty();
   check_name_.ClearToEmpty();
   cron_string_.ClearToEmpty();
-  ::memset(&id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&machineid_) -
-      reinterpret_cast<char*>(&id_)) + sizeof(machineid_));
+  id_ = int64_t{0};
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -5945,10 +6094,12 @@ const char* CronJob::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::in
         } else
           goto handle_unusual;
         continue;
-      // int64 machineId = 2;
+      // string machine_id = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          machineid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_machine_id();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "machine.service.v1.CronJob.machine_id"));
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -6021,10 +6172,14 @@ uint8_t* CronJob::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_id(), target);
   }
 
-  // int64 machineId = 2;
-  if (this->_internal_machineid() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_machineid(), target);
+  // string machine_id = 2;
+  if (!this->_internal_machine_id().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_machine_id().data(), static_cast<int>(this->_internal_machine_id().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "machine.service.v1.CronJob.machine_id");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_machine_id(), target);
   }
 
   // string check_name = 3;
@@ -6078,6 +6233,13 @@ size_t CronJob::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
+  // string machine_id = 2;
+  if (!this->_internal_machine_id().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_machine_id());
+  }
+
   // string check_name = 3;
   if (!this->_internal_check_name().empty()) {
     total_size += 1 +
@@ -6095,11 +6257,6 @@ size_t CronJob::ByteSizeLong() const {
   // int64 id = 1;
   if (this->_internal_id() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_id());
-  }
-
-  // int64 machineId = 2;
-  if (this->_internal_machineid() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_machineid());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -6125,6 +6282,9 @@ void CronJob::MergeFrom(const CronJob& from) {
   (void) cached_has_bits;
 
   check_coordinates_.MergeFrom(from.check_coordinates_);
+  if (!from._internal_machine_id().empty()) {
+    _internal_set_machine_id(from._internal_machine_id());
+  }
   if (!from._internal_check_name().empty()) {
     _internal_set_check_name(from._internal_check_name());
   }
@@ -6133,9 +6293,6 @@ void CronJob::MergeFrom(const CronJob& from) {
   }
   if (from._internal_id() != 0) {
     _internal_set_id(from._internal_id());
-  }
-  if (from._internal_machineid() != 0) {
-    _internal_set_machineid(from._internal_machineid());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -6159,6 +6316,11 @@ void CronJob::InternalSwap(CronJob* other) {
   check_coordinates_.InternalSwap(&other->check_coordinates_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &machine_id_, lhs_arena,
+      &other->machine_id_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       &check_name_, lhs_arena,
       &other->check_name_, rhs_arena
   );
@@ -6167,12 +6329,7 @@ void CronJob::InternalSwap(CronJob* other) {
       &cron_string_, lhs_arena,
       &other->cron_string_, rhs_arena
   );
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CronJob, machineid_)
-      + sizeof(CronJob::machineid_)
-      - PROTOBUF_FIELD_OFFSET(CronJob, id_)>(
-          reinterpret_cast<char*>(&id_),
-          reinterpret_cast<char*>(&other->id_));
+  swap(id_, other->id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CronJob::GetMetadata() const {
@@ -6426,6 +6583,14 @@ Coordinate::Coordinate(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 Coordinate::Coordinate(const Coordinate& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  machine_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    machine_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_machine_id().empty()) {
+    machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_machine_id(), 
+      GetArenaForAllocation());
+  }
   check_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     check_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
@@ -6441,6 +6606,10 @@ Coordinate::Coordinate(const Coordinate& from)
 }
 
 inline void Coordinate::SharedCtor() {
+machine_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  machine_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 check_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   check_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
@@ -6460,6 +6629,7 @@ Coordinate::~Coordinate() {
 
 inline void Coordinate::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  machine_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   check_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
@@ -6479,6 +6649,7 @@ void Coordinate::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  machine_id_.ClearToEmpty();
   check_name_.ClearToEmpty();
   ::memset(&x_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&check_) -
@@ -6548,10 +6719,12 @@ const char* Coordinate::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
         } else
           goto handle_unusual;
         continue;
-      // int64 machine_id = 8;
+      // string machine_id = 8;
       case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
-          machine_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
+          auto str = _internal_mutable_machine_id();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "machine.service.v1.Coordinate.machine_id"));
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -6661,10 +6834,14 @@ uint8_t* Coordinate::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(7, this->_internal_delay(), target);
   }
 
-  // int64 machine_id = 8;
-  if (this->_internal_machine_id() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(8, this->_internal_machine_id(), target);
+  // string machine_id = 8;
+  if (!this->_internal_machine_id().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_machine_id().data(), static_cast<int>(this->_internal_machine_id().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "machine.service.v1.Coordinate.machine_id");
+    target = stream->WriteStringMaybeAliased(
+        8, this->_internal_machine_id(), target);
   }
 
   // string check_name = 9;
@@ -6692,6 +6869,13 @@ size_t Coordinate::ByteSizeLong() const {
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // string machine_id = 8;
+  if (!this->_internal_machine_id().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_machine_id());
+  }
 
   // string check_name = 9;
   if (!this->_internal_check_name().empty()) {
@@ -6754,11 +6938,6 @@ size_t Coordinate::ByteSizeLong() const {
     total_size += 1 + 8;
   }
 
-  // int64 machine_id = 8;
-  if (this->_internal_machine_id() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_machine_id());
-  }
-
   // bool check = 6;
   if (this->_internal_check() != 0) {
     total_size += 1 + 1;
@@ -6786,6 +6965,9 @@ void Coordinate::MergeFrom(const Coordinate& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (!from._internal_machine_id().empty()) {
+    _internal_set_machine_id(from._internal_machine_id());
+  }
   if (!from._internal_check_name().empty()) {
     _internal_set_check_name(from._internal_check_name());
   }
@@ -6831,9 +7013,6 @@ void Coordinate::MergeFrom(const Coordinate& from) {
   if (raw_delay != 0) {
     _internal_set_delay(from._internal_delay());
   }
-  if (from._internal_machine_id() != 0) {
-    _internal_set_machine_id(from._internal_machine_id());
-  }
   if (from._internal_check() != 0) {
     _internal_set_check(from._internal_check());
   }
@@ -6856,6 +7035,11 @@ void Coordinate::InternalSwap(Coordinate* other) {
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &machine_id_, lhs_arena,
+      &other->machine_id_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       &check_name_, lhs_arena,

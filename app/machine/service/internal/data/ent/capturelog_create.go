@@ -11,6 +11,7 @@ import (
 
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
+	"github.com/google/uuid"
 )
 
 // CaptureLogCreate is the builder for creating a CaptureLog entity.
@@ -21,8 +22,8 @@ type CaptureLogCreate struct {
 }
 
 // SetMachineID sets the "machine_id" field.
-func (clc *CaptureLogCreate) SetMachineID(i int64) *CaptureLogCreate {
-	clc.mutation.SetMachineID(i)
+func (clc *CaptureLogCreate) SetMachineID(u uuid.UUID) *CaptureLogCreate {
+	clc.mutation.SetMachineID(u)
 	return clc
 }
 
@@ -241,7 +242,7 @@ func (clc *CaptureLogCreate) createSpec() (*CaptureLog, *sqlgraph.CreateSpec) {
 	}
 	if value, ok := clc.mutation.MachineID(); ok {
 		_spec.Fields = append(_spec.Fields, &sqlgraph.FieldSpec{
-			Type:   field.TypeInt64,
+			Type:   field.TypeUUID,
 			Value:  value,
 			Column: capturelog.FieldMachineID,
 		})

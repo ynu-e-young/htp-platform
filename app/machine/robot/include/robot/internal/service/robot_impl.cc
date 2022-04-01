@@ -28,10 +28,12 @@
     } else {
       controller_ptr_->motion_coord_push(coord);
     }
+
+    _reply->set_status(true);
+  } else {
+    _reply->set_status(false);
   }
 
-  // 设置响应状态
-  _reply->set_status(true);
   return ::grpc::Status::OK;
 }
 
@@ -39,18 +41,20 @@
                                const ::machine::robot::v1::ZeroRequest *_req,
                                ::machine::robot::v1::ZeroReply *_reply) {
   // 设置回零
-  if (_req->zero()) {
-    controller_ptr_->set_zrn(_req->zero());
+  if (bootstrap_->uuid() == _req->uuid()) {
+    controller_ptr_->set_zrn(true);
+    _reply->set_status(true);
+  } else {
+    _reply->set_status(false);
   }
 
-  _reply->set_status(true);
   return ::grpc::Status::OK;
 }
 
 ::grpc::Status RobotImpl::GetMotorStatus(::grpc::ServerContext *_context,
                                          const ::machine::robot::v1::MotorInfoRequest *_req,
                                          ::machine::robot::v1::MotorInfoReply *_reply) {
-  if (_req->status()) {
+  if (bootstrap_->uuid() == _req->uuid()) {
     // 获取控制器的一系列状态信息
     auto status = controller_ptr_->motor_status();
     auto real_pos = controller_ptr_->motor_real_pos();
@@ -60,20 +64,17 @@
     for (int index = 0; index < kMaxMotor; index++) {
       auto motor_info = _reply->add_motor_info();
 
-      ::machine::robot::v1::MotorStatus motor_status;
-      motor_status.set_fault(status[index][0]);
-      motor_status.set_enabling(status[index][1]);
-      motor_status.set_running(status[index][2]);
-      motor_status.set_instruction_completion(status[index][4]);
-      motor_status.set_path_completion(status[index][5]);
-      motor_status.set_zero_completion(status[index][6]);
-      motor_info->set_allocated_motor_status(&motor_status);
-
       motor_info->set_instr_pos(expect_pos[index]);
-
       motor_info->set_current_pos(real_pos[index]);
-    }
 
+      auto motor_status = motor_info->mutable_motor_status();
+      motor_status->set_fault(status[index][0]);
+      motor_status->set_enabling(status[index][1]);
+      motor_status->set_running(status[index][2]);
+      motor_status->set_instruction_completion(status[index][4]);
+      motor_status->set_path_completion(status[index][5]);
+      motor_status->set_zero_completion(status[index][6]);
+    }
   }
 
   return ::grpc::Status::OK;

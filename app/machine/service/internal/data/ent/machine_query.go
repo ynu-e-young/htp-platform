@@ -13,6 +13,7 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
+	"github.com/google/uuid"
 )
 
 // MachineQuery is the builder for querying Machine entities.
@@ -84,8 +85,8 @@ func (mq *MachineQuery) FirstX(ctx context.Context) *Machine {
 
 // FirstID returns the first Machine ID from the query.
 // Returns a *NotFoundError when no Machine ID was found.
-func (mq *MachineQuery) FirstID(ctx context.Context) (id int64, err error) {
-	var ids []int64
+func (mq *MachineQuery) FirstID(ctx context.Context) (id uuid.UUID, err error) {
+	var ids []uuid.UUID
 	if ids, err = mq.Limit(1).IDs(ctx); err != nil {
 		return
 	}
@@ -97,7 +98,7 @@ func (mq *MachineQuery) FirstID(ctx context.Context) (id int64, err error) {
 }
 
 // FirstIDX is like FirstID, but panics if an error occurs.
-func (mq *MachineQuery) FirstIDX(ctx context.Context) int64 {
+func (mq *MachineQuery) FirstIDX(ctx context.Context) uuid.UUID {
 	id, err := mq.FirstID(ctx)
 	if err != nil && !IsNotFound(err) {
 		panic(err)
@@ -135,8 +136,8 @@ func (mq *MachineQuery) OnlyX(ctx context.Context) *Machine {
 // OnlyID is like Only, but returns the only Machine ID in the query.
 // Returns a *NotSingularError when exactly one Machine ID is not found.
 // Returns a *NotFoundError when no entities are found.
-func (mq *MachineQuery) OnlyID(ctx context.Context) (id int64, err error) {
-	var ids []int64
+func (mq *MachineQuery) OnlyID(ctx context.Context) (id uuid.UUID, err error) {
+	var ids []uuid.UUID
 	if ids, err = mq.Limit(2).IDs(ctx); err != nil {
 		return
 	}
@@ -152,7 +153,7 @@ func (mq *MachineQuery) OnlyID(ctx context.Context) (id int64, err error) {
 }
 
 // OnlyIDX is like OnlyID, but panics if an error occurs.
-func (mq *MachineQuery) OnlyIDX(ctx context.Context) int64 {
+func (mq *MachineQuery) OnlyIDX(ctx context.Context) uuid.UUID {
 	id, err := mq.OnlyID(ctx)
 	if err != nil {
 		panic(err)
@@ -178,8 +179,8 @@ func (mq *MachineQuery) AllX(ctx context.Context) []*Machine {
 }
 
 // IDs executes the query and returns a list of Machine IDs.
-func (mq *MachineQuery) IDs(ctx context.Context) ([]int64, error) {
-	var ids []int64
+func (mq *MachineQuery) IDs(ctx context.Context) ([]uuid.UUID, error) {
+	var ids []uuid.UUID
 	if err := mq.Select(machine.FieldID).Scan(ctx, &ids); err != nil {
 		return nil, err
 	}
@@ -187,7 +188,7 @@ func (mq *MachineQuery) IDs(ctx context.Context) ([]int64, error) {
 }
 
 // IDsX is like IDs, but panics if an error occurs.
-func (mq *MachineQuery) IDsX(ctx context.Context) []int64 {
+func (mq *MachineQuery) IDsX(ctx context.Context) []uuid.UUID {
 	ids, err := mq.IDs(ctx)
 	if err != nil {
 		panic(err)
@@ -357,7 +358,7 @@ func (mq *MachineQuery) querySpec() *sqlgraph.QuerySpec {
 			Table:   machine.Table,
 			Columns: machine.Columns,
 			ID: &sqlgraph.FieldSpec{
-				Type:   field.TypeInt64,
+				Type:   field.TypeUUID,
 				Column: machine.FieldID,
 			},
 		},

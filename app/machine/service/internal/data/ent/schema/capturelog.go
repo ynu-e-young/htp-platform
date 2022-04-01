@@ -4,6 +4,7 @@ import (
 	"entgo.io/ent"
 	"entgo.io/ent/dialect"
 	"entgo.io/ent/schema/field"
+	"github.com/google/uuid"
 	"time"
 )
 
@@ -16,7 +17,7 @@ type CaptureLog struct {
 func (CaptureLog) Fields() []ent.Field {
 	return []ent.Field{
 		field.Int64("id"),
-		field.Int64("machine_id"),
+		field.UUID("machine_id", uuid.UUID{}),
 		field.Int64("pixels"),
 		field.Float("area"),
 		field.String("src_name"),

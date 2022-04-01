@@ -14,6 +14,8 @@ import (
 	"sync"
 	"time"
 
+	"github.com/google/uuid"
+
 	"entgo.io/ent"
 )
 
@@ -37,8 +39,7 @@ type CaptureLogMutation struct {
 	op            Op
 	typ           string
 	id            *int64
-	machine_id    *int64
-	addmachine_id *int64
+	machine_id    *uuid.UUID
 	pixels        *int64
 	addpixels     *int64
 	area          *float64
@@ -160,13 +161,12 @@ func (m *CaptureLogMutation) IDs(ctx context.Context) ([]int64, error) {
 }
 
 // SetMachineID sets the "machine_id" field.
-func (m *CaptureLogMutation) SetMachineID(i int64) {
-	m.machine_id = &i
-	m.addmachine_id = nil
+func (m *CaptureLogMutation) SetMachineID(u uuid.UUID) {
+	m.machine_id = &u
 }
 
 // MachineID returns the value of the "machine_id" field in the mutation.
-func (m *CaptureLogMutation) MachineID() (r int64, exists bool) {
+func (m *CaptureLogMutation) MachineID() (r uuid.UUID, exists bool) {
 	v := m.machine_id
 	if v == nil {
 		return
@@ -177,7 +177,7 @@ func (m *CaptureLogMutation) MachineID() (r int64, exists bool) {
 // OldMachineID returns the old "machine_id" field's value of the CaptureLog entity.
 // If the CaptureLog object wasn't provided to the builder, the object is fetched from the database.
 // An error is returned if the mutation operation is not UpdateOne, or the database query fails.
-func (m *CaptureLogMutation) OldMachineID(ctx context.Context) (v int64, err error) {
+func (m *CaptureLogMutation) OldMachineID(ctx context.Context) (v uuid.UUID, err error) {
 	if !m.op.Is(OpUpdateOne) {
 		return v, errors.New("OldMachineID is only allowed on UpdateOne operations")
 	}
@@ -191,28 +191,9 @@ func (m *CaptureLogMutation) OldMachineID(ctx context.Context) (v int64, err err
 	return oldValue.MachineID, nil
 }
 
-// AddMachineID adds i to the "machine_id" field.
-func (m *CaptureLogMutation) AddMachineID(i int64) {
-	if m.addmachine_id != nil {
-		*m.addmachine_id += i
-	} else {
-		m.addmachine_id = &i
-	}
-}
-
-// AddedMachineID returns the value that was added to the "machine_id" field in this mutation.
-func (m *CaptureLogMutation) AddedMachineID() (r int64, exists bool) {
-	v := m.addmachine_id
-	if v == nil {
-		return
-	}
-	return *v, true
-}
-
 // ResetMachineID resets all changes to the "machine_id" field.
 func (m *CaptureLogMutation) ResetMachineID() {
 	m.machine_id = nil
-	m.addmachine_id = nil
 }
 
 // SetPixels sets the "pixels" field.
@@ -653,7 +634,7 @@ func (m *CaptureLogMutation) OldField(ctx context.Context, name string) (ent.Val
 func (m *CaptureLogMutation) SetField(name string, value ent.Value) error {
 	switch name {
 	case capturelog.FieldMachineID:
-		v, ok := value.(int64)
+		v, ok := value.(uuid.UUID)
 		if !ok {
 			return fmt.Errorf("unexpected type %T for field %s", value, name)
 		}
@@ -723,9 +704,6 @@ func (m *CaptureLogMutation) SetField(name string, value ent.Value) error {
 // this mutation.
 func (m *CaptureLogMutation) AddedFields() []string {
 	var fields []string
-	if m.addmachine_id != nil {
-		fields = append(fields, capturelog.FieldMachineID)
-	}
 	if m.addpixels != nil {
 		fields = append(fields, capturelog.FieldPixels)
 	}
@@ -740,8 +718,6 @@ func (m *CaptureLogMutation) AddedFields() []string {
 // was not set, or was not defined in the schema.
 func (m *CaptureLogMutation) AddedField(name string) (ent.Value, bool) {
 	switch name {
-	case capturelog.FieldMachineID:
-		return m.AddedMachineID()
 	case capturelog.FieldPixels:
 		return m.AddedPixels()
 	case capturelog.FieldArea:
@@ -755,13 +731,6 @@ func (m *CaptureLogMutation) AddedField(name string) (ent.Value, bool) {
 // type.
 func (m *CaptureLogMutation) AddField(name string, value ent.Value) error {
 	switch name {
-	case capturelog.FieldMachineID:
-		v, ok := value.(int64)
-		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
-		}
-		m.AddMachineID(v)
-		return nil
 	case capturelog.FieldPixels:
 		v, ok := value.(int64)
 		if !ok {
@@ -888,8 +857,7 @@ type CronJobMutation struct {
 	op            Op
 	typ           string
 	id            *int64
-	machine_id    *int64
-	addmachine_id *int64
+	machine_id    *uuid.UUID
 	check_name    *string
 	cron_string   *string
 	coordinates   *[]*biz.CheckCoordinate
@@ -1006,13 +974,12 @@ func (m *CronJobMutation) IDs(ctx context.Context) ([]int64, error) {
 }
 
 // SetMachineID sets the "machine_id" field.
-func (m *CronJobMutation) SetMachineID(i int64) {
-	m.machine_id = &i
-	m.addmachine_id = nil
+func (m *CronJobMutation) SetMachineID(u uuid.UUID) {
+	m.machine_id = &u
 }
 
 // MachineID returns the value of the "machine_id" field in the mutation.
-func (m *CronJobMutation) MachineID() (r int64, exists bool) {
+func (m *CronJobMutation) MachineID() (r uuid.UUID, exists bool) {
 	v := m.machine_id
 	if v == nil {
 		return
@@ -1023,7 +990,7 @@ func (m *CronJobMutation) MachineID() (r int64, exists bool) {
 // OldMachineID returns the old "machine_id" field's value of the CronJob entity.
 // If the CronJob object wasn't provided to the builder, the object is fetched from the database.
 // An error is returned if the mutation operation is not UpdateOne, or the database query fails.
-func (m *CronJobMutation) OldMachineID(ctx context.Context) (v int64, err error) {
+func (m *CronJobMutation) OldMachineID(ctx context.Context) (v uuid.UUID, err error) {
 	if !m.op.Is(OpUpdateOne) {
 		return v, errors.New("OldMachineID is only allowed on UpdateOne operations")
 	}
@@ -1037,28 +1004,9 @@ func (m *CronJobMutation) OldMachineID(ctx context.Context) (v int64, err error)
 	return oldValue.MachineID, nil
 }
 
-// AddMachineID adds i to the "machine_id" field.
-func (m *CronJobMutation) AddMachineID(i int64) {
-	if m.addmachine_id != nil {
-		*m.addmachine_id += i
-	} else {
-		m.addmachine_id = &i
-	}
-}
-
-// AddedMachineID returns the value that was added to the "machine_id" field in this mutation.
-func (m *CronJobMutation) AddedMachineID() (r int64, exists bool) {
-	v := m.addmachine_id
-	if v == nil {
-		return
-	}
-	return *v, true
-}
-
 // ResetMachineID resets all changes to the "machine_id" field.
 func (m *CronJobMutation) ResetMachineID() {
 	m.machine_id = nil
-	m.addmachine_id = nil
 }
 
 // SetCheckName sets the "check_name" field.
@@ -1343,7 +1291,7 @@ func (m *CronJobMutation) OldField(ctx context.Context, name string) (ent.Value,
 func (m *CronJobMutation) SetField(name string, value ent.Value) error {
 	switch name {
 	case cronjob.FieldMachineID:
-		v, ok := value.(int64)
+		v, ok := value.(uuid.UUID)
 		if !ok {
 			return fmt.Errorf("unexpected type %T for field %s", value, name)
 		}
@@ -1391,21 +1339,13 @@ func (m *CronJobMutation) SetField(name string, value ent.Value) error {
 // AddedFields returns all numeric fields that were incremented/decremented during
 // this mutation.
 func (m *CronJobMutation) AddedFields() []string {
-	var fields []string
-	if m.addmachine_id != nil {
-		fields = append(fields, cronjob.FieldMachineID)
-	}
-	return fields
+	return nil
 }
 
 // AddedField returns the numeric value that was incremented/decremented on a field
 // with the given name. The second boolean return value indicates that this field
 // was not set, or was not defined in the schema.
 func (m *CronJobMutation) AddedField(name string) (ent.Value, bool) {
-	switch name {
-	case cronjob.FieldMachineID:
-		return m.AddedMachineID()
-	}
 	return nil, false
 }
 
@@ -1414,13 +1354,6 @@ func (m *CronJobMutation) AddedField(name string) (ent.Value, bool) {
 // type.
 func (m *CronJobMutation) AddField(name string, value ent.Value) error {
 	switch name {
-	case cronjob.FieldMachineID:
-		v, ok := value.(int64)
-		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
-		}
-		m.AddMachineID(v)
-		return nil
 	}
 	return fmt.Errorf("unknown CronJob numeric field %s", name)
 }
@@ -1532,7 +1465,7 @@ type MachineMutation struct {
 	config
 	op            Op
 	typ           string
-	id            *int64
+	id            *uuid.UUID
 	user_id       *int64
 	adduser_id    *int64
 	address       *string
@@ -1564,7 +1497,7 @@ func newMachineMutation(c config, op Op, opts ...machineOption) *MachineMutation
 }
 
 // withMachineID sets the ID field of the mutation.
-func withMachineID(id int64) machineOption {
+func withMachineID(id uuid.UUID) machineOption {
 	return func(m *MachineMutation) {
 		var (
 			err   error
@@ -1616,13 +1549,13 @@ func (m MachineMutation) Tx() (*Tx, error) {
 
 // SetID sets the value of the id field. Note that this
 // operation is only accepted on creation of Machine entities.
-func (m *MachineMutation) SetID(id int64) {
+func (m *MachineMutation) SetID(id uuid.UUID) {
 	m.id = &id
 }
 
 // ID returns the ID value in the mutation. Note that the ID is only available
 // if it was provided to the builder or after it was returned from the database.
-func (m *MachineMutation) ID() (id int64, exists bool) {
+func (m *MachineMutation) ID() (id uuid.UUID, exists bool) {
 	if m.id == nil {
 		return
 	}
@@ -1633,12 +1566,12 @@ func (m *MachineMutation) ID() (id int64, exists bool) {
 // That means, if the mutation is applied within a transaction with an isolation level such
 // as sql.LevelSerializable, the returned ids match the ids of the rows that will be updated
 // or updated by the mutation.
-func (m *MachineMutation) IDs(ctx context.Context) ([]int64, error) {
+func (m *MachineMutation) IDs(ctx context.Context) ([]uuid.UUID, error) {
 	switch {
 	case m.op.Is(OpUpdateOne | OpDeleteOne):
 		id, exists := m.ID()
 		if exists {
-			return []int64{id}, nil
+			return []uuid.UUID{id}, nil
 		}
 		fallthrough
 	case m.op.Is(OpUpdate | OpDelete):

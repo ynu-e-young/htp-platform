@@ -1,7 +1,7 @@
 {
   "server": {
     "grpc": {
-      "addr": "192.168.1.110:9090"
+      "addr": "192.168.1.110:9000"
     }
   },
   "local": {
@@ -18,5 +18,5 @@
     "flow_control": false,
     "clocal": true
   },
-  "uuid": "10"
+  "uuid": "269f4f01-0813-4ee2-aea1-a9bb7c16ae2e"
 }

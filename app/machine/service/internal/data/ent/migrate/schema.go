@@ -11,7 +11,7 @@ var (
 	// CaptureLogsColumns holds the columns for the "capture_logs" table.
 	CaptureLogsColumns = []*schema.Column{
 		{Name: "id", Type: field.TypeInt64, Increment: true},
-		{Name: "machine_id", Type: field.TypeInt64},
+		{Name: "machine_id", Type: field.TypeUUID},
 		{Name: "pixels", Type: field.TypeInt64},
 		{Name: "area", Type: field.TypeFloat64},
 		{Name: "src_name", Type: field.TypeString},
@@ -30,7 +30,7 @@ var (
 	// CronJobsColumns holds the columns for the "cron_jobs" table.
 	CronJobsColumns = []*schema.Column{
 		{Name: "id", Type: field.TypeInt64, Increment: true},
-		{Name: "machine_id", Type: field.TypeInt64},
+		{Name: "machine_id", Type: field.TypeUUID},
 		{Name: "check_name", Type: field.TypeString},
 		{Name: "cron_string", Type: field.TypeString},
 		{Name: "coordinates", Type: field.TypeJSON, Nullable: true},
@@ -45,7 +45,7 @@ var (
 	}
 	// MachinesColumns holds the columns for the "machines" table.
 	MachinesColumns = []*schema.Column{
-		{Name: "id", Type: field.TypeInt64, Increment: true},
+		{Name: "id", Type: field.TypeUUID},
 		{Name: "user_id", Type: field.TypeInt64},
 		{Name: "address", Type: field.TypeString, Unique: true},
 		{Name: "created_at", Type: field.TypeTime, SchemaType: map[string]string{"mysql": "datetime"}},

@@ -12,6 +12,7 @@ import (
 
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
+	"github.com/google/uuid"
 )
 
 // CronJobCreate is the builder for creating a CronJob entity.
@@ -22,8 +23,8 @@ type CronJobCreate struct {
 }
 
 // SetMachineID sets the "machine_id" field.
-func (cjc *CronJobCreate) SetMachineID(i int64) *CronJobCreate {
-	cjc.mutation.SetMachineID(i)
+func (cjc *CronJobCreate) SetMachineID(u uuid.UUID) *CronJobCreate {
+	cjc.mutation.SetMachineID(u)
 	return cjc
 }
 
@@ -212,7 +213,7 @@ func (cjc *CronJobCreate) createSpec() (*CronJob, *sqlgraph.CreateSpec) {
 	}
 	if value, ok := cjc.mutation.MachineID(); ok {
 		_spec.Fields = append(_spec.Fields, &sqlgraph.FieldSpec{
-			Type:   field.TypeInt64,
+			Type:   field.TypeUUID,
 			Value:  value,
 			Column: cronjob.FieldMachineID,
 		})

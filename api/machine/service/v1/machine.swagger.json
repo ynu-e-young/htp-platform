@@ -87,8 +87,7 @@
           "format": "double"
         },
         "machineId": {
-          "type": "string",
-          "format": "int64"
+          "type": "string"
         },
         "checkName": {
           "type": "string"
@@ -103,8 +102,7 @@
           "format": "int64"
         },
         "machineId": {
-          "type": "string",
-          "format": "int64"
+          "type": "string"
         },
         "checkName": {
           "type": "string"
@@ -172,8 +170,7 @@
       "type": "object",
       "properties": {
         "machineId": {
-          "type": "string",
-          "format": "int64"
+          "type": "string"
         },
         "userId": {
           "type": "string",

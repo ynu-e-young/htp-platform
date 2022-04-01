@@ -9,6 +9,7 @@ import (
 	"time"
 
 	"entgo.io/ent/dialect/sql"
+	"github.com/google/uuid"
 )
 
 // CaptureLog is the model entity for the CaptureLog schema.
@@ -17,7 +18,7 @@ type CaptureLog struct {
 	// ID of the ent.
 	ID int64 `json:"id,omitempty"`
 	// MachineID holds the value of the "machine_id" field.
-	MachineID int64 `json:"machine_id,omitempty"`
+	MachineID uuid.UUID `json:"machine_id,omitempty"`
 	// Pixels holds the value of the "pixels" field.
 	Pixels int64 `json:"pixels,omitempty"`
 	// Area holds the value of the "area" field.
@@ -43,12 +44,14 @@ func (*CaptureLog) scanValues(columns []string) ([]interface{}, error) {
 		switch columns[i] {
 		case capturelog.FieldArea:
 			values[i] = new(sql.NullFloat64)
-		case capturelog.FieldID, capturelog.FieldMachineID, capturelog.FieldPixels:
+		case capturelog.FieldID, capturelog.FieldPixels:
 			values[i] = new(sql.NullInt64)
 		case capturelog.FieldSrcName, capturelog.FieldProcName, capturelog.FieldSrcOssURL, capturelog.FieldProcOssURL:
 			values[i] = new(sql.NullString)
 		case capturelog.FieldCreatedAt, capturelog.FieldUpdatedAt:
 			values[i] = new(sql.NullTime)
+		case capturelog.FieldMachineID:
+			values[i] = new(uuid.UUID)
 		default:
 			return nil, fmt.Errorf("unexpected column %q for type CaptureLog", columns[i])
 		}
@@ -71,10 +74,10 @@ func (cl *CaptureLog) assignValues(columns []string, values []interface{}) error
 			}
 			cl.ID = int64(value.Int64)
 		case capturelog.FieldMachineID:
-			if value, ok := values[i].(*sql.NullInt64); !ok {
+			if value, ok := values[i].(*uuid.UUID); !ok {
 				return fmt.Errorf("unexpected type %T for field machine_id", values[i])
-			} else if value.Valid {
-				cl.MachineID = value.Int64
+			} else if value != nil {
+				cl.MachineID = *value
 			}
 		case capturelog.FieldPixels:
 			if value, ok := values[i].(*sql.NullInt64); !ok {

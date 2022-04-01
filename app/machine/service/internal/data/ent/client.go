@@ -15,6 +15,7 @@ import (
 
 	"entgo.io/ent/dialect"
 	"entgo.io/ent/dialect/sql"
+	"github.com/google/uuid"
 )
 
 // Client is the client that holds all ent builders.
@@ -356,7 +357,7 @@ func (c *MachineClient) UpdateOne(m *Machine) *MachineUpdateOne {
 }
 
 // UpdateOneID returns an update builder for the given id.
-func (c *MachineClient) UpdateOneID(id int64) *MachineUpdateOne {
+func (c *MachineClient) UpdateOneID(id uuid.UUID) *MachineUpdateOne {
 	mutation := newMachineMutation(c.config, OpUpdateOne, withMachineID(id))
 	return &MachineUpdateOne{config: c.config, hooks: c.Hooks(), mutation: mutation}
 }
@@ -373,7 +374,7 @@ func (c *MachineClient) DeleteOne(m *Machine) *MachineDeleteOne {
 }
 
 // DeleteOneID returns a delete builder for the given id.
-func (c *MachineClient) DeleteOneID(id int64) *MachineDeleteOne {
+func (c *MachineClient) DeleteOneID(id uuid.UUID) *MachineDeleteOne {
 	builder := c.Delete().Where(machine.ID(id))
 	builder.mutation.id = &id
 	builder.mutation.op = OpDeleteOne
@@ -388,12 +389,12 @@ func (c *MachineClient) Query() *MachineQuery {
 }
 
 // Get returns a Machine entity by its id.
-func (c *MachineClient) Get(ctx context.Context, id int64) (*Machine, error) {
+func (c *MachineClient) Get(ctx context.Context, id uuid.UUID) (*Machine, error) {
 	return c.Query().Where(machine.ID(id)).Only(ctx)
 }
 
 // GetX is like Get, but panics if an error occurs.
-func (c *MachineClient) GetX(ctx context.Context, id int64) *Machine {
+func (c *MachineClient) GetX(ctx context.Context, id uuid.UUID) *Machine {
 	obj, err := c.Get(ctx, id)
 	if err != nil {
 		panic(err)

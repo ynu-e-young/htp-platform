@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"entgo.io/ent/dialect/sql"
+	"github.com/google/uuid"
 )
 
 // ID filters vertices based on their ID field.
@@ -93,7 +94,7 @@ func IDLTE(id int64) predicate.CronJob {
 }
 
 // MachineID applies equality check predicate on the "machine_id" field. It's identical to MachineIDEQ.
-func MachineID(v int64) predicate.CronJob {
+func MachineID(v uuid.UUID) predicate.CronJob {
 	return predicate.CronJob(func(s *sql.Selector) {
 		s.Where(sql.EQ(s.C(FieldMachineID), v))
 	})
@@ -128,21 +129,21 @@ func UpdatedAt(v time.Time) predicate.CronJob {
 }
 
 // MachineIDEQ applies the EQ predicate on the "machine_id" field.
-func MachineIDEQ(v int64) predicate.CronJob {
+func MachineIDEQ(v uuid.UUID) predicate.CronJob {
 	return predicate.CronJob(func(s *sql.Selector) {
 		s.Where(sql.EQ(s.C(FieldMachineID), v))
 	})
 }
 
 // MachineIDNEQ applies the NEQ predicate on the "machine_id" field.
-func MachineIDNEQ(v int64) predicate.CronJob {
+func MachineIDNEQ(v uuid.UUID) predicate.CronJob {
 	return predicate.CronJob(func(s *sql.Selector) {
 		s.Where(sql.NEQ(s.C(FieldMachineID), v))
 	})
 }
 
 // MachineIDIn applies the In predicate on the "machine_id" field.
-func MachineIDIn(vs ...int64) predicate.CronJob {
+func MachineIDIn(vs ...uuid.UUID) predicate.CronJob {
 	v := make([]interface{}, len(vs))
 	for i := range v {
 		v[i] = vs[i]
@@ -159,7 +160,7 @@ func MachineIDIn(vs ...int64) predicate.CronJob {
 }
 
 // MachineIDNotIn applies the NotIn predicate on the "machine_id" field.
-func MachineIDNotIn(vs ...int64) predicate.CronJob {
+func MachineIDNotIn(vs ...uuid.UUID) predicate.CronJob {
 	v := make([]interface{}, len(vs))
 	for i := range v {
 		v[i] = vs[i]
@@ -176,28 +177,28 @@ func MachineIDNotIn(vs ...int64) predicate.CronJob {
 }
 
 // MachineIDGT applies the GT predicate on the "machine_id" field.
-func MachineIDGT(v int64) predicate.CronJob {
+func MachineIDGT(v uuid.UUID) predicate.CronJob {
 	return predicate.CronJob(func(s *sql.Selector) {
 		s.Where(sql.GT(s.C(FieldMachineID), v))
 	})
 }
 
 // MachineIDGTE applies the GTE predicate on the "machine_id" field.
-func MachineIDGTE(v int64) predicate.CronJob {
+func MachineIDGTE(v uuid.UUID) predicate.CronJob {
 	return predicate.CronJob(func(s *sql.Selector) {
 		s.Where(sql.GTE(s.C(FieldMachineID), v))
 	})
 }
 
 // MachineIDLT applies the LT predicate on the "machine_id" field.
-func MachineIDLT(v int64) predicate.CronJob {
+func MachineIDLT(v uuid.UUID) predicate.CronJob {
 	return predicate.CronJob(func(s *sql.Selector) {
 		s.Where(sql.LT(s.C(FieldMachineID), v))
 	})
 }
 
 // MachineIDLTE applies the LTE predicate on the "machine_id" field.
-func MachineIDLTE(v int64) predicate.CronJob {
+func MachineIDLTE(v uuid.UUID) predicate.CronJob {
 	return predicate.CronJob(func(s *sql.Selector) {
 		s.Where(sql.LTE(s.C(FieldMachineID), v))
 	})

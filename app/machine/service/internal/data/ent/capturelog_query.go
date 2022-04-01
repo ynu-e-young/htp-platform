@@ -253,7 +253,7 @@ func (clq *CaptureLogQuery) Clone() *CaptureLogQuery {
 // Example:
 //
 //	var v []struct {
-//		MachineID int64 `json:"machine_id,omitempty"`
+//		MachineID uuid.UUID `json:"machine_id,omitempty"`
 //		Count int `json:"count,omitempty"`
 //	}
 //
@@ -280,7 +280,7 @@ func (clq *CaptureLogQuery) GroupBy(field string, fields ...string) *CaptureLogG
 // Example:
 //
 //	var v []struct {
-//		MachineID int64 `json:"machine_id,omitempty"`
+//		MachineID uuid.UUID `json:"machine_id,omitempty"`
 //	}
 //
 //	client.CaptureLog.Query().

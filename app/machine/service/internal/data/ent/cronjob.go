@@ -11,6 +11,7 @@ import (
 	"time"
 
 	"entgo.io/ent/dialect/sql"
+	"github.com/google/uuid"
 )
 
 // CronJob is the model entity for the CronJob schema.
@@ -19,7 +20,7 @@ type CronJob struct {
 	// ID of the ent.
 	ID int64 `json:"id,omitempty"`
 	// MachineID holds the value of the "machine_id" field.
-	MachineID int64 `json:"machine_id,omitempty"`
+	MachineID uuid.UUID `json:"machine_id,omitempty"`
 	// CheckName holds the value of the "check_name" field.
 	CheckName string `json:"check_name,omitempty"`
 	// CronString holds the value of the "cron_string" field.
@@ -39,12 +40,14 @@ func (*CronJob) scanValues(columns []string) ([]interface{}, error) {
 		switch columns[i] {
 		case cronjob.FieldCoordinates:
 			values[i] = new([]byte)
-		case cronjob.FieldID, cronjob.FieldMachineID:
+		case cronjob.FieldID:
 			values[i] = new(sql.NullInt64)
 		case cronjob.FieldCheckName, cronjob.FieldCronString:
 			values[i] = new(sql.NullString)
 		case cronjob.FieldCreatedAt, cronjob.FieldUpdatedAt:
 			values[i] = new(sql.NullTime)
+		case cronjob.FieldMachineID:
+			values[i] = new(uuid.UUID)
 		default:
 			return nil, fmt.Errorf("unexpected column %q for type CronJob", columns[i])
 		}
@@ -67,10 +70,10 @@ func (cj *CronJob) assignValues(columns []string, values []interface{}) error {
 			}
 			cj.ID = int64(value.Int64)
 		case cronjob.FieldMachineID:
-			if value, ok := values[i].(*sql.NullInt64); !ok {
+			if value, ok := values[i].(*uuid.UUID); !ok {
 				return fmt.Errorf("unexpected type %T for field machine_id", values[i])
-			} else if value.Valid {
-				cj.MachineID = value.Int64
+			} else if value != nil {
+				cj.MachineID = *value
 			}
 		case cronjob.FieldCheckName:
 			if value, ok := values[i].(*sql.NullString); !ok {

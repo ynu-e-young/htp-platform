@@ -6,7 +6,7 @@ import (
 )
 
 type Machine struct {
-	MachineId int64
+	MachineId string
 	UserId    int64
 	Address   string
 }
@@ -19,7 +19,7 @@ type Coordinate struct {
 	Ry        float64 `json:"ry,omitempty"`
 	Check     bool    `json:"check,omitempty"`
 	Delay     float64 `json:"delay,omitempty"`
-	MachineId int64   `json:"machine_id,omitempty"`
+	MachineId string  `json:"machine_id,omitempty"`
 	CheckName string  `json:"check_name,omitempty"`
 }
 
@@ -42,11 +42,11 @@ type MachineRepo interface {
 	FindByUserId(ctx context.Context, userId int64) ([]*Machine, error)
 	Create(ctx context.Context, machine *Machine) (*Machine, error)
 	Update(ctx context.Context, machine *Machine) (*Machine, error)
-	Get(ctx context.Context, machineId int64) (*Machine, error)
+	Get(ctx context.Context, machineId string) (*Machine, error)
 
 	Move(ctx context.Context, coordinate *Coordinate) (bool, error)
-	Zero(ctx context.Context, machineId int64) (bool, error)
-	GetMotorStatus(ctx context.Context, machineId int64) ([]*MotorInfo, error)
+	Zero(ctx context.Context, machineId string) (bool, error)
+	GetMotorStatus(ctx context.Context, machineId string) ([]*MotorInfo, error)
 }
 
 type MachineUsecase struct {
@@ -89,7 +89,7 @@ func (uc *MachineUsecase) GetCurrentUserMachines(ctx context.Context, userId int
 	return ms, nil
 }
 
-func (uc *MachineUsecase) GetMachine(ctx context.Context, machineId int64) (*Machine, error) {
+func (uc *MachineUsecase) GetMachine(ctx context.Context, machineId string) (*Machine, error) {
 	m, err := uc.repo.Get(ctx, machineId)
 	if err != nil {
 		return nil, err
@@ -102,10 +102,10 @@ func (uc *MachineUsecase) Move(ctx context.Context, coordinate *Coordinate) (boo
 	return uc.repo.Move(ctx, coordinate)
 }
 
-func (uc *MachineUsecase) Zero(ctx context.Context, machineId int64) (bool, error) {
+func (uc *MachineUsecase) Zero(ctx context.Context, machineId string) (bool, error) {
 	return uc.repo.Zero(ctx, machineId)
 }
 
-func (uc *MachineUsecase) GetMotorStatus(ctx context.Context, machineId int64) ([]*MotorInfo, error) {
+func (uc *MachineUsecase) GetMotorStatus(ctx context.Context, machineId string) ([]*MotorInfo, error) {
 	return uc.repo.GetMotorStatus(ctx, machineId)
 }

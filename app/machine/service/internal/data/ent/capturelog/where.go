@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"entgo.io/ent/dialect/sql"
+	"github.com/google/uuid"
 )
 
 // ID filters vertices based on their ID field.
@@ -93,7 +94,7 @@ func IDLTE(id int64) predicate.CaptureLog {
 }
 
 // MachineID applies equality check predicate on the "machine_id" field. It's identical to MachineIDEQ.
-func MachineID(v int64) predicate.CaptureLog {
+func MachineID(v uuid.UUID) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
 		s.Where(sql.EQ(s.C(FieldMachineID), v))
 	})
@@ -156,21 +157,21 @@ func UpdatedAt(v time.Time) predicate.CaptureLog {
 }
 
 // MachineIDEQ applies the EQ predicate on the "machine_id" field.
-func MachineIDEQ(v int64) predicate.CaptureLog {
+func MachineIDEQ(v uuid.UUID) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
 		s.Where(sql.EQ(s.C(FieldMachineID), v))
 	})
 }
 
 // MachineIDNEQ applies the NEQ predicate on the "machine_id" field.
-func MachineIDNEQ(v int64) predicate.CaptureLog {
+func MachineIDNEQ(v uuid.UUID) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
 		s.Where(sql.NEQ(s.C(FieldMachineID), v))
 	})
 }
 
 // MachineIDIn applies the In predicate on the "machine_id" field.
-func MachineIDIn(vs ...int64) predicate.CaptureLog {
+func MachineIDIn(vs ...uuid.UUID) predicate.CaptureLog {
 	v := make([]interface{}, len(vs))
 	for i := range v {
 		v[i] = vs[i]
@@ -187,7 +188,7 @@ func MachineIDIn(vs ...int64) predicate.CaptureLog {
 }
 
 // MachineIDNotIn applies the NotIn predicate on the "machine_id" field.
-func MachineIDNotIn(vs ...int64) predicate.CaptureLog {
+func MachineIDNotIn(vs ...uuid.UUID) predicate.CaptureLog {
 	v := make([]interface{}, len(vs))
 	for i := range v {
 		v[i] = vs[i]
@@ -204,28 +205,28 @@ func MachineIDNotIn(vs ...int64) predicate.CaptureLog {
 }
 
 // MachineIDGT applies the GT predicate on the "machine_id" field.
-func MachineIDGT(v int64) predicate.CaptureLog {
+func MachineIDGT(v uuid.UUID) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
 		s.Where(sql.GT(s.C(FieldMachineID), v))
 	})
 }
 
 // MachineIDGTE applies the GTE predicate on the "machine_id" field.
-func MachineIDGTE(v int64) predicate.CaptureLog {
+func MachineIDGTE(v uuid.UUID) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
 		s.Where(sql.GTE(s.C(FieldMachineID), v))
 	})
 }
 
 // MachineIDLT applies the LT predicate on the "machine_id" field.
-func MachineIDLT(v int64) predicate.CaptureLog {
+func MachineIDLT(v uuid.UUID) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
 		s.Where(sql.LT(s.C(FieldMachineID), v))
 	})
 }
 
 // MachineIDLTE applies the LTE predicate on the "machine_id" field.
-func MachineIDLTE(v int64) predicate.CaptureLog {
+func MachineIDLTE(v uuid.UUID) predicate.CaptureLog {
 	return predicate.CaptureLog(func(s *sql.Selector) {
 		s.Where(sql.LTE(s.C(FieldMachineID), v))
 	})

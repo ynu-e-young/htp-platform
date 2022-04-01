@@ -42,7 +42,7 @@ message UpdateRequest {
 }
 
 message GetRequest {
-  int64 machine_id = 1;
+  string machine_id = 1;
 }
 
 message MoveRequest {
@@ -53,7 +53,7 @@ message MoveRequest {
   double ry = 5;    // 绕 y 角度
   bool check = 6;   // 是否为检查动作
   double delay = 7; // 每个动作的延时
-  int64 machine_id = 8;  // 设备的唯一识别码
+  string machine_id = 8;  // 设备的唯一识别码
   string check_name = 9; // 检查动作名称
 }
 
@@ -70,13 +70,13 @@ message MachinesReply {
 }
 
 message MachineStruct {
-  int64 machine_id = 1;
+  string machine_id = 1;
   int64 user_id = 2;
   string address = 3;
 }
 
 message ZeroRequest {
-  int64 machine_id = 1;
+  string machine_id = 1;
 }
 
 message ZeroReply {
@@ -85,7 +85,7 @@ message ZeroReply {
 
 // 请求电机运行信息
 message GetMotorStatusRequest {
-  int64 machine_id = 1;
+  string machine_id = 1;
 }
 
 // 响应电机运行信息
@@ -129,7 +129,7 @@ message MoveDoneReply {
 
 // Cron Job
 message CreateCronJobRequest {
-    CronJob cron_job = 1;
+  CronJob cron_job = 1;
 }
 
 message DeleteCronJobRequest {
@@ -141,7 +141,7 @@ message DeleteCronJobReply {
 }
 
 message ListCronJobRequest {
-  int64 machineId = 1;
+  string machine_id = 1;
 }
 
 message CronJobReply {
@@ -154,7 +154,7 @@ message CronJobsReply {
 
 message CronJob {
   int64 id = 1;
-  int64 machineId = 2;
+  string machine_id = 2;
   string check_name = 3;
   string cron_string = 4;
   repeated CheckCoordinate check_coordinates = 5;
@@ -173,7 +173,7 @@ message Coordinate {
   double ry = 5;    // 绕 y 角度
   bool check = 6;   // 是否为检查动作
   double delay = 7; // 每个动作的延时
-  int64 machine_id = 8;  // 设备的唯一识别码
+  string machine_id = 8;  // 设备的唯一识别码
   string check_name = 9; // 检查动作名称
 }
 

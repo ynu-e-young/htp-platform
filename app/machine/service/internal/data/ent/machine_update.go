@@ -140,7 +140,7 @@ func (mu *MachineUpdate) sqlSave(ctx context.Context) (n int, err error) {
 			Table:   machine.Table,
 			Columns: machine.Columns,
 			ID: &sqlgraph.FieldSpec{
-				Type:   field.TypeInt64,
+				Type:   field.TypeUUID,
 				Column: machine.FieldID,
 			},
 		},
@@ -325,7 +325,7 @@ func (muo *MachineUpdateOne) sqlSave(ctx context.Context) (_node *Machine, err e
 			Table:   machine.Table,
 			Columns: machine.Columns,
 			ID: &sqlgraph.FieldSpec{
-				Type:   field.TypeInt64,
+				Type:   field.TypeUUID,
 				Column: machine.FieldID,
 			},
 		},

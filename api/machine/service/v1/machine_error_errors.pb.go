@@ -47,6 +47,24 @@ func ErrorAddressConflict(format string, args ...interface{}) *errors.Error {
 	return errors.New(500, MachineServiceErrorReason_ADDRESS_CONFLICT.String(), fmt.Sprintf(format, args...))
 }
 
+func IsUuidGenerateFailed(err error) bool {
+	e := errors.FromError(err)
+	return e.Reason == MachineServiceErrorReason_UUID_GENERATE_FAILED.String() && e.Code == 500
+}
+
+func ErrorUuidGenerateFailed(format string, args ...interface{}) *errors.Error {
+	return errors.New(500, MachineServiceErrorReason_UUID_GENERATE_FAILED.String(), fmt.Sprintf(format, args...))
+}
+
+func IsUuidParseFailed(err error) bool {
+	e := errors.FromError(err)
+	return e.Reason == MachineServiceErrorReason_UUID_PARSE_FAILED.String() && e.Code == 500
+}
+
+func ErrorUuidParseFailed(format string, args ...interface{}) *errors.Error {
+	return errors.New(500, MachineServiceErrorReason_UUID_PARSE_FAILED.String(), fmt.Sprintf(format, args...))
+}
+
 func IsCronConflict(err error) bool {
 	e := errors.FromError(err)
 	return e.Reason == MachineServiceErrorReason_CRON_CONFLICT.String() && e.Code == 500

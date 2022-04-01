@@ -4,6 +4,7 @@ import (
 	"entgo.io/ent"
 	"entgo.io/ent/dialect"
 	"entgo.io/ent/schema/field"
+	"github.com/google/uuid"
 	"htp-platform/app/machine/service/internal/biz"
 	"time"
 )
@@ -17,7 +18,7 @@ type CronJob struct {
 func (CronJob) Fields() []ent.Field {
 	return []ent.Field{
 		field.Int64("id"),
-		field.Int64("machine_id"),
+		field.UUID("machine_id", uuid.UUID{}),
 		field.String("check_name"),
 		field.String("cron_string"),
 		field.JSON("coordinates", []*biz.CheckCoordinate{}).

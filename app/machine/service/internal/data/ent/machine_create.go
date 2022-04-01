@@ -11,6 +11,7 @@ import (
 
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
+	"github.com/google/uuid"
 )
 
 // MachineCreate is the builder for creating a Machine entity.
@@ -61,8 +62,8 @@ func (mc *MachineCreate) SetNillableUpdatedAt(t *time.Time) *MachineCreate {
 }
 
 // SetID sets the "id" field.
-func (mc *MachineCreate) SetID(i int64) *MachineCreate {
-	mc.mutation.SetID(i)
+func (mc *MachineCreate) SetID(u uuid.UUID) *MachineCreate {
+	mc.mutation.SetID(u)
 	return mc
 }
 
@@ -172,9 +173,12 @@ func (mc *MachineCreate) sqlSave(ctx context.Context) (*Machine, error) {
 		}
 		return nil, err
 	}
-	if _spec.ID.Value != _node.ID {
-		id := _spec.ID.Value.(int64)
-		_node.ID = int64(id)
+	if _spec.ID.Value != nil {
+		if id, ok := _spec.ID.Value.(*uuid.UUID); ok {
+			_node.ID = *id
+		} else if err := _node.ID.Scan(_spec.ID.Value); err != nil {
+			return nil, err
+		}
 	}
 	return _node, nil
 }
@@ -185,14 +189,14 @@ func (mc *MachineCreate) createSpec() (*Machine, *sqlgraph.CreateSpec) {
 		_spec = &sqlgraph.CreateSpec{
 			Table: machine.Table,
 			ID: &sqlgraph.FieldSpec{
-				Type:   field.TypeInt64,
+				Type:   field.TypeUUID,
 				Column: machine.FieldID,
 			},
 		}
 	)
 	if id, ok := mc.mutation.ID(); ok {
 		_node.ID = id
-		_spec.ID.Value = id
+		_spec.ID.Value = &id
 	}
 	if value, ok := mc.mutation.UserID(); ok {
 		_spec.Fields = append(_spec.Fields, &sqlgraph.FieldSpec{
@@ -271,10 +275,6 @@ func (mcb *MachineCreateBulk) Save(ctx context.Context) ([]*Machine, error) {
 				}
 				mutation.id = &nodes[i].ID
 				mutation.done = true
-				if specs[i].ID.Value != nil && nodes[i].ID == 0 {
-					id := specs[i].ID.Value.(int64)
-					nodes[i].ID = int64(id)
-				}
 				return nodes[i], nil
 			})
 			for i := len(builder.hooks) - 1; i >= 0; i-- {
