@@ -16,126 +16,138 @@
 #include <google/protobuf/port_def.inc>
 
 PROTOBUF_PRAGMA_INIT_SEG
+
+namespace _pb = ::PROTOBUF_NAMESPACE_ID;
+namespace _pbi = _pb::internal;
+
 namespace machine {
 namespace robot {
 namespace v1 {
-constexpr CoordinateRequest::CoordinateRequest(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : uuid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , check_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , x_(0)
-  , y_(0)
-  , z_(0)
-  , rx_(0)
-  , ry_(0)
-  , delay_(0)
-  , check_(false){}
+PROTOBUF_CONSTEXPR CoordinateRequest::CoordinateRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.uuid_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.check_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.x_)*/0
+  , /*decltype(_impl_.y_)*/0
+  , /*decltype(_impl_.z_)*/0
+  , /*decltype(_impl_.rx_)*/0
+  , /*decltype(_impl_.ry_)*/0
+  , /*decltype(_impl_.delay_)*/0
+  , /*decltype(_impl_.check_)*/false
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct CoordinateRequestDefaultTypeInternal {
-  constexpr CoordinateRequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR CoordinateRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~CoordinateRequestDefaultTypeInternal() {}
   union {
     CoordinateRequest _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CoordinateRequestDefaultTypeInternal _CoordinateRequest_default_instance_;
-constexpr CoordinateReply::CoordinateReply(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : status_(false){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CoordinateRequestDefaultTypeInternal _CoordinateRequest_default_instance_;
+PROTOBUF_CONSTEXPR CoordinateReply::CoordinateReply(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.status_)*/false
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct CoordinateReplyDefaultTypeInternal {
-  constexpr CoordinateReplyDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR CoordinateReplyDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~CoordinateReplyDefaultTypeInternal() {}
   union {
     CoordinateReply _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CoordinateReplyDefaultTypeInternal _CoordinateReply_default_instance_;
-constexpr ZeroRequest::ZeroRequest(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : uuid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CoordinateReplyDefaultTypeInternal _CoordinateReply_default_instance_;
+PROTOBUF_CONSTEXPR ZeroRequest::ZeroRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.uuid_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ZeroRequestDefaultTypeInternal {
-  constexpr ZeroRequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ZeroRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ZeroRequestDefaultTypeInternal() {}
   union {
     ZeroRequest _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ZeroRequestDefaultTypeInternal _ZeroRequest_default_instance_;
-constexpr ZeroReply::ZeroReply(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : status_(false){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ZeroRequestDefaultTypeInternal _ZeroRequest_default_instance_;
+PROTOBUF_CONSTEXPR ZeroReply::ZeroReply(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.status_)*/false
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ZeroReplyDefaultTypeInternal {
-  constexpr ZeroReplyDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ZeroReplyDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ZeroReplyDefaultTypeInternal() {}
   union {
     ZeroReply _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ZeroReplyDefaultTypeInternal _ZeroReply_default_instance_;
-constexpr MotorStatus::MotorStatus(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : fault_(false)
-  , enabling_(false)
-  , running_(false)
-  , instruction_completion_(false)
-  , path_completion_(false)
-  , zero_completion_(false){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ZeroReplyDefaultTypeInternal _ZeroReply_default_instance_;
+PROTOBUF_CONSTEXPR MotorStatus::MotorStatus(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.fault_)*/false
+  , /*decltype(_impl_.enabling_)*/false
+  , /*decltype(_impl_.running_)*/false
+  , /*decltype(_impl_.instruction_completion_)*/false
+  , /*decltype(_impl_.path_completion_)*/false
+  , /*decltype(_impl_.zero_completion_)*/false
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct MotorStatusDefaultTypeInternal {
-  constexpr MotorStatusDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR MotorStatusDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~MotorStatusDefaultTypeInternal() {}
   union {
     MotorStatus _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT MotorStatusDefaultTypeInternal _MotorStatus_default_instance_;
-constexpr MotorInfo::MotorInfo(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : motor_status_(nullptr)
-  , instr_pos_(int64_t{0})
-  , current_pos_(int64_t{0}){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MotorStatusDefaultTypeInternal _MotorStatus_default_instance_;
+PROTOBUF_CONSTEXPR MotorInfo::MotorInfo(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.motor_status_)*/nullptr
+  , /*decltype(_impl_.instr_pos_)*/int64_t{0}
+  , /*decltype(_impl_.current_pos_)*/int64_t{0}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct MotorInfoDefaultTypeInternal {
-  constexpr MotorInfoDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR MotorInfoDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~MotorInfoDefaultTypeInternal() {}
   union {
     MotorInfo _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT MotorInfoDefaultTypeInternal _MotorInfo_default_instance_;
-constexpr MotorInfoRequest::MotorInfoRequest(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : uuid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MotorInfoDefaultTypeInternal _MotorInfo_default_instance_;
+PROTOBUF_CONSTEXPR MotorInfoRequest::MotorInfoRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.uuid_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct MotorInfoRequestDefaultTypeInternal {
-  constexpr MotorInfoRequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR MotorInfoRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~MotorInfoRequestDefaultTypeInternal() {}
   union {
     MotorInfoRequest _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT MotorInfoRequestDefaultTypeInternal _MotorInfoRequest_default_instance_;
-constexpr MotorInfoReply::MotorInfoReply(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : motor_info_(){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MotorInfoRequestDefaultTypeInternal _MotorInfoRequest_default_instance_;
+PROTOBUF_CONSTEXPR MotorInfoReply::MotorInfoReply(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.motor_info_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct MotorInfoReplyDefaultTypeInternal {
-  constexpr MotorInfoReplyDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR MotorInfoReplyDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~MotorInfoReplyDefaultTypeInternal() {}
   union {
     MotorInfoReply _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT MotorInfoReplyDefaultTypeInternal _MotorInfoReply_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MotorInfoReplyDefaultTypeInternal _MotorInfoReply_default_instance_;
 }  // namespace v1
 }  // namespace robot
 }  // namespace machine
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_robot_2eproto[8];
-static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_robot_2eproto = nullptr;
-static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_robot_2eproto = nullptr;
+static ::_pb::Metadata file_level_metadata_robot_2eproto[8];
+static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_robot_2eproto = nullptr;
+static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_robot_2eproto = nullptr;
 
 const uint32_t TableStruct_robot_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
@@ -144,73 +156,73 @@ const uint32_t TableStruct_robot_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::CoordinateRequest, x_),
-  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::CoordinateRequest, y_),
-  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::CoordinateRequest, z_),
-  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::CoordinateRequest, rx_),
-  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::CoordinateRequest, ry_),
-  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::CoordinateRequest, check_),
-  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::CoordinateRequest, delay_),
-  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::CoordinateRequest, uuid_),
-  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::CoordinateRequest, check_name_),
+  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::CoordinateRequest, _impl_.x_),
+  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::CoordinateRequest, _impl_.y_),
+  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::CoordinateRequest, _impl_.z_),
+  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::CoordinateRequest, _impl_.rx_),
+  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::CoordinateRequest, _impl_.ry_),
+  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::CoordinateRequest, _impl_.check_),
+  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::CoordinateRequest, _impl_.delay_),
+  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::CoordinateRequest, _impl_.uuid_),
+  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::CoordinateRequest, _impl_.check_name_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::machine::robot::v1::CoordinateReply, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::CoordinateReply, status_),
+  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::CoordinateReply, _impl_.status_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::machine::robot::v1::ZeroRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::ZeroRequest, uuid_),
+  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::ZeroRequest, _impl_.uuid_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::machine::robot::v1::ZeroReply, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::ZeroReply, status_),
+  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::ZeroReply, _impl_.status_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorStatus, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorStatus, fault_),
-  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorStatus, enabling_),
-  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorStatus, running_),
-  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorStatus, instruction_completion_),
-  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorStatus, path_completion_),
-  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorStatus, zero_completion_),
+  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorStatus, _impl_.fault_),
+  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorStatus, _impl_.enabling_),
+  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorStatus, _impl_.running_),
+  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorStatus, _impl_.instruction_completion_),
+  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorStatus, _impl_.path_completion_),
+  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorStatus, _impl_.zero_completion_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorInfo, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorInfo, motor_status_),
-  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorInfo, instr_pos_),
-  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorInfo, current_pos_),
+  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorInfo, _impl_.motor_status_),
+  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorInfo, _impl_.instr_pos_),
+  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorInfo, _impl_.current_pos_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorInfoRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorInfoRequest, uuid_),
+  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorInfoRequest, _impl_.uuid_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorInfoReply, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorInfoReply, motor_info_),
+  PROTOBUF_FIELD_OFFSET(::machine::robot::v1::MotorInfoReply, _impl_.motor_info_),
 };
-static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::machine::robot::v1::CoordinateRequest)},
   { 15, -1, -1, sizeof(::machine::robot::v1::CoordinateReply)},
   { 22, -1, -1, sizeof(::machine::robot::v1::ZeroRequest)},
@@ -221,15 +233,15 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 64, -1, -1, sizeof(::machine::robot::v1::MotorInfoReply)},
 };
 
-static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::machine::robot::v1::_CoordinateRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::machine::robot::v1::_CoordinateReply_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::machine::robot::v1::_ZeroRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::machine::robot::v1::_ZeroReply_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::machine::robot::v1::_MotorStatus_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::machine::robot::v1::_MotorInfo_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::machine::robot::v1::_MotorInfoRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::machine::robot::v1::_MotorInfoReply_default_instance_),
+static const ::_pb::Message* const file_default_instances[] = {
+  &::machine::robot::v1::_CoordinateRequest_default_instance_._instance,
+  &::machine::robot::v1::_CoordinateReply_default_instance_._instance,
+  &::machine::robot::v1::_ZeroRequest_default_instance_._instance,
+  &::machine::robot::v1::_ZeroReply_default_instance_._instance,
+  &::machine::robot::v1::_MotorStatus_default_instance_._instance,
+  &::machine::robot::v1::_MotorInfo_default_instance_._instance,
+  &::machine::robot::v1::_MotorInfoRequest_default_instance_._instance,
+  &::machine::robot::v1::_MotorInfoReply_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_robot_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -258,19 +270,21 @@ const char descriptor_table_protodef_robot_2eproto[] PROTOBUF_SECTION_VARIABLE(p
   "eply\"\000B\031Z\027api/machine/robot/v1;v1b\006proto"
   "3"
   ;
-static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_robot_2eproto_once;
-const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_robot_2eproto = {
-  false, false, 921, descriptor_table_protodef_robot_2eproto, "robot.proto", 
-  &descriptor_table_robot_2eproto_once, nullptr, 0, 8,
-  schemas, file_default_instances, TableStruct_robot_2eproto::offsets,
-  file_level_metadata_robot_2eproto, file_level_enum_descriptors_robot_2eproto, file_level_service_descriptors_robot_2eproto,
+static ::_pbi::once_flag descriptor_table_robot_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_robot_2eproto = {
+    false, false, 921, descriptor_table_protodef_robot_2eproto,
+    "robot.proto",
+    &descriptor_table_robot_2eproto_once, nullptr, 0, 8,
+    schemas, file_default_instances, TableStruct_robot_2eproto::offsets,
+    file_level_metadata_robot_2eproto, file_level_enum_descriptors_robot_2eproto,
+    file_level_service_descriptors_robot_2eproto,
 };
-PROTOBUF_ATTRIBUTE_WEAK const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable* descriptor_table_robot_2eproto_getter() {
+PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_robot_2eproto_getter() {
   return &descriptor_table_robot_2eproto;
 }
 
 // Force running AddDescriptors() at dynamic initialization time.
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY static ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptorsRunner dynamic_init_dummy_robot_2eproto(&descriptor_table_robot_2eproto);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_robot_2eproto(&descriptor_table_robot_2eproto);
 namespace machine {
 namespace robot {
 namespace v1 {
@@ -284,73 +298,90 @@ class CoordinateRequest::_Internal {
 CoordinateRequest::CoordinateRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:machine.robot.v1.CoordinateRequest)
 }
 CoordinateRequest::CoordinateRequest(const CoordinateRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CoordinateRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.uuid_){}
+    , decltype(_impl_.check_name_){}
+    , decltype(_impl_.x_){}
+    , decltype(_impl_.y_){}
+    , decltype(_impl_.z_){}
+    , decltype(_impl_.rx_){}
+    , decltype(_impl_.ry_){}
+    , decltype(_impl_.delay_){}
+    , decltype(_impl_.check_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  uuid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.uuid_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    uuid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+    _impl_.uuid_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_uuid().empty()) {
-    uuid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_uuid(), 
-      GetArenaForAllocation());
+    _this->_impl_.uuid_.Set(from._internal_uuid(), 
+      _this->GetArenaForAllocation());
   }
-  check_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.check_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    check_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+    _impl_.check_name_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_check_name().empty()) {
-    check_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_check_name(), 
-      GetArenaForAllocation());
+    _this->_impl_.check_name_.Set(from._internal_check_name(), 
+      _this->GetArenaForAllocation());
   }
-  ::memcpy(&x_, &from.x_,
-    static_cast<size_t>(reinterpret_cast<char*>(&check_) -
-    reinterpret_cast<char*>(&x_)) + sizeof(check_));
+  ::memcpy(&_impl_.x_, &from._impl_.x_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.check_) -
+    reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.check_));
   // @@protoc_insertion_point(copy_constructor:machine.robot.v1.CoordinateRequest)
 }
 
-inline void CoordinateRequest::SharedCtor() {
-uuid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  uuid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-check_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  check_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&x_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&check_) -
-    reinterpret_cast<char*>(&x_)) + sizeof(check_));
+inline void CoordinateRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.uuid_){}
+    , decltype(_impl_.check_name_){}
+    , decltype(_impl_.x_){0}
+    , decltype(_impl_.y_){0}
+    , decltype(_impl_.z_){0}
+    , decltype(_impl_.rx_){0}
+    , decltype(_impl_.ry_){0}
+    , decltype(_impl_.delay_){0}
+    , decltype(_impl_.check_){false}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.uuid_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.uuid_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.check_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.check_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 CoordinateRequest::~CoordinateRequest() {
   // @@protoc_insertion_point(destructor:machine.robot.v1.CoordinateRequest)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void CoordinateRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  uuid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  check_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.uuid_.Destroy();
+  _impl_.check_name_.Destroy();
 }
 
-void CoordinateRequest::ArenaDtor(void* object) {
-  CoordinateRequest* _this = reinterpret_cast< CoordinateRequest* >(object);
-  (void)_this;
-}
-void CoordinateRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void CoordinateRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void CoordinateRequest::Clear() {
@@ -359,24 +390,24 @@ void CoordinateRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  uuid_.ClearToEmpty();
-  check_name_.ClearToEmpty();
-  ::memset(&x_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&check_) -
-      reinterpret_cast<char*>(&x_)) + sizeof(check_));
+  _impl_.uuid_.ClearToEmpty();
+  _impl_.check_name_.ClearToEmpty();
+  ::memset(&_impl_.x_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.check_) -
+      reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.check_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* CoordinateRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* CoordinateRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // double x = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 9)) {
-          x_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          _impl_.x_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
           ptr += sizeof(double);
         } else
           goto handle_unusual;
@@ -384,7 +415,7 @@ const char* CoordinateRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
       // double y = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 17)) {
-          y_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          _impl_.y_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
           ptr += sizeof(double);
         } else
           goto handle_unusual;
@@ -392,7 +423,7 @@ const char* CoordinateRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
       // double z = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 25)) {
-          z_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          _impl_.z_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
           ptr += sizeof(double);
         } else
           goto handle_unusual;
@@ -400,7 +431,7 @@ const char* CoordinateRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
       // double rx = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 33)) {
-          rx_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          _impl_.rx_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
           ptr += sizeof(double);
         } else
           goto handle_unusual;
@@ -408,7 +439,7 @@ const char* CoordinateRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
       // double ry = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 41)) {
-          ry_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          _impl_.ry_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
           ptr += sizeof(double);
         } else
           goto handle_unusual;
@@ -416,7 +447,7 @@ const char* CoordinateRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
       // bool check = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
-          check_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.check_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -424,7 +455,7 @@ const char* CoordinateRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
       // double delay = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 57)) {
-          delay_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          _impl_.delay_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
           ptr += sizeof(double);
         } else
           goto handle_unusual;
@@ -433,9 +464,9 @@ const char* CoordinateRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
           auto str = _internal_mutable_uuid();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "machine.robot.v1.CoordinateRequest.uuid"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "machine.robot.v1.CoordinateRequest.uuid"));
         } else
           goto handle_unusual;
         continue;
@@ -443,9 +474,9 @@ const char* CoordinateRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 74)) {
           auto str = _internal_mutable_check_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "machine.robot.v1.CoordinateRequest.check_name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "machine.robot.v1.CoordinateRequest.check_name"));
         } else
           goto handle_unusual;
         continue;
@@ -485,7 +516,7 @@ uint8_t* CoordinateRequest::_InternalSerialize(
   memcpy(&raw_x, &tmp_x, sizeof(tmp_x));
   if (raw_x != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(1, this->_internal_x(), target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(1, this->_internal_x(), target);
   }
 
   // double y = 2;
@@ -495,7 +526,7 @@ uint8_t* CoordinateRequest::_InternalSerialize(
   memcpy(&raw_y, &tmp_y, sizeof(tmp_y));
   if (raw_y != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(2, this->_internal_y(), target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(2, this->_internal_y(), target);
   }
 
   // double z = 3;
@@ -505,7 +536,7 @@ uint8_t* CoordinateRequest::_InternalSerialize(
   memcpy(&raw_z, &tmp_z, sizeof(tmp_z));
   if (raw_z != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(3, this->_internal_z(), target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(3, this->_internal_z(), target);
   }
 
   // double rx = 4;
@@ -515,7 +546,7 @@ uint8_t* CoordinateRequest::_InternalSerialize(
   memcpy(&raw_rx, &tmp_rx, sizeof(tmp_rx));
   if (raw_rx != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(4, this->_internal_rx(), target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(4, this->_internal_rx(), target);
   }
 
   // double ry = 5;
@@ -525,13 +556,13 @@ uint8_t* CoordinateRequest::_InternalSerialize(
   memcpy(&raw_ry, &tmp_ry, sizeof(tmp_ry));
   if (raw_ry != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(5, this->_internal_ry(), target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(5, this->_internal_ry(), target);
   }
 
   // bool check = 6;
   if (this->_internal_check() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_check(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(6, this->_internal_check(), target);
   }
 
   // double delay = 7;
@@ -541,7 +572,7 @@ uint8_t* CoordinateRequest::_InternalSerialize(
   memcpy(&raw_delay, &tmp_delay, sizeof(tmp_delay));
   if (raw_delay != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(7, this->_internal_delay(), target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(7, this->_internal_delay(), target);
   }
 
   // string uuid = 8;
@@ -565,7 +596,7 @@ uint8_t* CoordinateRequest::_InternalSerialize(
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:machine.robot.v1.CoordinateRequest)
@@ -653,80 +684,76 @@ size_t CoordinateRequest::ByteSizeLong() const {
     total_size += 1 + 1;
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CoordinateRequest::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     CoordinateRequest::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CoordinateRequest::GetClassData() const { return &_class_data_; }
 
-void CoordinateRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<CoordinateRequest *>(to)->MergeFrom(
-      static_cast<const CoordinateRequest &>(from));
-}
 
-
-void CoordinateRequest::MergeFrom(const CoordinateRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:machine.robot.v1.CoordinateRequest)
-  GOOGLE_DCHECK_NE(&from, this);
+void CoordinateRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CoordinateRequest*>(&to_msg);
+  auto& from = static_cast<const CoordinateRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:machine.robot.v1.CoordinateRequest)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (!from._internal_uuid().empty()) {
-    _internal_set_uuid(from._internal_uuid());
+    _this->_internal_set_uuid(from._internal_uuid());
   }
   if (!from._internal_check_name().empty()) {
-    _internal_set_check_name(from._internal_check_name());
+    _this->_internal_set_check_name(from._internal_check_name());
   }
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
   double tmp_x = from._internal_x();
   uint64_t raw_x;
   memcpy(&raw_x, &tmp_x, sizeof(tmp_x));
   if (raw_x != 0) {
-    _internal_set_x(from._internal_x());
+    _this->_internal_set_x(from._internal_x());
   }
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
   double tmp_y = from._internal_y();
   uint64_t raw_y;
   memcpy(&raw_y, &tmp_y, sizeof(tmp_y));
   if (raw_y != 0) {
-    _internal_set_y(from._internal_y());
+    _this->_internal_set_y(from._internal_y());
   }
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
   double tmp_z = from._internal_z();
   uint64_t raw_z;
   memcpy(&raw_z, &tmp_z, sizeof(tmp_z));
   if (raw_z != 0) {
-    _internal_set_z(from._internal_z());
+    _this->_internal_set_z(from._internal_z());
   }
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
   double tmp_rx = from._internal_rx();
   uint64_t raw_rx;
   memcpy(&raw_rx, &tmp_rx, sizeof(tmp_rx));
   if (raw_rx != 0) {
-    _internal_set_rx(from._internal_rx());
+    _this->_internal_set_rx(from._internal_rx());
   }
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
   double tmp_ry = from._internal_ry();
   uint64_t raw_ry;
   memcpy(&raw_ry, &tmp_ry, sizeof(tmp_ry));
   if (raw_ry != 0) {
-    _internal_set_ry(from._internal_ry());
+    _this->_internal_set_ry(from._internal_ry());
   }
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
   double tmp_delay = from._internal_delay();
   uint64_t raw_delay;
   memcpy(&raw_delay, &tmp_delay, sizeof(tmp_delay));
   if (raw_delay != 0) {
-    _internal_set_delay(from._internal_delay());
+    _this->_internal_set_delay(from._internal_delay());
   }
   if (from._internal_check() != 0) {
-    _internal_set_check(from._internal_check());
+    _this->_internal_set_check(from._internal_check());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void CoordinateRequest::CopyFrom(const CoordinateRequest& from) {
@@ -746,25 +773,23 @@ void CoordinateRequest::InternalSwap(CoordinateRequest* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &uuid_, lhs_arena,
-      &other->uuid_, rhs_arena
+      &_impl_.uuid_, lhs_arena,
+      &other->_impl_.uuid_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &check_name_, lhs_arena,
-      &other->check_name_, rhs_arena
+      &_impl_.check_name_, lhs_arena,
+      &other->_impl_.check_name_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CoordinateRequest, check_)
-      + sizeof(CoordinateRequest::check_)
-      - PROTOBUF_FIELD_OFFSET(CoordinateRequest, x_)>(
-          reinterpret_cast<char*>(&x_),
-          reinterpret_cast<char*>(&other->x_));
+      PROTOBUF_FIELD_OFFSET(CoordinateRequest, _impl_.check_)
+      + sizeof(CoordinateRequest::_impl_.check_)
+      - PROTOBUF_FIELD_OFFSET(CoordinateRequest, _impl_.x_)>(
+          reinterpret_cast<char*>(&_impl_.x_),
+          reinterpret_cast<char*>(&other->_impl_.x_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CoordinateRequest::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_robot_2eproto_getter, &descriptor_table_robot_2eproto_once,
       file_level_metadata_robot_2eproto[0]);
 }
@@ -778,42 +803,46 @@ class CoordinateReply::_Internal {
 CoordinateReply::CoordinateReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:machine.robot.v1.CoordinateReply)
 }
 CoordinateReply::CoordinateReply(const CoordinateReply& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CoordinateReply* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.status_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  status_ = from.status_;
+  _this->_impl_.status_ = from._impl_.status_;
   // @@protoc_insertion_point(copy_constructor:machine.robot.v1.CoordinateReply)
 }
 
-inline void CoordinateReply::SharedCtor() {
-status_ = false;
+inline void CoordinateReply::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.status_){false}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 CoordinateReply::~CoordinateReply() {
   // @@protoc_insertion_point(destructor:machine.robot.v1.CoordinateReply)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void CoordinateReply::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void CoordinateReply::ArenaDtor(void* object) {
-  CoordinateReply* _this = reinterpret_cast< CoordinateReply* >(object);
-  (void)_this;
-}
-void CoordinateReply::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void CoordinateReply::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void CoordinateReply::Clear() {
@@ -822,20 +851,20 @@ void CoordinateReply::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  status_ = false;
+  _impl_.status_ = false;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* CoordinateReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* CoordinateReply::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // bool status = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          status_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.status_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -872,11 +901,11 @@ uint8_t* CoordinateReply::_InternalSerialize(
   // bool status = 1;
   if (this->_internal_status() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_status(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(1, this->_internal_status(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:machine.robot.v1.CoordinateReply)
@@ -896,32 +925,28 @@ size_t CoordinateReply::ByteSizeLong() const {
     total_size += 1 + 1;
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CoordinateReply::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     CoordinateReply::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CoordinateReply::GetClassData() const { return &_class_data_; }
 
-void CoordinateReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<CoordinateReply *>(to)->MergeFrom(
-      static_cast<const CoordinateReply &>(from));
-}
 
-
-void CoordinateReply::MergeFrom(const CoordinateReply& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:machine.robot.v1.CoordinateReply)
-  GOOGLE_DCHECK_NE(&from, this);
+void CoordinateReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CoordinateReply*>(&to_msg);
+  auto& from = static_cast<const CoordinateReply&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:machine.robot.v1.CoordinateReply)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_status() != 0) {
-    _internal_set_status(from._internal_status());
+    _this->_internal_set_status(from._internal_status());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void CoordinateReply::CopyFrom(const CoordinateReply& from) {
@@ -938,11 +963,11 @@ bool CoordinateReply::IsInitialized() const {
 void CoordinateReply::InternalSwap(CoordinateReply* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(status_, other->status_);
+  swap(_impl_.status_, other->_impl_.status_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CoordinateReply::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_robot_2eproto_getter, &descriptor_table_robot_2eproto_once,
       file_level_metadata_robot_2eproto[1]);
 }
@@ -956,53 +981,58 @@ class ZeroRequest::_Internal {
 ZeroRequest::ZeroRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:machine.robot.v1.ZeroRequest)
 }
 ZeroRequest::ZeroRequest(const ZeroRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ZeroRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.uuid_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  uuid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.uuid_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    uuid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+    _impl_.uuid_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_uuid().empty()) {
-    uuid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_uuid(), 
-      GetArenaForAllocation());
+    _this->_impl_.uuid_.Set(from._internal_uuid(), 
+      _this->GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:machine.robot.v1.ZeroRequest)
 }
 
-inline void ZeroRequest::SharedCtor() {
-uuid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  uuid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+inline void ZeroRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.uuid_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.uuid_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.uuid_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 ZeroRequest::~ZeroRequest() {
   // @@protoc_insertion_point(destructor:machine.robot.v1.ZeroRequest)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void ZeroRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  uuid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.uuid_.Destroy();
 }
 
-void ZeroRequest::ArenaDtor(void* object) {
-  ZeroRequest* _this = reinterpret_cast< ZeroRequest* >(object);
-  (void)_this;
-}
-void ZeroRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ZeroRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void ZeroRequest::Clear() {
@@ -1011,23 +1041,23 @@ void ZeroRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  uuid_.ClearToEmpty();
+  _impl_.uuid_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ZeroRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ZeroRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string uuid = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
           auto str = _internal_mutable_uuid();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "machine.robot.v1.ZeroRequest.uuid"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "machine.robot.v1.ZeroRequest.uuid"));
         } else
           goto handle_unusual;
         continue;
@@ -1071,7 +1101,7 @@ uint8_t* ZeroRequest::_InternalSerialize(
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:machine.robot.v1.ZeroRequest)
@@ -1093,32 +1123,28 @@ size_t ZeroRequest::ByteSizeLong() const {
         this->_internal_uuid());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ZeroRequest::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     ZeroRequest::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ZeroRequest::GetClassData() const { return &_class_data_; }
 
-void ZeroRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<ZeroRequest *>(to)->MergeFrom(
-      static_cast<const ZeroRequest &>(from));
-}
 
-
-void ZeroRequest::MergeFrom(const ZeroRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:machine.robot.v1.ZeroRequest)
-  GOOGLE_DCHECK_NE(&from, this);
+void ZeroRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ZeroRequest*>(&to_msg);
+  auto& from = static_cast<const ZeroRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:machine.robot.v1.ZeroRequest)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (!from._internal_uuid().empty()) {
-    _internal_set_uuid(from._internal_uuid());
+    _this->_internal_set_uuid(from._internal_uuid());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ZeroRequest::CopyFrom(const ZeroRequest& from) {
@@ -1138,14 +1164,13 @@ void ZeroRequest::InternalSwap(ZeroRequest* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &uuid_, lhs_arena,
-      &other->uuid_, rhs_arena
+      &_impl_.uuid_, lhs_arena,
+      &other->_impl_.uuid_, rhs_arena
   );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ZeroRequest::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_robot_2eproto_getter, &descriptor_table_robot_2eproto_once,
       file_level_metadata_robot_2eproto[2]);
 }
@@ -1159,42 +1184,46 @@ class ZeroReply::_Internal {
 ZeroReply::ZeroReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:machine.robot.v1.ZeroReply)
 }
 ZeroReply::ZeroReply(const ZeroReply& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ZeroReply* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.status_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  status_ = from.status_;
+  _this->_impl_.status_ = from._impl_.status_;
   // @@protoc_insertion_point(copy_constructor:machine.robot.v1.ZeroReply)
 }
 
-inline void ZeroReply::SharedCtor() {
-status_ = false;
+inline void ZeroReply::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.status_){false}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 ZeroReply::~ZeroReply() {
   // @@protoc_insertion_point(destructor:machine.robot.v1.ZeroReply)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void ZeroReply::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ZeroReply::ArenaDtor(void* object) {
-  ZeroReply* _this = reinterpret_cast< ZeroReply* >(object);
-  (void)_this;
-}
-void ZeroReply::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ZeroReply::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void ZeroReply::Clear() {
@@ -1203,20 +1232,20 @@ void ZeroReply::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  status_ = false;
+  _impl_.status_ = false;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ZeroReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ZeroReply::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // bool status = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          status_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.status_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1253,11 +1282,11 @@ uint8_t* ZeroReply::_InternalSerialize(
   // bool status = 1;
   if (this->_internal_status() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_status(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(1, this->_internal_status(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:machine.robot.v1.ZeroReply)
@@ -1277,32 +1306,28 @@ size_t ZeroReply::ByteSizeLong() const {
     total_size += 1 + 1;
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ZeroReply::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     ZeroReply::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ZeroReply::GetClassData() const { return &_class_data_; }
 
-void ZeroReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<ZeroReply *>(to)->MergeFrom(
-      static_cast<const ZeroReply &>(from));
-}
 
-
-void ZeroReply::MergeFrom(const ZeroReply& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:machine.robot.v1.ZeroReply)
-  GOOGLE_DCHECK_NE(&from, this);
+void ZeroReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ZeroReply*>(&to_msg);
+  auto& from = static_cast<const ZeroReply&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:machine.robot.v1.ZeroReply)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_status() != 0) {
-    _internal_set_status(from._internal_status());
+    _this->_internal_set_status(from._internal_status());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ZeroReply::CopyFrom(const ZeroReply& from) {
@@ -1319,11 +1344,11 @@ bool ZeroReply::IsInitialized() const {
 void ZeroReply::InternalSwap(ZeroReply* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(status_, other->status_);
+  swap(_impl_.status_, other->_impl_.status_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ZeroReply::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_robot_2eproto_getter, &descriptor_table_robot_2eproto_once,
       file_level_metadata_robot_2eproto[3]);
 }
@@ -1337,47 +1362,58 @@ class MotorStatus::_Internal {
 MotorStatus::MotorStatus(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:machine.robot.v1.MotorStatus)
 }
 MotorStatus::MotorStatus(const MotorStatus& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  MotorStatus* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.fault_){}
+    , decltype(_impl_.enabling_){}
+    , decltype(_impl_.running_){}
+    , decltype(_impl_.instruction_completion_){}
+    , decltype(_impl_.path_completion_){}
+    , decltype(_impl_.zero_completion_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&fault_, &from.fault_,
-    static_cast<size_t>(reinterpret_cast<char*>(&zero_completion_) -
-    reinterpret_cast<char*>(&fault_)) + sizeof(zero_completion_));
+  ::memcpy(&_impl_.fault_, &from._impl_.fault_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.zero_completion_) -
+    reinterpret_cast<char*>(&_impl_.fault_)) + sizeof(_impl_.zero_completion_));
   // @@protoc_insertion_point(copy_constructor:machine.robot.v1.MotorStatus)
 }
 
-inline void MotorStatus::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&fault_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&zero_completion_) -
-    reinterpret_cast<char*>(&fault_)) + sizeof(zero_completion_));
+inline void MotorStatus::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.fault_){false}
+    , decltype(_impl_.enabling_){false}
+    , decltype(_impl_.running_){false}
+    , decltype(_impl_.instruction_completion_){false}
+    , decltype(_impl_.path_completion_){false}
+    , decltype(_impl_.zero_completion_){false}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 MotorStatus::~MotorStatus() {
   // @@protoc_insertion_point(destructor:machine.robot.v1.MotorStatus)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void MotorStatus::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void MotorStatus::ArenaDtor(void* object) {
-  MotorStatus* _this = reinterpret_cast< MotorStatus* >(object);
-  (void)_this;
-}
-void MotorStatus::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void MotorStatus::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void MotorStatus::Clear() {
@@ -1386,22 +1422,22 @@ void MotorStatus::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&fault_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&zero_completion_) -
-      reinterpret_cast<char*>(&fault_)) + sizeof(zero_completion_));
+  ::memset(&_impl_.fault_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.zero_completion_) -
+      reinterpret_cast<char*>(&_impl_.fault_)) + sizeof(_impl_.zero_completion_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* MotorStatus::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* MotorStatus::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // bool fault = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          fault_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.fault_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1409,7 +1445,7 @@ const char* MotorStatus::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
       // bool enabling = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          enabling_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.enabling_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1417,7 +1453,7 @@ const char* MotorStatus::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
       // bool running = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          running_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.running_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1425,7 +1461,7 @@ const char* MotorStatus::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
       // bool instruction_completion = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
-          instruction_completion_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.instruction_completion_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1433,7 +1469,7 @@ const char* MotorStatus::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
       // bool path_completion = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
-          path_completion_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.path_completion_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1441,7 +1477,7 @@ const char* MotorStatus::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
       // bool zero_completion = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
-          zero_completion_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.zero_completion_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1478,41 +1514,41 @@ uint8_t* MotorStatus::_InternalSerialize(
   // bool fault = 1;
   if (this->_internal_fault() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_fault(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(1, this->_internal_fault(), target);
   }
 
   // bool enabling = 2;
   if (this->_internal_enabling() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_enabling(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_enabling(), target);
   }
 
   // bool running = 3;
   if (this->_internal_running() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_running(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_running(), target);
   }
 
   // bool instruction_completion = 4;
   if (this->_internal_instruction_completion() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_instruction_completion(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(4, this->_internal_instruction_completion(), target);
   }
 
   // bool path_completion = 5;
   if (this->_internal_path_completion() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_path_completion(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(5, this->_internal_path_completion(), target);
   }
 
   // bool zero_completion = 6;
   if (this->_internal_zero_completion() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_zero_completion(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(6, this->_internal_zero_completion(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:machine.robot.v1.MotorStatus)
@@ -1557,47 +1593,43 @@ size_t MotorStatus::ByteSizeLong() const {
     total_size += 1 + 1;
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData MotorStatus::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     MotorStatus::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*MotorStatus::GetClassData() const { return &_class_data_; }
 
-void MotorStatus::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<MotorStatus *>(to)->MergeFrom(
-      static_cast<const MotorStatus &>(from));
-}
 
-
-void MotorStatus::MergeFrom(const MotorStatus& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:machine.robot.v1.MotorStatus)
-  GOOGLE_DCHECK_NE(&from, this);
+void MotorStatus::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<MotorStatus*>(&to_msg);
+  auto& from = static_cast<const MotorStatus&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:machine.robot.v1.MotorStatus)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_fault() != 0) {
-    _internal_set_fault(from._internal_fault());
+    _this->_internal_set_fault(from._internal_fault());
   }
   if (from._internal_enabling() != 0) {
-    _internal_set_enabling(from._internal_enabling());
+    _this->_internal_set_enabling(from._internal_enabling());
   }
   if (from._internal_running() != 0) {
-    _internal_set_running(from._internal_running());
+    _this->_internal_set_running(from._internal_running());
   }
   if (from._internal_instruction_completion() != 0) {
-    _internal_set_instruction_completion(from._internal_instruction_completion());
+    _this->_internal_set_instruction_completion(from._internal_instruction_completion());
   }
   if (from._internal_path_completion() != 0) {
-    _internal_set_path_completion(from._internal_path_completion());
+    _this->_internal_set_path_completion(from._internal_path_completion());
   }
   if (from._internal_zero_completion() != 0) {
-    _internal_set_zero_completion(from._internal_zero_completion());
+    _this->_internal_set_zero_completion(from._internal_zero_completion());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void MotorStatus::CopyFrom(const MotorStatus& from) {
@@ -1615,15 +1647,15 @@ void MotorStatus::InternalSwap(MotorStatus* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(MotorStatus, zero_completion_)
-      + sizeof(MotorStatus::zero_completion_)
-      - PROTOBUF_FIELD_OFFSET(MotorStatus, fault_)>(
-          reinterpret_cast<char*>(&fault_),
-          reinterpret_cast<char*>(&other->fault_));
+      PROTOBUF_FIELD_OFFSET(MotorStatus, _impl_.zero_completion_)
+      + sizeof(MotorStatus::_impl_.zero_completion_)
+      - PROTOBUF_FIELD_OFFSET(MotorStatus, _impl_.fault_)>(
+          reinterpret_cast<char*>(&_impl_.fault_),
+          reinterpret_cast<char*>(&other->_impl_.fault_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata MotorStatus::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_robot_2eproto_getter, &descriptor_table_robot_2eproto_once,
       file_level_metadata_robot_2eproto[4]);
 }
@@ -1637,58 +1669,61 @@ class MotorInfo::_Internal {
 
 const ::machine::robot::v1::MotorStatus&
 MotorInfo::_Internal::motor_status(const MotorInfo* msg) {
-  return *msg->motor_status_;
+  return *msg->_impl_.motor_status_;
 }
 MotorInfo::MotorInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:machine.robot.v1.MotorInfo)
 }
 MotorInfo::MotorInfo(const MotorInfo& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  MotorInfo* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.motor_status_){nullptr}
+    , decltype(_impl_.instr_pos_){}
+    , decltype(_impl_.current_pos_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_motor_status()) {
-    motor_status_ = new ::machine::robot::v1::MotorStatus(*from.motor_status_);
-  } else {
-    motor_status_ = nullptr;
+    _this->_impl_.motor_status_ = new ::machine::robot::v1::MotorStatus(*from._impl_.motor_status_);
   }
-  ::memcpy(&instr_pos_, &from.instr_pos_,
-    static_cast<size_t>(reinterpret_cast<char*>(&current_pos_) -
-    reinterpret_cast<char*>(&instr_pos_)) + sizeof(current_pos_));
+  ::memcpy(&_impl_.instr_pos_, &from._impl_.instr_pos_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.current_pos_) -
+    reinterpret_cast<char*>(&_impl_.instr_pos_)) + sizeof(_impl_.current_pos_));
   // @@protoc_insertion_point(copy_constructor:machine.robot.v1.MotorInfo)
 }
 
-inline void MotorInfo::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&motor_status_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&current_pos_) -
-    reinterpret_cast<char*>(&motor_status_)) + sizeof(current_pos_));
+inline void MotorInfo::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.motor_status_){nullptr}
+    , decltype(_impl_.instr_pos_){int64_t{0}}
+    , decltype(_impl_.current_pos_){int64_t{0}}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 MotorInfo::~MotorInfo() {
   // @@protoc_insertion_point(destructor:machine.robot.v1.MotorInfo)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void MotorInfo::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete motor_status_;
+  if (this != internal_default_instance()) delete _impl_.motor_status_;
 }
 
-void MotorInfo::ArenaDtor(void* object) {
-  MotorInfo* _this = reinterpret_cast< MotorInfo* >(object);
-  (void)_this;
-}
-void MotorInfo::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void MotorInfo::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void MotorInfo::Clear() {
@@ -1697,21 +1732,21 @@ void MotorInfo::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && motor_status_ != nullptr) {
-    delete motor_status_;
+  if (GetArenaForAllocation() == nullptr && _impl_.motor_status_ != nullptr) {
+    delete _impl_.motor_status_;
   }
-  motor_status_ = nullptr;
-  ::memset(&instr_pos_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&current_pos_) -
-      reinterpret_cast<char*>(&instr_pos_)) + sizeof(current_pos_));
+  _impl_.motor_status_ = nullptr;
+  ::memset(&_impl_.instr_pos_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.current_pos_) -
+      reinterpret_cast<char*>(&_impl_.instr_pos_)) + sizeof(_impl_.current_pos_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* MotorInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* MotorInfo::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .machine.robot.v1.MotorStatus motor_status = 1;
       case 1:
@@ -1724,7 +1759,7 @@ const char* MotorInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
       // int64 instr_pos = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          instr_pos_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.instr_pos_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1732,7 +1767,7 @@ const char* MotorInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
       // int64 current_pos = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          current_pos_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.current_pos_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1768,26 +1803,25 @@ uint8_t* MotorInfo::_InternalSerialize(
 
   // .machine.robot.v1.MotorStatus motor_status = 1;
   if (this->_internal_has_motor_status()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::motor_status(this), target, stream);
+      InternalWriteMessage(1, _Internal::motor_status(this),
+        _Internal::motor_status(this).GetCachedSize(), target, stream);
   }
 
   // int64 instr_pos = 2;
   if (this->_internal_instr_pos() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_instr_pos(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(2, this->_internal_instr_pos(), target);
   }
 
   // int64 current_pos = 3;
   if (this->_internal_current_pos() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(3, this->_internal_current_pos(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(3, this->_internal_current_pos(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:machine.robot.v1.MotorInfo)
@@ -1806,51 +1840,48 @@ size_t MotorInfo::ByteSizeLong() const {
   if (this->_internal_has_motor_status()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *motor_status_);
+        *_impl_.motor_status_);
   }
 
   // int64 instr_pos = 2;
   if (this->_internal_instr_pos() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_instr_pos());
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_instr_pos());
   }
 
   // int64 current_pos = 3;
   if (this->_internal_current_pos() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_current_pos());
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_current_pos());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData MotorInfo::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     MotorInfo::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*MotorInfo::GetClassData() const { return &_class_data_; }
 
-void MotorInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<MotorInfo *>(to)->MergeFrom(
-      static_cast<const MotorInfo &>(from));
-}
 
-
-void MotorInfo::MergeFrom(const MotorInfo& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:machine.robot.v1.MotorInfo)
-  GOOGLE_DCHECK_NE(&from, this);
+void MotorInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<MotorInfo*>(&to_msg);
+  auto& from = static_cast<const MotorInfo&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:machine.robot.v1.MotorInfo)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_has_motor_status()) {
-    _internal_mutable_motor_status()->::machine::robot::v1::MotorStatus::MergeFrom(from._internal_motor_status());
+    _this->_internal_mutable_motor_status()->::machine::robot::v1::MotorStatus::MergeFrom(
+        from._internal_motor_status());
   }
   if (from._internal_instr_pos() != 0) {
-    _internal_set_instr_pos(from._internal_instr_pos());
+    _this->_internal_set_instr_pos(from._internal_instr_pos());
   }
   if (from._internal_current_pos() != 0) {
-    _internal_set_current_pos(from._internal_current_pos());
+    _this->_internal_set_current_pos(from._internal_current_pos());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void MotorInfo::CopyFrom(const MotorInfo& from) {
@@ -1868,15 +1899,15 @@ void MotorInfo::InternalSwap(MotorInfo* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(MotorInfo, current_pos_)
-      + sizeof(MotorInfo::current_pos_)
-      - PROTOBUF_FIELD_OFFSET(MotorInfo, motor_status_)>(
-          reinterpret_cast<char*>(&motor_status_),
-          reinterpret_cast<char*>(&other->motor_status_));
+      PROTOBUF_FIELD_OFFSET(MotorInfo, _impl_.current_pos_)
+      + sizeof(MotorInfo::_impl_.current_pos_)
+      - PROTOBUF_FIELD_OFFSET(MotorInfo, _impl_.motor_status_)>(
+          reinterpret_cast<char*>(&_impl_.motor_status_),
+          reinterpret_cast<char*>(&other->_impl_.motor_status_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata MotorInfo::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_robot_2eproto_getter, &descriptor_table_robot_2eproto_once,
       file_level_metadata_robot_2eproto[5]);
 }
@@ -1890,53 +1921,58 @@ class MotorInfoRequest::_Internal {
 MotorInfoRequest::MotorInfoRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:machine.robot.v1.MotorInfoRequest)
 }
 MotorInfoRequest::MotorInfoRequest(const MotorInfoRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  MotorInfoRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.uuid_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  uuid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.uuid_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    uuid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+    _impl_.uuid_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_uuid().empty()) {
-    uuid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_uuid(), 
-      GetArenaForAllocation());
+    _this->_impl_.uuid_.Set(from._internal_uuid(), 
+      _this->GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:machine.robot.v1.MotorInfoRequest)
 }
 
-inline void MotorInfoRequest::SharedCtor() {
-uuid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  uuid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+inline void MotorInfoRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.uuid_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.uuid_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.uuid_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 MotorInfoRequest::~MotorInfoRequest() {
   // @@protoc_insertion_point(destructor:machine.robot.v1.MotorInfoRequest)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void MotorInfoRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  uuid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.uuid_.Destroy();
 }
 
-void MotorInfoRequest::ArenaDtor(void* object) {
-  MotorInfoRequest* _this = reinterpret_cast< MotorInfoRequest* >(object);
-  (void)_this;
-}
-void MotorInfoRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void MotorInfoRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void MotorInfoRequest::Clear() {
@@ -1945,23 +1981,23 @@ void MotorInfoRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  uuid_.ClearToEmpty();
+  _impl_.uuid_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* MotorInfoRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* MotorInfoRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string uuid = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
           auto str = _internal_mutable_uuid();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "machine.robot.v1.MotorInfoRequest.uuid"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "machine.robot.v1.MotorInfoRequest.uuid"));
         } else
           goto handle_unusual;
         continue;
@@ -2005,7 +2041,7 @@ uint8_t* MotorInfoRequest::_InternalSerialize(
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:machine.robot.v1.MotorInfoRequest)
@@ -2027,32 +2063,28 @@ size_t MotorInfoRequest::ByteSizeLong() const {
         this->_internal_uuid());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData MotorInfoRequest::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     MotorInfoRequest::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*MotorInfoRequest::GetClassData() const { return &_class_data_; }
 
-void MotorInfoRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<MotorInfoRequest *>(to)->MergeFrom(
-      static_cast<const MotorInfoRequest &>(from));
-}
 
-
-void MotorInfoRequest::MergeFrom(const MotorInfoRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:machine.robot.v1.MotorInfoRequest)
-  GOOGLE_DCHECK_NE(&from, this);
+void MotorInfoRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<MotorInfoRequest*>(&to_msg);
+  auto& from = static_cast<const MotorInfoRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:machine.robot.v1.MotorInfoRequest)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (!from._internal_uuid().empty()) {
-    _internal_set_uuid(from._internal_uuid());
+    _this->_internal_set_uuid(from._internal_uuid());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void MotorInfoRequest::CopyFrom(const MotorInfoRequest& from) {
@@ -2072,14 +2104,13 @@ void MotorInfoRequest::InternalSwap(MotorInfoRequest* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &uuid_, lhs_arena,
-      &other->uuid_, rhs_arena
+      &_impl_.uuid_, lhs_arena,
+      &other->_impl_.uuid_, rhs_arena
   );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata MotorInfoRequest::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_robot_2eproto_getter, &descriptor_table_robot_2eproto_once,
       file_level_metadata_robot_2eproto[6]);
 }
@@ -2092,43 +2123,47 @@ class MotorInfoReply::_Internal {
 
 MotorInfoReply::MotorInfoReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
-  motor_info_(arena) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:machine.robot.v1.MotorInfoReply)
 }
 MotorInfoReply::MotorInfoReply(const MotorInfoReply& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      motor_info_(from.motor_info_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  MotorInfoReply* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.motor_info_){from._impl_.motor_info_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:machine.robot.v1.MotorInfoReply)
 }
 
-inline void MotorInfoReply::SharedCtor() {
+inline void MotorInfoReply::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.motor_info_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 MotorInfoReply::~MotorInfoReply() {
   // @@protoc_insertion_point(destructor:machine.robot.v1.MotorInfoReply)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void MotorInfoReply::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.motor_info_.~RepeatedPtrField();
 }
 
-void MotorInfoReply::ArenaDtor(void* object) {
-  MotorInfoReply* _this = reinterpret_cast< MotorInfoReply* >(object);
-  (void)_this;
-}
-void MotorInfoReply::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void MotorInfoReply::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void MotorInfoReply::Clear() {
@@ -2137,15 +2172,15 @@ void MotorInfoReply::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  motor_info_.Clear();
+  _impl_.motor_info_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* MotorInfoReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* MotorInfoReply::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated .machine.robot.v1.MotorInfo motor_info = 1;
       case 1:
@@ -2190,15 +2225,15 @@ uint8_t* MotorInfoReply::_InternalSerialize(
   (void) cached_has_bits;
 
   // repeated .machine.robot.v1.MotorInfo motor_info = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_motor_info_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_motor_info_size()); i < n; i++) {
+    const auto& repfield = this->_internal_motor_info(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_motor_info(i), target, stream);
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:machine.robot.v1.MotorInfoReply)
@@ -2215,35 +2250,31 @@ size_t MotorInfoReply::ByteSizeLong() const {
 
   // repeated .machine.robot.v1.MotorInfo motor_info = 1;
   total_size += 1UL * this->_internal_motor_info_size();
-  for (const auto& msg : this->motor_info_) {
+  for (const auto& msg : this->_impl_.motor_info_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData MotorInfoReply::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     MotorInfoReply::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*MotorInfoReply::GetClassData() const { return &_class_data_; }
 
-void MotorInfoReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<MotorInfoReply *>(to)->MergeFrom(
-      static_cast<const MotorInfoReply &>(from));
-}
 
-
-void MotorInfoReply::MergeFrom(const MotorInfoReply& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:machine.robot.v1.MotorInfoReply)
-  GOOGLE_DCHECK_NE(&from, this);
+void MotorInfoReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<MotorInfoReply*>(&to_msg);
+  auto& from = static_cast<const MotorInfoReply&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:machine.robot.v1.MotorInfoReply)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  motor_info_.MergeFrom(from.motor_info_);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.motor_info_.MergeFrom(from._impl_.motor_info_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void MotorInfoReply::CopyFrom(const MotorInfoReply& from) {
@@ -2260,11 +2291,11 @@ bool MotorInfoReply::IsInitialized() const {
 void MotorInfoReply::InternalSwap(MotorInfoReply* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  motor_info_.InternalSwap(&other->motor_info_);
+  _impl_.motor_info_.InternalSwap(&other->_impl_.motor_info_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata MotorInfoReply::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_robot_2eproto_getter, &descriptor_table_robot_2eproto_once,
       file_level_metadata_robot_2eproto[7]);
 }
@@ -2274,28 +2305,36 @@ void MotorInfoReply::InternalSwap(MotorInfoReply* other) {
 }  // namespace robot
 }  // namespace machine
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::machine::robot::v1::CoordinateRequest* Arena::CreateMaybeMessage< ::machine::robot::v1::CoordinateRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::machine::robot::v1::CoordinateRequest*
+Arena::CreateMaybeMessage< ::machine::robot::v1::CoordinateRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::machine::robot::v1::CoordinateRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::machine::robot::v1::CoordinateReply* Arena::CreateMaybeMessage< ::machine::robot::v1::CoordinateReply >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::machine::robot::v1::CoordinateReply*
+Arena::CreateMaybeMessage< ::machine::robot::v1::CoordinateReply >(Arena* arena) {
   return Arena::CreateMessageInternal< ::machine::robot::v1::CoordinateReply >(arena);
 }
-template<> PROTOBUF_NOINLINE ::machine::robot::v1::ZeroRequest* Arena::CreateMaybeMessage< ::machine::robot::v1::ZeroRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::machine::robot::v1::ZeroRequest*
+Arena::CreateMaybeMessage< ::machine::robot::v1::ZeroRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::machine::robot::v1::ZeroRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::machine::robot::v1::ZeroReply* Arena::CreateMaybeMessage< ::machine::robot::v1::ZeroReply >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::machine::robot::v1::ZeroReply*
+Arena::CreateMaybeMessage< ::machine::robot::v1::ZeroReply >(Arena* arena) {
   return Arena::CreateMessageInternal< ::machine::robot::v1::ZeroReply >(arena);
 }
-template<> PROTOBUF_NOINLINE ::machine::robot::v1::MotorStatus* Arena::CreateMaybeMessage< ::machine::robot::v1::MotorStatus >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::machine::robot::v1::MotorStatus*
+Arena::CreateMaybeMessage< ::machine::robot::v1::MotorStatus >(Arena* arena) {
   return Arena::CreateMessageInternal< ::machine::robot::v1::MotorStatus >(arena);
 }
-template<> PROTOBUF_NOINLINE ::machine::robot::v1::MotorInfo* Arena::CreateMaybeMessage< ::machine::robot::v1::MotorInfo >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::machine::robot::v1::MotorInfo*
+Arena::CreateMaybeMessage< ::machine::robot::v1::MotorInfo >(Arena* arena) {
   return Arena::CreateMessageInternal< ::machine::robot::v1::MotorInfo >(arena);
 }
-template<> PROTOBUF_NOINLINE ::machine::robot::v1::MotorInfoRequest* Arena::CreateMaybeMessage< ::machine::robot::v1::MotorInfoRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::machine::robot::v1::MotorInfoRequest*
+Arena::CreateMaybeMessage< ::machine::robot::v1::MotorInfoRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::machine::robot::v1::MotorInfoRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::machine::robot::v1::MotorInfoReply* Arena::CreateMaybeMessage< ::machine::robot::v1::MotorInfoReply >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::machine::robot::v1::MotorInfoReply*
+Arena::CreateMaybeMessage< ::machine::robot::v1::MotorInfoReply >(Arena* arena) {
   return Arena::CreateMessageInternal< ::machine::robot::v1::MotorInfoReply >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE

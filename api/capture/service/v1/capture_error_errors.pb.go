@@ -12,6 +12,9 @@ import (
 const _ = errors.SupportPackageIsVersion1
 
 func IsUnknownError(err error) bool {
+	if err == nil {
+		return false
+	}
 	e := errors.FromError(err)
 	return e.Reason == CaptureServiceErrorReason_UNKNOWN_ERROR.String() && e.Code == 500
 }
@@ -21,6 +24,9 @@ func ErrorUnknownError(format string, args ...interface{}) *errors.Error {
 }
 
 func IsReadDeviceError(err error) bool {
+	if err == nil {
+		return false
+	}
 	e := errors.FromError(err)
 	return e.Reason == CaptureServiceErrorReason_READ_DEVICE_ERROR.String() && e.Code == 500
 }
@@ -30,6 +36,9 @@ func ErrorReadDeviceError(format string, args ...interface{}) *errors.Error {
 }
 
 func IsConvertError(err error) bool {
+	if err == nil {
+		return false
+	}
 	e := errors.FromError(err)
 	return e.Reason == CaptureServiceErrorReason_CONVERT_ERROR.String() && e.Code == 500
 }
@@ -39,6 +48,9 @@ func ErrorConvertError(format string, args ...interface{}) *errors.Error {
 }
 
 func IsBinaryError(err error) bool {
+	if err == nil {
+		return false
+	}
 	e := errors.FromError(err)
 	return e.Reason == CaptureServiceErrorReason_BINARY_ERROR.String() && e.Code == 500
 }

@@ -533,6 +533,7 @@
               "type": "object",
               "properties": {
                 "empty": {
+                  "type": "object",
                   "properties": {}
                 }
               }

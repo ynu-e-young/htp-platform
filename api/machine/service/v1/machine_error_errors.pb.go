@@ -12,6 +12,9 @@ import (
 const _ = errors.SupportPackageIsVersion1
 
 func IsUnknownError(err error) bool {
+	if err == nil {
+		return false
+	}
 	e := errors.FromError(err)
 	return e.Reason == MachineServiceErrorReason_UNKNOWN_ERROR.String() && e.Code == 500
 }
@@ -21,6 +24,9 @@ func ErrorUnknownError(format string, args ...interface{}) *errors.Error {
 }
 
 func IsNotFoundError(err error) bool {
+	if err == nil {
+		return false
+	}
 	e := errors.FromError(err)
 	return e.Reason == MachineServiceErrorReason_NOT_FOUND_ERROR.String() && e.Code == 500
 }
@@ -30,6 +36,9 @@ func ErrorNotFoundError(format string, args ...interface{}) *errors.Error {
 }
 
 func IsCreateFailed(err error) bool {
+	if err == nil {
+		return false
+	}
 	e := errors.FromError(err)
 	return e.Reason == MachineServiceErrorReason_CREATE_FAILED.String() && e.Code == 500
 }
@@ -39,6 +48,9 @@ func ErrorCreateFailed(format string, args ...interface{}) *errors.Error {
 }
 
 func IsAddressConflict(err error) bool {
+	if err == nil {
+		return false
+	}
 	e := errors.FromError(err)
 	return e.Reason == MachineServiceErrorReason_ADDRESS_CONFLICT.String() && e.Code == 500
 }
@@ -48,6 +60,9 @@ func ErrorAddressConflict(format string, args ...interface{}) *errors.Error {
 }
 
 func IsUuidGenerateFailed(err error) bool {
+	if err == nil {
+		return false
+	}
 	e := errors.FromError(err)
 	return e.Reason == MachineServiceErrorReason_UUID_GENERATE_FAILED.String() && e.Code == 500
 }
@@ -57,6 +72,9 @@ func ErrorUuidGenerateFailed(format string, args ...interface{}) *errors.Error {
 }
 
 func IsUuidParseFailed(err error) bool {
+	if err == nil {
+		return false
+	}
 	e := errors.FromError(err)
 	return e.Reason == MachineServiceErrorReason_UUID_PARSE_FAILED.String() && e.Code == 500
 }
@@ -66,6 +84,9 @@ func ErrorUuidParseFailed(format string, args ...interface{}) *errors.Error {
 }
 
 func IsCronConflict(err error) bool {
+	if err == nil {
+		return false
+	}
 	e := errors.FromError(err)
 	return e.Reason == MachineServiceErrorReason_CRON_CONFLICT.String() && e.Code == 500
 }
@@ -75,6 +96,9 @@ func ErrorCronConflict(format string, args ...interface{}) *errors.Error {
 }
 
 func IsCronSetupFailed(err error) bool {
+	if err == nil {
+		return false
+	}
 	e := errors.FromError(err)
 	return e.Reason == MachineServiceErrorReason_CRON_SETUP_FAILED.String() && e.Code == 500
 }
