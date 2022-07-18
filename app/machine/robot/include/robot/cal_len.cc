@@ -5,6 +5,7 @@
 #include "cal_len.h"
 
 #include <cmath>
+#include <google/protobuf/util/json_util.h>
 
 CalLen::CalLen() {
   m_dem_size_ = 0;
@@ -138,8 +139,20 @@ void CalLen::MatrixVectMult(double l[4][4], double r[3], double result[3]) {
  * @details 获取末端与绳的各个连接点在物体坐标系上的坐标
  * @return 返回值为 true
  */
-bool CalLen::OnInit(const ::std::shared_ptr<config::PlatInfo>& _plat_info) {
+bool CalLen::OnInit(const ::std::shared_ptr<config::PlatInfo> &_plat_info) {
   int32_t ltmp = _plat_info->ltmp();
+
+  // make sure the repeated field is sorted
+  std::sort(_plat_info->mutable_ancher()->begin(),
+            _plat_info->mutable_ancher()->end(),
+            [](const config::PlatInfo::InternalArray &a, const config::PlatInfo::InternalArray &b) {
+              return a.index() < b.index();
+            });
+  std::sort(_plat_info->mutable_plate()->begin(),
+            _plat_info->mutable_plate()->end(),
+            [](const config::PlatInfo::InternalArray &a, const config::PlatInfo::InternalArray &b) {
+              return a.index() < b.index();
+            });
 
   for (int i = 0; i < ltmp; i++) {
     m_ancher_[i][0] = _plat_info->ancher(i).items(0);
