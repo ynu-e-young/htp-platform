@@ -5,6 +5,7 @@ import (
 	"github.com/google/wire"
 	"gocv.io/x/gocv"
 	"htp-platform/app/capture/service/internal/conf"
+	"time"
 )
 
 // ProviderSet is data providers.
@@ -12,24 +13,36 @@ var ProviderSet = wire.NewSet(NewData, NewVideoCaptures, NewCaptureRepo)
 
 // Data .
 type Data struct {
-	captures []*gocv.VideoCapture
+	cameras  []*gocv.VideoCapture
+	captures []*gocv.Mat
+	stop     <-chan struct{}
 }
 
-func NewData(captures []*gocv.VideoCapture, logger log.Logger) (*Data, func(), error) {
+func NewData(cameras []*gocv.VideoCapture, logger log.Logger) (*Data, func(), error) {
 	helper := log.NewHelper(log.With(logger, "module", "cv-service/data"))
 
-	for i, capture := range captures {
-		if !capture.IsOpened() {
-			helper.Fatalf("recheck device: %d is not open", i)
-		}
+	stop := make(chan struct{})
+	var captures []*gocv.Mat
+	for _, device := range cameras {
+		mat := gocv.NewMat()
+		captures = append(captures, &mat)
+		go func(device *gocv.VideoCapture) {
+			for {
+				device.Read(&mat)
+				time.Sleep(17 * time.Millisecond)
+			}
+		}(device)
 	}
 
 	d := &Data{
+		cameras:  cameras,
 		captures: captures,
+		stop:     stop,
 	}
+
 	return d, func() {
-		for i, capture := range captures {
-			if err := capture.Close(); err != nil {
+		for i, camera := range cameras {
+			if err := camera.Close(); err != nil {
 				helper.Errorf("capture %d close failed with error: %v", i, err)
 			}
 		}
@@ -47,6 +60,5 @@ func NewVideoCaptures(conf *conf.Data, logger log.Logger) []*gocv.VideoCapture {
 		}
 		captures = append(captures, capture)
 	}
-
 	return captures
 }
