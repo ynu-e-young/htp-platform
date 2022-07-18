@@ -16,283 +16,304 @@
 #include <google/protobuf/port_def.inc>
 
 PROTOBUF_PRAGMA_INIT_SEG
+
+namespace _pb = ::PROTOBUF_NAMESPACE_ID;
+namespace _pbi = _pb::internal;
+
 namespace capture {
 namespace service {
 namespace v1 {
-constexpr ReadOneRequest::ReadOneRequest(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : id_(int64_t{0}){}
+PROTOBUF_CONSTEXPR ReadOneRequest::ReadOneRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.id_)*/int64_t{0}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ReadOneRequestDefaultTypeInternal {
-  constexpr ReadOneRequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ReadOneRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ReadOneRequestDefaultTypeInternal() {}
   union {
     ReadOneRequest _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ReadOneRequestDefaultTypeInternal _ReadOneRequest_default_instance_;
-constexpr ReadAllRequest::ReadAllRequest(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ReadOneRequestDefaultTypeInternal _ReadOneRequest_default_instance_;
+PROTOBUF_CONSTEXPR ReadAllRequest::ReadAllRequest(
+    ::_pbi::ConstantInitialized) {}
 struct ReadAllRequestDefaultTypeInternal {
-  constexpr ReadAllRequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ReadAllRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ReadAllRequestDefaultTypeInternal() {}
   union {
     ReadAllRequest _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ReadAllRequestDefaultTypeInternal _ReadAllRequest_default_instance_;
-constexpr ReadOneWithBinaryRequest::ReadOneWithBinaryRequest(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : id_(int64_t{0}){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ReadAllRequestDefaultTypeInternal _ReadAllRequest_default_instance_;
+PROTOBUF_CONSTEXPR ReadOneWithBinaryRequest::ReadOneWithBinaryRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.id_)*/int64_t{0}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ReadOneWithBinaryRequestDefaultTypeInternal {
-  constexpr ReadOneWithBinaryRequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ReadOneWithBinaryRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ReadOneWithBinaryRequestDefaultTypeInternal() {}
   union {
     ReadOneWithBinaryRequest _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ReadOneWithBinaryRequestDefaultTypeInternal _ReadOneWithBinaryRequest_default_instance_;
-constexpr ReadOneWithBinaryAndSrcRequest::ReadOneWithBinaryAndSrcRequest(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : id_(int64_t{0}){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ReadOneWithBinaryRequestDefaultTypeInternal _ReadOneWithBinaryRequest_default_instance_;
+PROTOBUF_CONSTEXPR ReadOneWithBinaryAndSrcRequest::ReadOneWithBinaryAndSrcRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.id_)*/int64_t{0}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ReadOneWithBinaryAndSrcRequestDefaultTypeInternal {
-  constexpr ReadOneWithBinaryAndSrcRequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ReadOneWithBinaryAndSrcRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ReadOneWithBinaryAndSrcRequestDefaultTypeInternal() {}
   union {
     ReadOneWithBinaryAndSrcRequest _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ReadOneWithBinaryAndSrcRequestDefaultTypeInternal _ReadOneWithBinaryAndSrcRequest_default_instance_;
-constexpr ReadAllWithBinaryRequest::ReadAllWithBinaryRequest(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ReadOneWithBinaryAndSrcRequestDefaultTypeInternal _ReadOneWithBinaryAndSrcRequest_default_instance_;
+PROTOBUF_CONSTEXPR ReadAllWithBinaryRequest::ReadAllWithBinaryRequest(
+    ::_pbi::ConstantInitialized) {}
 struct ReadAllWithBinaryRequestDefaultTypeInternal {
-  constexpr ReadAllWithBinaryRequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ReadAllWithBinaryRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ReadAllWithBinaryRequestDefaultTypeInternal() {}
   union {
     ReadAllWithBinaryRequest _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ReadAllWithBinaryRequestDefaultTypeInternal _ReadAllWithBinaryRequest_default_instance_;
-constexpr ReadAllWithBinaryAndSrcRequest::ReadAllWithBinaryAndSrcRequest(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ReadAllWithBinaryRequestDefaultTypeInternal _ReadAllWithBinaryRequest_default_instance_;
+PROTOBUF_CONSTEXPR ReadAllWithBinaryAndSrcRequest::ReadAllWithBinaryAndSrcRequest(
+    ::_pbi::ConstantInitialized) {}
 struct ReadAllWithBinaryAndSrcRequestDefaultTypeInternal {
-  constexpr ReadAllWithBinaryAndSrcRequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ReadAllWithBinaryAndSrcRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ReadAllWithBinaryAndSrcRequestDefaultTypeInternal() {}
   union {
     ReadAllWithBinaryAndSrcRequest _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ReadAllWithBinaryAndSrcRequestDefaultTypeInternal _ReadAllWithBinaryAndSrcRequest_default_instance_;
-constexpr ReadOneWithBinaryAndCalAreaRequest::ReadOneWithBinaryAndCalAreaRequest(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : id_(int64_t{0}){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ReadAllWithBinaryAndSrcRequestDefaultTypeInternal _ReadAllWithBinaryAndSrcRequest_default_instance_;
+PROTOBUF_CONSTEXPR ReadOneWithBinaryAndCalAreaRequest::ReadOneWithBinaryAndCalAreaRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.id_)*/int64_t{0}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ReadOneWithBinaryAndCalAreaRequestDefaultTypeInternal {
-  constexpr ReadOneWithBinaryAndCalAreaRequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ReadOneWithBinaryAndCalAreaRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ReadOneWithBinaryAndCalAreaRequestDefaultTypeInternal() {}
   union {
     ReadOneWithBinaryAndCalAreaRequest _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ReadOneWithBinaryAndCalAreaRequestDefaultTypeInternal _ReadOneWithBinaryAndCalAreaRequest_default_instance_;
-constexpr ReadOneWithBinaryAndCalAreaAndSrcRequest::ReadOneWithBinaryAndCalAreaAndSrcRequest(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : id_(int64_t{0}){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ReadOneWithBinaryAndCalAreaRequestDefaultTypeInternal _ReadOneWithBinaryAndCalAreaRequest_default_instance_;
+PROTOBUF_CONSTEXPR ReadOneWithBinaryAndCalAreaAndSrcRequest::ReadOneWithBinaryAndCalAreaAndSrcRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.id_)*/int64_t{0}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ReadOneWithBinaryAndCalAreaAndSrcRequestDefaultTypeInternal {
-  constexpr ReadOneWithBinaryAndCalAreaAndSrcRequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ReadOneWithBinaryAndCalAreaAndSrcRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ReadOneWithBinaryAndCalAreaAndSrcRequestDefaultTypeInternal() {}
   union {
     ReadOneWithBinaryAndCalAreaAndSrcRequest _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ReadOneWithBinaryAndCalAreaAndSrcRequestDefaultTypeInternal _ReadOneWithBinaryAndCalAreaAndSrcRequest_default_instance_;
-constexpr ReadAllWithBinaryAndCalAreaRequest::ReadAllWithBinaryAndCalAreaRequest(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ReadOneWithBinaryAndCalAreaAndSrcRequestDefaultTypeInternal _ReadOneWithBinaryAndCalAreaAndSrcRequest_default_instance_;
+PROTOBUF_CONSTEXPR ReadAllWithBinaryAndCalAreaRequest::ReadAllWithBinaryAndCalAreaRequest(
+    ::_pbi::ConstantInitialized) {}
 struct ReadAllWithBinaryAndCalAreaRequestDefaultTypeInternal {
-  constexpr ReadAllWithBinaryAndCalAreaRequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ReadAllWithBinaryAndCalAreaRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ReadAllWithBinaryAndCalAreaRequestDefaultTypeInternal() {}
   union {
     ReadAllWithBinaryAndCalAreaRequest _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ReadAllWithBinaryAndCalAreaRequestDefaultTypeInternal _ReadAllWithBinaryAndCalAreaRequest_default_instance_;
-constexpr ReadAllWithBinaryAndCalAreaAndSrcRequest::ReadAllWithBinaryAndCalAreaAndSrcRequest(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ReadAllWithBinaryAndCalAreaRequestDefaultTypeInternal _ReadAllWithBinaryAndCalAreaRequest_default_instance_;
+PROTOBUF_CONSTEXPR ReadAllWithBinaryAndCalAreaAndSrcRequest::ReadAllWithBinaryAndCalAreaAndSrcRequest(
+    ::_pbi::ConstantInitialized) {}
 struct ReadAllWithBinaryAndCalAreaAndSrcRequestDefaultTypeInternal {
-  constexpr ReadAllWithBinaryAndCalAreaAndSrcRequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ReadAllWithBinaryAndCalAreaAndSrcRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ReadAllWithBinaryAndCalAreaAndSrcRequestDefaultTypeInternal() {}
   union {
     ReadAllWithBinaryAndCalAreaAndSrcRequest _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ReadAllWithBinaryAndCalAreaAndSrcRequestDefaultTypeInternal _ReadAllWithBinaryAndCalAreaAndSrcRequest_default_instance_;
-constexpr ImageReply::ImageReply(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : image_(nullptr){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ReadAllWithBinaryAndCalAreaAndSrcRequestDefaultTypeInternal _ReadAllWithBinaryAndCalAreaAndSrcRequest_default_instance_;
+PROTOBUF_CONSTEXPR ImageReply::ImageReply(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.image_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ImageReplyDefaultTypeInternal {
-  constexpr ImageReplyDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ImageReplyDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ImageReplyDefaultTypeInternal() {}
   union {
     ImageReply _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ImageReplyDefaultTypeInternal _ImageReply_default_instance_;
-constexpr ImageWithSrcReply::ImageWithSrcReply(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : image_src_(nullptr){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ImageReplyDefaultTypeInternal _ImageReply_default_instance_;
+PROTOBUF_CONSTEXPR ImageWithSrcReply::ImageWithSrcReply(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.image_src_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ImageWithSrcReplyDefaultTypeInternal {
-  constexpr ImageWithSrcReplyDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ImageWithSrcReplyDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ImageWithSrcReplyDefaultTypeInternal() {}
   union {
     ImageWithSrcReply _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ImageWithSrcReplyDefaultTypeInternal _ImageWithSrcReply_default_instance_;
-constexpr ImagesReply::ImagesReply(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : images_(){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ImageWithSrcReplyDefaultTypeInternal _ImageWithSrcReply_default_instance_;
+PROTOBUF_CONSTEXPR ImagesReply::ImagesReply(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.images_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ImagesReplyDefaultTypeInternal {
-  constexpr ImagesReplyDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ImagesReplyDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ImagesReplyDefaultTypeInternal() {}
   union {
     ImagesReply _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ImagesReplyDefaultTypeInternal _ImagesReply_default_instance_;
-constexpr ImagesWithSrcReply::ImagesWithSrcReply(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : image_src_(){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ImagesReplyDefaultTypeInternal _ImagesReply_default_instance_;
+PROTOBUF_CONSTEXPR ImagesWithSrcReply::ImagesWithSrcReply(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.image_src_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ImagesWithSrcReplyDefaultTypeInternal {
-  constexpr ImagesWithSrcReplyDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ImagesWithSrcReplyDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ImagesWithSrcReplyDefaultTypeInternal() {}
   union {
     ImagesWithSrcReply _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ImagesWithSrcReplyDefaultTypeInternal _ImagesWithSrcReply_default_instance_;
-constexpr ImageWithAreaReply::ImageWithAreaReply(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : image_(nullptr)
-  , pixels_(int64_t{0})
-  , area_(0){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ImagesWithSrcReplyDefaultTypeInternal _ImagesWithSrcReply_default_instance_;
+PROTOBUF_CONSTEXPR ImageWithAreaReply::ImageWithAreaReply(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.image_)*/nullptr
+  , /*decltype(_impl_.pixels_)*/int64_t{0}
+  , /*decltype(_impl_.area_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ImageWithAreaReplyDefaultTypeInternal {
-  constexpr ImageWithAreaReplyDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ImageWithAreaReplyDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ImageWithAreaReplyDefaultTypeInternal() {}
   union {
     ImageWithAreaReply _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ImageWithAreaReplyDefaultTypeInternal _ImageWithAreaReply_default_instance_;
-constexpr ImageWithAreaAndSrcReply::ImageWithAreaAndSrcReply(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : image_src_(nullptr)
-  , pixels_(int64_t{0})
-  , area_(0){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ImageWithAreaReplyDefaultTypeInternal _ImageWithAreaReply_default_instance_;
+PROTOBUF_CONSTEXPR ImageWithAreaAndSrcReply::ImageWithAreaAndSrcReply(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.image_src_)*/nullptr
+  , /*decltype(_impl_.pixels_)*/int64_t{0}
+  , /*decltype(_impl_.area_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ImageWithAreaAndSrcReplyDefaultTypeInternal {
-  constexpr ImageWithAreaAndSrcReplyDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ImageWithAreaAndSrcReplyDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ImageWithAreaAndSrcReplyDefaultTypeInternal() {}
   union {
     ImageWithAreaAndSrcReply _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ImageWithAreaAndSrcReplyDefaultTypeInternal _ImageWithAreaAndSrcReply_default_instance_;
-constexpr ImagesWithAreaReply_Data::ImagesWithAreaReply_Data(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : image_(nullptr)
-  , pixels_(int64_t{0})
-  , area_(0){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ImageWithAreaAndSrcReplyDefaultTypeInternal _ImageWithAreaAndSrcReply_default_instance_;
+PROTOBUF_CONSTEXPR ImagesWithAreaReply_Data::ImagesWithAreaReply_Data(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.image_)*/nullptr
+  , /*decltype(_impl_.pixels_)*/int64_t{0}
+  , /*decltype(_impl_.area_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ImagesWithAreaReply_DataDefaultTypeInternal {
-  constexpr ImagesWithAreaReply_DataDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ImagesWithAreaReply_DataDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ImagesWithAreaReply_DataDefaultTypeInternal() {}
   union {
     ImagesWithAreaReply_Data _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ImagesWithAreaReply_DataDefaultTypeInternal _ImagesWithAreaReply_Data_default_instance_;
-constexpr ImagesWithAreaReply::ImagesWithAreaReply(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : data_(){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ImagesWithAreaReply_DataDefaultTypeInternal _ImagesWithAreaReply_Data_default_instance_;
+PROTOBUF_CONSTEXPR ImagesWithAreaReply::ImagesWithAreaReply(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.data_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ImagesWithAreaReplyDefaultTypeInternal {
-  constexpr ImagesWithAreaReplyDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ImagesWithAreaReplyDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ImagesWithAreaReplyDefaultTypeInternal() {}
   union {
     ImagesWithAreaReply _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ImagesWithAreaReplyDefaultTypeInternal _ImagesWithAreaReply_default_instance_;
-constexpr ImagesWithAreaAndSrcReply_Data::ImagesWithAreaAndSrcReply_Data(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : image_src_(nullptr)
-  , pixels_(int64_t{0})
-  , area_(0){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ImagesWithAreaReplyDefaultTypeInternal _ImagesWithAreaReply_default_instance_;
+PROTOBUF_CONSTEXPR ImagesWithAreaAndSrcReply_Data::ImagesWithAreaAndSrcReply_Data(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.image_src_)*/nullptr
+  , /*decltype(_impl_.pixels_)*/int64_t{0}
+  , /*decltype(_impl_.area_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ImagesWithAreaAndSrcReply_DataDefaultTypeInternal {
-  constexpr ImagesWithAreaAndSrcReply_DataDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ImagesWithAreaAndSrcReply_DataDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ImagesWithAreaAndSrcReply_DataDefaultTypeInternal() {}
   union {
     ImagesWithAreaAndSrcReply_Data _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ImagesWithAreaAndSrcReply_DataDefaultTypeInternal _ImagesWithAreaAndSrcReply_Data_default_instance_;
-constexpr ImagesWithAreaAndSrcReply::ImagesWithAreaAndSrcReply(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : data_(){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ImagesWithAreaAndSrcReply_DataDefaultTypeInternal _ImagesWithAreaAndSrcReply_Data_default_instance_;
+PROTOBUF_CONSTEXPR ImagesWithAreaAndSrcReply::ImagesWithAreaAndSrcReply(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.data_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ImagesWithAreaAndSrcReplyDefaultTypeInternal {
-  constexpr ImagesWithAreaAndSrcReplyDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ImagesWithAreaAndSrcReplyDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ImagesWithAreaAndSrcReplyDefaultTypeInternal() {}
   union {
     ImagesWithAreaAndSrcReply _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ImagesWithAreaAndSrcReplyDefaultTypeInternal _ImagesWithAreaAndSrcReply_default_instance_;
-constexpr Image::Image(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : data_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ImagesWithAreaAndSrcReplyDefaultTypeInternal _ImagesWithAreaAndSrcReply_default_instance_;
+PROTOBUF_CONSTEXPR Image::Image(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.data_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ImageDefaultTypeInternal {
-  constexpr ImageDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ImageDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ImageDefaultTypeInternal() {}
   union {
     Image _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ImageDefaultTypeInternal _Image_default_instance_;
-constexpr ImageSrc::ImageSrc(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : proc_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , src_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ImageDefaultTypeInternal _Image_default_instance_;
+PROTOBUF_CONSTEXPR ImageSrc::ImageSrc(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.proc_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.src_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ImageSrcDefaultTypeInternal {
-  constexpr ImageSrcDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ImageSrcDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ImageSrcDefaultTypeInternal() {}
   union {
     ImageSrc _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ImageSrcDefaultTypeInternal _ImageSrc_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ImageSrcDefaultTypeInternal _ImageSrc_default_instance_;
 }  // namespace v1
 }  // namespace service
 }  // namespace capture
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_capture_2eproto[22];
-static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_capture_2eproto = nullptr;
-static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_capture_2eproto = nullptr;
+static ::_pb::Metadata file_level_metadata_capture_2eproto[22];
+static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_capture_2eproto = nullptr;
+static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_capture_2eproto = nullptr;
 
 const uint32_t TableStruct_capture_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
@@ -301,7 +322,7 @@ const uint32_t TableStruct_capture_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ReadOneRequest, id_),
+  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ReadOneRequest, _impl_.id_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::capture::service::v1::ReadAllRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -314,14 +335,14 @@ const uint32_t TableStruct_capture_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ReadOneWithBinaryRequest, id_),
+  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ReadOneWithBinaryRequest, _impl_.id_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::capture::service::v1::ReadOneWithBinaryAndSrcRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ReadOneWithBinaryAndSrcRequest, id_),
+  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ReadOneWithBinaryAndSrcRequest, _impl_.id_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::capture::service::v1::ReadAllWithBinaryRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -340,14 +361,14 @@ const uint32_t TableStruct_capture_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest, id_),
+  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest, _impl_.id_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest, id_),
+  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest, _impl_.id_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -366,95 +387,95 @@ const uint32_t TableStruct_capture_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImageReply, image_),
+  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImageReply, _impl_.image_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImageWithSrcReply, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImageWithSrcReply, image_src_),
+  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImageWithSrcReply, _impl_.image_src_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImagesReply, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImagesReply, images_),
+  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImagesReply, _impl_.images_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImagesWithSrcReply, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImagesWithSrcReply, image_src_),
+  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImagesWithSrcReply, _impl_.image_src_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImageWithAreaReply, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImageWithAreaReply, image_),
-  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImageWithAreaReply, pixels_),
-  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImageWithAreaReply, area_),
+  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImageWithAreaReply, _impl_.image_),
+  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImageWithAreaReply, _impl_.pixels_),
+  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImageWithAreaReply, _impl_.area_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImageWithAreaAndSrcReply, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImageWithAreaAndSrcReply, image_src_),
-  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImageWithAreaAndSrcReply, pixels_),
-  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImageWithAreaAndSrcReply, area_),
+  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImageWithAreaAndSrcReply, _impl_.image_src_),
+  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImageWithAreaAndSrcReply, _impl_.pixels_),
+  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImageWithAreaAndSrcReply, _impl_.area_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImagesWithAreaReply_Data, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImagesWithAreaReply_Data, image_),
-  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImagesWithAreaReply_Data, pixels_),
-  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImagesWithAreaReply_Data, area_),
+  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImagesWithAreaReply_Data, _impl_.image_),
+  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImagesWithAreaReply_Data, _impl_.pixels_),
+  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImagesWithAreaReply_Data, _impl_.area_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImagesWithAreaReply, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImagesWithAreaReply, data_),
+  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImagesWithAreaReply, _impl_.data_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImagesWithAreaAndSrcReply_Data, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImagesWithAreaAndSrcReply_Data, image_src_),
-  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImagesWithAreaAndSrcReply_Data, pixels_),
-  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImagesWithAreaAndSrcReply_Data, area_),
+  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImagesWithAreaAndSrcReply_Data, _impl_.image_src_),
+  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImagesWithAreaAndSrcReply_Data, _impl_.pixels_),
+  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImagesWithAreaAndSrcReply_Data, _impl_.area_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImagesWithAreaAndSrcReply, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImagesWithAreaAndSrcReply, data_),
+  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImagesWithAreaAndSrcReply, _impl_.data_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::capture::service::v1::Image, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::capture::service::v1::Image, data_),
+  PROTOBUF_FIELD_OFFSET(::capture::service::v1::Image, _impl_.data_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImageSrc, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImageSrc, proc_),
-  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImageSrc, src_),
+  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImageSrc, _impl_.proc_),
+  PROTOBUF_FIELD_OFFSET(::capture::service::v1::ImageSrc, _impl_.src_),
 };
-static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::capture::service::v1::ReadOneRequest)},
   { 7, -1, -1, sizeof(::capture::service::v1::ReadAllRequest)},
   { 13, -1, -1, sizeof(::capture::service::v1::ReadOneWithBinaryRequest)},
@@ -479,29 +500,29 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 150, -1, -1, sizeof(::capture::service::v1::ImageSrc)},
 };
 
-static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::capture::service::v1::_ReadOneRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::capture::service::v1::_ReadAllRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::capture::service::v1::_ReadOneWithBinaryRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::capture::service::v1::_ReadOneWithBinaryAndSrcRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::capture::service::v1::_ReadAllWithBinaryRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::capture::service::v1::_ReadAllWithBinaryAndSrcRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::capture::service::v1::_ReadOneWithBinaryAndCalAreaRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::capture::service::v1::_ReadOneWithBinaryAndCalAreaAndSrcRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::capture::service::v1::_ReadAllWithBinaryAndCalAreaRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::capture::service::v1::_ReadAllWithBinaryAndCalAreaAndSrcRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::capture::service::v1::_ImageReply_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::capture::service::v1::_ImageWithSrcReply_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::capture::service::v1::_ImagesReply_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::capture::service::v1::_ImagesWithSrcReply_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::capture::service::v1::_ImageWithAreaReply_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::capture::service::v1::_ImageWithAreaAndSrcReply_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::capture::service::v1::_ImagesWithAreaReply_Data_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::capture::service::v1::_ImagesWithAreaReply_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::capture::service::v1::_ImagesWithAreaAndSrcReply_Data_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::capture::service::v1::_ImagesWithAreaAndSrcReply_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::capture::service::v1::_Image_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::capture::service::v1::_ImageSrc_default_instance_),
+static const ::_pb::Message* const file_default_instances[] = {
+  &::capture::service::v1::_ReadOneRequest_default_instance_._instance,
+  &::capture::service::v1::_ReadAllRequest_default_instance_._instance,
+  &::capture::service::v1::_ReadOneWithBinaryRequest_default_instance_._instance,
+  &::capture::service::v1::_ReadOneWithBinaryAndSrcRequest_default_instance_._instance,
+  &::capture::service::v1::_ReadAllWithBinaryRequest_default_instance_._instance,
+  &::capture::service::v1::_ReadAllWithBinaryAndSrcRequest_default_instance_._instance,
+  &::capture::service::v1::_ReadOneWithBinaryAndCalAreaRequest_default_instance_._instance,
+  &::capture::service::v1::_ReadOneWithBinaryAndCalAreaAndSrcRequest_default_instance_._instance,
+  &::capture::service::v1::_ReadAllWithBinaryAndCalAreaRequest_default_instance_._instance,
+  &::capture::service::v1::_ReadAllWithBinaryAndCalAreaAndSrcRequest_default_instance_._instance,
+  &::capture::service::v1::_ImageReply_default_instance_._instance,
+  &::capture::service::v1::_ImageWithSrcReply_default_instance_._instance,
+  &::capture::service::v1::_ImagesReply_default_instance_._instance,
+  &::capture::service::v1::_ImagesWithSrcReply_default_instance_._instance,
+  &::capture::service::v1::_ImageWithAreaReply_default_instance_._instance,
+  &::capture::service::v1::_ImageWithAreaAndSrcReply_default_instance_._instance,
+  &::capture::service::v1::_ImagesWithAreaReply_Data_default_instance_._instance,
+  &::capture::service::v1::_ImagesWithAreaReply_default_instance_._instance,
+  &::capture::service::v1::_ImagesWithAreaAndSrcReply_Data_default_instance_._instance,
+  &::capture::service::v1::_ImagesWithAreaAndSrcReply_default_instance_._instance,
+  &::capture::service::v1::_Image_default_instance_._instance,
+  &::capture::service::v1::_ImageSrc_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_capture_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -569,19 +590,21 @@ const char descriptor_table_protodef_capture_2eproto[] PROTOBUF_SECTION_VARIABLE
   "ithAreaAndSrcReply\"\000B\033Z\031api/capture/serv"
   "ice/v1;v1b\006proto3"
   ;
-static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_capture_2eproto_once;
-const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_capture_2eproto = {
-  false, false, 2497, descriptor_table_protodef_capture_2eproto, "capture.proto", 
-  &descriptor_table_capture_2eproto_once, nullptr, 0, 22,
-  schemas, file_default_instances, TableStruct_capture_2eproto::offsets,
-  file_level_metadata_capture_2eproto, file_level_enum_descriptors_capture_2eproto, file_level_service_descriptors_capture_2eproto,
+static ::_pbi::once_flag descriptor_table_capture_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_capture_2eproto = {
+    false, false, 2497, descriptor_table_protodef_capture_2eproto,
+    "capture.proto",
+    &descriptor_table_capture_2eproto_once, nullptr, 0, 22,
+    schemas, file_default_instances, TableStruct_capture_2eproto::offsets,
+    file_level_metadata_capture_2eproto, file_level_enum_descriptors_capture_2eproto,
+    file_level_service_descriptors_capture_2eproto,
 };
-PROTOBUF_ATTRIBUTE_WEAK const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable* descriptor_table_capture_2eproto_getter() {
+PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_capture_2eproto_getter() {
   return &descriptor_table_capture_2eproto;
 }
 
 // Force running AddDescriptors() at dynamic initialization time.
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY static ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptorsRunner dynamic_init_dummy_capture_2eproto(&descriptor_table_capture_2eproto);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_capture_2eproto(&descriptor_table_capture_2eproto);
 namespace capture {
 namespace service {
 namespace v1 {
@@ -595,42 +618,46 @@ class ReadOneRequest::_Internal {
 ReadOneRequest::ReadOneRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:capture.service.v1.ReadOneRequest)
 }
 ReadOneRequest::ReadOneRequest(const ReadOneRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ReadOneRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.id_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  id_ = from.id_;
+  _this->_impl_.id_ = from._impl_.id_;
   // @@protoc_insertion_point(copy_constructor:capture.service.v1.ReadOneRequest)
 }
 
-inline void ReadOneRequest::SharedCtor() {
-id_ = int64_t{0};
+inline void ReadOneRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.id_){int64_t{0}}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 ReadOneRequest::~ReadOneRequest() {
   // @@protoc_insertion_point(destructor:capture.service.v1.ReadOneRequest)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void ReadOneRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ReadOneRequest::ArenaDtor(void* object) {
-  ReadOneRequest* _this = reinterpret_cast< ReadOneRequest* >(object);
-  (void)_this;
-}
-void ReadOneRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ReadOneRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void ReadOneRequest::Clear() {
@@ -639,20 +666,20 @@ void ReadOneRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  id_ = int64_t{0};
+  _impl_.id_ = int64_t{0};
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ReadOneRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ReadOneRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int64 id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -689,11 +716,11 @@ uint8_t* ReadOneRequest::_InternalSerialize(
   // int64 id = 1;
   if (this->_internal_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(1, this->_internal_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:capture.service.v1.ReadOneRequest)
@@ -710,35 +737,31 @@ size_t ReadOneRequest::ByteSizeLong() const {
 
   // int64 id = 1;
   if (this->_internal_id() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_id());
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_id());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ReadOneRequest::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     ReadOneRequest::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ReadOneRequest::GetClassData() const { return &_class_data_; }
 
-void ReadOneRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<ReadOneRequest *>(to)->MergeFrom(
-      static_cast<const ReadOneRequest &>(from));
-}
 
-
-void ReadOneRequest::MergeFrom(const ReadOneRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ReadOneRequest)
-  GOOGLE_DCHECK_NE(&from, this);
+void ReadOneRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ReadOneRequest*>(&to_msg);
+  auto& from = static_cast<const ReadOneRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ReadOneRequest)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_id() != 0) {
-    _internal_set_id(from._internal_id());
+    _this->_internal_set_id(from._internal_id());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ReadOneRequest::CopyFrom(const ReadOneRequest& from) {
@@ -755,11 +778,11 @@ bool ReadOneRequest::IsInitialized() const {
 void ReadOneRequest::InternalSwap(ReadOneRequest* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(id_, other->id_);
+  swap(_impl_.id_, other->_impl_.id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ReadOneRequest::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_capture_2eproto_getter, &descriptor_table_capture_2eproto_once,
       file_level_metadata_capture_2eproto[0]);
 }
@@ -777,6 +800,7 @@ ReadAllRequest::ReadAllRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 }
 ReadAllRequest::ReadAllRequest(const ReadAllRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  ReadAllRequest* const _this = this; (void)_this;
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:capture.service.v1.ReadAllRequest)
 }
@@ -798,7 +822,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ReadAllRequest::GetClassData()
 
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ReadAllRequest::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_capture_2eproto_getter, &descriptor_table_capture_2eproto_once,
       file_level_metadata_capture_2eproto[1]);
 }
@@ -812,42 +836,46 @@ class ReadOneWithBinaryRequest::_Internal {
 ReadOneWithBinaryRequest::ReadOneWithBinaryRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:capture.service.v1.ReadOneWithBinaryRequest)
 }
 ReadOneWithBinaryRequest::ReadOneWithBinaryRequest(const ReadOneWithBinaryRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ReadOneWithBinaryRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.id_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  id_ = from.id_;
+  _this->_impl_.id_ = from._impl_.id_;
   // @@protoc_insertion_point(copy_constructor:capture.service.v1.ReadOneWithBinaryRequest)
 }
 
-inline void ReadOneWithBinaryRequest::SharedCtor() {
-id_ = int64_t{0};
+inline void ReadOneWithBinaryRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.id_){int64_t{0}}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 ReadOneWithBinaryRequest::~ReadOneWithBinaryRequest() {
   // @@protoc_insertion_point(destructor:capture.service.v1.ReadOneWithBinaryRequest)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void ReadOneWithBinaryRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ReadOneWithBinaryRequest::ArenaDtor(void* object) {
-  ReadOneWithBinaryRequest* _this = reinterpret_cast< ReadOneWithBinaryRequest* >(object);
-  (void)_this;
-}
-void ReadOneWithBinaryRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ReadOneWithBinaryRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void ReadOneWithBinaryRequest::Clear() {
@@ -856,20 +884,20 @@ void ReadOneWithBinaryRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  id_ = int64_t{0};
+  _impl_.id_ = int64_t{0};
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ReadOneWithBinaryRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ReadOneWithBinaryRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int64 id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -906,11 +934,11 @@ uint8_t* ReadOneWithBinaryRequest::_InternalSerialize(
   // int64 id = 1;
   if (this->_internal_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(1, this->_internal_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:capture.service.v1.ReadOneWithBinaryRequest)
@@ -927,35 +955,31 @@ size_t ReadOneWithBinaryRequest::ByteSizeLong() const {
 
   // int64 id = 1;
   if (this->_internal_id() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_id());
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_id());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ReadOneWithBinaryRequest::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     ReadOneWithBinaryRequest::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ReadOneWithBinaryRequest::GetClassData() const { return &_class_data_; }
 
-void ReadOneWithBinaryRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<ReadOneWithBinaryRequest *>(to)->MergeFrom(
-      static_cast<const ReadOneWithBinaryRequest &>(from));
-}
 
-
-void ReadOneWithBinaryRequest::MergeFrom(const ReadOneWithBinaryRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ReadOneWithBinaryRequest)
-  GOOGLE_DCHECK_NE(&from, this);
+void ReadOneWithBinaryRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ReadOneWithBinaryRequest*>(&to_msg);
+  auto& from = static_cast<const ReadOneWithBinaryRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ReadOneWithBinaryRequest)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_id() != 0) {
-    _internal_set_id(from._internal_id());
+    _this->_internal_set_id(from._internal_id());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ReadOneWithBinaryRequest::CopyFrom(const ReadOneWithBinaryRequest& from) {
@@ -972,11 +996,11 @@ bool ReadOneWithBinaryRequest::IsInitialized() const {
 void ReadOneWithBinaryRequest::InternalSwap(ReadOneWithBinaryRequest* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(id_, other->id_);
+  swap(_impl_.id_, other->_impl_.id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ReadOneWithBinaryRequest::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_capture_2eproto_getter, &descriptor_table_capture_2eproto_once,
       file_level_metadata_capture_2eproto[2]);
 }
@@ -990,42 +1014,46 @@ class ReadOneWithBinaryAndSrcRequest::_Internal {
 ReadOneWithBinaryAndSrcRequest::ReadOneWithBinaryAndSrcRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:capture.service.v1.ReadOneWithBinaryAndSrcRequest)
 }
 ReadOneWithBinaryAndSrcRequest::ReadOneWithBinaryAndSrcRequest(const ReadOneWithBinaryAndSrcRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ReadOneWithBinaryAndSrcRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.id_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  id_ = from.id_;
+  _this->_impl_.id_ = from._impl_.id_;
   // @@protoc_insertion_point(copy_constructor:capture.service.v1.ReadOneWithBinaryAndSrcRequest)
 }
 
-inline void ReadOneWithBinaryAndSrcRequest::SharedCtor() {
-id_ = int64_t{0};
+inline void ReadOneWithBinaryAndSrcRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.id_){int64_t{0}}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 ReadOneWithBinaryAndSrcRequest::~ReadOneWithBinaryAndSrcRequest() {
   // @@protoc_insertion_point(destructor:capture.service.v1.ReadOneWithBinaryAndSrcRequest)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void ReadOneWithBinaryAndSrcRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ReadOneWithBinaryAndSrcRequest::ArenaDtor(void* object) {
-  ReadOneWithBinaryAndSrcRequest* _this = reinterpret_cast< ReadOneWithBinaryAndSrcRequest* >(object);
-  (void)_this;
-}
-void ReadOneWithBinaryAndSrcRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ReadOneWithBinaryAndSrcRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void ReadOneWithBinaryAndSrcRequest::Clear() {
@@ -1034,20 +1062,20 @@ void ReadOneWithBinaryAndSrcRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  id_ = int64_t{0};
+  _impl_.id_ = int64_t{0};
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ReadOneWithBinaryAndSrcRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ReadOneWithBinaryAndSrcRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int64 id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1084,11 +1112,11 @@ uint8_t* ReadOneWithBinaryAndSrcRequest::_InternalSerialize(
   // int64 id = 1;
   if (this->_internal_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(1, this->_internal_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:capture.service.v1.ReadOneWithBinaryAndSrcRequest)
@@ -1105,35 +1133,31 @@ size_t ReadOneWithBinaryAndSrcRequest::ByteSizeLong() const {
 
   // int64 id = 1;
   if (this->_internal_id() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_id());
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_id());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ReadOneWithBinaryAndSrcRequest::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     ReadOneWithBinaryAndSrcRequest::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ReadOneWithBinaryAndSrcRequest::GetClassData() const { return &_class_data_; }
 
-void ReadOneWithBinaryAndSrcRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<ReadOneWithBinaryAndSrcRequest *>(to)->MergeFrom(
-      static_cast<const ReadOneWithBinaryAndSrcRequest &>(from));
-}
 
-
-void ReadOneWithBinaryAndSrcRequest::MergeFrom(const ReadOneWithBinaryAndSrcRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ReadOneWithBinaryAndSrcRequest)
-  GOOGLE_DCHECK_NE(&from, this);
+void ReadOneWithBinaryAndSrcRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ReadOneWithBinaryAndSrcRequest*>(&to_msg);
+  auto& from = static_cast<const ReadOneWithBinaryAndSrcRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ReadOneWithBinaryAndSrcRequest)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_id() != 0) {
-    _internal_set_id(from._internal_id());
+    _this->_internal_set_id(from._internal_id());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ReadOneWithBinaryAndSrcRequest::CopyFrom(const ReadOneWithBinaryAndSrcRequest& from) {
@@ -1150,11 +1174,11 @@ bool ReadOneWithBinaryAndSrcRequest::IsInitialized() const {
 void ReadOneWithBinaryAndSrcRequest::InternalSwap(ReadOneWithBinaryAndSrcRequest* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(id_, other->id_);
+  swap(_impl_.id_, other->_impl_.id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ReadOneWithBinaryAndSrcRequest::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_capture_2eproto_getter, &descriptor_table_capture_2eproto_once,
       file_level_metadata_capture_2eproto[3]);
 }
@@ -1172,6 +1196,7 @@ ReadAllWithBinaryRequest::ReadAllWithBinaryRequest(::PROTOBUF_NAMESPACE_ID::Aren
 }
 ReadAllWithBinaryRequest::ReadAllWithBinaryRequest(const ReadAllWithBinaryRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  ReadAllWithBinaryRequest* const _this = this; (void)_this;
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:capture.service.v1.ReadAllWithBinaryRequest)
 }
@@ -1193,7 +1218,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ReadAllWithBinaryRequest::GetC
 
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ReadAllWithBinaryRequest::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_capture_2eproto_getter, &descriptor_table_capture_2eproto_once,
       file_level_metadata_capture_2eproto[4]);
 }
@@ -1211,6 +1236,7 @@ ReadAllWithBinaryAndSrcRequest::ReadAllWithBinaryAndSrcRequest(::PROTOBUF_NAMESP
 }
 ReadAllWithBinaryAndSrcRequest::ReadAllWithBinaryAndSrcRequest(const ReadAllWithBinaryAndSrcRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  ReadAllWithBinaryAndSrcRequest* const _this = this; (void)_this;
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:capture.service.v1.ReadAllWithBinaryAndSrcRequest)
 }
@@ -1232,7 +1258,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ReadAllWithBinaryAndSrcRequest
 
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ReadAllWithBinaryAndSrcRequest::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_capture_2eproto_getter, &descriptor_table_capture_2eproto_once,
       file_level_metadata_capture_2eproto[5]);
 }
@@ -1246,42 +1272,46 @@ class ReadOneWithBinaryAndCalAreaRequest::_Internal {
 ReadOneWithBinaryAndCalAreaRequest::ReadOneWithBinaryAndCalAreaRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:capture.service.v1.ReadOneWithBinaryAndCalAreaRequest)
 }
 ReadOneWithBinaryAndCalAreaRequest::ReadOneWithBinaryAndCalAreaRequest(const ReadOneWithBinaryAndCalAreaRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ReadOneWithBinaryAndCalAreaRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.id_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  id_ = from.id_;
+  _this->_impl_.id_ = from._impl_.id_;
   // @@protoc_insertion_point(copy_constructor:capture.service.v1.ReadOneWithBinaryAndCalAreaRequest)
 }
 
-inline void ReadOneWithBinaryAndCalAreaRequest::SharedCtor() {
-id_ = int64_t{0};
+inline void ReadOneWithBinaryAndCalAreaRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.id_){int64_t{0}}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 ReadOneWithBinaryAndCalAreaRequest::~ReadOneWithBinaryAndCalAreaRequest() {
   // @@protoc_insertion_point(destructor:capture.service.v1.ReadOneWithBinaryAndCalAreaRequest)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void ReadOneWithBinaryAndCalAreaRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ReadOneWithBinaryAndCalAreaRequest::ArenaDtor(void* object) {
-  ReadOneWithBinaryAndCalAreaRequest* _this = reinterpret_cast< ReadOneWithBinaryAndCalAreaRequest* >(object);
-  (void)_this;
-}
-void ReadOneWithBinaryAndCalAreaRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ReadOneWithBinaryAndCalAreaRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void ReadOneWithBinaryAndCalAreaRequest::Clear() {
@@ -1290,20 +1320,20 @@ void ReadOneWithBinaryAndCalAreaRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  id_ = int64_t{0};
+  _impl_.id_ = int64_t{0};
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ReadOneWithBinaryAndCalAreaRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ReadOneWithBinaryAndCalAreaRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int64 id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1340,11 +1370,11 @@ uint8_t* ReadOneWithBinaryAndCalAreaRequest::_InternalSerialize(
   // int64 id = 1;
   if (this->_internal_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(1, this->_internal_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:capture.service.v1.ReadOneWithBinaryAndCalAreaRequest)
@@ -1361,35 +1391,31 @@ size_t ReadOneWithBinaryAndCalAreaRequest::ByteSizeLong() const {
 
   // int64 id = 1;
   if (this->_internal_id() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_id());
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_id());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ReadOneWithBinaryAndCalAreaRequest::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     ReadOneWithBinaryAndCalAreaRequest::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ReadOneWithBinaryAndCalAreaRequest::GetClassData() const { return &_class_data_; }
 
-void ReadOneWithBinaryAndCalAreaRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<ReadOneWithBinaryAndCalAreaRequest *>(to)->MergeFrom(
-      static_cast<const ReadOneWithBinaryAndCalAreaRequest &>(from));
-}
 
-
-void ReadOneWithBinaryAndCalAreaRequest::MergeFrom(const ReadOneWithBinaryAndCalAreaRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ReadOneWithBinaryAndCalAreaRequest)
-  GOOGLE_DCHECK_NE(&from, this);
+void ReadOneWithBinaryAndCalAreaRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ReadOneWithBinaryAndCalAreaRequest*>(&to_msg);
+  auto& from = static_cast<const ReadOneWithBinaryAndCalAreaRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ReadOneWithBinaryAndCalAreaRequest)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_id() != 0) {
-    _internal_set_id(from._internal_id());
+    _this->_internal_set_id(from._internal_id());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ReadOneWithBinaryAndCalAreaRequest::CopyFrom(const ReadOneWithBinaryAndCalAreaRequest& from) {
@@ -1406,11 +1432,11 @@ bool ReadOneWithBinaryAndCalAreaRequest::IsInitialized() const {
 void ReadOneWithBinaryAndCalAreaRequest::InternalSwap(ReadOneWithBinaryAndCalAreaRequest* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(id_, other->id_);
+  swap(_impl_.id_, other->_impl_.id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ReadOneWithBinaryAndCalAreaRequest::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_capture_2eproto_getter, &descriptor_table_capture_2eproto_once,
       file_level_metadata_capture_2eproto[6]);
 }
@@ -1424,42 +1450,46 @@ class ReadOneWithBinaryAndCalAreaAndSrcRequest::_Internal {
 ReadOneWithBinaryAndCalAreaAndSrcRequest::ReadOneWithBinaryAndCalAreaAndSrcRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:capture.service.v1.ReadOneWithBinaryAndCalAreaAndSrcRequest)
 }
 ReadOneWithBinaryAndCalAreaAndSrcRequest::ReadOneWithBinaryAndCalAreaAndSrcRequest(const ReadOneWithBinaryAndCalAreaAndSrcRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ReadOneWithBinaryAndCalAreaAndSrcRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.id_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  id_ = from.id_;
+  _this->_impl_.id_ = from._impl_.id_;
   // @@protoc_insertion_point(copy_constructor:capture.service.v1.ReadOneWithBinaryAndCalAreaAndSrcRequest)
 }
 
-inline void ReadOneWithBinaryAndCalAreaAndSrcRequest::SharedCtor() {
-id_ = int64_t{0};
+inline void ReadOneWithBinaryAndCalAreaAndSrcRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.id_){int64_t{0}}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 ReadOneWithBinaryAndCalAreaAndSrcRequest::~ReadOneWithBinaryAndCalAreaAndSrcRequest() {
   // @@protoc_insertion_point(destructor:capture.service.v1.ReadOneWithBinaryAndCalAreaAndSrcRequest)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void ReadOneWithBinaryAndCalAreaAndSrcRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ReadOneWithBinaryAndCalAreaAndSrcRequest::ArenaDtor(void* object) {
-  ReadOneWithBinaryAndCalAreaAndSrcRequest* _this = reinterpret_cast< ReadOneWithBinaryAndCalAreaAndSrcRequest* >(object);
-  (void)_this;
-}
-void ReadOneWithBinaryAndCalAreaAndSrcRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ReadOneWithBinaryAndCalAreaAndSrcRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void ReadOneWithBinaryAndCalAreaAndSrcRequest::Clear() {
@@ -1468,20 +1498,20 @@ void ReadOneWithBinaryAndCalAreaAndSrcRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  id_ = int64_t{0};
+  _impl_.id_ = int64_t{0};
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ReadOneWithBinaryAndCalAreaAndSrcRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ReadOneWithBinaryAndCalAreaAndSrcRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int64 id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1518,11 +1548,11 @@ uint8_t* ReadOneWithBinaryAndCalAreaAndSrcRequest::_InternalSerialize(
   // int64 id = 1;
   if (this->_internal_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(1, this->_internal_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:capture.service.v1.ReadOneWithBinaryAndCalAreaAndSrcRequest)
@@ -1539,35 +1569,31 @@ size_t ReadOneWithBinaryAndCalAreaAndSrcRequest::ByteSizeLong() const {
 
   // int64 id = 1;
   if (this->_internal_id() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_id());
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_id());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ReadOneWithBinaryAndCalAreaAndSrcRequest::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     ReadOneWithBinaryAndCalAreaAndSrcRequest::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ReadOneWithBinaryAndCalAreaAndSrcRequest::GetClassData() const { return &_class_data_; }
 
-void ReadOneWithBinaryAndCalAreaAndSrcRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<ReadOneWithBinaryAndCalAreaAndSrcRequest *>(to)->MergeFrom(
-      static_cast<const ReadOneWithBinaryAndCalAreaAndSrcRequest &>(from));
-}
 
-
-void ReadOneWithBinaryAndCalAreaAndSrcRequest::MergeFrom(const ReadOneWithBinaryAndCalAreaAndSrcRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ReadOneWithBinaryAndCalAreaAndSrcRequest)
-  GOOGLE_DCHECK_NE(&from, this);
+void ReadOneWithBinaryAndCalAreaAndSrcRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ReadOneWithBinaryAndCalAreaAndSrcRequest*>(&to_msg);
+  auto& from = static_cast<const ReadOneWithBinaryAndCalAreaAndSrcRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ReadOneWithBinaryAndCalAreaAndSrcRequest)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_id() != 0) {
-    _internal_set_id(from._internal_id());
+    _this->_internal_set_id(from._internal_id());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ReadOneWithBinaryAndCalAreaAndSrcRequest::CopyFrom(const ReadOneWithBinaryAndCalAreaAndSrcRequest& from) {
@@ -1584,11 +1610,11 @@ bool ReadOneWithBinaryAndCalAreaAndSrcRequest::IsInitialized() const {
 void ReadOneWithBinaryAndCalAreaAndSrcRequest::InternalSwap(ReadOneWithBinaryAndCalAreaAndSrcRequest* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(id_, other->id_);
+  swap(_impl_.id_, other->_impl_.id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ReadOneWithBinaryAndCalAreaAndSrcRequest::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_capture_2eproto_getter, &descriptor_table_capture_2eproto_once,
       file_level_metadata_capture_2eproto[7]);
 }
@@ -1606,6 +1632,7 @@ ReadAllWithBinaryAndCalAreaRequest::ReadAllWithBinaryAndCalAreaRequest(::PROTOBU
 }
 ReadAllWithBinaryAndCalAreaRequest::ReadAllWithBinaryAndCalAreaRequest(const ReadAllWithBinaryAndCalAreaRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  ReadAllWithBinaryAndCalAreaRequest* const _this = this; (void)_this;
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:capture.service.v1.ReadAllWithBinaryAndCalAreaRequest)
 }
@@ -1627,7 +1654,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ReadAllWithBinaryAndCalAreaReq
 
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ReadAllWithBinaryAndCalAreaRequest::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_capture_2eproto_getter, &descriptor_table_capture_2eproto_once,
       file_level_metadata_capture_2eproto[8]);
 }
@@ -1645,6 +1672,7 @@ ReadAllWithBinaryAndCalAreaAndSrcRequest::ReadAllWithBinaryAndCalAreaAndSrcReque
 }
 ReadAllWithBinaryAndCalAreaAndSrcRequest::ReadAllWithBinaryAndCalAreaAndSrcRequest(const ReadAllWithBinaryAndCalAreaAndSrcRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  ReadAllWithBinaryAndCalAreaAndSrcRequest* const _this = this; (void)_this;
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:capture.service.v1.ReadAllWithBinaryAndCalAreaAndSrcRequest)
 }
@@ -1666,7 +1694,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ReadAllWithBinaryAndCalAreaAnd
 
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ReadAllWithBinaryAndCalAreaAndSrcRequest::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_capture_2eproto_getter, &descriptor_table_capture_2eproto_once,
       file_level_metadata_capture_2eproto[9]);
 }
@@ -1680,52 +1708,54 @@ class ImageReply::_Internal {
 
 const ::capture::service::v1::Image&
 ImageReply::_Internal::image(const ImageReply* msg) {
-  return *msg->image_;
+  return *msg->_impl_.image_;
 }
 ImageReply::ImageReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:capture.service.v1.ImageReply)
 }
 ImageReply::ImageReply(const ImageReply& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ImageReply* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.image_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_image()) {
-    image_ = new ::capture::service::v1::Image(*from.image_);
-  } else {
-    image_ = nullptr;
+    _this->_impl_.image_ = new ::capture::service::v1::Image(*from._impl_.image_);
   }
   // @@protoc_insertion_point(copy_constructor:capture.service.v1.ImageReply)
 }
 
-inline void ImageReply::SharedCtor() {
-image_ = nullptr;
+inline void ImageReply::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.image_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 ImageReply::~ImageReply() {
   // @@protoc_insertion_point(destructor:capture.service.v1.ImageReply)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void ImageReply::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete image_;
+  if (this != internal_default_instance()) delete _impl_.image_;
 }
 
-void ImageReply::ArenaDtor(void* object) {
-  ImageReply* _this = reinterpret_cast< ImageReply* >(object);
-  (void)_this;
-}
-void ImageReply::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ImageReply::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void ImageReply::Clear() {
@@ -1734,18 +1764,18 @@ void ImageReply::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && image_ != nullptr) {
-    delete image_;
+  if (GetArenaForAllocation() == nullptr && _impl_.image_ != nullptr) {
+    delete _impl_.image_;
   }
-  image_ = nullptr;
+  _impl_.image_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ImageReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ImageReply::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .capture.service.v1.Image image = 1;
       case 1:
@@ -1786,14 +1816,13 @@ uint8_t* ImageReply::_InternalSerialize(
 
   // .capture.service.v1.Image image = 1;
   if (this->_internal_has_image()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::image(this), target, stream);
+      InternalWriteMessage(1, _Internal::image(this),
+        _Internal::image(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:capture.service.v1.ImageReply)
@@ -1812,35 +1841,32 @@ size_t ImageReply::ByteSizeLong() const {
   if (this->_internal_has_image()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *image_);
+        *_impl_.image_);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ImageReply::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     ImageReply::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ImageReply::GetClassData() const { return &_class_data_; }
 
-void ImageReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<ImageReply *>(to)->MergeFrom(
-      static_cast<const ImageReply &>(from));
-}
 
-
-void ImageReply::MergeFrom(const ImageReply& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ImageReply)
-  GOOGLE_DCHECK_NE(&from, this);
+void ImageReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ImageReply*>(&to_msg);
+  auto& from = static_cast<const ImageReply&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ImageReply)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_has_image()) {
-    _internal_mutable_image()->::capture::service::v1::Image::MergeFrom(from._internal_image());
+    _this->_internal_mutable_image()->::capture::service::v1::Image::MergeFrom(
+        from._internal_image());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ImageReply::CopyFrom(const ImageReply& from) {
@@ -1857,11 +1883,11 @@ bool ImageReply::IsInitialized() const {
 void ImageReply::InternalSwap(ImageReply* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(image_, other->image_);
+  swap(_impl_.image_, other->_impl_.image_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ImageReply::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_capture_2eproto_getter, &descriptor_table_capture_2eproto_once,
       file_level_metadata_capture_2eproto[10]);
 }
@@ -1875,52 +1901,54 @@ class ImageWithSrcReply::_Internal {
 
 const ::capture::service::v1::ImageSrc&
 ImageWithSrcReply::_Internal::image_src(const ImageWithSrcReply* msg) {
-  return *msg->image_src_;
+  return *msg->_impl_.image_src_;
 }
 ImageWithSrcReply::ImageWithSrcReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:capture.service.v1.ImageWithSrcReply)
 }
 ImageWithSrcReply::ImageWithSrcReply(const ImageWithSrcReply& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ImageWithSrcReply* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.image_src_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_image_src()) {
-    image_src_ = new ::capture::service::v1::ImageSrc(*from.image_src_);
-  } else {
-    image_src_ = nullptr;
+    _this->_impl_.image_src_ = new ::capture::service::v1::ImageSrc(*from._impl_.image_src_);
   }
   // @@protoc_insertion_point(copy_constructor:capture.service.v1.ImageWithSrcReply)
 }
 
-inline void ImageWithSrcReply::SharedCtor() {
-image_src_ = nullptr;
+inline void ImageWithSrcReply::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.image_src_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 ImageWithSrcReply::~ImageWithSrcReply() {
   // @@protoc_insertion_point(destructor:capture.service.v1.ImageWithSrcReply)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void ImageWithSrcReply::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete image_src_;
+  if (this != internal_default_instance()) delete _impl_.image_src_;
 }
 
-void ImageWithSrcReply::ArenaDtor(void* object) {
-  ImageWithSrcReply* _this = reinterpret_cast< ImageWithSrcReply* >(object);
-  (void)_this;
-}
-void ImageWithSrcReply::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ImageWithSrcReply::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void ImageWithSrcReply::Clear() {
@@ -1929,18 +1957,18 @@ void ImageWithSrcReply::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && image_src_ != nullptr) {
-    delete image_src_;
+  if (GetArenaForAllocation() == nullptr && _impl_.image_src_ != nullptr) {
+    delete _impl_.image_src_;
   }
-  image_src_ = nullptr;
+  _impl_.image_src_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ImageWithSrcReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ImageWithSrcReply::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .capture.service.v1.ImageSrc image_src = 1;
       case 1:
@@ -1981,14 +2009,13 @@ uint8_t* ImageWithSrcReply::_InternalSerialize(
 
   // .capture.service.v1.ImageSrc image_src = 1;
   if (this->_internal_has_image_src()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::image_src(this), target, stream);
+      InternalWriteMessage(1, _Internal::image_src(this),
+        _Internal::image_src(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:capture.service.v1.ImageWithSrcReply)
@@ -2007,35 +2034,32 @@ size_t ImageWithSrcReply::ByteSizeLong() const {
   if (this->_internal_has_image_src()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *image_src_);
+        *_impl_.image_src_);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ImageWithSrcReply::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     ImageWithSrcReply::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ImageWithSrcReply::GetClassData() const { return &_class_data_; }
 
-void ImageWithSrcReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<ImageWithSrcReply *>(to)->MergeFrom(
-      static_cast<const ImageWithSrcReply &>(from));
-}
 
-
-void ImageWithSrcReply::MergeFrom(const ImageWithSrcReply& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ImageWithSrcReply)
-  GOOGLE_DCHECK_NE(&from, this);
+void ImageWithSrcReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ImageWithSrcReply*>(&to_msg);
+  auto& from = static_cast<const ImageWithSrcReply&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ImageWithSrcReply)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_has_image_src()) {
-    _internal_mutable_image_src()->::capture::service::v1::ImageSrc::MergeFrom(from._internal_image_src());
+    _this->_internal_mutable_image_src()->::capture::service::v1::ImageSrc::MergeFrom(
+        from._internal_image_src());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ImageWithSrcReply::CopyFrom(const ImageWithSrcReply& from) {
@@ -2052,11 +2076,11 @@ bool ImageWithSrcReply::IsInitialized() const {
 void ImageWithSrcReply::InternalSwap(ImageWithSrcReply* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(image_src_, other->image_src_);
+  swap(_impl_.image_src_, other->_impl_.image_src_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ImageWithSrcReply::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_capture_2eproto_getter, &descriptor_table_capture_2eproto_once,
       file_level_metadata_capture_2eproto[11]);
 }
@@ -2069,43 +2093,47 @@ class ImagesReply::_Internal {
 
 ImagesReply::ImagesReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
-  images_(arena) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:capture.service.v1.ImagesReply)
 }
 ImagesReply::ImagesReply(const ImagesReply& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      images_(from.images_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ImagesReply* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.images_){from._impl_.images_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:capture.service.v1.ImagesReply)
 }
 
-inline void ImagesReply::SharedCtor() {
+inline void ImagesReply::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.images_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 ImagesReply::~ImagesReply() {
   // @@protoc_insertion_point(destructor:capture.service.v1.ImagesReply)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void ImagesReply::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.images_.~RepeatedPtrField();
 }
 
-void ImagesReply::ArenaDtor(void* object) {
-  ImagesReply* _this = reinterpret_cast< ImagesReply* >(object);
-  (void)_this;
-}
-void ImagesReply::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ImagesReply::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void ImagesReply::Clear() {
@@ -2114,15 +2142,15 @@ void ImagesReply::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  images_.Clear();
+  _impl_.images_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ImagesReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ImagesReply::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated .capture.service.v1.Image images = 1;
       case 1:
@@ -2167,15 +2195,15 @@ uint8_t* ImagesReply::_InternalSerialize(
   (void) cached_has_bits;
 
   // repeated .capture.service.v1.Image images = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_images_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_images_size()); i < n; i++) {
+    const auto& repfield = this->_internal_images(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_images(i), target, stream);
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:capture.service.v1.ImagesReply)
@@ -2192,35 +2220,31 @@ size_t ImagesReply::ByteSizeLong() const {
 
   // repeated .capture.service.v1.Image images = 1;
   total_size += 1UL * this->_internal_images_size();
-  for (const auto& msg : this->images_) {
+  for (const auto& msg : this->_impl_.images_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ImagesReply::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     ImagesReply::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ImagesReply::GetClassData() const { return &_class_data_; }
 
-void ImagesReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<ImagesReply *>(to)->MergeFrom(
-      static_cast<const ImagesReply &>(from));
-}
 
-
-void ImagesReply::MergeFrom(const ImagesReply& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ImagesReply)
-  GOOGLE_DCHECK_NE(&from, this);
+void ImagesReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ImagesReply*>(&to_msg);
+  auto& from = static_cast<const ImagesReply&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ImagesReply)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  images_.MergeFrom(from.images_);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.images_.MergeFrom(from._impl_.images_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ImagesReply::CopyFrom(const ImagesReply& from) {
@@ -2237,11 +2261,11 @@ bool ImagesReply::IsInitialized() const {
 void ImagesReply::InternalSwap(ImagesReply* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  images_.InternalSwap(&other->images_);
+  _impl_.images_.InternalSwap(&other->_impl_.images_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ImagesReply::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_capture_2eproto_getter, &descriptor_table_capture_2eproto_once,
       file_level_metadata_capture_2eproto[12]);
 }
@@ -2254,43 +2278,47 @@ class ImagesWithSrcReply::_Internal {
 
 ImagesWithSrcReply::ImagesWithSrcReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
-  image_src_(arena) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:capture.service.v1.ImagesWithSrcReply)
 }
 ImagesWithSrcReply::ImagesWithSrcReply(const ImagesWithSrcReply& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      image_src_(from.image_src_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ImagesWithSrcReply* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.image_src_){from._impl_.image_src_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:capture.service.v1.ImagesWithSrcReply)
 }
 
-inline void ImagesWithSrcReply::SharedCtor() {
+inline void ImagesWithSrcReply::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.image_src_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 ImagesWithSrcReply::~ImagesWithSrcReply() {
   // @@protoc_insertion_point(destructor:capture.service.v1.ImagesWithSrcReply)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void ImagesWithSrcReply::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.image_src_.~RepeatedPtrField();
 }
 
-void ImagesWithSrcReply::ArenaDtor(void* object) {
-  ImagesWithSrcReply* _this = reinterpret_cast< ImagesWithSrcReply* >(object);
-  (void)_this;
-}
-void ImagesWithSrcReply::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ImagesWithSrcReply::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void ImagesWithSrcReply::Clear() {
@@ -2299,15 +2327,15 @@ void ImagesWithSrcReply::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  image_src_.Clear();
+  _impl_.image_src_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ImagesWithSrcReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ImagesWithSrcReply::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated .capture.service.v1.ImageSrc image_src = 1;
       case 1:
@@ -2352,15 +2380,15 @@ uint8_t* ImagesWithSrcReply::_InternalSerialize(
   (void) cached_has_bits;
 
   // repeated .capture.service.v1.ImageSrc image_src = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_image_src_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_image_src_size()); i < n; i++) {
+    const auto& repfield = this->_internal_image_src(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_image_src(i), target, stream);
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:capture.service.v1.ImagesWithSrcReply)
@@ -2377,35 +2405,31 @@ size_t ImagesWithSrcReply::ByteSizeLong() const {
 
   // repeated .capture.service.v1.ImageSrc image_src = 1;
   total_size += 1UL * this->_internal_image_src_size();
-  for (const auto& msg : this->image_src_) {
+  for (const auto& msg : this->_impl_.image_src_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ImagesWithSrcReply::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     ImagesWithSrcReply::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ImagesWithSrcReply::GetClassData() const { return &_class_data_; }
 
-void ImagesWithSrcReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<ImagesWithSrcReply *>(to)->MergeFrom(
-      static_cast<const ImagesWithSrcReply &>(from));
-}
 
-
-void ImagesWithSrcReply::MergeFrom(const ImagesWithSrcReply& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ImagesWithSrcReply)
-  GOOGLE_DCHECK_NE(&from, this);
+void ImagesWithSrcReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ImagesWithSrcReply*>(&to_msg);
+  auto& from = static_cast<const ImagesWithSrcReply&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ImagesWithSrcReply)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  image_src_.MergeFrom(from.image_src_);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.image_src_.MergeFrom(from._impl_.image_src_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ImagesWithSrcReply::CopyFrom(const ImagesWithSrcReply& from) {
@@ -2422,11 +2446,11 @@ bool ImagesWithSrcReply::IsInitialized() const {
 void ImagesWithSrcReply::InternalSwap(ImagesWithSrcReply* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  image_src_.InternalSwap(&other->image_src_);
+  _impl_.image_src_.InternalSwap(&other->_impl_.image_src_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ImagesWithSrcReply::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_capture_2eproto_getter, &descriptor_table_capture_2eproto_once,
       file_level_metadata_capture_2eproto[13]);
 }
@@ -2440,58 +2464,61 @@ class ImageWithAreaReply::_Internal {
 
 const ::capture::service::v1::Image&
 ImageWithAreaReply::_Internal::image(const ImageWithAreaReply* msg) {
-  return *msg->image_;
+  return *msg->_impl_.image_;
 }
 ImageWithAreaReply::ImageWithAreaReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:capture.service.v1.ImageWithAreaReply)
 }
 ImageWithAreaReply::ImageWithAreaReply(const ImageWithAreaReply& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ImageWithAreaReply* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.image_){nullptr}
+    , decltype(_impl_.pixels_){}
+    , decltype(_impl_.area_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_image()) {
-    image_ = new ::capture::service::v1::Image(*from.image_);
-  } else {
-    image_ = nullptr;
+    _this->_impl_.image_ = new ::capture::service::v1::Image(*from._impl_.image_);
   }
-  ::memcpy(&pixels_, &from.pixels_,
-    static_cast<size_t>(reinterpret_cast<char*>(&area_) -
-    reinterpret_cast<char*>(&pixels_)) + sizeof(area_));
+  ::memcpy(&_impl_.pixels_, &from._impl_.pixels_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.area_) -
+    reinterpret_cast<char*>(&_impl_.pixels_)) + sizeof(_impl_.area_));
   // @@protoc_insertion_point(copy_constructor:capture.service.v1.ImageWithAreaReply)
 }
 
-inline void ImageWithAreaReply::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&image_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&area_) -
-    reinterpret_cast<char*>(&image_)) + sizeof(area_));
+inline void ImageWithAreaReply::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.image_){nullptr}
+    , decltype(_impl_.pixels_){int64_t{0}}
+    , decltype(_impl_.area_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 ImageWithAreaReply::~ImageWithAreaReply() {
   // @@protoc_insertion_point(destructor:capture.service.v1.ImageWithAreaReply)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void ImageWithAreaReply::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete image_;
+  if (this != internal_default_instance()) delete _impl_.image_;
 }
 
-void ImageWithAreaReply::ArenaDtor(void* object) {
-  ImageWithAreaReply* _this = reinterpret_cast< ImageWithAreaReply* >(object);
-  (void)_this;
-}
-void ImageWithAreaReply::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ImageWithAreaReply::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void ImageWithAreaReply::Clear() {
@@ -2500,21 +2527,21 @@ void ImageWithAreaReply::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && image_ != nullptr) {
-    delete image_;
+  if (GetArenaForAllocation() == nullptr && _impl_.image_ != nullptr) {
+    delete _impl_.image_;
   }
-  image_ = nullptr;
-  ::memset(&pixels_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&area_) -
-      reinterpret_cast<char*>(&pixels_)) + sizeof(area_));
+  _impl_.image_ = nullptr;
+  ::memset(&_impl_.pixels_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.area_) -
+      reinterpret_cast<char*>(&_impl_.pixels_)) + sizeof(_impl_.area_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ImageWithAreaReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ImageWithAreaReply::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .capture.service.v1.Image image = 1;
       case 1:
@@ -2527,7 +2554,7 @@ const char* ImageWithAreaReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
       // int64 pixels = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          pixels_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.pixels_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2535,7 +2562,7 @@ const char* ImageWithAreaReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
       // double area = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 25)) {
-          area_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          _impl_.area_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
           ptr += sizeof(double);
         } else
           goto handle_unusual;
@@ -2571,16 +2598,15 @@ uint8_t* ImageWithAreaReply::_InternalSerialize(
 
   // .capture.service.v1.Image image = 1;
   if (this->_internal_has_image()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::image(this), target, stream);
+      InternalWriteMessage(1, _Internal::image(this),
+        _Internal::image(this).GetCachedSize(), target, stream);
   }
 
   // int64 pixels = 2;
   if (this->_internal_pixels() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_pixels(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(2, this->_internal_pixels(), target);
   }
 
   // double area = 3;
@@ -2590,11 +2616,11 @@ uint8_t* ImageWithAreaReply::_InternalSerialize(
   memcpy(&raw_area, &tmp_area, sizeof(tmp_area));
   if (raw_area != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(3, this->_internal_area(), target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(3, this->_internal_area(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:capture.service.v1.ImageWithAreaReply)
@@ -2613,12 +2639,12 @@ size_t ImageWithAreaReply::ByteSizeLong() const {
   if (this->_internal_has_image()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *image_);
+        *_impl_.image_);
   }
 
   // int64 pixels = 2;
   if (this->_internal_pixels() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_pixels());
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_pixels());
   }
 
   // double area = 3;
@@ -2630,42 +2656,39 @@ size_t ImageWithAreaReply::ByteSizeLong() const {
     total_size += 1 + 8;
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ImageWithAreaReply::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     ImageWithAreaReply::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ImageWithAreaReply::GetClassData() const { return &_class_data_; }
 
-void ImageWithAreaReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<ImageWithAreaReply *>(to)->MergeFrom(
-      static_cast<const ImageWithAreaReply &>(from));
-}
 
-
-void ImageWithAreaReply::MergeFrom(const ImageWithAreaReply& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ImageWithAreaReply)
-  GOOGLE_DCHECK_NE(&from, this);
+void ImageWithAreaReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ImageWithAreaReply*>(&to_msg);
+  auto& from = static_cast<const ImageWithAreaReply&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ImageWithAreaReply)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_has_image()) {
-    _internal_mutable_image()->::capture::service::v1::Image::MergeFrom(from._internal_image());
+    _this->_internal_mutable_image()->::capture::service::v1::Image::MergeFrom(
+        from._internal_image());
   }
   if (from._internal_pixels() != 0) {
-    _internal_set_pixels(from._internal_pixels());
+    _this->_internal_set_pixels(from._internal_pixels());
   }
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
   double tmp_area = from._internal_area();
   uint64_t raw_area;
   memcpy(&raw_area, &tmp_area, sizeof(tmp_area));
   if (raw_area != 0) {
-    _internal_set_area(from._internal_area());
+    _this->_internal_set_area(from._internal_area());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ImageWithAreaReply::CopyFrom(const ImageWithAreaReply& from) {
@@ -2683,15 +2706,15 @@ void ImageWithAreaReply::InternalSwap(ImageWithAreaReply* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(ImageWithAreaReply, area_)
-      + sizeof(ImageWithAreaReply::area_)
-      - PROTOBUF_FIELD_OFFSET(ImageWithAreaReply, image_)>(
-          reinterpret_cast<char*>(&image_),
-          reinterpret_cast<char*>(&other->image_));
+      PROTOBUF_FIELD_OFFSET(ImageWithAreaReply, _impl_.area_)
+      + sizeof(ImageWithAreaReply::_impl_.area_)
+      - PROTOBUF_FIELD_OFFSET(ImageWithAreaReply, _impl_.image_)>(
+          reinterpret_cast<char*>(&_impl_.image_),
+          reinterpret_cast<char*>(&other->_impl_.image_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ImageWithAreaReply::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_capture_2eproto_getter, &descriptor_table_capture_2eproto_once,
       file_level_metadata_capture_2eproto[14]);
 }
@@ -2705,58 +2728,61 @@ class ImageWithAreaAndSrcReply::_Internal {
 
 const ::capture::service::v1::ImageSrc&
 ImageWithAreaAndSrcReply::_Internal::image_src(const ImageWithAreaAndSrcReply* msg) {
-  return *msg->image_src_;
+  return *msg->_impl_.image_src_;
 }
 ImageWithAreaAndSrcReply::ImageWithAreaAndSrcReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:capture.service.v1.ImageWithAreaAndSrcReply)
 }
 ImageWithAreaAndSrcReply::ImageWithAreaAndSrcReply(const ImageWithAreaAndSrcReply& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ImageWithAreaAndSrcReply* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.image_src_){nullptr}
+    , decltype(_impl_.pixels_){}
+    , decltype(_impl_.area_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_image_src()) {
-    image_src_ = new ::capture::service::v1::ImageSrc(*from.image_src_);
-  } else {
-    image_src_ = nullptr;
+    _this->_impl_.image_src_ = new ::capture::service::v1::ImageSrc(*from._impl_.image_src_);
   }
-  ::memcpy(&pixels_, &from.pixels_,
-    static_cast<size_t>(reinterpret_cast<char*>(&area_) -
-    reinterpret_cast<char*>(&pixels_)) + sizeof(area_));
+  ::memcpy(&_impl_.pixels_, &from._impl_.pixels_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.area_) -
+    reinterpret_cast<char*>(&_impl_.pixels_)) + sizeof(_impl_.area_));
   // @@protoc_insertion_point(copy_constructor:capture.service.v1.ImageWithAreaAndSrcReply)
 }
 
-inline void ImageWithAreaAndSrcReply::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&image_src_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&area_) -
-    reinterpret_cast<char*>(&image_src_)) + sizeof(area_));
+inline void ImageWithAreaAndSrcReply::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.image_src_){nullptr}
+    , decltype(_impl_.pixels_){int64_t{0}}
+    , decltype(_impl_.area_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 ImageWithAreaAndSrcReply::~ImageWithAreaAndSrcReply() {
   // @@protoc_insertion_point(destructor:capture.service.v1.ImageWithAreaAndSrcReply)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void ImageWithAreaAndSrcReply::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete image_src_;
+  if (this != internal_default_instance()) delete _impl_.image_src_;
 }
 
-void ImageWithAreaAndSrcReply::ArenaDtor(void* object) {
-  ImageWithAreaAndSrcReply* _this = reinterpret_cast< ImageWithAreaAndSrcReply* >(object);
-  (void)_this;
-}
-void ImageWithAreaAndSrcReply::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ImageWithAreaAndSrcReply::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void ImageWithAreaAndSrcReply::Clear() {
@@ -2765,21 +2791,21 @@ void ImageWithAreaAndSrcReply::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && image_src_ != nullptr) {
-    delete image_src_;
+  if (GetArenaForAllocation() == nullptr && _impl_.image_src_ != nullptr) {
+    delete _impl_.image_src_;
   }
-  image_src_ = nullptr;
-  ::memset(&pixels_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&area_) -
-      reinterpret_cast<char*>(&pixels_)) + sizeof(area_));
+  _impl_.image_src_ = nullptr;
+  ::memset(&_impl_.pixels_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.area_) -
+      reinterpret_cast<char*>(&_impl_.pixels_)) + sizeof(_impl_.area_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ImageWithAreaAndSrcReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ImageWithAreaAndSrcReply::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .capture.service.v1.ImageSrc image_src = 1;
       case 1:
@@ -2792,7 +2818,7 @@ const char* ImageWithAreaAndSrcReply::_InternalParse(const char* ptr, ::PROTOBUF
       // int64 pixels = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          pixels_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.pixels_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2800,7 +2826,7 @@ const char* ImageWithAreaAndSrcReply::_InternalParse(const char* ptr, ::PROTOBUF
       // double area = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 25)) {
-          area_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          _impl_.area_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
           ptr += sizeof(double);
         } else
           goto handle_unusual;
@@ -2836,16 +2862,15 @@ uint8_t* ImageWithAreaAndSrcReply::_InternalSerialize(
 
   // .capture.service.v1.ImageSrc image_src = 1;
   if (this->_internal_has_image_src()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::image_src(this), target, stream);
+      InternalWriteMessage(1, _Internal::image_src(this),
+        _Internal::image_src(this).GetCachedSize(), target, stream);
   }
 
   // int64 pixels = 2;
   if (this->_internal_pixels() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_pixels(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(2, this->_internal_pixels(), target);
   }
 
   // double area = 3;
@@ -2855,11 +2880,11 @@ uint8_t* ImageWithAreaAndSrcReply::_InternalSerialize(
   memcpy(&raw_area, &tmp_area, sizeof(tmp_area));
   if (raw_area != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(3, this->_internal_area(), target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(3, this->_internal_area(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:capture.service.v1.ImageWithAreaAndSrcReply)
@@ -2878,12 +2903,12 @@ size_t ImageWithAreaAndSrcReply::ByteSizeLong() const {
   if (this->_internal_has_image_src()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *image_src_);
+        *_impl_.image_src_);
   }
 
   // int64 pixels = 2;
   if (this->_internal_pixels() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_pixels());
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_pixels());
   }
 
   // double area = 3;
@@ -2895,42 +2920,39 @@ size_t ImageWithAreaAndSrcReply::ByteSizeLong() const {
     total_size += 1 + 8;
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ImageWithAreaAndSrcReply::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     ImageWithAreaAndSrcReply::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ImageWithAreaAndSrcReply::GetClassData() const { return &_class_data_; }
 
-void ImageWithAreaAndSrcReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<ImageWithAreaAndSrcReply *>(to)->MergeFrom(
-      static_cast<const ImageWithAreaAndSrcReply &>(from));
-}
 
-
-void ImageWithAreaAndSrcReply::MergeFrom(const ImageWithAreaAndSrcReply& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ImageWithAreaAndSrcReply)
-  GOOGLE_DCHECK_NE(&from, this);
+void ImageWithAreaAndSrcReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ImageWithAreaAndSrcReply*>(&to_msg);
+  auto& from = static_cast<const ImageWithAreaAndSrcReply&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ImageWithAreaAndSrcReply)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_has_image_src()) {
-    _internal_mutable_image_src()->::capture::service::v1::ImageSrc::MergeFrom(from._internal_image_src());
+    _this->_internal_mutable_image_src()->::capture::service::v1::ImageSrc::MergeFrom(
+        from._internal_image_src());
   }
   if (from._internal_pixels() != 0) {
-    _internal_set_pixels(from._internal_pixels());
+    _this->_internal_set_pixels(from._internal_pixels());
   }
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
   double tmp_area = from._internal_area();
   uint64_t raw_area;
   memcpy(&raw_area, &tmp_area, sizeof(tmp_area));
   if (raw_area != 0) {
-    _internal_set_area(from._internal_area());
+    _this->_internal_set_area(from._internal_area());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ImageWithAreaAndSrcReply::CopyFrom(const ImageWithAreaAndSrcReply& from) {
@@ -2948,15 +2970,15 @@ void ImageWithAreaAndSrcReply::InternalSwap(ImageWithAreaAndSrcReply* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(ImageWithAreaAndSrcReply, area_)
-      + sizeof(ImageWithAreaAndSrcReply::area_)
-      - PROTOBUF_FIELD_OFFSET(ImageWithAreaAndSrcReply, image_src_)>(
-          reinterpret_cast<char*>(&image_src_),
-          reinterpret_cast<char*>(&other->image_src_));
+      PROTOBUF_FIELD_OFFSET(ImageWithAreaAndSrcReply, _impl_.area_)
+      + sizeof(ImageWithAreaAndSrcReply::_impl_.area_)
+      - PROTOBUF_FIELD_OFFSET(ImageWithAreaAndSrcReply, _impl_.image_src_)>(
+          reinterpret_cast<char*>(&_impl_.image_src_),
+          reinterpret_cast<char*>(&other->_impl_.image_src_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ImageWithAreaAndSrcReply::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_capture_2eproto_getter, &descriptor_table_capture_2eproto_once,
       file_level_metadata_capture_2eproto[15]);
 }
@@ -2970,58 +2992,61 @@ class ImagesWithAreaReply_Data::_Internal {
 
 const ::capture::service::v1::Image&
 ImagesWithAreaReply_Data::_Internal::image(const ImagesWithAreaReply_Data* msg) {
-  return *msg->image_;
+  return *msg->_impl_.image_;
 }
 ImagesWithAreaReply_Data::ImagesWithAreaReply_Data(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:capture.service.v1.ImagesWithAreaReply.Data)
 }
 ImagesWithAreaReply_Data::ImagesWithAreaReply_Data(const ImagesWithAreaReply_Data& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ImagesWithAreaReply_Data* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.image_){nullptr}
+    , decltype(_impl_.pixels_){}
+    , decltype(_impl_.area_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_image()) {
-    image_ = new ::capture::service::v1::Image(*from.image_);
-  } else {
-    image_ = nullptr;
+    _this->_impl_.image_ = new ::capture::service::v1::Image(*from._impl_.image_);
   }
-  ::memcpy(&pixels_, &from.pixels_,
-    static_cast<size_t>(reinterpret_cast<char*>(&area_) -
-    reinterpret_cast<char*>(&pixels_)) + sizeof(area_));
+  ::memcpy(&_impl_.pixels_, &from._impl_.pixels_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.area_) -
+    reinterpret_cast<char*>(&_impl_.pixels_)) + sizeof(_impl_.area_));
   // @@protoc_insertion_point(copy_constructor:capture.service.v1.ImagesWithAreaReply.Data)
 }
 
-inline void ImagesWithAreaReply_Data::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&image_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&area_) -
-    reinterpret_cast<char*>(&image_)) + sizeof(area_));
+inline void ImagesWithAreaReply_Data::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.image_){nullptr}
+    , decltype(_impl_.pixels_){int64_t{0}}
+    , decltype(_impl_.area_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 ImagesWithAreaReply_Data::~ImagesWithAreaReply_Data() {
   // @@protoc_insertion_point(destructor:capture.service.v1.ImagesWithAreaReply.Data)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void ImagesWithAreaReply_Data::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete image_;
+  if (this != internal_default_instance()) delete _impl_.image_;
 }
 
-void ImagesWithAreaReply_Data::ArenaDtor(void* object) {
-  ImagesWithAreaReply_Data* _this = reinterpret_cast< ImagesWithAreaReply_Data* >(object);
-  (void)_this;
-}
-void ImagesWithAreaReply_Data::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ImagesWithAreaReply_Data::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void ImagesWithAreaReply_Data::Clear() {
@@ -3030,21 +3055,21 @@ void ImagesWithAreaReply_Data::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && image_ != nullptr) {
-    delete image_;
+  if (GetArenaForAllocation() == nullptr && _impl_.image_ != nullptr) {
+    delete _impl_.image_;
   }
-  image_ = nullptr;
-  ::memset(&pixels_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&area_) -
-      reinterpret_cast<char*>(&pixels_)) + sizeof(area_));
+  _impl_.image_ = nullptr;
+  ::memset(&_impl_.pixels_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.area_) -
+      reinterpret_cast<char*>(&_impl_.pixels_)) + sizeof(_impl_.area_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ImagesWithAreaReply_Data::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ImagesWithAreaReply_Data::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .capture.service.v1.Image image = 1;
       case 1:
@@ -3057,7 +3082,7 @@ const char* ImagesWithAreaReply_Data::_InternalParse(const char* ptr, ::PROTOBUF
       // int64 pixels = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          pixels_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.pixels_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3065,7 +3090,7 @@ const char* ImagesWithAreaReply_Data::_InternalParse(const char* ptr, ::PROTOBUF
       // double area = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 25)) {
-          area_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          _impl_.area_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
           ptr += sizeof(double);
         } else
           goto handle_unusual;
@@ -3101,16 +3126,15 @@ uint8_t* ImagesWithAreaReply_Data::_InternalSerialize(
 
   // .capture.service.v1.Image image = 1;
   if (this->_internal_has_image()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::image(this), target, stream);
+      InternalWriteMessage(1, _Internal::image(this),
+        _Internal::image(this).GetCachedSize(), target, stream);
   }
 
   // int64 pixels = 2;
   if (this->_internal_pixels() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_pixels(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(2, this->_internal_pixels(), target);
   }
 
   // double area = 3;
@@ -3120,11 +3144,11 @@ uint8_t* ImagesWithAreaReply_Data::_InternalSerialize(
   memcpy(&raw_area, &tmp_area, sizeof(tmp_area));
   if (raw_area != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(3, this->_internal_area(), target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(3, this->_internal_area(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:capture.service.v1.ImagesWithAreaReply.Data)
@@ -3143,12 +3167,12 @@ size_t ImagesWithAreaReply_Data::ByteSizeLong() const {
   if (this->_internal_has_image()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *image_);
+        *_impl_.image_);
   }
 
   // int64 pixels = 2;
   if (this->_internal_pixels() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_pixels());
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_pixels());
   }
 
   // double area = 3;
@@ -3160,42 +3184,39 @@ size_t ImagesWithAreaReply_Data::ByteSizeLong() const {
     total_size += 1 + 8;
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ImagesWithAreaReply_Data::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     ImagesWithAreaReply_Data::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ImagesWithAreaReply_Data::GetClassData() const { return &_class_data_; }
 
-void ImagesWithAreaReply_Data::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<ImagesWithAreaReply_Data *>(to)->MergeFrom(
-      static_cast<const ImagesWithAreaReply_Data &>(from));
-}
 
-
-void ImagesWithAreaReply_Data::MergeFrom(const ImagesWithAreaReply_Data& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ImagesWithAreaReply.Data)
-  GOOGLE_DCHECK_NE(&from, this);
+void ImagesWithAreaReply_Data::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ImagesWithAreaReply_Data*>(&to_msg);
+  auto& from = static_cast<const ImagesWithAreaReply_Data&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ImagesWithAreaReply.Data)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_has_image()) {
-    _internal_mutable_image()->::capture::service::v1::Image::MergeFrom(from._internal_image());
+    _this->_internal_mutable_image()->::capture::service::v1::Image::MergeFrom(
+        from._internal_image());
   }
   if (from._internal_pixels() != 0) {
-    _internal_set_pixels(from._internal_pixels());
+    _this->_internal_set_pixels(from._internal_pixels());
   }
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
   double tmp_area = from._internal_area();
   uint64_t raw_area;
   memcpy(&raw_area, &tmp_area, sizeof(tmp_area));
   if (raw_area != 0) {
-    _internal_set_area(from._internal_area());
+    _this->_internal_set_area(from._internal_area());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ImagesWithAreaReply_Data::CopyFrom(const ImagesWithAreaReply_Data& from) {
@@ -3213,15 +3234,15 @@ void ImagesWithAreaReply_Data::InternalSwap(ImagesWithAreaReply_Data* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(ImagesWithAreaReply_Data, area_)
-      + sizeof(ImagesWithAreaReply_Data::area_)
-      - PROTOBUF_FIELD_OFFSET(ImagesWithAreaReply_Data, image_)>(
-          reinterpret_cast<char*>(&image_),
-          reinterpret_cast<char*>(&other->image_));
+      PROTOBUF_FIELD_OFFSET(ImagesWithAreaReply_Data, _impl_.area_)
+      + sizeof(ImagesWithAreaReply_Data::_impl_.area_)
+      - PROTOBUF_FIELD_OFFSET(ImagesWithAreaReply_Data, _impl_.image_)>(
+          reinterpret_cast<char*>(&_impl_.image_),
+          reinterpret_cast<char*>(&other->_impl_.image_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ImagesWithAreaReply_Data::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_capture_2eproto_getter, &descriptor_table_capture_2eproto_once,
       file_level_metadata_capture_2eproto[16]);
 }
@@ -3234,43 +3255,47 @@ class ImagesWithAreaReply::_Internal {
 
 ImagesWithAreaReply::ImagesWithAreaReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
-  data_(arena) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:capture.service.v1.ImagesWithAreaReply)
 }
 ImagesWithAreaReply::ImagesWithAreaReply(const ImagesWithAreaReply& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      data_(from.data_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ImagesWithAreaReply* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.data_){from._impl_.data_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:capture.service.v1.ImagesWithAreaReply)
 }
 
-inline void ImagesWithAreaReply::SharedCtor() {
+inline void ImagesWithAreaReply::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.data_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 ImagesWithAreaReply::~ImagesWithAreaReply() {
   // @@protoc_insertion_point(destructor:capture.service.v1.ImagesWithAreaReply)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void ImagesWithAreaReply::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.data_.~RepeatedPtrField();
 }
 
-void ImagesWithAreaReply::ArenaDtor(void* object) {
-  ImagesWithAreaReply* _this = reinterpret_cast< ImagesWithAreaReply* >(object);
-  (void)_this;
-}
-void ImagesWithAreaReply::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ImagesWithAreaReply::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void ImagesWithAreaReply::Clear() {
@@ -3279,15 +3304,15 @@ void ImagesWithAreaReply::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  data_.Clear();
+  _impl_.data_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ImagesWithAreaReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ImagesWithAreaReply::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated .capture.service.v1.ImagesWithAreaReply.Data data = 1;
       case 1:
@@ -3332,15 +3357,15 @@ uint8_t* ImagesWithAreaReply::_InternalSerialize(
   (void) cached_has_bits;
 
   // repeated .capture.service.v1.ImagesWithAreaReply.Data data = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_data_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_data_size()); i < n; i++) {
+    const auto& repfield = this->_internal_data(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_data(i), target, stream);
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:capture.service.v1.ImagesWithAreaReply)
@@ -3357,35 +3382,31 @@ size_t ImagesWithAreaReply::ByteSizeLong() const {
 
   // repeated .capture.service.v1.ImagesWithAreaReply.Data data = 1;
   total_size += 1UL * this->_internal_data_size();
-  for (const auto& msg : this->data_) {
+  for (const auto& msg : this->_impl_.data_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ImagesWithAreaReply::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     ImagesWithAreaReply::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ImagesWithAreaReply::GetClassData() const { return &_class_data_; }
 
-void ImagesWithAreaReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<ImagesWithAreaReply *>(to)->MergeFrom(
-      static_cast<const ImagesWithAreaReply &>(from));
-}
 
-
-void ImagesWithAreaReply::MergeFrom(const ImagesWithAreaReply& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ImagesWithAreaReply)
-  GOOGLE_DCHECK_NE(&from, this);
+void ImagesWithAreaReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ImagesWithAreaReply*>(&to_msg);
+  auto& from = static_cast<const ImagesWithAreaReply&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ImagesWithAreaReply)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  data_.MergeFrom(from.data_);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.data_.MergeFrom(from._impl_.data_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ImagesWithAreaReply::CopyFrom(const ImagesWithAreaReply& from) {
@@ -3402,11 +3423,11 @@ bool ImagesWithAreaReply::IsInitialized() const {
 void ImagesWithAreaReply::InternalSwap(ImagesWithAreaReply* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  data_.InternalSwap(&other->data_);
+  _impl_.data_.InternalSwap(&other->_impl_.data_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ImagesWithAreaReply::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_capture_2eproto_getter, &descriptor_table_capture_2eproto_once,
       file_level_metadata_capture_2eproto[17]);
 }
@@ -3420,58 +3441,61 @@ class ImagesWithAreaAndSrcReply_Data::_Internal {
 
 const ::capture::service::v1::ImageSrc&
 ImagesWithAreaAndSrcReply_Data::_Internal::image_src(const ImagesWithAreaAndSrcReply_Data* msg) {
-  return *msg->image_src_;
+  return *msg->_impl_.image_src_;
 }
 ImagesWithAreaAndSrcReply_Data::ImagesWithAreaAndSrcReply_Data(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:capture.service.v1.ImagesWithAreaAndSrcReply.Data)
 }
 ImagesWithAreaAndSrcReply_Data::ImagesWithAreaAndSrcReply_Data(const ImagesWithAreaAndSrcReply_Data& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ImagesWithAreaAndSrcReply_Data* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.image_src_){nullptr}
+    , decltype(_impl_.pixels_){}
+    , decltype(_impl_.area_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_image_src()) {
-    image_src_ = new ::capture::service::v1::ImageSrc(*from.image_src_);
-  } else {
-    image_src_ = nullptr;
+    _this->_impl_.image_src_ = new ::capture::service::v1::ImageSrc(*from._impl_.image_src_);
   }
-  ::memcpy(&pixels_, &from.pixels_,
-    static_cast<size_t>(reinterpret_cast<char*>(&area_) -
-    reinterpret_cast<char*>(&pixels_)) + sizeof(area_));
+  ::memcpy(&_impl_.pixels_, &from._impl_.pixels_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.area_) -
+    reinterpret_cast<char*>(&_impl_.pixels_)) + sizeof(_impl_.area_));
   // @@protoc_insertion_point(copy_constructor:capture.service.v1.ImagesWithAreaAndSrcReply.Data)
 }
 
-inline void ImagesWithAreaAndSrcReply_Data::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&image_src_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&area_) -
-    reinterpret_cast<char*>(&image_src_)) + sizeof(area_));
+inline void ImagesWithAreaAndSrcReply_Data::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.image_src_){nullptr}
+    , decltype(_impl_.pixels_){int64_t{0}}
+    , decltype(_impl_.area_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 ImagesWithAreaAndSrcReply_Data::~ImagesWithAreaAndSrcReply_Data() {
   // @@protoc_insertion_point(destructor:capture.service.v1.ImagesWithAreaAndSrcReply.Data)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void ImagesWithAreaAndSrcReply_Data::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete image_src_;
+  if (this != internal_default_instance()) delete _impl_.image_src_;
 }
 
-void ImagesWithAreaAndSrcReply_Data::ArenaDtor(void* object) {
-  ImagesWithAreaAndSrcReply_Data* _this = reinterpret_cast< ImagesWithAreaAndSrcReply_Data* >(object);
-  (void)_this;
-}
-void ImagesWithAreaAndSrcReply_Data::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ImagesWithAreaAndSrcReply_Data::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void ImagesWithAreaAndSrcReply_Data::Clear() {
@@ -3480,21 +3504,21 @@ void ImagesWithAreaAndSrcReply_Data::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && image_src_ != nullptr) {
-    delete image_src_;
+  if (GetArenaForAllocation() == nullptr && _impl_.image_src_ != nullptr) {
+    delete _impl_.image_src_;
   }
-  image_src_ = nullptr;
-  ::memset(&pixels_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&area_) -
-      reinterpret_cast<char*>(&pixels_)) + sizeof(area_));
+  _impl_.image_src_ = nullptr;
+  ::memset(&_impl_.pixels_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.area_) -
+      reinterpret_cast<char*>(&_impl_.pixels_)) + sizeof(_impl_.area_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ImagesWithAreaAndSrcReply_Data::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ImagesWithAreaAndSrcReply_Data::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .capture.service.v1.ImageSrc image_src = 1;
       case 1:
@@ -3507,7 +3531,7 @@ const char* ImagesWithAreaAndSrcReply_Data::_InternalParse(const char* ptr, ::PR
       // int64 pixels = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          pixels_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.pixels_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3515,7 +3539,7 @@ const char* ImagesWithAreaAndSrcReply_Data::_InternalParse(const char* ptr, ::PR
       // double area = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 25)) {
-          area_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          _impl_.area_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
           ptr += sizeof(double);
         } else
           goto handle_unusual;
@@ -3551,16 +3575,15 @@ uint8_t* ImagesWithAreaAndSrcReply_Data::_InternalSerialize(
 
   // .capture.service.v1.ImageSrc image_src = 1;
   if (this->_internal_has_image_src()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::image_src(this), target, stream);
+      InternalWriteMessage(1, _Internal::image_src(this),
+        _Internal::image_src(this).GetCachedSize(), target, stream);
   }
 
   // int64 pixels = 2;
   if (this->_internal_pixels() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_pixels(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(2, this->_internal_pixels(), target);
   }
 
   // double area = 3;
@@ -3570,11 +3593,11 @@ uint8_t* ImagesWithAreaAndSrcReply_Data::_InternalSerialize(
   memcpy(&raw_area, &tmp_area, sizeof(tmp_area));
   if (raw_area != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(3, this->_internal_area(), target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(3, this->_internal_area(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:capture.service.v1.ImagesWithAreaAndSrcReply.Data)
@@ -3593,12 +3616,12 @@ size_t ImagesWithAreaAndSrcReply_Data::ByteSizeLong() const {
   if (this->_internal_has_image_src()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *image_src_);
+        *_impl_.image_src_);
   }
 
   // int64 pixels = 2;
   if (this->_internal_pixels() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_pixels());
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_pixels());
   }
 
   // double area = 3;
@@ -3610,42 +3633,39 @@ size_t ImagesWithAreaAndSrcReply_Data::ByteSizeLong() const {
     total_size += 1 + 8;
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ImagesWithAreaAndSrcReply_Data::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     ImagesWithAreaAndSrcReply_Data::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ImagesWithAreaAndSrcReply_Data::GetClassData() const { return &_class_data_; }
 
-void ImagesWithAreaAndSrcReply_Data::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<ImagesWithAreaAndSrcReply_Data *>(to)->MergeFrom(
-      static_cast<const ImagesWithAreaAndSrcReply_Data &>(from));
-}
 
-
-void ImagesWithAreaAndSrcReply_Data::MergeFrom(const ImagesWithAreaAndSrcReply_Data& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ImagesWithAreaAndSrcReply.Data)
-  GOOGLE_DCHECK_NE(&from, this);
+void ImagesWithAreaAndSrcReply_Data::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ImagesWithAreaAndSrcReply_Data*>(&to_msg);
+  auto& from = static_cast<const ImagesWithAreaAndSrcReply_Data&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ImagesWithAreaAndSrcReply.Data)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_has_image_src()) {
-    _internal_mutable_image_src()->::capture::service::v1::ImageSrc::MergeFrom(from._internal_image_src());
+    _this->_internal_mutable_image_src()->::capture::service::v1::ImageSrc::MergeFrom(
+        from._internal_image_src());
   }
   if (from._internal_pixels() != 0) {
-    _internal_set_pixels(from._internal_pixels());
+    _this->_internal_set_pixels(from._internal_pixels());
   }
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
   double tmp_area = from._internal_area();
   uint64_t raw_area;
   memcpy(&raw_area, &tmp_area, sizeof(tmp_area));
   if (raw_area != 0) {
-    _internal_set_area(from._internal_area());
+    _this->_internal_set_area(from._internal_area());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ImagesWithAreaAndSrcReply_Data::CopyFrom(const ImagesWithAreaAndSrcReply_Data& from) {
@@ -3663,15 +3683,15 @@ void ImagesWithAreaAndSrcReply_Data::InternalSwap(ImagesWithAreaAndSrcReply_Data
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(ImagesWithAreaAndSrcReply_Data, area_)
-      + sizeof(ImagesWithAreaAndSrcReply_Data::area_)
-      - PROTOBUF_FIELD_OFFSET(ImagesWithAreaAndSrcReply_Data, image_src_)>(
-          reinterpret_cast<char*>(&image_src_),
-          reinterpret_cast<char*>(&other->image_src_));
+      PROTOBUF_FIELD_OFFSET(ImagesWithAreaAndSrcReply_Data, _impl_.area_)
+      + sizeof(ImagesWithAreaAndSrcReply_Data::_impl_.area_)
+      - PROTOBUF_FIELD_OFFSET(ImagesWithAreaAndSrcReply_Data, _impl_.image_src_)>(
+          reinterpret_cast<char*>(&_impl_.image_src_),
+          reinterpret_cast<char*>(&other->_impl_.image_src_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ImagesWithAreaAndSrcReply_Data::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_capture_2eproto_getter, &descriptor_table_capture_2eproto_once,
       file_level_metadata_capture_2eproto[18]);
 }
@@ -3684,43 +3704,47 @@ class ImagesWithAreaAndSrcReply::_Internal {
 
 ImagesWithAreaAndSrcReply::ImagesWithAreaAndSrcReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
-  data_(arena) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:capture.service.v1.ImagesWithAreaAndSrcReply)
 }
 ImagesWithAreaAndSrcReply::ImagesWithAreaAndSrcReply(const ImagesWithAreaAndSrcReply& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      data_(from.data_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ImagesWithAreaAndSrcReply* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.data_){from._impl_.data_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:capture.service.v1.ImagesWithAreaAndSrcReply)
 }
 
-inline void ImagesWithAreaAndSrcReply::SharedCtor() {
+inline void ImagesWithAreaAndSrcReply::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.data_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 ImagesWithAreaAndSrcReply::~ImagesWithAreaAndSrcReply() {
   // @@protoc_insertion_point(destructor:capture.service.v1.ImagesWithAreaAndSrcReply)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void ImagesWithAreaAndSrcReply::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.data_.~RepeatedPtrField();
 }
 
-void ImagesWithAreaAndSrcReply::ArenaDtor(void* object) {
-  ImagesWithAreaAndSrcReply* _this = reinterpret_cast< ImagesWithAreaAndSrcReply* >(object);
-  (void)_this;
-}
-void ImagesWithAreaAndSrcReply::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ImagesWithAreaAndSrcReply::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void ImagesWithAreaAndSrcReply::Clear() {
@@ -3729,15 +3753,15 @@ void ImagesWithAreaAndSrcReply::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  data_.Clear();
+  _impl_.data_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ImagesWithAreaAndSrcReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ImagesWithAreaAndSrcReply::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated .capture.service.v1.ImagesWithAreaAndSrcReply.Data data = 1;
       case 1:
@@ -3782,15 +3806,15 @@ uint8_t* ImagesWithAreaAndSrcReply::_InternalSerialize(
   (void) cached_has_bits;
 
   // repeated .capture.service.v1.ImagesWithAreaAndSrcReply.Data data = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_data_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_data_size()); i < n; i++) {
+    const auto& repfield = this->_internal_data(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_data(i), target, stream);
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:capture.service.v1.ImagesWithAreaAndSrcReply)
@@ -3807,35 +3831,31 @@ size_t ImagesWithAreaAndSrcReply::ByteSizeLong() const {
 
   // repeated .capture.service.v1.ImagesWithAreaAndSrcReply.Data data = 1;
   total_size += 1UL * this->_internal_data_size();
-  for (const auto& msg : this->data_) {
+  for (const auto& msg : this->_impl_.data_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ImagesWithAreaAndSrcReply::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     ImagesWithAreaAndSrcReply::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ImagesWithAreaAndSrcReply::GetClassData() const { return &_class_data_; }
 
-void ImagesWithAreaAndSrcReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<ImagesWithAreaAndSrcReply *>(to)->MergeFrom(
-      static_cast<const ImagesWithAreaAndSrcReply &>(from));
-}
 
-
-void ImagesWithAreaAndSrcReply::MergeFrom(const ImagesWithAreaAndSrcReply& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ImagesWithAreaAndSrcReply)
-  GOOGLE_DCHECK_NE(&from, this);
+void ImagesWithAreaAndSrcReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ImagesWithAreaAndSrcReply*>(&to_msg);
+  auto& from = static_cast<const ImagesWithAreaAndSrcReply&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ImagesWithAreaAndSrcReply)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  data_.MergeFrom(from.data_);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.data_.MergeFrom(from._impl_.data_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ImagesWithAreaAndSrcReply::CopyFrom(const ImagesWithAreaAndSrcReply& from) {
@@ -3852,11 +3872,11 @@ bool ImagesWithAreaAndSrcReply::IsInitialized() const {
 void ImagesWithAreaAndSrcReply::InternalSwap(ImagesWithAreaAndSrcReply* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  data_.InternalSwap(&other->data_);
+  _impl_.data_.InternalSwap(&other->_impl_.data_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ImagesWithAreaAndSrcReply::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_capture_2eproto_getter, &descriptor_table_capture_2eproto_once,
       file_level_metadata_capture_2eproto[19]);
 }
@@ -3870,53 +3890,58 @@ class Image::_Internal {
 Image::Image(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:capture.service.v1.Image)
 }
 Image::Image(const Image& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  Image* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.data_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.data_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    data_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+    _impl_.data_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_data().empty()) {
-    data_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_data(), 
-      GetArenaForAllocation());
+    _this->_impl_.data_.Set(from._internal_data(), 
+      _this->GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:capture.service.v1.Image)
 }
 
-inline void Image::SharedCtor() {
-data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  data_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+inline void Image::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.data_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.data_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.data_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 Image::~Image() {
   // @@protoc_insertion_point(destructor:capture.service.v1.Image)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void Image::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  data_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.data_.Destroy();
 }
 
-void Image::ArenaDtor(void* object) {
-  Image* _this = reinterpret_cast< Image* >(object);
-  (void)_this;
-}
-void Image::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void Image::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void Image::Clear() {
@@ -3925,21 +3950,21 @@ void Image::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  data_.ClearToEmpty();
+  _impl_.data_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Image::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* Image::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // bytes data = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_data();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3980,7 +4005,7 @@ uint8_t* Image::_InternalSerialize(
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:capture.service.v1.Image)
@@ -4002,32 +4027,28 @@ size_t Image::ByteSizeLong() const {
         this->_internal_data());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Image::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     Image::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Image::GetClassData() const { return &_class_data_; }
 
-void Image::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<Image *>(to)->MergeFrom(
-      static_cast<const Image &>(from));
-}
 
-
-void Image::MergeFrom(const Image& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.Image)
-  GOOGLE_DCHECK_NE(&from, this);
+void Image::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Image*>(&to_msg);
+  auto& from = static_cast<const Image&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.Image)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (!from._internal_data().empty()) {
-    _internal_set_data(from._internal_data());
+    _this->_internal_set_data(from._internal_data());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Image::CopyFrom(const Image& from) {
@@ -4047,14 +4068,13 @@ void Image::InternalSwap(Image* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &data_, lhs_arena,
-      &other->data_, rhs_arena
+      &_impl_.data_, lhs_arena,
+      &other->_impl_.data_, rhs_arena
   );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Image::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_capture_2eproto_getter, &descriptor_table_capture_2eproto_once,
       file_level_metadata_capture_2eproto[20]);
 }
@@ -4068,66 +4088,73 @@ class ImageSrc::_Internal {
 ImageSrc::ImageSrc(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:capture.service.v1.ImageSrc)
 }
 ImageSrc::ImageSrc(const ImageSrc& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ImageSrc* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.proc_){}
+    , decltype(_impl_.src_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  proc_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.proc_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    proc_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+    _impl_.proc_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_proc().empty()) {
-    proc_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_proc(), 
-      GetArenaForAllocation());
+    _this->_impl_.proc_.Set(from._internal_proc(), 
+      _this->GetArenaForAllocation());
   }
-  src_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.src_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    src_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+    _impl_.src_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_src().empty()) {
-    src_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_src(), 
-      GetArenaForAllocation());
+    _this->_impl_.src_.Set(from._internal_src(), 
+      _this->GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:capture.service.v1.ImageSrc)
 }
 
-inline void ImageSrc::SharedCtor() {
-proc_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  proc_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-src_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  src_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+inline void ImageSrc::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.proc_){}
+    , decltype(_impl_.src_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.proc_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.proc_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.src_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.src_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 ImageSrc::~ImageSrc() {
   // @@protoc_insertion_point(destructor:capture.service.v1.ImageSrc)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void ImageSrc::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  proc_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  src_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.proc_.Destroy();
+  _impl_.src_.Destroy();
 }
 
-void ImageSrc::ArenaDtor(void* object) {
-  ImageSrc* _this = reinterpret_cast< ImageSrc* >(object);
-  (void)_this;
-}
-void ImageSrc::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ImageSrc::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void ImageSrc::Clear() {
@@ -4136,22 +4163,22 @@ void ImageSrc::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  proc_.ClearToEmpty();
-  src_.ClearToEmpty();
+  _impl_.proc_.ClearToEmpty();
+  _impl_.src_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ImageSrc::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ImageSrc::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // bytes proc = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_proc();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -4160,7 +4187,7 @@ const char* ImageSrc::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_src();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -4207,7 +4234,7 @@ uint8_t* ImageSrc::_InternalSerialize(
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:capture.service.v1.ImageSrc)
@@ -4236,35 +4263,31 @@ size_t ImageSrc::ByteSizeLong() const {
         this->_internal_src());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ImageSrc::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     ImageSrc::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ImageSrc::GetClassData() const { return &_class_data_; }
 
-void ImageSrc::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<ImageSrc *>(to)->MergeFrom(
-      static_cast<const ImageSrc &>(from));
-}
 
-
-void ImageSrc::MergeFrom(const ImageSrc& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ImageSrc)
-  GOOGLE_DCHECK_NE(&from, this);
+void ImageSrc::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ImageSrc*>(&to_msg);
+  auto& from = static_cast<const ImageSrc&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:capture.service.v1.ImageSrc)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (!from._internal_proc().empty()) {
-    _internal_set_proc(from._internal_proc());
+    _this->_internal_set_proc(from._internal_proc());
   }
   if (!from._internal_src().empty()) {
-    _internal_set_src(from._internal_src());
+    _this->_internal_set_src(from._internal_src());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ImageSrc::CopyFrom(const ImageSrc& from) {
@@ -4284,19 +4307,17 @@ void ImageSrc::InternalSwap(ImageSrc* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &proc_, lhs_arena,
-      &other->proc_, rhs_arena
+      &_impl_.proc_, lhs_arena,
+      &other->_impl_.proc_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &src_, lhs_arena,
-      &other->src_, rhs_arena
+      &_impl_.src_, lhs_arena,
+      &other->_impl_.src_, rhs_arena
   );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ImageSrc::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_capture_2eproto_getter, &descriptor_table_capture_2eproto_once,
       file_level_metadata_capture_2eproto[21]);
 }
@@ -4306,70 +4327,92 @@ void ImageSrc::InternalSwap(ImageSrc* other) {
 }  // namespace service
 }  // namespace capture
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::capture::service::v1::ReadOneRequest* Arena::CreateMaybeMessage< ::capture::service::v1::ReadOneRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::capture::service::v1::ReadOneRequest*
+Arena::CreateMaybeMessage< ::capture::service::v1::ReadOneRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::capture::service::v1::ReadOneRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::capture::service::v1::ReadAllRequest* Arena::CreateMaybeMessage< ::capture::service::v1::ReadAllRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::capture::service::v1::ReadAllRequest*
+Arena::CreateMaybeMessage< ::capture::service::v1::ReadAllRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::capture::service::v1::ReadAllRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::capture::service::v1::ReadOneWithBinaryRequest* Arena::CreateMaybeMessage< ::capture::service::v1::ReadOneWithBinaryRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::capture::service::v1::ReadOneWithBinaryRequest*
+Arena::CreateMaybeMessage< ::capture::service::v1::ReadOneWithBinaryRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::capture::service::v1::ReadOneWithBinaryRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::capture::service::v1::ReadOneWithBinaryAndSrcRequest* Arena::CreateMaybeMessage< ::capture::service::v1::ReadOneWithBinaryAndSrcRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::capture::service::v1::ReadOneWithBinaryAndSrcRequest*
+Arena::CreateMaybeMessage< ::capture::service::v1::ReadOneWithBinaryAndSrcRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::capture::service::v1::ReadOneWithBinaryAndSrcRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::capture::service::v1::ReadAllWithBinaryRequest* Arena::CreateMaybeMessage< ::capture::service::v1::ReadAllWithBinaryRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::capture::service::v1::ReadAllWithBinaryRequest*
+Arena::CreateMaybeMessage< ::capture::service::v1::ReadAllWithBinaryRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::capture::service::v1::ReadAllWithBinaryRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::capture::service::v1::ReadAllWithBinaryAndSrcRequest* Arena::CreateMaybeMessage< ::capture::service::v1::ReadAllWithBinaryAndSrcRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::capture::service::v1::ReadAllWithBinaryAndSrcRequest*
+Arena::CreateMaybeMessage< ::capture::service::v1::ReadAllWithBinaryAndSrcRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::capture::service::v1::ReadAllWithBinaryAndSrcRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest* Arena::CreateMaybeMessage< ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest*
+Arena::CreateMaybeMessage< ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::capture::service::v1::ReadOneWithBinaryAndCalAreaRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest* Arena::CreateMaybeMessage< ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest*
+Arena::CreateMaybeMessage< ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::capture::service::v1::ReadOneWithBinaryAndCalAreaAndSrcRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest* Arena::CreateMaybeMessage< ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest*
+Arena::CreateMaybeMessage< ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::capture::service::v1::ReadAllWithBinaryAndCalAreaRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest* Arena::CreateMaybeMessage< ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest*
+Arena::CreateMaybeMessage< ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::capture::service::v1::ReadAllWithBinaryAndCalAreaAndSrcRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::capture::service::v1::ImageReply* Arena::CreateMaybeMessage< ::capture::service::v1::ImageReply >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::capture::service::v1::ImageReply*
+Arena::CreateMaybeMessage< ::capture::service::v1::ImageReply >(Arena* arena) {
   return Arena::CreateMessageInternal< ::capture::service::v1::ImageReply >(arena);
 }
-template<> PROTOBUF_NOINLINE ::capture::service::v1::ImageWithSrcReply* Arena::CreateMaybeMessage< ::capture::service::v1::ImageWithSrcReply >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::capture::service::v1::ImageWithSrcReply*
+Arena::CreateMaybeMessage< ::capture::service::v1::ImageWithSrcReply >(Arena* arena) {
   return Arena::CreateMessageInternal< ::capture::service::v1::ImageWithSrcReply >(arena);
 }
-template<> PROTOBUF_NOINLINE ::capture::service::v1::ImagesReply* Arena::CreateMaybeMessage< ::capture::service::v1::ImagesReply >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::capture::service::v1::ImagesReply*
+Arena::CreateMaybeMessage< ::capture::service::v1::ImagesReply >(Arena* arena) {
   return Arena::CreateMessageInternal< ::capture::service::v1::ImagesReply >(arena);
 }
-template<> PROTOBUF_NOINLINE ::capture::service::v1::ImagesWithSrcReply* Arena::CreateMaybeMessage< ::capture::service::v1::ImagesWithSrcReply >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::capture::service::v1::ImagesWithSrcReply*
+Arena::CreateMaybeMessage< ::capture::service::v1::ImagesWithSrcReply >(Arena* arena) {
   return Arena::CreateMessageInternal< ::capture::service::v1::ImagesWithSrcReply >(arena);
 }
-template<> PROTOBUF_NOINLINE ::capture::service::v1::ImageWithAreaReply* Arena::CreateMaybeMessage< ::capture::service::v1::ImageWithAreaReply >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::capture::service::v1::ImageWithAreaReply*
+Arena::CreateMaybeMessage< ::capture::service::v1::ImageWithAreaReply >(Arena* arena) {
   return Arena::CreateMessageInternal< ::capture::service::v1::ImageWithAreaReply >(arena);
 }
-template<> PROTOBUF_NOINLINE ::capture::service::v1::ImageWithAreaAndSrcReply* Arena::CreateMaybeMessage< ::capture::service::v1::ImageWithAreaAndSrcReply >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::capture::service::v1::ImageWithAreaAndSrcReply*
+Arena::CreateMaybeMessage< ::capture::service::v1::ImageWithAreaAndSrcReply >(Arena* arena) {
   return Arena::CreateMessageInternal< ::capture::service::v1::ImageWithAreaAndSrcReply >(arena);
 }
-template<> PROTOBUF_NOINLINE ::capture::service::v1::ImagesWithAreaReply_Data* Arena::CreateMaybeMessage< ::capture::service::v1::ImagesWithAreaReply_Data >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::capture::service::v1::ImagesWithAreaReply_Data*
+Arena::CreateMaybeMessage< ::capture::service::v1::ImagesWithAreaReply_Data >(Arena* arena) {
   return Arena::CreateMessageInternal< ::capture::service::v1::ImagesWithAreaReply_Data >(arena);
 }
-template<> PROTOBUF_NOINLINE ::capture::service::v1::ImagesWithAreaReply* Arena::CreateMaybeMessage< ::capture::service::v1::ImagesWithAreaReply >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::capture::service::v1::ImagesWithAreaReply*
+Arena::CreateMaybeMessage< ::capture::service::v1::ImagesWithAreaReply >(Arena* arena) {
   return Arena::CreateMessageInternal< ::capture::service::v1::ImagesWithAreaReply >(arena);
 }
-template<> PROTOBUF_NOINLINE ::capture::service::v1::ImagesWithAreaAndSrcReply_Data* Arena::CreateMaybeMessage< ::capture::service::v1::ImagesWithAreaAndSrcReply_Data >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::capture::service::v1::ImagesWithAreaAndSrcReply_Data*
+Arena::CreateMaybeMessage< ::capture::service::v1::ImagesWithAreaAndSrcReply_Data >(Arena* arena) {
   return Arena::CreateMessageInternal< ::capture::service::v1::ImagesWithAreaAndSrcReply_Data >(arena);
 }
-template<> PROTOBUF_NOINLINE ::capture::service::v1::ImagesWithAreaAndSrcReply* Arena::CreateMaybeMessage< ::capture::service::v1::ImagesWithAreaAndSrcReply >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::capture::service::v1::ImagesWithAreaAndSrcReply*
+Arena::CreateMaybeMessage< ::capture::service::v1::ImagesWithAreaAndSrcReply >(Arena* arena) {
   return Arena::CreateMessageInternal< ::capture::service::v1::ImagesWithAreaAndSrcReply >(arena);
 }
-template<> PROTOBUF_NOINLINE ::capture::service::v1::Image* Arena::CreateMaybeMessage< ::capture::service::v1::Image >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::capture::service::v1::Image*
+Arena::CreateMaybeMessage< ::capture::service::v1::Image >(Arena* arena) {
   return Arena::CreateMessageInternal< ::capture::service::v1::Image >(arena);
 }
-template<> PROTOBUF_NOINLINE ::capture::service::v1::ImageSrc* Arena::CreateMaybeMessage< ::capture::service::v1::ImageSrc >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::capture::service::v1::ImageSrc*
+Arena::CreateMaybeMessage< ::capture::service::v1::ImageSrc >(Arena* arena) {
   return Arena::CreateMessageInternal< ::capture::service::v1::ImageSrc >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE

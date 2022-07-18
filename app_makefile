@@ -1,5 +1,5 @@
-AUTHOR_NAME="hominsu"
-AUTHOR_EMAIL="1774069959@qq.com"
+AUTHOR_NAME=hominsu
+AUTHOR_EMAIL=hominsu@foxmail.com
 
 GOPATH:=$(shell go env GOPATH)
 VERSION=$(shell git describe --tags --always)
@@ -9,7 +9,7 @@ INTERNAL_PROTO_FILES=$(shell find internal -name *.proto)
 API_PROTO_FILES=$(shell cd ../../../api/$(APP_RELATIVE_PATH) && find . -name *.proto)
 CPP_API_PROTO_FILES=$(shell cd ../../../api/$(APP_RELATIVE_PATH) && find . -name *.proto | grep -v error)
 
-REPO="hominsu"
+REPO=hominsu
 
 APP_NAME=$(shell echo $(APP_RELATIVE_PATH) | sed -En "s/\//-/p")
 DOCKER_IMAGE=$(REPO)/$(shell echo $(APP_NAME) |awk -F '@' '{print "htp-platform-" $$0 ":$(VERSION)"}')

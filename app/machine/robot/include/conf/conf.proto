@@ -41,7 +41,8 @@ message Serial {
 
 message PlatInfo {
   message InternalArray {
-    repeated double items = 1;
+    int64 index = 1;
+    repeated double items = 2;
   }
   int32 ltmp = 1;
   repeated InternalArray ancher = 2;

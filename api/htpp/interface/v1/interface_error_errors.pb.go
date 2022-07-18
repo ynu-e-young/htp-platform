@@ -12,6 +12,9 @@ import (
 const _ = errors.SupportPackageIsVersion1
 
 func IsUnknownError(err error) bool {
+	if err == nil {
+		return false
+	}
 	e := errors.FromError(err)
 	return e.Reason == HtppInterfaceErrorReason_UNKNOWN_ERROR.String() && e.Code == 500
 }
@@ -21,6 +24,9 @@ func ErrorUnknownError(format string, args ...interface{}) *errors.Error {
 }
 
 func IsNotFoundError(err error) bool {
+	if err == nil {
+		return false
+	}
 	e := errors.FromError(err)
 	return e.Reason == HtppInterfaceErrorReason_NOT_FOUND_ERROR.String() && e.Code == 500
 }
@@ -30,6 +36,9 @@ func ErrorNotFoundError(format string, args ...interface{}) *errors.Error {
 }
 
 func IsLoginFailed(err error) bool {
+	if err == nil {
+		return false
+	}
 	e := errors.FromError(err)
 	return e.Reason == HtppInterfaceErrorReason_LOGIN_FAILED.String() && e.Code == 500
 }
@@ -39,6 +48,9 @@ func ErrorLoginFailed(format string, args ...interface{}) *errors.Error {
 }
 
 func IsRegisterFailed(err error) bool {
+	if err == nil {
+		return false
+	}
 	e := errors.FromError(err)
 	return e.Reason == HtppInterfaceErrorReason_REGISTER_FAILED.String() && e.Code == 500
 }
@@ -48,6 +60,9 @@ func ErrorRegisterFailed(format string, args ...interface{}) *errors.Error {
 }
 
 func IsUsernameConflict(err error) bool {
+	if err == nil {
+		return false
+	}
 	e := errors.FromError(err)
 	return e.Reason == HtppInterfaceErrorReason_USERNAME_CONFLICT.String() && e.Code == 500
 }
@@ -57,6 +72,9 @@ func ErrorUsernameConflict(format string, args ...interface{}) *errors.Error {
 }
 
 func IsReadDeviceError(err error) bool {
+	if err == nil {
+		return false
+	}
 	e := errors.FromError(err)
 	return e.Reason == HtppInterfaceErrorReason_READ_DEVICE_ERROR.String() && e.Code == 500
 }
@@ -66,6 +84,9 @@ func ErrorReadDeviceError(format string, args ...interface{}) *errors.Error {
 }
 
 func IsCreateFailed(err error) bool {
+	if err == nil {
+		return false
+	}
 	e := errors.FromError(err)
 	return e.Reason == HtppInterfaceErrorReason_CREATE_FAILED.String() && e.Code == 500
 }
@@ -75,6 +96,9 @@ func ErrorCreateFailed(format string, args ...interface{}) *errors.Error {
 }
 
 func IsAddressConflict(err error) bool {
+	if err == nil {
+		return false
+	}
 	e := errors.FromError(err)
 	return e.Reason == HtppInterfaceErrorReason_ADDRESS_CONFLICT.String() && e.Code == 500
 }

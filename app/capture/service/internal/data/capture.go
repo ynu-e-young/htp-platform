@@ -3,7 +3,6 @@ package data
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
-	"gocv.io/x/gocv"
 	"htp-platform/app/capture/service/internal/biz"
 )
 
@@ -23,8 +22,7 @@ func NewCaptureRepo(data *Data, logger log.Logger) biz.CaptureRepo {
 }
 
 func (r *captureRepo) ReadOne(ctx context.Context, device int) (*biz.Capture, error) {
-	mat := gocv.NewMat()
-	r.data.captures[device].Read(&mat)
+	mat := r.data.captures[device].Clone()
 
 	return &biz.Capture{
 		Mat: &mat,
@@ -35,8 +33,7 @@ func (r *captureRepo) ReadAll(ctx context.Context) ([]*biz.Capture, error) {
 	var rets []*biz.Capture
 
 	for _, capture := range r.data.captures {
-		mat := gocv.NewMat()
-		capture.Read(&mat)
+		mat := capture.Clone()
 		rets = append(rets, &biz.Capture{
 			Mat: &mat,
 		})

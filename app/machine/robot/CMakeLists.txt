@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 
 project(htp-platform.machine.robot
         LANGUAGES C CXX
-        HOMEPAGE_URL "https://github.com/hominsu/System")
+        HOMEPAGE_URL "https://github.com/hominsu/htp-platform")
 
 # setting definitions
 add_definitions(-DPROJECT_NAME=\"${PROJECT_NAME}\")
@@ -22,10 +22,8 @@ if (CMAKE_SYSTEM_NAME MATCHES "Darwin")
     include_directories(/opt/homebrew/include)
     message(STATUS "Load link directories from /opt/homebrew/lib")
     message(STATUS "Load include directories from /opt/homebrew/include")
-    set(OPENSSL_ROOT_DIR /opt/homebrew/Cellar/openssl@1.1/1.1.1n)
-    set(OPENSSL_INCLUDE_DIR /opt/homebrew/Cellar/openssl@1.1/1.1.1n/include)
-    #    set(OPENSSL_ROOT_DIR /opt/homebrew/Cellar/openssl@3/3.0.0_1)
-    #    set(OPENSSL_INCLUDE_DIR /opt/homebrew/Cellar/openssl@3/3.0.0_1/include)
+    set(OPENSSL_ROOT_DIR /opt/homebrew/Cellar/openssl@1.1/1.1.1q)
+    set(OPENSSL_INCLUDE_DIR /opt/homebrew/Cellar/openssl@1.1/1.1.1q/include)
 elseif (CMAKE_SYSTEM_NAME MATCHES "Linux")
     link_directories(/usr/local/lib)
     include_directories(/usr/local/include)
