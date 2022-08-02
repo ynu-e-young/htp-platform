@@ -19,9 +19,12 @@
 #include "conf/conf.pb.h"
 #include "robot/controller.h"
 #include "robot/internal/server/robot_server.h"
+#include "robot/internal/utils/logger.h"
 
-#include <iostream>
+#include "unistd.h"
+
 #include <csignal>
+#include <sstream>
 
 bool is_running = true;
 
@@ -30,6 +33,13 @@ void OnSignal(int) {
 }
 
 int main(int _argc, char *_argv[]) {
+#ifndef NDEBUG
+  htp_platform::logger::set_log_level(htp_platform::logger::Level::DEBUG);
+#else
+  htp_platform::logger::set_log_level(htp_platform::logger::Level::INFO);
+#endif
+  htp_platform::logger::set_log_fd(STDOUT_FILENO);
+
   if (_argc == 2 && (std::string(_argv[1]) == "-v" || std::string(_argv[1]) == "--version")) {
     printf("%s homepage url: %s\n", PROJECT_NAME, HOMEPAGE_URL);
     exit(EXIT_SUCCESS);
@@ -62,6 +72,7 @@ int main(int _argc, char *_argv[]) {
 
   Controller::Get()->ThreadSleep(std::chrono::milliseconds(100));
 
+  std::stringstream ss;
   while (true) {
     // 退出
     if (!is_running) {
@@ -72,12 +83,15 @@ int main(int _argc, char *_argv[]) {
     auto status = Controller::Get()->motor_status();
     auto pos = Controller::Get()->motor_real_pos();
     // 显示寄存器状态以及电机实际位置
-    std::cout << "========================" << std::endl;
+    ss << std::endl << "========================" << std::endl;
     for (int i = 0; i < 6; ++i) {
-      std::cout << "addr: " << i + 1 << ": ";
-      std::cout << status[i] << ", " << pos[i] << ", " << std::endl;
+      ss << "addr: " << i + 1 << ": ";
+      ss << "" << status[i] << ", " << pos[i] << ", " << std::endl;
     }
-    std::cout << "========================" << std::endl << std::endl;
+    ss << "========================";
+    INFO("%s", ss.str().c_str());
+    ss.clear();
+    ss.str("");
 
     std::this_thread::sleep_for(std::chrono::seconds(1));
   }

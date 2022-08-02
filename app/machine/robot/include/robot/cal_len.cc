@@ -123,6 +123,7 @@ bool CalLen::MatrixMult(double l[4][4], double r[4][4], double ret[4][4]) {
  */
 void CalLen::MatrixVectMult(double l[4][4], double r[3], double result[3]) {
   int i, j, order;
+  (void) order;
   order = 4;
   for (i = 0; i < 3; i++) {
     result[i] = l[i][3];    // 先将l中最后一列前三行写入，剩下的3*3就与r[3]维度对应，才能进行相乘

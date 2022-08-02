@@ -47,9 +47,7 @@ void Motor::MotorClose() {
 void Motor::MotorSystemInitialization(unsigned char _addr) {
   for (auto &i : kMotorDio) {
     this->motor_Dio_.push_back(i);
-    //std::cout << std::hex << i << ", ";
   }
-  //std::cout << std::endl;
 
   for (auto &i : kMotorBasic) {
     this->motor_basic_.push_back(i);

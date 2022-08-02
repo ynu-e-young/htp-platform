@@ -3,29 +3,36 @@
 //
 
 #include "serial.h"
+#include "robot/internal/utils/logger.h"
 
 #include <fcntl.h>    // 包含文件控件，例如 O_RDWR
 #include <termios.h>  // 包含 POSIX 终端控件定义
 #include <unistd.h>   // write(), read(), close()
 #include <sys/file.h> // 排他锁
 
-#include <cstring>
 #include <cassert>
 #include <cerrno>
-
-#include <iostream>
+#include <cstring>
 
 /**
  * @brief 显示打开的串口信息
  */
 void Serial::ShowTermios() const {
-  std::cout << "input mode flags: " << this->Opt.c_iflag << std::endl
-            << "output mode flags: " << this->Opt.c_oflag << std::endl
-            << "control mode flags: " << this->Opt.c_cflag << std::endl
-            << "local mode flags: " << this->Opt.c_lflag << std::endl
-            << "line discipline: " << this->Opt.c_lflag << std::endl
-            << "input speed: " << this->Opt.c_cc << std::endl
-            << "output speed: " << this->Opt.c_cc << std::endl;
+  INFO(R"(
+Termios info:
+	input mode flags: %ld
+	output mode flags: %ld
+	control mode flags: %ld
+	local mode flags: %ld
+	input speed: %s
+	output speed: %s
+)",
+       this->Opt.c_iflag,
+       this->Opt.c_oflag,
+       this->Opt.c_cflag,
+       this->Opt.c_lflag,
+       this->Opt.c_cc,
+       this->Opt.c_cc);
 }
 
 /**
@@ -189,12 +196,13 @@ void Serial::SetBaudRate() {
  */
 void Serial::SerialInitial() {
   fcntl(this->serial_port_, F_SETFL, 0);
-  std::cout << "Test Port " + this->port_number_ + " has been successfully opened and " << this->serial_port_
-      << " is the file description" << std::endl;
+  INFO("Test Port %s  has been successfully opened and %d is the file description",
+       this->port_number_.c_str(),
+       this->serial_port_);
 
   // 获取当前的串口设置
   if (tcgetattr(this->serial_port_, &this->Opt)) {
-    std::cerr << "Error " << errno << " from tcgetattr: " << std::strerror(errno) << std::endl;
+    SYSERR("Error  from tcgetattr");
   }
 
   SetParity();
@@ -212,7 +220,7 @@ void Serial::SerialInitial() {
 
   // Save tty settings, also checking for error
   if (tcsetattr(this->serial_port_, TCSANOW, &this->Opt)) {
-    std::cerr << "Error " << errno << "from tcsetattr: " << strerror(errno) << std::endl;
+    SYSERR("Error  from tcgetattr");
   }
 
   this->connected_ = true;
@@ -256,8 +264,7 @@ void Serial::SerialOpen() {
   } catch (std::exception &e) {
     throw e;
   } catch (...) {
-    std::cout << "catch unknown wrong!" << std::endl;
-    exit(-1);
+    FATAL("catch unknown wrong!");
   }
 }
 
@@ -317,15 +324,13 @@ size_t Serial::Read(std::array<unsigned char, 256> &recv_array) {
   size_t num_bytes = read(this->serial_port_, &buffer, sizeof(buffer));
 
   if (num_bytes < 0) {
-    std::cerr << "Error reading: " << strerror(errno) << std::endl;
+    SYSERR("Error reading");
   }
 
-  for (auto &i : recv_array) {
+  for (auto &i: recv_array) {
     i = *index;
     ++index;
-    //std::cout << (unsigned short) i << ", ";
   }
-  //std::cout << std::endl;
 
   return num_bytes;
 }
@@ -339,11 +344,9 @@ size_t Serial::Write(const std::vector<unsigned char> &_send_array) {
   // 将vector转换成对应大小的数组
   unsigned char buffer[_send_array.size()];
   unsigned char *index = buffer;
-  for (auto i : _send_array) {
+  for (auto i: _send_array) {
     *index++ = i;
-    //std::cout << (unsigned short) i << ", ";
   }
-  //std::cout << std::endl;
 
   // 发送数据
   size_t len = write(this->serial_port_, buffer, _send_array.size());

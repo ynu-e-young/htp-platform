@@ -5,12 +5,12 @@
 #include <fstream>
 
 #include "get_cred.h"
+#include "logger.h"
 
 std::string GetCred::GetFileContents(const std::string &_path) {
   std::ifstream file_stream(_path);
   if (!file_stream.good()) {
-    std::cerr << "Open Cert File Failed" << std::endl;
-    exit(-1);
+    FATAL("Open Cert File Failed");
   }
   std::string contents;
   contents.assign((std::istreambuf_iterator<char>(file_stream)), std::istreambuf_iterator<char>());
