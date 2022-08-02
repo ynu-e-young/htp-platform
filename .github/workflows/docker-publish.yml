@@ -41,7 +41,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          repository: ${{ github.repository }}
+          fetch-depth: 0
 
       - name: Log into registry ${{ matrix.name }}
         uses: docker/login-action@v1
@@ -65,8 +68,7 @@ jobs:
 
       - name: Build and Push ${{ matrix.name }}
         run: |
-          make buildx REPO=${{ matrix.push_link }} VERSION=${{ needs.set-matrix.outputs.git_tag }}
-          make buildx REPO=${{ matrix.push_link }} VERSION=latest
+          REPO=${{ matrix.push_link }} VERSION=${{ needs.set-matrix.outputs.git_tag }} docker buildx bake --file deploy/docker-compose/docker-bake.hcl --push --set "*.platform=linux/arm64,linux/amd64,linux/arm/v7"
 
   deploy:
     name: Deploy
