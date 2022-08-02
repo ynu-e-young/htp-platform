@@ -5,8 +5,8 @@
 #include "controller.h"
 
 #include "internal/data/grpc/move_done_client.h"
+#include "internal/utils/logger.h"
 
-#include <iostream>
 #include <string>
 #include <thread>
 #include <chrono>
@@ -147,9 +147,9 @@ void Controller::InitialSystem() {
       motors_.MotorSerialInit(bootstrap_);
       break;
     } catch (std::runtime_error &runtime_error) {
-      std::cout << runtime_error.what() << std::endl;
+      ERROR("%s", runtime_error.what());
     } catch (std::exception &e) {
-      std::cout << e.what() << std::endl;
+      ERROR("%s", e.what());
     }
 
     // 每隔一秒尝试重新连接串口
@@ -224,25 +224,14 @@ void Controller::Move(double _m_xyz[], double _m_ges[]) {
   double len[6]{0};
   long ret = cal_len_.OnPos(_m_xyz, _m_ges, len, size);
 
-#if DEBUG
-  std::cout << "Move: [" << _m_xyz[0] << ", " << _m_xyz[1] << ", " << _m_xyz[2] << ", " << _m_ges[0] << ", "
-            << _m_ges[1] << "], delay: " << _m_ges[2] << std::endl;
-#endif
-
   if (0 != ret) {
-    std::cout << "ret: " << ret << std::endl;
+    INFO("ret: %ld", ret);
     return;
   }
 
-#if DEBUG
-  std::cout << "pluse: [";
-#endif
   int index = 0;
   for (const auto &i: len) {
     auto pulse = CalMotorPulse(i, zero_[index]);
-#if DEBUG
-    std::cout << pulse << ", ";
-#endif
     motor_expected_pos_[index] = pulse;
 
     // 写入PR0
@@ -256,9 +245,6 @@ void Controller::Move(double _m_xyz[], double _m_ges[]) {
 
     ++index;
   }
-#if DEBUG
-  std::cout << "]" << std::endl;
-#endif
 }
 
 /**
@@ -325,7 +311,6 @@ bool Controller::ZRNDone() {
     // 遍历控制器信息数组
     for (int index = 0; index < 6; ++index) {
       motor_status_[index] = motor_reg_status_[index][0];  // 转换为bitset，便于读取信息
-//    std::cout << "addr: " << index << " " << motion_status << std::endl;
     }
   }
 
@@ -358,7 +343,6 @@ bool Controller::MoveDone() {
     // 遍历控制器信息数组
     for (int index = 0; index < 6; ++index) {
       motor_status_[index] = motor_reg_status_[index][0];  // 转换为bitset，便于读取信息
-//    std::cout << "addr: " << index << " " << motion_status << std::endl;
     }
   }
 
@@ -427,9 +411,7 @@ bool Controller::Send(const MoveDoneRequestBody &_req) {
   MoveDoneClient client(server_address);
 
   auto status = client.MoveDone(_req);
-#if DEBUG
-  std::cout << "Send Status: " << status << std::endl;
-#endif
+  DEBUG("Send Status: %d", status);
   return status;
 }
 
@@ -472,6 +454,7 @@ void Controller::Main() {
           false,
           motion.at(5),
           bootstrap_->uuid(),
+          "",
       });
     } else if (!check_coord_empty()) {  // 检查队列
       auto check = check_coord_pop();

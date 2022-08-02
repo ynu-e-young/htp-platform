@@ -3,6 +3,7 @@
 //
 
 #include "move_done_client.h"
+#include "robot/internal/utils/logger.h"
 
 bool MoveDoneClient::MoveDone(const MoveDoneRequestBody &_body) {
   machine::service::v1::MoveDoneRequest req;  // 请求
@@ -17,7 +18,7 @@ bool MoveDoneClient::MoveDone(const MoveDoneRequestBody &_body) {
   req.set_check(_body.check);
   req.set_delay(_body.delay);
   req.set_uuid(_body.uuid);
-  if(_body.check){
+  if (_body.check) {
     req.set_check_name(_body.check_name);
   }
 
@@ -31,8 +32,7 @@ bool MoveDoneClient::MoveDone(const MoveDoneRequestBody &_body) {
   if (status.ok()) {
     return reply.status();
   } else {
-    std::cerr << "RPC failed, error_code: [" << status.error_code() << "], error_message: ["
-              << status.error_message() << "]" << std::endl;
+    ERROR("RPC failed, error_code: [%d], error_message: [%s]", status.error_code(), status.error_message().c_str());
     return false;
   }
 }

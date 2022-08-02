@@ -6,8 +6,8 @@
 
 #include "robot/internal/service/robot_impl.h"
 #include "robot/internal/utils/get_cred.h"
+#include "robot/internal/utils/logger.h"
 
-#include <fstream>
 
 /**
  * @brief 停止线程任务
@@ -33,13 +33,9 @@ void RobotServer::Main() {
   std::unique_ptr<grpc::Server> server(builder.BuildAndStart());
   server_ = std::move(server);
 
-#if DEBUG
-  std::cout << "Server listening on " << bootstrap_->local().grpc().addr() << std::endl;
-#endif
+  DEBUG("Server listening on %s", bootstrap_->local().grpc().addr().c_str());
 
   server_->Wait();
 
-#if DEBUG
-  std::cout << "Rpc Service Shut Down" << std::endl;
-#endif
+  DEBUG("Rpc Service Shut Down");
 }

@@ -1,5 +1,5 @@
 #build stage
-FROM hominsu/grpc-alpine:alpine3.15-build as builder
+FROM hominsu/grpc-alpine:grpc-1.46.3-alpine-3.16-devel as builder
 # app dir
 ARG APP_RELATIVE_PATH
 # install: git(makefile use git to describe the version)
@@ -13,7 +13,7 @@ WORKDIR /src/app/${APP_RELATIVE_PATH}
 RUN make build
 
 #final stage
-FROM hominsu/grpc-alpine:alpine3.15-runtime
+FROM hominsu/grpc-alpine:grpc-1.46.3-alpine-3.16-runtime
 # image info
 ARG AUTHOR_NAME
 ARG AUTHOR_EMAIL
