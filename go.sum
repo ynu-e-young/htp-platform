@@ -51,8 +51,9 @@ github.com/ghodss/yaml v1.0.0/go.mod h1:4dBDuWmgqj2HViK6kFavaiC9ZROes6MMH2rRYeME
 github.com/go-kratos/aegis v0.1.2/go.mod h1:jYeSQ3Gesba478zEnujOiG5QdsyF3Xk/8owFUeKcHxw=
 github.com/go-kratos/kratos/contrib/registry/consul/v2 v2.0.0-20220714125901-1ab3d8f02840 h1:P+WDLZW5oI8vEBrqpchUd5Cs5PSAjuaFo9WT7eOcerY=
 github.com/go-kratos/kratos/contrib/registry/consul/v2 v2.0.0-20220714125901-1ab3d8f02840/go.mod h1:28elfO2qRp6Ed9tJHFA9aGtpdBmk1bYhrPqwYqB68nA=
-github.com/go-kratos/kratos/v2 v2.4.0 h1:3yZjvjCdV+zJQrb5zUWCLrzK/RrGoC78vaQQ1jMmBGI=
 github.com/go-kratos/kratos/v2 v2.4.0/go.mod h1:5acyLj4EgY428AJnZl2EwCrMV1OVlttQFBum+SghMiA=
+github.com/go-kratos/kratos/v2 v2.5.3 h1:v3F0fIFXh4HJgXprHKPGhRaobggolwPAbaBAjR+wC+Q=
+github.com/go-kratos/kratos/v2 v2.5.3/go.mod h1:5acyLj4EgY428AJnZl2EwCrMV1OVlttQFBum+SghMiA=
 github.com/go-logr/logr v1.2.2/go.mod h1:jdQByPbusPIv2/zmleS9BjJVeZ6kBagPoEUsqbVz/1A=
 github.com/go-logr/logr v1.2.3/go.mod h1:jdQByPbusPIv2/zmleS9BjJVeZ6kBagPoEUsqbVz/1A=
 github.com/go-logr/stdr v1.2.2/go.mod h1:mMo/vtBO5dYbehREoey6XUKy/eSumjCCveDpRre4VKE=

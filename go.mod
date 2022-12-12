@@ -6,7 +6,7 @@ require (
 	entgo.io/ent v0.11.4
 	github.com/aliyun/aliyun-oss-go-sdk v2.2.6+incompatible
 	github.com/go-kratos/kratos/contrib/registry/consul/v2 v2.0.0-20220714125901-1ab3d8f02840
-	github.com/go-kratos/kratos/v2 v2.4.0
+	github.com/go-kratos/kratos/v2 v2.5.3
 	github.com/go-sql-driver/mysql v1.7.0
 	github.com/golang-jwt/jwt/v4 v4.4.3
 	github.com/google/uuid v1.3.0
