@@ -15,7 +15,7 @@ require (
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.15.0
 	github.com/hashicorp/consul/api v1.18.0
 	github.com/robfig/cron/v3 v3.0.1
-	gocv.io/x/gocv v0.31.0
+	gocv.io/x/gocv v0.32.1
 	golang.org/x/crypto v0.0.0-20220622213112-05595931fe9d
 	google.golang.org/genproto v0.0.0-20221207170731-23e4bf6bdc37
 	google.golang.org/grpc v1.51.0
