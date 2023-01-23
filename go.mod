@@ -3,7 +3,7 @@ module htp-platform
 go 1.18
 
 require (
-	entgo.io/ent v0.11.5
+	entgo.io/ent v0.11.6
 	github.com/aliyun/aliyun-oss-go-sdk v2.2.6+incompatible
 	github.com/go-kratos/kratos/contrib/registry/consul/v2 v2.0.0-20220714125901-1ab3d8f02840
 	github.com/go-kratos/kratos/v2 v2.5.3
@@ -23,7 +23,7 @@ require (
 )
 
 require (
-	ariga.io/atlas v0.8.4-0.20221212165942-e53dd27a603d // indirect
+	ariga.io/atlas v0.9.1-0.20230119123307-a3ab6808892b // indirect
 	github.com/agext/levenshtein v1.2.1 // indirect
 	github.com/apparentlymart/go-textseg/v13 v13.0.0 // indirect
 	github.com/armon/go-metrics v0.0.0-20180917152333-f0300d1749da // indirect
