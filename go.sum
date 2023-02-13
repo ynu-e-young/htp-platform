@@ -1,9 +1,9 @@
-ariga.io/atlas v0.8.4-0.20221212165942-e53dd27a603d h1:eAmX+el+OOTP5Y3ep9kmdj7Db6+0aHbT0LIYyPtcboU=
-ariga.io/atlas v0.8.4-0.20221212165942-e53dd27a603d/go.mod h1:T230JFcENj4ZZzMkZrXFDSkv+2kXkUgpJ5FQQ5hMcKU=
+ariga.io/atlas v0.9.1-0.20230119145809-92243f7c55cb h1:mbsFtavDqGdYwdDpP50LGOOZ2hgyGoJcZeOpbgKMyu4=
+ariga.io/atlas v0.9.1-0.20230119145809-92243f7c55cb/go.mod h1:T230JFcENj4ZZzMkZrXFDSkv+2kXkUgpJ5FQQ5hMcKU=
 cloud.google.com/go v0.26.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
 cloud.google.com/go v0.34.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
-entgo.io/ent v0.11.5 h1:V2qhG91C4PMQTa82Q4StoESMQ4dzkMNeStCzszxi0jQ=
-entgo.io/ent v0.11.5/go.mod h1:u7eKwNWAo/VlHIKxgwbmsFy3J7cKDxwi3jyF5TW/okY=
+entgo.io/ent v0.11.8 h1:M/M0QL1CYCUSdqGRXUrXhFYSDRJPsOOrr+RLEej/gyQ=
+entgo.io/ent v0.11.8/go.mod h1:ericBi6Q8l3wBH1wEIDfKxw7rcQEuRPyBfbIzjtxJ18=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/DATA-DOG/go-sqlmock v1.5.0 h1:Shsta01QNfFxHCfpW6YH2STWB0MudeXXEWMr20OEh60=
 github.com/StackExchange/wmi v1.2.1/go.mod h1:rcmrprowKIVzvc+NUiLncP2uuArMWLCbu9SBzvHz7e8=
