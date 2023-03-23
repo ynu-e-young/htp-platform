@@ -13,7 +13,7 @@ require (
 	github.com/google/wire v0.5.0
 	github.com/gorilla/handlers v1.5.1
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.15.0
-	github.com/hashicorp/consul/api v1.18.0
+	github.com/hashicorp/consul/api v1.20.0
 	github.com/robfig/cron/v3 v3.0.1
 	gocv.io/x/gocv v0.32.1
 	golang.org/x/crypto v0.0.0-20220622213112-05595931fe9d
