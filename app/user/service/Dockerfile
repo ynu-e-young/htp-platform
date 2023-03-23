@@ -16,7 +16,7 @@ ARG AUTHOR_NAME
 ARG AUTHOR_EMAIL
 ARG VERSION
 # label
-LABEL author=$AUTHOR_NAME email=${AUTHOR_EMAIL} version=$VERSION
+LABEL author=${AUTHOR_NAME} email=${AUTHOR_EMAIL} version=${VERSION}
 # app dir
 ARG APP_RELATIVE_PATH
 # install: tzdata ca-certificates
