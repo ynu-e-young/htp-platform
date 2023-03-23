@@ -3,9 +3,10 @@ package service
 import (
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/google/wire"
-	v1 "htp-platform/api/htpp/interface/v1"
-	"htp-platform/app/htpp/interface/internal/biz"
-	"htp-platform/app/htpp/interface/internal/conf"
+	interfaceV1 "github.com/ynu-e-young/apis-go/htpp/htpp/interface/v1"
+
+	"github.com/ynu-e-young/htp-platform/app/htpp/interface/internal/biz"
+	"github.com/ynu-e-young/htp-platform/app/htpp/interface/internal/conf"
 )
 
 // ProviderSet is service providers.
@@ -13,7 +14,7 @@ var ProviderSet = wire.NewSet(NewInterfaceService)
 
 // InterfaceService is an interface service.
 type InterfaceService struct {
-	v1.UnimplementedInterfaceServer
+	interfaceV1.UnimplementedInterfaceServer
 
 	uu  *biz.UserUsecase
 	cu  *biz.CaptureUsecase

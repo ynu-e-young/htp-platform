@@ -3,10 +3,11 @@ package server
 import (
 	"github.com/go-kratos/kratos/v2/registry"
 	"github.com/google/wire"
-	"htp-platform/app/htpp/interface/internal/conf"
 
-	consul "github.com/go-kratos/kratos/contrib/registry/consul/v2"
+	"github.com/go-kratos/kratos/contrib/registry/consul/v2"
 	consulAPI "github.com/hashicorp/consul/api"
+
+	"github.com/ynu-e-young/htp-platform/app/htpp/interface/internal/conf"
 )
 
 // ProviderSet is server providers.

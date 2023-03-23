@@ -2,10 +2,12 @@ package data
 
 import (
 	"context"
+
 	"github.com/go-kratos/kratos/v2/log"
-	captureV1 "htp-platform/api/capture/service/v1"
-	interfaceV1 "htp-platform/api/htpp/interface/v1"
-	"htp-platform/app/htpp/interface/internal/biz"
+	captureV1 "github.com/ynu-e-young/apis-go/htpp/capture/service/v1"
+	interfaceV1 "github.com/ynu-e-young/apis-go/htpp/htpp/interface/v1"
+
+	"github.com/ynu-e-young/htp-platform/app/htpp/interface/internal/biz"
 )
 
 var _ biz.CaptureRepo = (*captureRepo)(nil)

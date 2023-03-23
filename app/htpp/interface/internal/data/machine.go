@@ -2,10 +2,12 @@ package data
 
 import (
 	"context"
+
 	"github.com/go-kratos/kratos/v2/log"
-	interfaceV1 "htp-platform/api/htpp/interface/v1"
-	machineV1 "htp-platform/api/machine/service/v1"
-	"htp-platform/app/htpp/interface/internal/biz"
+	interfaceV1 "github.com/ynu-e-young/apis-go/htpp/htpp/interface/v1"
+	machineV1 "github.com/ynu-e-young/apis-go/htpp/machine/service/v1"
+
+	"github.com/ynu-e-young/htp-platform/app/htpp/interface/internal/biz"
 )
 
 var _ biz.MachineRepo = (*machineRepo)(nil)

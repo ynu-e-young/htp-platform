@@ -2,16 +2,18 @@ package server
 
 import (
 	"context"
+
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/go-kratos/kratos/v2/middleware/logging"
 	"github.com/go-kratos/kratos/v2/middleware/recovery"
 	"github.com/go-kratos/kratos/v2/middleware/selector"
 	"github.com/go-kratos/kratos/v2/transport/http"
 	"github.com/gorilla/handlers"
-	interfaceV1 "htp-platform/api/htpp/interface/v1"
-	"htp-platform/app/htpp/interface/internal/conf"
-	"htp-platform/app/htpp/interface/internal/pkg/middleware/auth"
-	"htp-platform/app/htpp/interface/internal/service"
+	interfaceV1 "github.com/ynu-e-young/apis-go/htpp/htpp/interface/v1"
+
+	"github.com/ynu-e-young/htp-platform/app/htpp/interface/internal/conf"
+	"github.com/ynu-e-young/htp-platform/app/htpp/interface/internal/pkg/middleware/auth"
+	"github.com/ynu-e-young/htp-platform/app/htpp/interface/internal/service"
 )
 
 func NewSkipRoutersMatcher() selector.MatchFunc {

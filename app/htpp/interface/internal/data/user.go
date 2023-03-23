@@ -2,10 +2,12 @@ package data
 
 import (
 	"context"
+
 	"github.com/go-kratos/kratos/v2/log"
-	interfaceV1 "htp-platform/api/htpp/interface/v1"
-	userV1 "htp-platform/api/user/service/v1"
-	"htp-platform/app/htpp/interface/internal/biz"
+	interfaceV1 "github.com/ynu-e-young/apis-go/htpp/htpp/interface/v1"
+	userV1 "github.com/ynu-e-young/apis-go/htpp/user/service/v1"
+
+	"github.com/ynu-e-young/htp-platform/app/htpp/interface/internal/biz"
 )
 
 var _ biz.UserRepo = (*userRepo)(nil)

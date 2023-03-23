@@ -2,18 +2,20 @@ package data
 
 import (
 	"context"
+
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/go-kratos/kratos/v2/middleware/recovery"
 	"github.com/go-kratos/kratos/v2/registry"
 	"github.com/go-kratos/kratos/v2/transport/grpc"
 	"github.com/google/wire"
-	captureV1 "htp-platform/api/capture/service/v1"
-	machineV1 "htp-platform/api/machine/service/v1"
-	userV1 "htp-platform/api/user/service/v1"
-	"htp-platform/app/htpp/interface/internal/conf"
+	captureV1 "github.com/ynu-e-young/apis-go/htpp/capture/service/v1"
+	machineV1 "github.com/ynu-e-young/apis-go/htpp/machine/service/v1"
+	userV1 "github.com/ynu-e-young/apis-go/htpp/user/service/v1"
 
-	consul "github.com/go-kratos/kratos/contrib/registry/consul/v2"
+	"github.com/go-kratos/kratos/contrib/registry/consul/v2"
 	consulAPI "github.com/hashicorp/consul/api"
+
+	"github.com/ynu-e-young/htp-platform/app/htpp/interface/internal/conf"
 )
 
 // ProviderSet is data providers.

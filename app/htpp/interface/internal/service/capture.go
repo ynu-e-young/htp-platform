@@ -2,9 +2,10 @@ package service
 
 import (
 	"context"
-	interfaceV1 "htp-platform/api/htpp/interface/v1"
 	"os"
 	"time"
+
+	interfaceV1 "github.com/ynu-e-young/apis-go/htpp/htpp/interface/v1"
 )
 
 func (s *InterfaceService) saveImage(data []byte) error {

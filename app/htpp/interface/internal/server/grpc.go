@@ -5,9 +5,10 @@ import (
 	"github.com/go-kratos/kratos/v2/middleware/logging"
 	"github.com/go-kratos/kratos/v2/middleware/recovery"
 	"github.com/go-kratos/kratos/v2/transport/grpc"
-	v1 "htp-platform/api/htpp/interface/v1"
-	"htp-platform/app/htpp/interface/internal/conf"
-	"htp-platform/app/htpp/interface/internal/service"
+	interfaceV1 "github.com/ynu-e-young/apis-go/htpp/htpp/interface/v1"
+
+	"github.com/ynu-e-young/htp-platform/app/htpp/interface/internal/conf"
+	"github.com/ynu-e-young/htp-platform/app/htpp/interface/internal/service"
 )
 
 // NewGRPCServer new a gRPC server.
@@ -28,6 +29,6 @@ func NewGRPCServer(c *conf.Server, is *service.InterfaceService, logger log.Logg
 		opts = append(opts, grpc.Timeout(c.Grpc.Timeout.AsDuration()))
 	}
 	srv := grpc.NewServer(opts...)
-	v1.RegisterInterfaceServer(srv, is)
+	interfaceV1.RegisterInterfaceServer(srv, is)
 	return srv
 }

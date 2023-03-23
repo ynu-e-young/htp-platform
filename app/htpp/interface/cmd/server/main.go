@@ -2,6 +2,8 @@ package main
 
 import (
 	"flag"
+	"os"
+
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/config"
 	"github.com/go-kratos/kratos/v2/config/file"
@@ -9,8 +11,8 @@ import (
 	"github.com/go-kratos/kratos/v2/registry"
 	"github.com/go-kratos/kratos/v2/transport/grpc"
 	"github.com/go-kratos/kratos/v2/transport/http"
-	"htp-platform/app/htpp/interface/internal/conf"
-	"os"
+
+	"github.com/ynu-e-young/htp-platform/app/htpp/interface/internal/conf"
 )
 
 // go build -ldflags "-X main.Version=x.y.z"

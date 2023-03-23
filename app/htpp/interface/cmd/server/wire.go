@@ -9,11 +9,12 @@ import (
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/google/wire"
-	"htp-platform/app/htpp/interface/internal/biz"
-	"htp-platform/app/htpp/interface/internal/conf"
-	"htp-platform/app/htpp/interface/internal/data"
-	"htp-platform/app/htpp/interface/internal/server"
-	"htp-platform/app/htpp/interface/internal/service"
+
+	"github.com/ynu-e-young/htp-platform/app/htpp/interface/internal/biz"
+	"github.com/ynu-e-young/htp-platform/app/htpp/interface/internal/conf"
+	"github.com/ynu-e-young/htp-platform/app/htpp/interface/internal/data"
+	"github.com/ynu-e-young/htp-platform/app/htpp/interface/internal/server"
+	"github.com/ynu-e-young/htp-platform/app/htpp/interface/internal/service"
 )
 
 // initApp init kratos application.

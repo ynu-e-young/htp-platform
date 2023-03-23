@@ -2,11 +2,13 @@ package biz
 
 import (
 	"context"
+
 	"github.com/go-kratos/kratos/v2/log"
-	interfaceV1 "htp-platform/api/htpp/interface/v1"
-	"htp-platform/app/htpp/interface/internal/conf"
-	"htp-platform/app/htpp/interface/internal/pkg/middleware/auth"
-	"htp-platform/pkg"
+	interfaceV1 "github.com/ynu-e-young/apis-go/htpp/htpp/interface/v1"
+
+	"github.com/ynu-e-young/htp-platform/app/htpp/interface/internal/conf"
+	"github.com/ynu-e-young/htp-platform/app/htpp/interface/internal/pkg/middleware/auth"
+	"github.com/ynu-e-young/htp-platform/pkg"
 )
 
 type User struct {

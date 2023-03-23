@@ -2,8 +2,10 @@ package service
 
 import (
 	"context"
-	interfaceV1 "htp-platform/api/htpp/interface/v1"
-	"htp-platform/app/htpp/interface/internal/biz"
+
+	interfaceV1 "github.com/ynu-e-young/apis-go/htpp/htpp/interface/v1"
+
+	"github.com/ynu-e-young/htp-platform/app/htpp/interface/internal/biz"
 )
 
 func (s *InterfaceService) Login(ctx context.Context, in *interfaceV1.LoginRequest) (*interfaceV1.UserReply, error) {

@@ -2,9 +2,11 @@ package data
 
 import (
 	"context"
+
 	"github.com/go-kratos/kratos/v2/log"
-	machineV1 "htp-platform/api/machine/service/v1"
-	"htp-platform/app/htpp/interface/internal/biz"
+	machineV1 "github.com/ynu-e-young/apis-go/htpp/machine/service/v1"
+
+	"github.com/ynu-e-young/htp-platform/app/htpp/interface/internal/biz"
 )
 
 var _ biz.CronJobRepo = (*cronJobRepo)(nil)
