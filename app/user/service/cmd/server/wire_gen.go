@@ -9,11 +9,11 @@ package main
 import (
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/log"
-	"htp-platform/app/user/service/internal/biz"
-	"htp-platform/app/user/service/internal/conf"
-	"htp-platform/app/user/service/internal/data"
-	"htp-platform/app/user/service/internal/server"
-	"htp-platform/app/user/service/internal/service"
+	"github.com/ynu-e-young/htp-platform/app/user/service/internal/biz"
+	"github.com/ynu-e-young/htp-platform/app/user/service/internal/conf"
+	"github.com/ynu-e-young/htp-platform/app/user/service/internal/data"
+	"github.com/ynu-e-young/htp-platform/app/user/service/internal/server"
+	"github.com/ynu-e-young/htp-platform/app/user/service/internal/service"
 )
 
 // Injectors from wire.go:

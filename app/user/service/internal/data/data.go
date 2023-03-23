@@ -2,14 +2,16 @@ package data
 
 import (
 	"context"
+
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/google/wire"
-	"htp-platform/app/user/service/internal/conf"
-	"htp-platform/app/user/service/internal/data/ent"
-	"htp-platform/app/user/service/internal/data/ent/migrate"
 
 	// init mysql driver
 	_ "github.com/go-sql-driver/mysql"
+
+	"github.com/ynu-e-young/htp-platform/app/user/service/internal/conf"
+	"github.com/ynu-e-young/htp-platform/app/user/service/internal/data/ent"
+	"github.com/ynu-e-young/htp-platform/app/user/service/internal/data/ent/migrate"
 )
 
 // ProviderSet is data providers.

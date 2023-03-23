@@ -2,8 +2,10 @@ package service
 
 import (
 	"context"
-	v1 "htp-platform/api/user/service/v1"
-	"htp-platform/app/user/service/internal/biz"
+
+	v1 "github.com/ynu-e-young/apis-go/htpp/user/service/v1"
+
+	"github.com/ynu-e-young/htp-platform/app/user/service/internal/biz"
 )
 
 func (s *UserService) FindByUsername(ctx context.Context, in *v1.FindByUsernameRequest) (*v1.UserReply, error) {
