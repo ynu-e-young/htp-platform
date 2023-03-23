@@ -48,7 +48,7 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     if (HTP_PLATFORM_ENABLE_INSTRUMENTATION_OPT AND NOT CMAKE_CROSSCOMPILING)
         if (CMAKE_SYSTEM_PROCESSOR STREQUAL "powerpc" OR CMAKE_SYSTEM_PROCESSOR STREQUAL "ppc64" OR CMAKE_SYSTEM_PROCESSOR STREQUAL "ppc64le")
             set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mcpu=native")
-        else()
+        else ()
             set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=native")
         endif ()
     endif ()
@@ -60,7 +60,7 @@ elseif (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
             set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mcpu=native")
         elseif (CMAKE_SYSTEM_PROCESSOR STREQUAL "arm64" AND CMAKE_SYSTEM_NAME MATCHES "Darwin")
             set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mcpu=apple-m1")
-        else()
+        else ()
             set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=native")
         endif ()
     endif ()
@@ -79,31 +79,9 @@ elseif (CMAKE_CXX_COMPILER_ID MATCHES "XL")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -qarch=auto")
 endif ()
 
-if (CMAKE_SYSTEM_NAME MATCHES "Darwin")
-    link_directories(/opt/homebrew/lib)
-    include_directories(/opt/homebrew/include)
-    set(OPENSSL_ROOT_DIR /opt/homebrew/Cellar/openssl@1.1/1.1.1q)
-    set(OPENSSL_INCLUDE_DIR /opt/homebrew/Cellar/openssl@1.1/1.1.1q/include)
-elseif (CMAKE_SYSTEM_NAME MATCHES "Linux")
-    link_directories(/usr/local/lib)
-    include_directories(/usr/local/include)
-else ()
-    message(FATAL_ERROR "Platform ${CMAKE_SYSTEM} is not support for this project")
-endif ()
-
 # Threads
 find_package(Threads REQUIRED)
 if (Threads_FOUND)
-    message("")
-endif ()
-
-# OpenSSL
-set(OPENSSL_USE_STATIC_LIBS true)
-find_package(OpenSSL REQUIRED)
-if (OPENSSL_FOUND)
-    message(STATUS "OPENSSL_VERSION = ${OPENSSL_VERSION}")
-    message(STATUS "OPENSSL_INCLUDE_DIR = ${OPENSSL_INCLUDE_DIR}")
-    message(STATUS "OPENSSL_LIBRARIES = ${OPENSSL_LIBRARIES}")
     message("")
 endif ()
 
@@ -117,19 +95,16 @@ if (Protobuf_FOUND)
 endif ()
 
 # gRPC
+set(gRPC_SSL_PROVIDER package)
 find_package(gRPC CONFIG REQUIRED)
 if (gRPC_FOUND)
     message(STATUS "gRPC_VERSION = ${gRPC_VERSION}")
     message("")
 endif ()
 
-include_directories(${PROJECT_SOURCE_DIR})
-include_directories(${PROJECT_SOURCE_DIR}/include)
-include_directories(${PROJECT_SOURCE_DIR}/../../../)
+add_subdirectory(third_party/apis-cpp)
 
 file(GLOB ProjectSRC
-        "../../../api/machine/service/v1/cpp/*.cc"
-        "../../../api/machine/robot/v1/cpp/*.cc"
         "include/robot/internal/data/motor/motor_config/*.cc"
         "include/robot/internal/data/motor/serial/*.cc"
         "include/robot/internal/data/motor/*.cc"
@@ -142,4 +117,7 @@ file(GLOB ProjectSRC
         "*.cc")
 
 add_executable(${PROJECT_NAME} ${ProjectSRC})
-target_link_libraries(${PROJECT_NAME} Threads::Threads protobuf gRPC::grpc++)
+target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR})
+target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)
+target_include_directories(${PROJECT_NAME} PUBLIC third_party/apis-cpp/src)
+target_link_libraries(${PROJECT_NAME} Threads::Threads apis)

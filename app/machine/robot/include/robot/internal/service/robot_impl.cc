@@ -8,8 +8,8 @@
 #include "robot/controller.h"
 
 ::grpc::Status RobotImpl::AppendCoordinate(::grpc::ServerContext *_context,
-                                           const ::machine::robot::v1::CoordinateRequest *_req,
-                                           ::machine::robot::v1::CoordinateReply *_reply) {
+                                           const ::htpp::machine::robot::v1::CoordinateRequest *_req,
+                                           ::htpp::machine::robot::v1::CoordinateReply *_reply) {
   (void) _context;
   // 确认 uuid 相同
   if (bootstrap_->uuid() == _req->uuid()) {
@@ -39,8 +39,8 @@
 }
 
 ::grpc::Status RobotImpl::Zero(::grpc::ServerContext *_context,
-                               const ::machine::robot::v1::ZeroRequest *_req,
-                               ::machine::robot::v1::ZeroReply *_reply) {
+                               const ::htpp::machine::robot::v1::ZeroRequest *_req,
+                               ::htpp::machine::robot::v1::ZeroReply *_reply) {
   (void) _context;
   // 设置回零
   if (bootstrap_->uuid() == _req->uuid()) {
@@ -54,8 +54,8 @@
 }
 
 ::grpc::Status RobotImpl::GetMotorStatus(::grpc::ServerContext *_context,
-                                         const ::machine::robot::v1::MotorInfoRequest *_req,
-                                         ::machine::robot::v1::MotorInfoReply *_reply) {
+                                         const ::htpp::machine::robot::v1::MotorInfoRequest *_req,
+                                         ::htpp::machine::robot::v1::MotorInfoReply *_reply) {
   (void) _context;
   if (bootstrap_->uuid() == _req->uuid()) {
     // 获取控制器的一系列状态信息

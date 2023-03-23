@@ -6,8 +6,8 @@
 #include "robot/internal/utils/logger.h"
 
 bool MoveDoneClient::MoveDone(const MoveDoneRequestBody &_body) {
-  machine::service::v1::MoveDoneRequest req;  // 请求
-  machine::service::v1::MoveDoneReply reply;  // 响应
+  ::htpp::machine::service::v1::MoveDoneRequest req;  // 请求
+  ::htpp::machine::service::v1::MoveDoneReply reply;  // 响应
 
   // 设置请求体
   req.set_x(_body.x);
