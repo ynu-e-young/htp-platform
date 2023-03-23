@@ -5,9 +5,10 @@ import (
 	"github.com/go-kratos/kratos/v2/middleware/logging"
 	"github.com/go-kratos/kratos/v2/middleware/recovery"
 	"github.com/go-kratos/kratos/v2/transport/grpc"
-	v1 "htp-platform/api/machine/service/v1"
-	"htp-platform/app/machine/service/internal/conf"
-	"htp-platform/app/machine/service/internal/service"
+	v1 "github.com/ynu-e-young/apis-go/htpp/machine/service/v1"
+
+	"github.com/ynu-e-young/htp-platform/app/machine/service/internal/conf"
+	"github.com/ynu-e-young/htp-platform/app/machine/service/internal/service"
 )
 
 // NewGRPCServer new a gRPC server.

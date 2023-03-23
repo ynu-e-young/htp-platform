@@ -2,13 +2,15 @@ package data
 
 import (
 	"context"
+
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/google/uuid"
 	"github.com/robfig/cron/v3"
-	machineV1 "htp-platform/api/machine/service/v1"
-	"htp-platform/app/machine/service/internal/biz"
-	"htp-platform/app/machine/service/internal/data/ent"
-	"htp-platform/app/machine/service/internal/data/ent/cronjob"
+	machineV1 "github.com/ynu-e-young/apis-go/htpp/machine/service/v1"
+
+	"github.com/ynu-e-young/htp-platform/app/machine/service/internal/biz"
+	"github.com/ynu-e-young/htp-platform/app/machine/service/internal/data/ent"
+	"github.com/ynu-e-young/htp-platform/app/machine/service/internal/data/ent/cronjob"
 )
 
 var _ biz.CronRepo = (*cronRepo)(nil)

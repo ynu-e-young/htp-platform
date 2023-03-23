@@ -1,8 +1,8 @@
 package service
 
 import (
+	robotV1 "github.com/ynu-e-young/apis-go/htpp/machine/robot/v1"
 	"google.golang.org/grpc"
-	robotV1 "htp-platform/api/machine/robot/v1"
 )
 
 // 获取当前设备 (uuid) 的 rpc client

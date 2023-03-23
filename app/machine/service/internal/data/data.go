@@ -2,19 +2,21 @@ package data
 
 import (
 	"context"
+
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/go-kratos/kratos/v2/middleware/recovery"
 	"github.com/go-kratos/kratos/v2/registry"
 	"github.com/go-kratos/kratos/v2/transport/grpc"
 	"github.com/google/wire"
 	"github.com/robfig/cron/v3"
-	captureV1 "htp-platform/api/capture/service/v1"
-	"htp-platform/app/machine/service/internal/conf"
-	"htp-platform/app/machine/service/internal/data/ent"
-	"htp-platform/app/machine/service/internal/data/ent/migrate"
+	captureV1 "github.com/ynu-e-young/apis-go/htpp/capture/service/v1"
 
-	consul "github.com/go-kratos/kratos/contrib/registry/consul/v2"
+	"github.com/go-kratos/kratos/contrib/registry/consul/v2"
 	consulAPI "github.com/hashicorp/consul/api"
+
+	"github.com/ynu-e-young/htp-platform/app/machine/service/internal/conf"
+	"github.com/ynu-e-young/htp-platform/app/machine/service/internal/data/ent"
+	"github.com/ynu-e-young/htp-platform/app/machine/service/internal/data/ent/migrate"
 
 	// init mysql driver
 	_ "github.com/go-sql-driver/mysql"

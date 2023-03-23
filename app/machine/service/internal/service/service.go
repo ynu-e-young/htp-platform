@@ -3,9 +3,10 @@ package service
 import (
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/google/wire"
-	v1 "htp-platform/api/machine/service/v1"
-	"htp-platform/app/machine/service/internal/biz"
-	"htp-platform/app/machine/service/internal/conf"
+	v1 "github.com/ynu-e-young/apis-go/htpp/machine/service/v1"
+
+	"github.com/ynu-e-young/htp-platform/app/machine/service/internal/biz"
+	"github.com/ynu-e-young/htp-platform/app/machine/service/internal/conf"
 )
 
 // ProviderSet is service providers.

@@ -1,12 +1,14 @@
 package schema
 
 import (
+	"time"
+
 	"entgo.io/ent"
 	"entgo.io/ent/dialect"
 	"entgo.io/ent/schema/field"
 	"github.com/google/uuid"
-	"htp-platform/app/machine/service/internal/biz"
-	"time"
+
+	"github.com/ynu-e-young/htp-platform/app/machine/service/internal/biz"
 )
 
 // CronJob holds the schema definition for the CronJob entity.

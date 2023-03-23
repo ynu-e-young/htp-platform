@@ -2,13 +2,15 @@ package service
 
 import (
 	"context"
-	robotV1 "htp-platform/api/machine/robot/v1"
-	machineV1 "htp-platform/api/machine/service/v1"
-	"htp-platform/app/machine/service/internal/biz"
 	"os"
 	"path/filepath"
 	"sort"
 	"time"
+
+	robotV1 "github.com/ynu-e-young/apis-go/htpp/machine/robot/v1"
+	machineV1 "github.com/ynu-e-young/apis-go/htpp/machine/service/v1"
+
+	"github.com/ynu-e-young/htp-platform/app/machine/service/internal/biz"
 )
 
 func (s *MachineService) FindByUserId(ctx context.Context, in *machineV1.FindByUserIdRequest) (*machineV1.MachinesReply, error) {
