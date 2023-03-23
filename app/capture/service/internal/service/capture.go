@@ -2,8 +2,9 @@ package service
 
 import (
 	"context"
+
+	captureV1 "github.com/ynu-e-young/apis-go/htpp/capture/service/v1"
 	"gocv.io/x/gocv"
-	captureV1 "htp-platform/api/capture/service/v1"
 )
 
 func (s *CaptureService) mat2bytes(mat *gocv.Mat) ([]byte, error) {

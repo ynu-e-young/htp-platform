@@ -5,7 +5,8 @@ import (
 	"github.com/go-kratos/kratos/v2/registry"
 	"github.com/google/wire"
 	consulAPI "github.com/hashicorp/consul/api"
-	"htp-platform/app/capture/service/internal/conf"
+
+	"github.com/ynu-e-young/htp-platform/app/capture/service/internal/conf"
 )
 
 // ProviderSet is server providers.

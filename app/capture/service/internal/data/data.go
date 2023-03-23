@@ -1,11 +1,13 @@
 package data
 
 import (
+	"time"
+
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/google/wire"
 	"gocv.io/x/gocv"
-	"htp-platform/app/capture/service/internal/conf"
-	"time"
+
+	"github.com/ynu-e-young/htp-platform/app/capture/service/internal/conf"
 )
 
 // ProviderSet is data providers.
