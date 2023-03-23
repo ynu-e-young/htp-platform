@@ -1,0 +1,4 @@
+[submodule "app/machine/robot/third_party/apis-cpp"]
+	path = app/machine/robot/third_party/apis-cpp
+	url = https://github.com/ynu-e-young/apis-cpp.git
+	branch = main
