@@ -9,7 +9,7 @@
   {
     "name": "Ghcr",
     "registry": "ghcr.io",
-    "push_link": "ghcr.io/hominsu",
+    "push_link": "ghcr.io/ynu-e-young",
     "id": "GHCR_ID",
     "token": "GITHUB_TOKEN"
   }
