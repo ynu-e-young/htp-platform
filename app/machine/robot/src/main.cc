@@ -15,16 +15,17 @@
  * @details main函数完成的工作有：初始化 Controller、Curl 两个线程，将 Curl中获取的坐标传到 Controller 中
  */
 
+#include "unistd.h"
+
+#include <csignal>
+#include <sstream>
+
 #include "conf/config.h"
 #include "conf/conf.pb.h"
 #include "controller.h"
 #include "robot/utils/logger.h"
 #include "robot_server.h"
-
-#include "unistd.h"
-
-#include <csignal>
-#include <sstream>
+#include "strace/stack_trace.h"
 
 bool is_running = true;
 
@@ -39,6 +40,10 @@ int main(int _argc, char *_argv[]) {
   htp_platform::logger::set_log_level(htp_platform::logger::Level::INFO);
 #endif
   htp_platform::logger::set_log_fd(STDOUT_FILENO);
+
+  // install stack tracer
+  int sigs[] = {SIGILL, SIGSEGV, SIGBUS, SIGABRT};
+  strace::InstallSignalHandlers(sigs, sizeof(sigs) / sizeof(int));
 
   if (_argc == 2 && (std::string(_argv[1]) == "-v" || std::string(_argv[1]) == "--version")) {
     printf("%s homepage url: %s\n", PROJECT_NAME, HOMEPAGE_URL);
