@@ -25,7 +25,10 @@
 #include "controller.h"
 #include "robot/utils/logger.h"
 #include "robot_server.h"
+
+#ifdef BACKTRACE
 #include "strace/stack_trace.h"
+#endif
 
 bool is_running = true;
 
@@ -41,9 +44,11 @@ int main(int _argc, char *_argv[]) {
 #endif
   htp_platform::logger::set_log_fd(STDOUT_FILENO);
 
+#ifdef BACKTRACE
   // install stack tracer
   int sigs[] = {SIGILL, SIGSEGV, SIGBUS, SIGABRT};
   strace::InstallSignalHandlers(sigs, sizeof(sigs) / sizeof(int));
+#endif
 
   if (_argc == 2 && (std::string(_argv[1]) == "-v" || std::string(_argv[1]) == "--version")) {
     printf("%s homepage url: %s\n", PROJECT_NAME, HOMEPAGE_URL);

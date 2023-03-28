@@ -30,7 +30,8 @@ if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Choose the type of build, options are: Debug Release RelWithDebInfo MinSizeRel." FORCE)
 endif ()
 
-option(HTP_PLATFORM_ENABLE_INSTRUMENTATION_OPT "Build neujson with -march or -mcpu options" ON)
+option(HTP_PLATFORM_ENABLE_INSTRUMENTATION_OPT "Build robot with -march or -mcpu options" ON)
+option(HTP_PLATFORM_ENABLE_BACKTRACE_OPT "Build robot with backtrace(only glibc)" ON)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)

@@ -22,9 +22,9 @@ wire:
 # build golang application
 build:
 	@mkdir -p bin/
-	@cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Release
+	@cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Release -DHTP_PLATFORM_ENABLE_BACKTRACE_OPT=OFF
 	@cmake --build ./build --parallel
-	@mv build/htp-platform.machine.robot bin/server
+	@mv build/src/htp-platform.machine.robot bin/server
 	@rm -rf build
 
 # clean build files

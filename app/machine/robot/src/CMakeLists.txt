@@ -27,6 +27,13 @@ file(GLOB_RECURSE SRC_FILES
         *.h
         )
 
+if (HTP_PLATFORM_ENABLE_BACKTRACE_OPT)
+    ADD_DEFINITIONS(-DBACKTRACE)
+else ()
+    list(FILTER HEADER_FILES EXCLUDE REGEX "${PROJECT_SOURCE_DIR}/include/strace/.*")
+    list(FILTER SRC_FILES EXCLUDE REGEX "strace/.*")
+endif ()
+
 add_executable(${PROJECT_NAME} ${SRC_FILES})
 target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)
 target_include_directories(${PROJECT_NAME} PUBLIC third_party/apis-cpp/src)
