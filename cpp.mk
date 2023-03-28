@@ -3,6 +3,10 @@ APP_RELATIVE_PATH	:=	$(shell a=`basename $$PWD` && cd .. && b=`basename $$PWD` &
 
 .PHONY: dep conf ent wire build clean run test
 
+# generate config define code
+conf:
+	@buf generate --path src/conf --template src/conf/buf.conf.gen.yaml
+
 # download dependencies of module
 dep:
 	@echo "cpp no support"

@@ -4,6 +4,10 @@ APP_RELATIVE_PATH	:=	$(shell a=`basename $$PWD` && cd .. && b=`basename $$PWD` &
 
 .PHONY: dep conf ent wire build clean run test
 
+# generate config define code
+conf:
+	@buf generate --path internal/conf --template internal/conf/buf.conf.gen.yaml
+
 # download dependencies of module
 dep:
 	@go mod download
