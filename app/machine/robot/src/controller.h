@@ -5,10 +5,10 @@
 #ifndef HTP_PLATFORM_MACHINE_ROBOT_SRC_CONTROLLER_H_
 #define HTP_PLATFORM_MACHINE_ROBOT_SRC_CONTROLLER_H_
 
+#include "cal_len.h"
 #include "conf/conf.pb.h"
 #include "motor.h"
 #include "move_done_req.h"
-#include "robot/cal_len.h"
 #include "robot/utils/x_thread.h"
 #include "robot_impl.h"
 

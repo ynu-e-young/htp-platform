@@ -5,7 +5,7 @@ APP_RELATIVE_PATH	:=	$(shell a=`basename $$PWD` && cd .. && b=`basename $$PWD` &
 
 # generate config define code
 conf:
-	@buf generate --path src/conf --template src/conf/buf.conf.gen.yaml
+	@cd src/conf && buf generate --template buf.conf.gen.yaml
 
 # download dependencies of module
 dep:

@@ -28,8 +28,6 @@ file(GLOB_RECURSE SRC_FILES
         )
 
 add_executable(${PROJECT_NAME} ${SRC_FILES})
-target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR})
-target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/src)
 target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)
 target_include_directories(${PROJECT_NAME} PUBLIC third_party/apis-cpp/src)
 target_link_libraries(${PROJECT_NAME} Threads::Threads apis)
