@@ -79,45 +79,7 @@ elseif (CMAKE_CXX_COMPILER_ID MATCHES "XL")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -qarch=auto")
 endif ()
 
-# Threads
-find_package(Threads REQUIRED)
-if (Threads_FOUND)
-    message("")
-endif ()
-
-# Protobuf
-find_package(Protobuf REQUIRED)
-if (Protobuf_FOUND)
-    message(STATUS "Protobuf_VERSION = ${Protobuf_VERSION}")
-    message(STATUS "Protobuf_INCLUDE_DIRS = ${Protobuf_INCLUDE_DIRS}")
-    message(STATUS "Protobuf_LIBRARY = ${Protobuf_LIBRARY}")
-    message("")
-endif ()
-
-# gRPC
-set(gRPC_SSL_PROVIDER package)
-find_package(gRPC CONFIG REQUIRED)
-if (gRPC_FOUND)
-    message(STATUS "gRPC_VERSION = ${gRPC_VERSION}")
-    message("")
-endif ()
-
 add_subdirectory(third_party/apis-cpp)
 
-file(GLOB ProjectSRC
-        "include/robot/internal/data/motor/motor_config/*.cc"
-        "include/robot/internal/data/motor/serial/*.cc"
-        "include/robot/internal/data/motor/*.cc"
-        "include/robot/internal/data/grpc/*.cc"
-        "include/robot/internal/service/*.cc"
-        "include/robot/internal/server/*.cc"
-        "include/robot/internal/utils/*.cc"
-        "include/robot/*.cc"
-        "include/conf/*.cc"
-        "*.cc")
-
-add_executable(${PROJECT_NAME} ${ProjectSRC})
-target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR})
-target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)
-target_include_directories(${PROJECT_NAME} PUBLIC third_party/apis-cpp/src)
-target_link_libraries(${PROJECT_NAME} Threads::Threads apis)
+# Build the targets
+add_subdirectory(src)

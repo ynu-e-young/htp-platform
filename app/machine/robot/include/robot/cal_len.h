@@ -2,13 +2,13 @@
 // Created by Homin Su on 2022/2/19.
 //
 
-#ifndef HTP_PLATFORM_MACHINE_ROBOT_ROBOT_CAL_LEN_H_
-#define HTP_PLATFORM_MACHINE_ROBOT_ROBOT_CAL_LEN_H_
-
-#include "conf/conf.pb.h"
+#ifndef HTP_PLATFORM_MACHINE_ROBOT_INCLUDE_ROBOT_CAL_LEN_H_
+#define HTP_PLATFORM_MACHINE_ROBOT_INCLUDE_ROBOT_CAL_LEN_H_
 
 #define ARMD2R 0.01745329251994329576923690768489
 #define MAX_DEM_SIZE 8
+
+#include "conf/conf.pb.h"
 
 /**
  * @brief 坐标解算
@@ -18,7 +18,7 @@ class CalLen {
  public:
   explicit CalLen();
   // path指定文件路径，读取文件中包含的绳索和末端相关信息
-  bool OnInit(const ::std::shared_ptr<config::PlatInfo>& _plat_info);
+  bool OnInit(const ::std::shared_ptr<config::PlatInfo> &_plat_info);
   long OnPos(const double xyz[3], const double ges[3], double *retv, long &retnum);
 
  public:
@@ -39,4 +39,4 @@ class CalLen {
 
 };
 
-#endif //HTP_PLATFORM_MACHINE_ROBOT_ROBOT_CAL_LEN_H_
+#endif //HTP_PLATFORM_MACHINE_ROBOT_INCLUDE_ROBOT_CAL_LEN_H_
